@@ -1,0 +1,181 @@
+CRITICAL - 2022-01-29 06:07:55 --> syntax error, unexpected variable "$routes"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#4 {main}
+CRITICAL - 2022-01-29 06:08:06 --> Undefined variable $route
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Config\Routes.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'F:\\Learn PHP\\To...', 41)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(705): require('F:\\Learn PHP\\To...')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#6 {main}
+CRITICAL - 2022-01-29 06:20:19 --> Invalid file: testView.php
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('testView.php')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('testView', Array, true)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Login.php(85): view('testView', Array)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 06:46:20 -->  route cannot be found while reverse-routing.
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\HTTP\RedirectResponse.php(56): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(840): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Login.php(85): redirect('Login/index')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 06:46:55 --> Object of class CodeIgniter\HTTP\RedirectResponse could not be converted to string
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-01-29 06:48:20 --> syntax error, unexpected token "}", expecting "," or ";"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 06:48:35 --> Object of class CodeIgniter\HTTP\RedirectResponse could not be converted to string
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-01-29 06:52:24 --> Undefined constant "App\Controllers\redirect"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-01-29 06:54:01 --> Undefined constant "App\Controllers\redirect"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-01-29 06:57:01 --> Object of class CodeIgniter\HTTP\RedirectResponse could not be converted to string
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-01-29 07:13:14 --> syntax error, unexpected token "(", expecting variable
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 07:13:28 --> syntax error, unexpected token "(", expecting variable
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 07:13:37 --> syntax error, unexpected token "echo", expecting "," or ";"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 07:13:45 --> Undefined variable $title
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Views\templates\header.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'F:\\Learn PHP\\To...', 5)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(214): include('F:\\Learn PHP\\To...')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(43): view('templates/heade...')
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->profile()
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#10 {main}
+CRITICAL - 2022-01-29 07:14:07 --> syntax error, unexpected token "echo"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 07:49:38 --> syntax error, unexpected token "="
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 07:49:41 --> syntax error, unexpected token "="
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 07:59:41 --> Undefined variable $_SESSION
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Login.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'F:\\Learn PHP\\To...', 10)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(801): App\Controllers\Login->__construct()
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(401): CodeIgniter\CodeIgniter->createController()
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#6 {main}
+CRITICAL - 2022-01-29 08:28:24 --> Invalid file: doctor/profileEditView.php
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('doctor/profileE...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('doctor/profileE...', Array, true)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(59): view('doctor/profileE...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->editProfile()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-29 09:23:49 --> foreach() argument must be of type array|object, null given
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Views\doctor\coursesView.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argum...', 'F:\\Learn PHP\\To...', 47)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(214): include('F:\\Learn PHP\\To...')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('doctor/coursesV...', Array, true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(26): view('doctor/coursesV...', Array)
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->courses()
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#10 {main}

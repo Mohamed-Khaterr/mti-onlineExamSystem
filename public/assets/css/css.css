@@ -1,0 +1,233 @@
+/* login page */
+
+.Login-bg{
+
+    background-image: url(/assets/img/1.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+
+.grand-login{
+    width: 100%;
+    height: 100vh;
+
+    
+    
+    }
+
+.parent-login{
+    margin: auto;
+    background-color: rgba(0, 0, 0,0.7);
+    width: 60%;
+    height: 70%;
+    border-radius:10px ;
+    position: relative;
+    top: 15%;
+    
+    
+    
+    
+
+}
+
+.img-logo{
+    /* background-color: cadetblue; */
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.chide-login{
+    position: relative;
+    top: 15%;
+}
+
+.about-login{
+    width: 70%;
+    position: relative;
+    left: 17%;
+    top: 5%;
+}
+
+.about-login button{
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background-color: #5fcf80;
+}
+.about-login input{
+    border-radius: 10px;
+  
+}
+.about-login a{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+/* student exam page */
+
+.studend-exam{
+
+   
+    text-align: center;
+    border: solid black 1px;
+    padding: 10px;
+    margin-top: 20px;  
+  
+}
+
+
+.parent-studend-exam{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+
+    /* align-content: center; */
+}
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+/* student no exam page */
+
+.a{
+    text-align: center;
+    position: relative;
+    top:100px;
+
+}
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+
+
+/* ----------------------------------------- doctor part -------------------------------------------------------------*/
+
+
+.dr_course_pagination{
+
+    color: #003771;
+}
+
+
+.dr_search{
+    width: 25%;
+    position: relative;
+    left:74% ;
+    margin-top: 5%;   
+}
+
+ .dr_search input{
+     width: 100%;
+     border: #003771 solid 1px;
+     border-radius: 13px;
+ }
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+/* doctor creat exam page */
+
+
+.cr_exam{
+        height: 70.9vh;   
+}
+
+
+.exam_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.exam_detail input{
+    border-radius: 8px;
+}
+
+.btn_ex_detail{
+    position: relative;
+    left: 35%;
+    width: 30%;
+}
+
+    
+
+.three_btn{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.single_btn{
+
+font-size:20px ;
+padding: 20px;
+border-radius: 10px;
+margin: 20px;
+background-color: #003771;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+/* doctor exams page */
+
+.brdr{
+
+    border: solid black 1px;
+    border-radius: 3px;
+    padding: 15px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+.brdr_radius{
+    border-radius: 3px;
+}
+
+.p_red{
+    color: red;
+    font-size: 20px;
+    float: left;
+    
+}
+
+.p_green{
+    color: #003771;
+    font-size: 20px;
+    float: left;
+    
+}
+
+.clr{
+    clear: both;
+}
+
+
+
+.bg-blue{
+    background-color: #003771;
+    color: white;
+}
+
+
+
+
+.modal{
+    position: fixed;
+    top: 260px;
+    left: 0;
+    z-index: 1055;
+    display:inline;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+}

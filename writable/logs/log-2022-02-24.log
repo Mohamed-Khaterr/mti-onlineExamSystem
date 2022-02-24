@@ -1,0 +1,35 @@
+CRITICAL - 2022-02-24 06:16:39 --> noauth filter must have a matching alias defined.
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('noauth')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(375): CodeIgniter\Filters\Filters->enableFilter('noauth', 'before')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-02-24 06:17:05 --> noauth filter must have a matching alias defined.
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('noauth')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(375): CodeIgniter\Filters\Filters->enableFilter('noauth', 'before')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-02-24 06:17:06 --> noauth filter must have a matching alias defined.
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('noauth')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(375): CodeIgniter\Filters\Filters->enableFilter('noauth', 'before')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-02-24 06:43:17 --> noauth filter must have a matching alias defined.
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('noauth')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(375): CodeIgniter\Filters\Filters->enableFilter('noauth', 'before')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-02-24 06:44:15 --> noauth filter must have a matching alias defined.
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('noauth')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(375): CodeIgniter\Filters\Filters->enableFilter('noauth', 'before')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}

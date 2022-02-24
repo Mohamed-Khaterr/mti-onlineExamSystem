@@ -1,0 +1,34 @@
+CRITICAL - 2022-01-30 08:11:08 --> Invalid file: templatesOld/header.php
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templatesOld/he...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('templatesOld/he...', Array, true)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(22): view('templatesOld/he...', Array)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->courses()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-30 08:19:16 --> Undefined variable $title
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'F:\\Learn PHP\\To...', 10)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(214): include('F:\\Learn PHP\\To...')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(103): view('templates/heade...')
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->exam()
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#10 {main}
+CRITICAL - 2022-01-30 09:20:36 --> foreach() argument must be of type array|object, string given
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Views\doctor\showExamView.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argum...', 'F:\\Learn PHP\\To...', 32)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(214): include('F:\\Learn PHP\\To...')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('doctor/showExam...', Array, true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(114): view('doctor/showExam...')
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->exam()
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#10 {main}

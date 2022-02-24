@@ -1,0 +1,8 @@
+CRITICAL - 2022-02-06 17:11:06 --> Undefined array key "dr_id"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(101): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'F:\\Learn PHP\\To...', 101)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->createExam()
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#6 {main}

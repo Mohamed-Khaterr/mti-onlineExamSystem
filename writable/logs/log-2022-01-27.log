@@ -1,0 +1,149 @@
+CRITICAL - 2022-01-27 07:28:58 --> Call to undefined function App\Controllers\Doctor()
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-01-27 07:29:00 --> Call to undefined function App\Controllers\Doctor()
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-01-27 07:29:12 --> Object of class App\Controllers\Doctor could not be converted to string
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-01-27 07:30:55 --> Object of class App\Controllers\Doctor could not be converted to string
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}
+CRITICAL - 2022-01-27 07:33:53 --> Invalid file: doctor/doctorCoursesView/1.php
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('doctor/doctorCo...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('doctor/doctorCo...', Array, true)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Login.php(72): view('doctor/doctorCo...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-27 07:34:51 --> Invalid file: doctor/doctorCoursesView/1.php
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('doctor/doctorCo...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('doctor/doctorCo...', Array, true)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Login.php(72): view('doctor/doctorCo...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-27 07:34:52 --> Invalid file: doctor/doctorCoursesView/1.php
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('doctor/doctorCo...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('doctor/doctorCo...', Array, true)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Login.php(72): view('doctor/doctorCo...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-27 07:34:54 --> Invalid file: doctor/doctorCoursesView/1.php
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('doctor/doctorCo...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('doctor/doctorCo...', Array, true)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Login.php(72): view('doctor/doctorCo...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-27 07:34:59 --> Invalid file: doctor/doctorCoursesView/1.php
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('doctor/doctorCo...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('doctor/doctorCo...', Array, true)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Login.php(72): view('doctor/doctorCo...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-27 07:35:12 --> Undefined variable $result
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Views\doctor\doctorCoursesView.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'F:\\Learn PHP\\To...', 56)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(214): include('F:\\Learn PHP\\To...')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('doctor/doctorCo...', Array, true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Login.php(72): view('doctor/doctorCo...')
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->view()
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#10 {main}
+CRITICAL - 2022-01-27 07:49:26 --> Undefined variable $title
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Views\templates\header.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'F:\\Learn PHP\\To...', 5)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(214): include('F:\\Learn PHP\\To...')
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(13): view('templates/heade...')
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->index()
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#10 {main}
+CRITICAL - 2022-01-27 07:49:55 --> syntax error, unexpected identifier "view"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-27 07:50:10 --> syntax error, unexpected token "echo"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-27 07:50:37 --> syntax error, unexpected token "echo"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-27 08:05:29 --> syntax error, unexpected token "echo"
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('F:\\Learn PHP\\To...')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(789): class_exists('\\App\\Controller...', true)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(397): CodeIgniter\CodeIgniter->startController()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#8 {main}
+CRITICAL - 2022-01-27 08:25:13 --> Call to undefined function App\Controllers\Doctor()
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Login->index()
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#5 {main}

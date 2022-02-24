@@ -1,0 +1,62 @@
+CRITICAL - 2022-02-19 03:35:12 --> Too few arguments to function App\Models\DoctorModel::getExam(), 1 passed in F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php on line 104 and exactly 2 expected
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(104): App\Models\DoctorModel->getExam('2')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->createExam()
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#6 {main}
+CRITICAL - 2022-02-19 03:35:56 --> Too few arguments to function App\Models\DoctorModel::getExam(), 1 passed in F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php on line 104 and exactly 2 expected
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(104): App\Models\DoctorModel->getExam('2')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->createExam()
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#6 {main}
+CRITICAL - 2022-02-19 03:37:22 --> Too few arguments to function App\Models\DoctorModel::getExam(), 1 passed in F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php on line 104 and exactly 2 expected
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(104): App\Models\DoctorModel->getExam('2')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->createExam()
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#6 {main}
+CRITICAL - 2022-02-19 03:37:23 --> Too few arguments to function App\Models\DoctorModel::getExam(), 1 passed in F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php on line 104 and exactly 2 expected
+#0 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(104): App\Models\DoctorModel->getExam('2')
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->createExam()
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#6 {main}
+CRITICAL - 2022-02-19 03:38:23 --> Array to string conversion
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string...', 'F:\\Learn PHP\\To...', 324)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\Query.php(324): implode(',', Array)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\Query.php(304): CodeIgniter\Database\Query->matchNamedBinds('SELECT *\nFROM `...', Array)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\Query.php(150): CodeIgniter\Database\Query->compileBinds()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\BaseConnection.php(598): CodeIgniter\Database\Query->getQuery()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Models\DoctorModel.php(131): CodeIgniter\Database\BaseBuilder->get()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(104): App\Models\DoctorModel->getExam('2', Array)
+#8 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->createExam()
+#9 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#10 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#13 {main}
+CRITICAL - 2022-02-19 03:38:25 --> Array to string conversion
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string...', 'F:\\Learn PHP\\To...', 324)
+#1 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\Query.php(324): implode(',', Array)
+#2 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\Query.php(304): CodeIgniter\Database\Query->matchNamedBinds('SELECT *\nFROM `...', Array)
+#3 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\Query.php(150): CodeIgniter\Database\Query->compileBinds()
+#4 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\BaseConnection.php(598): CodeIgniter\Database\Query->getQuery()
+#5 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Database\BaseBuilder.php(1443): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#6 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Models\DoctorModel.php(131): CodeIgniter\Database\BaseBuilder->get()
+#7 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\app\Controllers\Doctor.php(104): App\Models\DoctorModel->getExam('2', Array)
+#8 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Doctor->createExam()
+#9 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Doctor))
+#10 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 F:\Learn PHP\Tools\XAMPP\htdocs\onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('F:\\Learn PHP\\To...')
+#13 {main}
