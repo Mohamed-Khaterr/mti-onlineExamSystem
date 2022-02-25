@@ -15,7 +15,7 @@ class Student extends BaseController
             
             'title'=>"Home",
         ];
-        return view('welcome_message',$data);
+        return view(stu_welcome_message,$data);
     }
 
     
@@ -25,7 +25,7 @@ class Student extends BaseController
             'title'=>"Courses",
             'courses'=>$model->GetStuCourses(session()->get('student_id')),
         ];
-        return view('courses',$data);
+        return view(stu_courses,$data);
     }
 
 
@@ -37,7 +37,7 @@ class Student extends BaseController
             'exams'=>$model->GetStuExams(session()->get('student_id'))
         ];
 
-          return view('exams',$data);
+          return view(stu_exams,$data);
     }
 
     public function report(){
@@ -47,7 +47,7 @@ class Student extends BaseController
             'exams'=>$model->GetStuExams(session()->get('student_id'))
 
         ];
-        return view('report',$data);
+        return view(stu_report,$data);
     }
 
     public function profile(){
@@ -59,7 +59,7 @@ class Student extends BaseController
 
         ];
         
-        return view('profile',$data);
+        return view(stu_profile,$data);
     }
 
     public function update(){
@@ -99,7 +99,7 @@ class Student extends BaseController
 
         $data['student'] = $model->where('student_id', session()->get('student_id'))->first();
         
-        return view('edit_profile',$data);
+        return view(stu_edit_profile,$data);
     }
     
     public function update_pic(){
@@ -148,7 +148,7 @@ class Student extends BaseController
 
         ];
         
-        return view('edit_profile',$data);
+        return view(stu_edit_profile,$data);
     }
 
 
@@ -233,7 +233,7 @@ class Student extends BaseController
 		}
 
         $data['student'] = $model->where('student_id', session()->get('student_id'))->first();  
-        return view('resetpassword',$data);
+        return view(stu_resetpassword,$data);
     }
     
 
