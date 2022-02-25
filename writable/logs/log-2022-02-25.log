@@ -1255,3 +1255,33 @@ CRITICAL - 2022-02-25 14:44:10 --> Trying to access array offset on value of typ
 #9 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
 >>>>>>> b0eb251e8a16752c9b14141a9205300bf7f8a35d
 #10 {main}
+CRITICAL - 2022-02-25 16:31:41 --> syntax error, unexpected '<<' (T_SL), expecting end of file
+#0 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\Users\pc\Desktop\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 C:\Users\pc\Desktop\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\pc\\Des...')
+#4 {main}
+CRITICAL - 2022-02-25 16:31:42 --> syntax error, unexpected '<<' (T_SL), expecting end of file
+#0 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\Users\pc\Desktop\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 C:\Users\pc\Desktop\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\pc\\Des...')
+#4 {main}
+CRITICAL - 2022-02-25 16:31:43 --> syntax error, unexpected '<<' (T_SL), expecting end of file
+#0 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\Users\pc\Desktop\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 C:\Users\pc\Desktop\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\pc\\Des...')
+#4 {main}
+CRITICAL - 2022-02-25 16:31:43 --> syntax error, unexpected '<<' (T_SL), expecting end of file
+#0 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\Users\pc\Desktop\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 C:\Users\pc\Desktop\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\pc\\Des...')
+#4 {main}
+CRITICAL - 2022-02-25 16:31:44 --> syntax error, unexpected '<<' (T_SL), expecting end of file
+#0 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\Users\pc\Desktop\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 C:\Users\pc\Desktop\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\pc\\Des...')
+#4 {main}
