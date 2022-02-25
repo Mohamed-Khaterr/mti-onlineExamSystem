@@ -82,7 +82,7 @@ $routes->get('student/profile', 'Student::profile',['filter' => 'auth']);
 //$routes->get('logout', 'Login::logout');
 //$routes->get('/login', 'Login::index', ['filter' => 'noauth']);
 //$routes->get('/login/index', 'Login::index', ['filter' => 'noauth']);
-$routes->get('/(:any)', 'NOT FOUND');
+//$routes->get('/(:any)', 'NOT FOUND');
 //END Weal Routes
 
 /*
