@@ -126,3 +126,7 @@ defined('stu_profile') || define('stu_profile', 'student/profile');
 defined('stu_edit_profile') || define('stu_edit_profile', 'student/edit_profile');
 defined('stu_resetpassword') || define('stu_resetpassword', 'student/resetpassword');
 defined('stu_welcome_message') || define('stu_welcome_message', 'student/welcome_message.php');
+<<<<<<< HEAD
+=======
+
+>>>>>>> b0eb251e8a16752c9b14141a9205300bf7f8a35d

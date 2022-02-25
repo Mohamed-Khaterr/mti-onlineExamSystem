@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CRITICAL - 2022-02-25 15:50:23 --> Use of undefined constant gh - assumed 'gh' (this will throw an Error in a future version of PHP)
 #0 C:\Users\pc\Desktop\mti-onlineExamSystem\app\Views\student\templates\header.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', 'C:\\Users\\pc\\Des...', 8, Array)
 #1 C:\Users\pc\Desktop\mti-onlineExamSystem\app\Views\student\welcome_message.php(1): include('C:\\Users\\pc\\Des...')
@@ -410,4 +411,847 @@ CRITICAL - 2022-02-25 16:00:25 --> Trying to access array offset on value of typ
 #7 C:\Users\pc\Desktop\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #8 C:\Users\pc\Desktop\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #9 C:\Users\pc\Desktop\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\pc\\Des...')
+=======
+CRITICAL - 2022-02-25 13:44:29 --> Invalid file: stu_edit_profile.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_edit_profil...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_edit_profil...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(102): view('stu_edit_profil...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->update()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:44:29 --> Invalid file: stu_edit_profile.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_edit_profil...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_edit_profil...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(102): view('stu_edit_profil...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->update()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:44:43 --> Invalid file: stu_profile.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_profile.php')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_profile', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(62): view('stu_profile', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->profile()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:44:44 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:05 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:06 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:07 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:07 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:07 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:08 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:08 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:08 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:08 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:08 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:09 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:09 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:09 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:09 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:09 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:17 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:18 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:18 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:18 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:20 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:45:20 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:27 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:28 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:28 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:28 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:29 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:29 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:29 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:29 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:29 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:46:29 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:47:16 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:02 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:02 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:03 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:03 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:03 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:03 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:04 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:04 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:04 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:52:05 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:05 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:06 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:06 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:06 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:06 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:07 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:17 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:18 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:18 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:18 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:19 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:44 --> Invalid file: stu_welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stu_welcome_mes...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('stu_welcome_mes...', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('stu_welcome_mes...', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:44 --> Invalid file: welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('welcome_message', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:45 --> Invalid file: welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('welcome_message', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:45 --> Invalid file: welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('welcome_message', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:46 --> Invalid file: welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('welcome_message', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:46 --> Invalid file: welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('welcome_message', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:46 --> Invalid file: welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('welcome_message', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:46 --> Invalid file: welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('welcome_message', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:46 --> Invalid file: welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('welcome_message', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 13:53:47 --> Invalid file: welcome_message.php
+#0 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(18): view('welcome_message', Array)
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->home()
+#4 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-02-25 14:43:06 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\mti-onlineExamSystem\app\Views\student\report.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 22, Array)
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('student/report', Array, true)
+#4 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(50): view('student/report', Array)
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->report()
+#6 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-02-25 14:43:20 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\mti-onlineExamSystem\app\Views\student\edit_profile.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 19, Array)
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('student/edit_pr...', Array, true)
+#4 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(102): view('student/edit_pr...', Array)
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->update()
+#6 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-02-25 14:44:08 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\mti-onlineExamSystem\app\Views\student\edit_profile.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 19, Array)
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('student/edit_pr...', Array, true)
+#4 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(102): view('student/edit_pr...', Array)
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->update()
+#6 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-02-25 14:44:09 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\mti-onlineExamSystem\app\Views\student\edit_profile.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 19, Array)
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('student/edit_pr...', Array, true)
+#4 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(102): view('student/edit_pr...', Array)
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->update()
+#6 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-02-25 14:44:10 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\mti-onlineExamSystem\app\Views\student\edit_profile.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 19, Array)
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('student/edit_pr...', Array, true)
+#4 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(102): view('student/edit_pr...', Array)
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->update()
+#6 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-02-25 14:44:10 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\mti-onlineExamSystem\app\Views\student\edit_profile.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 19, Array)
+#1 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\mti-onlineExamSystem\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\mti-onlineExamSystem\system\Common.php(1097): CodeIgniter\View\View->render('student/edit_pr...', Array, true)
+#4 C:\xampp\htdocs\mti-onlineExamSystem\app\Controllers\Student.php(102): view('student/edit_pr...', Array)
+#5 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(824): App\Controllers\Student->update()
+#6 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#7 C:\xampp\htdocs\mti-onlineExamSystem\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mti-onlineExamSystem\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mti-onlineExamSystem\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+>>>>>>> b0eb251e8a16752c9b14141a9205300bf7f8a35d
 #10 {main}

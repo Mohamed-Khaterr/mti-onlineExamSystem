@@ -39,10 +39,17 @@ $routes->setAutoRoute(false);
 //if you didn't set the functionName the default function will be index
 
 //Login Routes
+<<<<<<< HEAD
 $routes->add('/', 'Login', ['filter' => 'noauth']);
 
 $routes->add('Login', 'Login', ['filter' => 'noauth']);
 $routes->add('Login/index', 'Login::index', ['filter' => 'noauth']);
+=======
+
+$routes->add('/', 'Login::blank');
+$routes->add('/Login', 'Login', ['filter' => 'noauth']);
+$routes->add('/Login/index', 'Login::index', ['filter' => 'noauth']);
+>>>>>>> b0eb251e8a16752c9b14141a9205300bf7f8a35d
 $routes->add('/Logout', 'Login::logout');
 
 //Doctor Routes
@@ -75,7 +82,7 @@ $routes->get('student/profile', 'Student::profile',['filter' => 'auth']);
 //$routes->get('logout', 'Login::logout');
 //$routes->get('/login', 'Login::index', ['filter' => 'noauth']);
 //$routes->get('/login/index', 'Login::index', ['filter' => 'noauth']);
-//$routes->get('/(:any)', 'NOT FOUND');
+$routes->get('/(:any)', 'NOT FOUND');
 //END Weal Routes
 
 /*
