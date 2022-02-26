@@ -53,7 +53,6 @@ class Doctor extends BaseController{
 		$data['emailError'] = '';
 		
 		
-		
 		$validationRules = [
 			//name of filed => The rule
 			'email' => 'required|valid_email',
@@ -66,7 +65,7 @@ class Doctor extends BaseController{
 		
 		
 		if($this->request->getMethod(true) == 'POST' && $this->validate($validationRules)){
-			$doctor = model(DoctorModel::class);
+			
 			$fullName = $this->request->getPost('fullName');
 			$username = $this->request->getPost('username');
 			$password = $this->request->getPost('password');
@@ -75,7 +74,9 @@ class Doctor extends BaseController{
 			$birthday = $this->request->getPost('birthday');
 		
 			$this->doctor->updateInfo($_SESSION['dr_id'], $fullName, $username, $password, $email, $gender, $birthday);
+			
 			return redirect()->to('Doctor/profile');
+			
 			
 		}else{
 			$data['emailError'] = $this->validation->getError('email');
@@ -247,7 +248,6 @@ class Doctor extends BaseController{
 					$_POST['grade']
 				);
 				return redirect()->to('Doctor/exam');
-				
 			}elseif(!empty($this->validation->getErrors())){
 				$data['error'] = "Please fill all fields";
 			}

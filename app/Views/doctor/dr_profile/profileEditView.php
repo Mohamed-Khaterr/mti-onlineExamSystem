@@ -25,7 +25,7 @@
 					</div>
 
 					<!-- information part -->
-					<form action="edit" method="POST" >
+					<form method="POST" >
 					<?php echo csrf_field(); ?>
 						<?php foreach($result as $row): ?>
 						<div class="col-md-8">
@@ -98,7 +98,7 @@
 
 										<div class="col-sm-9 text-secondary">
 											<select name="gender" class="input-group-text input-group">
-												<option value="<?php echo $row->doctor_gender ?>" selected disabled><?php echo $row->doctor_gender ?></option>
+												<option value="<?php echo $row->doctor_gender ?>" selected ><?php echo $row->doctor_gender ?></option>
 												<option value="Male">Male</option>
 												<option value="Female">Female</option>
 											</select>
