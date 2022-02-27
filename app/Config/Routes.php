@@ -39,9 +39,12 @@ $routes->setAutoRoute(false);
 //if you didn't set the functionName the default function will be index
 
 //Login Routes
+
+
+$routes->add('/', 'Login', ['filter' => 'noauth']);
 $routes->add('Login', 'Login', ['filter' => 'noauth']);
 $routes->add('Login/index', 'Login::index', ['filter' => 'noauth']);
-$routes->add('Logout', 'Login::logout');
+$routes->add('/Logout', 'Login::logout');
 
 //Doctor Routes
 $routes->add('Doctor', 'Doctor::courses', ['filter' => 'auth']);
@@ -64,7 +67,7 @@ $routes->get('student/home', 'Student::home',['filter' => 'auth']);
 $routes->match(['get','post'],'student/update','Student::update',['filter' => 'auth']);
 $routes->match(['get','post'],'student/resetpassword','Student::resetpassword',['filter' => 'auth']);
 $routes->post('student/update_pic','Student::update_pic',['filter' => 'auth']);
-
+$routes->get('student/del_pic','Student::del_pic',['filter' => 'auth']);
 $routes->get('student/courses', 'Student::courses',['filter' => 'auth']);
 $routes->get('student/exams', 'Student::exams',['filter' => 'auth']);
 $routes->get('student/report', 'Student::report',['filter' => 'auth']);

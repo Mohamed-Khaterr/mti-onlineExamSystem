@@ -115,15 +115,17 @@ defined('ADMIN_VIEW') || define('ADMIN_VIEW', 'admin/adminView');
 
 //Wael CONSTANTS------------------------------------
 //STUDENT VIEWS CONSTANTS
-defined('STU_HEADER') || define('STU_HEADER', 'student/templates/header.php');
-defined('STU_FOOTER') || define('STU_FOOTER', 'student/templates/footer.php');
+// defined('STU_HEADER') || define('STU_HEADER', 'student/templates/header.php');
+// defined('STU_FOOTER') || define('STU_FOOTER', 'student/templates/footer.php');
 
 
-defined('STU_COURSES') || define('STU_COURSES', 'student/courses/courses');
-defined('STU_EXAM') || define('STU_EXAM', 'student/exams/exams');
-defined('STU_REPORT') || define('STU_REPORT', 'student/report');
-defined('STU_PROFILE') || define('STU_PROFILE', 'student/profile/profile');
-defined('STU_PROFILE_EDIT') || define('STU_PROFILE_EDIT', 'student/profile/edit_profile');
-defined('STU_RESET_PASS') || define('STU_RESET_PASS', 'student/profile/resetpassword');
-defined('STU_WELCOME_MESSAGE') || define('STU_WELCOME_MESSAGE', 'welcome_message');
+defined('stu_courses') || define('stu_courses', 'student/courses');
+defined('stu_exams') || define('stu_exams', 'student/exams');
+defined('stu_report') || define('stu_report', 'student/report');
+defined('stu_profile') || define('stu_profile', 'student/profile');
+defined('stu_edit_profile') || define('stu_edit_profile', 'student/edit_profile');
+defined('stu_resetpassword') || define('stu_resetpassword', 'student/resetpassword');
+defined('stu_welcome_message') || define('stu_welcome_message', 'student/welcome_message.php');
+
+
 

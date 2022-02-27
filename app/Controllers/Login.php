@@ -19,6 +19,8 @@ class Login extends BaseController{
 		//call Model
         $this->user = model(UserModel::class);
     }
+
+    
 	
     public function index(){
 		
@@ -160,7 +162,7 @@ class Login extends BaseController{
 	public function logout(){
 		session_destroy();
 		
-		return redirect()->to('Login');
+		return redirect()->to('/');
 	}
 	
 }

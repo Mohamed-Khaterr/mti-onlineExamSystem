@@ -15,7 +15,7 @@ class Student extends BaseController
             
             'title'=>"Home",
         ];
-        return view('welcome_message',$data);
+        return view(stu_welcome_message,$data);
     }
 
     
@@ -25,7 +25,7 @@ class Student extends BaseController
             'title'=>"Courses",
             'courses'=>$model->GetStuCourses(session()->get('student_id')),
         ];
-        return view('courses',$data);
+        return view(stu_courses,$data);
     }
 
 
@@ -37,7 +37,7 @@ class Student extends BaseController
             'exams'=>$model->GetStuExams(session()->get('student_id'))
         ];
 
-          return view('exams',$data);
+          return view(stu_exams,$data);
     }
 
     public function report(){
@@ -47,7 +47,7 @@ class Student extends BaseController
             'exams'=>$model->GetStuExams(session()->get('student_id'))
 
         ];
-        return view('report',$data);
+        return view(stu_report,$data);
     }
 
     public function profile(){
@@ -59,7 +59,7 @@ class Student extends BaseController
 
         ];
         
-        return view('profile',$data);
+        return view(stu_profile,$data);
     }
 
     public function update(){
@@ -99,7 +99,7 @@ class Student extends BaseController
 
         $data['student'] = $model->where('student_id', session()->get('student_id'))->first();
         
-        return view('edit_profile',$data);
+        return view(stu_edit_profile,$data);
     }
     
     public function update_pic(){
@@ -148,23 +148,53 @@ class Student extends BaseController
 
         ];
         
-        return view('edit_profile',$data);
+        return view(stu_edit_profile,$data);
+    }
+
+    public function del_pic(){
+        $model = new \App\Models\StudentModel();
+        $student = $model->where('student_id', session()->get('student_id'))->first();
+       
+
+
+        
+        helper(['form']);
+        
+        
+
+        
+			if($student['student_pic']){
+                
+                if(file_exists("./uploads/students/".$student['student_pic'])){
+
+                    unlink("./uploads/students/".$student['student_pic']);
+                }
+
+
+                $newdata = [
+                    'student_id'=> session()->get('student_id'),
+                    'student_pic'=> '',
+                ];
+                
+                $model->save($newdata);
+                 session()->setFlashdata('success','Photo deleted Successfully');
+                return redirect()->to('student/profile');
+
+            }else{
+                session()->setFlashdata('failed','No Photos Found');
+                return redirect()->to('student/update');
+
+            }
+
+		
+        
+        return redirect()->to('student/update');
     }
 
 
     
 
-    private function SetStuSession($student){
-        $data = [
-           
-            'student_fname'=>$student['student_fname'],
-            'student_lname' =>$student['student_lname'],
-            'student_BD'=>$student['student_BD'],
-
-        ];
-        session()->set($data);
-        return true;
-    }
+    
     
 
 
@@ -178,8 +208,8 @@ class Student extends BaseController
 
         if($this->request->getMethod() == 'post') {
 			$rules=[
-                'current_password'=>'required|min_length[5]|max_length[20]',
-                'student_password'=>'required|min_length[5]|max_length[20]',
+                'current_password'=>'required|min_length[3]|max_length[20]',
+                'student_password'=>'required|min_length[3]|max_length[20]',
                 'password_confirm'=>'matches[student_password]',
                 
             ];
@@ -188,14 +218,14 @@ class Student extends BaseController
                 'current_password'=>[
                     'required'=>'The Current Password field required',
                     'min_length'=>'The Current Password field min length = 5',
-                    'min_length'=>'The Current Password field max length = 20',
+                    'max_length'=>'The Current Password field max length = 20',
 
                 ],
 
                 'student_password'=>[
                     'required'=>'The New Password field required',
                     'min_length'=>'The New Password field min length = 5',
-                    'min_length'=>'The New Password field max length = 20',
+                    'max_length'=>'The New Password field max length = 20',
                 ],
 
                 'password_confirm'=>[
@@ -233,7 +263,7 @@ class Student extends BaseController
 		}
 
         $data['student'] = $model->where('student_id', session()->get('student_id'))->first();  
-        return view('resetpassword',$data);
+        return view(stu_resetpassword,$data);
     }
     
 
