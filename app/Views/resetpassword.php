@@ -27,7 +27,7 @@ if(session()->get('success')):?>
 <div class="card mb-3">
 <div class="card-body">
 <form method="post" action="/student/resetpassword">
-
+<?=  csrf_field(); ?>
   <div class="row">
     <div class="col-sm-3">
       <h6 class="mb-0">Current Password</h6>

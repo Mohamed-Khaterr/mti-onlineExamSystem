@@ -25,7 +25,7 @@
               <?php endif; ?>
     <div class=" d-grid mt-5 ">
       <button id='upload'  class="btn bg-blue "  >Upload Photo</button>
-      <a href='' class="btn bg-blue mt-3 " >Delete Photo</a>
+      <a href='/student/del_pic' class="btn bg-blue mt-3 " >Delete Photo</a>
     </div>
   </div>
 </div>
@@ -47,7 +47,7 @@
       <div class="alert alert-danger d-none  " id= 'alert_pic'>invalid file</div>
       </div>
       <form  method="post" action="/student/update_pic" enctype="multipart/form-data">
-
+      <?=  csrf_field(); ?>
       <div class="modal-body">
         <input required type="file" id="file" class="my-5"  name="student_pic">
       </div>
@@ -70,6 +70,7 @@
 <div class="col-md-8">
 <div class="card mb-3">
 <form method="post" action="/student/update">
+<?=  csrf_field(); ?>
 <div class="card-body">
   <div class="row">
     <div class="col-sm-3">
