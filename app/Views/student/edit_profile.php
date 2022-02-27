@@ -18,7 +18,7 @@
   <div class="d-flex flex-column align-items-center text-center">
   <?php if($student['student_pic']): ?>
                 
-                <img src="<?= '/uploads/students/'.$student['student_pic'] ?>" alt="Admin" class="rounded-circle mt-4" width="150">
+                <img src="<?= './uploads/students/'.$student['student_pic'] ?>" alt="Admin" class="rounded-circle mt-4" width="150">
                <?php else:?>
                 <img src="/assets/img/avatar7.png" alt="Ad" class="rounded-circle mt-4" width="150">
 
