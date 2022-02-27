@@ -90,7 +90,7 @@ class Student extends BaseController
                     
                 ];
 				$model->save($newdata);
-                
+                session()->set($newdata);
                 session()->setFlashdata('success','Uplaoded Successfully');
                 return redirect()->to('student/profile');
 			}
