@@ -34,6 +34,38 @@
 	<link href="/assets/css/style.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="/css.css">
+	
+	
+	<script type="text/javascript">
+		var countBox =3;
+		function addChoice(){
+			
+			document.getElementById("addChoice").innerHTML += "<label>choice : " +countBox+ "</label><br/><input type='text' name='options[]'/><br/>";
+			countBox += 1;
+		}
+		
+		function searchBar() {
+		  // Declare variables
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("userInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("tableID");
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			if (td) {
+			  txtValue = td.textContent || td.innerText;
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			}
+		  }
+		}
+	</script>
 </head>
 <body>
 
