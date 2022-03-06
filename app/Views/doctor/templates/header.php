@@ -34,6 +34,16 @@
 	<link href="/assets/css/style.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="/css.css">
+	
+	
+	<script type="text/javascript">
+		var countBox =3;
+		function addChoice(){
+			
+			document.getElementById("addChoice").innerHTML += "<label>choice : " +countBox+ "</label><br/><input type='text' name='options[]'/><br/>";
+			countBox += 1;
+		}
+	</script>
 </head>
 <body>
 

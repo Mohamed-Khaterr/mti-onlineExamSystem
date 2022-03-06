@@ -115,16 +115,11 @@
 
 							<label>choice : 1</label>
 							<input type="text" name="options[]">
-
+				
 							<label>choice : 2</label>
 							<input type="text" name="options[]">
-
-							<label>choice : 3</label>
-							<input type="text" name="options[]">
 							
-							<label>choice : 4</label>
-							<input type="text" name="options[]">
-							
+							<div id="addChoice"></div>
 
 							<label>Correct Anwser</label>
 							<input type="text" name="answer">
@@ -135,7 +130,7 @@
 						<footer class="w3-container w3-teal ">
 							<div class=" d-flex justify-content-center">
 								<button name="saveChoose" class="btn btn-light  m-1">Save</button>
-								<button class="btn btn-light  m-1">Add Choice</button>
+								<input type="button" id="btnok" onclick="addChoice();" value="Add Choice" class="btn btn-light  m-1" />
 							</div>
 						</footer>
 					</form>

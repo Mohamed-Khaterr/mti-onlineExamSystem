@@ -141,6 +141,7 @@ class Doctor extends BaseController{
 				'grade' => 'required',
 				'options' => 'required'
 			];
+			
 			if($this->validate($validationRules)){
 				$examID = $this->request->getPost('examID');
 				$question = $this->request->getPost('question');
@@ -156,7 +157,6 @@ class Doctor extends BaseController{
 					$grade, 
 					$question_choices
 				);
-				
 				
 				$data['error'] = 'Choose Question Saved Succesfully';
 				

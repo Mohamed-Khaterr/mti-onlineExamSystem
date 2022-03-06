@@ -2,7 +2,7 @@
 	<footer>
 		<br><br>
 		<div class="container">
-			© 2021 Khater LLC
+			<!--© 2021 Khater LLC-->
 		</div>
 	</footer>
 	
