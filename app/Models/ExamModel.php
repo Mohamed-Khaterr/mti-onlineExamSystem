@@ -58,17 +58,6 @@ class ExamModel extends Model{
 		
 		$this->builder->insert($questionData);
 		
-		//get question_id
-		$question_id = $this->db->insertID();
-		
-		//inset to exam_question TABLE
-		$this->builder = $this->db->table("exam_questions");
-		$examQuestionData = [
-			'exam_id' => $exam_id,
-			'question_id' => $question_id
-		];
-		$this->builder->insert($examQuestionData);
-		
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
@@ -129,9 +118,6 @@ class ExamModel extends Model{
 		$this->builder->where('exam_id', $exam_id);
 		$this->builder->delete();
 		
-		$this->builder = $this->db->table("exam_questions");
-		$this->builder->where('exam_id', $exam_id);
-		$this->builder->delete();
 		
 		$this->builder = $this->db->table("exam");
 		$this->builder->where('exam_id', $exam_id);
@@ -198,9 +184,6 @@ class ExamModel extends Model{
 		$this->builder->where('question_id', $question_id);
 		$this->builder->delete();
 		
-		$this->builder = $this->db->table("exam_questions");
-		$this->builder->where('question_id', $question_id);
-		$this->builder->delete();
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
