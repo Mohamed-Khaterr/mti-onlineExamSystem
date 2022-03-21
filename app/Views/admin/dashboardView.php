@@ -110,8 +110,8 @@
 				<div class="todo">
 					<div class="head">
 						<h3>Upcaming Exams</h3>
-						<a href="Admin/create-exam" title="Create Exam"><i class='bx bx-plus' ></i></a> 
-						<!--<i class='bx bx-filter' ></i>-->
+						<!--<a href="" title="Create Exam"><i class='bx bx-plus' ></i></a>-->
+						<a href="<?= base_url('Admin/verify-exams') ?>" title="Verify Exam"><i class='bx bx-filter' ></i></a> 
 					</div>
 					<ul class="todo-list">
 						<?php if(count($upcomingExams['title']) == 0): ?>
