@@ -121,6 +121,8 @@ defined('ADMIN_VIEW') || define('ADMIN_VIEW', 'admin/adminView');
 
 defined('stu_courses') || define('stu_courses', 'student/courses');
 defined('stu_exams') || define('stu_exams', 'student/exams');
+defined('stu_exam') || define('stu_exam', 'student/exam');
+defined('stu_exam_info') || define('stu_exam_info', 'student/exam_info');
 defined('stu_report') || define('stu_report', 'student/report');
 defined('stu_profile') || define('stu_profile', 'student/profile');
 defined('stu_edit_profile') || define('stu_edit_profile', 'student/edit_profile');

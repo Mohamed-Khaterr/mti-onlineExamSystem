@@ -208,7 +208,8 @@ class ExamModel extends Model{
 	function GetStuExams($student_id){
         $this->builder = $this->db->table('exam');
         $this->builder->join('regist_course','exam.course_id = regist_course.course_id')
-                      ->where('regist_course.student_id',$student_id);
+                      ->where('regist_course.student_id',$student_id)
+					  ->orderby('exam_date_time','ASC');
         
         //execute the statment
         $query = $this->builder->get();
@@ -220,4 +221,148 @@ class ExamModel extends Model{
         }
 
     }
+
+	function GetExamInfo($exam_id){
+        $this->builder = $this->db->table('exam');
+        $this->builder->where('exam.exam_id',$exam_id);
+					  
+        
+        //execute the statment
+        $query = $this->builder->get();
+        
+        if($result = $query->getRow()){
+            return $result;
+        }else{
+            return null;
+        }
+
+    }
+
+	function GetExamQuestions($exam_id){
+		
+	
+        $this->builder = $this->db->table('question');
+        $this->builder->join('exam','exam.exam_id = question.exam_id')
+                      ->where('question.exam_id',$exam_id);
+        
+        //execute the statment
+        $query = $this->builder->get();
+        
+        if($result = $query->getResult()){
+            return $result;
+        }else{
+            return null;
+        }
+
+    }
+
+
+	function pagination($exam_id){
+		$this->builder = $this->db->table('question');
+        
+		$this->builder->where('exam_id',$exam_id);
+
+		$query = $this->builder->get();								
+		$result = $query->getResult();
+
+      
+		return $result ;
+	}
+
+	
+
+
+	   
+	    
+
+	
+
+
+	function exam_started($exam_id)
+	{
+		$current_datetime = date("Y-m-d") . ' ' . date("H:i:s", STRTOTIME(date('h:i:sa')));
+
+		$exam_datetime = '';
+        $this->builder = $this->db->table('exam');
+		$this->builder->where("exam_id = '$exam_id' ");
+        
+		$query =$this->builder->get();
+		$result = $query->getResult();
+		foreach($result as $row)
+		{
+			$exam_datetime = $row->exam_date_time;
+		}
+
+		if($exam_datetime < $current_datetime)
+		{
+			return true;
+		}
+		return false;
+	}
+
+
+	public function attendance($exam_id,$student_id){
+		$this->builder = $this->db->table('stu_enroll_exam');
+		$this->builder->where('exam_id',$exam_id)
+		            ->where('student_id',$student_id);
+		$query =$this->builder->get();
+		$result = $query->getResult();
+		
+		if(!$result){	
+			$data=[
+				'exam_id'=>$exam_id,
+				'student_id'=>$student_id,
+				'attendance' => '1'
+			];
+			$this->builder->insert($data);
+			return true;
+		}
+		   
+		return false;
+
+		
+	}
+
+	public function insertanswers($question_id,$student_answer,$exam_id,$student_id){
+
+		$this->builder = $this->db->table('answer');
+		$this->builder->where("student_id",$student_id)
+		              ->where("question_id",$question_id);
+		$query =$this->builder->get();
+		$result = $query->getResult();
+
+	 
+        if(!$result){
+
+	    $data = [
+		"student_id"=>$student_id,
+		'question_id' => $question_id,
+		"student_answer" => $student_answer
+	    ];
+	
+	    $this->builder->insert($data);
+        }else{
+
+			$this->builder=$this->db->table('answer');
+			$table = $this->builder->where("student_id",$student_id)
+			                       ->where('question_id', $question_id);
+			
+				  $data = [
+				    "student_answer"=> $student_answer,
+				    ];
+			
+				$table->update($data);
+			}
+
+
+	}
+	
+
+
+
+	
+
+			
+
+
 }

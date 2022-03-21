@@ -69,9 +69,11 @@ $routes->match(['get','post'],'student/resetpassword','Student::resetpassword',[
 $routes->post('student/update_pic','Student::update_pic',['filter' => 'auth']);
 $routes->get('student/del_pic','Student::del_pic',['filter' => 'auth']);
 $routes->get('student/courses', 'Student::courses',['filter' => 'auth']);
-$routes->get('student/exams', 'Student::exams',['filter' => 'auth']);
-$routes->get('student/report', 'Student::report',['filter' => 'auth']);
+$routes->get('student/exams', 'Exam::exams',['filter' => 'auth']);
 $routes->get('student/profile', 'Student::profile',['filter' => 'auth']);
+$routes->add('student/exam/(:any)', 'Exam::index/$1', ['filter' =>'examauth']);
+$routes->add('student/exam_info/(:any)', 'Exam::exam_info/$1', ['filter' => 'auth']);
+
 //-------------
 //$routes->get('logout', 'Login::logout');
 //$routes->get('/login', 'Login::index', ['filter' => 'noauth']);
