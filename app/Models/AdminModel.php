@@ -157,6 +157,47 @@ class AdminModel extends Model{
 		return $data;
 	}
 	
+	
+	public function verifiedExams(){
+		$this->builder = $this->db->table("exam");
+		
+		$data = [
+			'verified' => count($this->builder->where('admin_verified', 'true')->get()->getResult()),
+			'notVerified' => count($this->builder->where('admin_verified', null)->get()->getResult()),
+			'exams' => array(
+				'title' => array(),
+				'examTitle' => array(),
+				'type' => array(),
+				'admin_verified' => array(),
+				'examID' => array(),
+			),
+		];
+		
+		$result = $this->builder->select('course_title, admin_verified , exam_title, exam_type, exam_id')
+					->join('course', 'course.course_id = exam.course_id')
+					->orderBy('exam_date_time','DESC')
+					->get()->getResult();
+		
+		foreach($result as $row){
+			array_push($data['exams']['title'], $row->course_title);
+			array_push($data['exams']['examTitle'], $row->exam_title);
+			array_push($data['exams']['type'], $row->exam_type);
+			array_push($data['exams']['admin_verified'], $row->admin_verified);
+			array_push($data['exams']['examID'], $row->exam_id);
+		}
+		
+		return $data;
+	}
+	
+	public function acceptExam($id){
+		$this->builder = $this->db->table("exam");
+		
+		$this->builder->update(["admin_verified" => 'true'] ,'exam_id = ' . $id);
+	}
+	
+	
+	
+	
 	public function getProfileInfo($id){
 		$this->builder = $this->db->table("admin");
 		$this->builder->select('*')

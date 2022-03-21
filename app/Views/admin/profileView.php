@@ -58,9 +58,9 @@
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="<?= base_url('Admin/verify-exams') ?>">
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Create Exam</span>
+					<span class="text">Verify Exams</span>
 				</a>
 			</li>
 

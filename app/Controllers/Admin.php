@@ -12,11 +12,11 @@ class Admin extends BaseController{
 	public function __construct(){
 		$this->admin = model(AdminModel::class);
     }
-	
-	//echo '<pre style="text-align: center;">';
-	//print_r($this->admin->getUpcomingExams());
-	//echo '</pre>';
-	
+	/*
+	echo '<pre style="text-align: center;">';
+	print_r();
+	echo '</pre>';
+	*/
 	public function index(){
 		
 		$data = [
@@ -63,6 +63,32 @@ class Admin extends BaseController{
 		echo view('admin/liveExamView');
 		echo view(ADMIN_FOOTER_VIEW);
 	}
+	
+	
+	
+	
+	public function verifyExams(){
+		$data = [
+			'sideBar' => 'verifyExams',
+			'examVerification' => $this->admin->verifiedExams()
+		];
+		
+		
+		if(isset($_POST['accept'])){
+			$this->admin->acceptExam($_POST['accept']);
+			
+			// To refresh page
+			return redirect()->to('Admin/verify-exams');
+		}
+		
+		
+		echo view(ADMIN_HEADER_VIEW, $data);
+		echo view(ADMIN_VERIFY_EXAM);
+		echo view(ADMIN_FOOTER_VIEW);
+	}
+	
+	
+	
 	
 	public function profile(){
 		
@@ -136,7 +162,7 @@ class Admin extends BaseController{
 			}
 		}
 		
-		echo view('admin/profileView', $data);
+		echo view(ADMIN_PROFILE, $data);
 	}
 	
 }

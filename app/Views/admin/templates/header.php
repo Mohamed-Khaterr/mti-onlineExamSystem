@@ -24,15 +24,16 @@
 	$currentExam = false;
 	$createExam = false;
 	$profile = false;
+	$verifyExams = false;
 	
 	if($sideBar == 'dashboard'){
 		$dashboard = true;
 	}elseif ($sideBar == 'currentExam'){
 		$currentExam = true;
-	}elseif ($sideBar == 'createExam'){
-		$createExam = true;
 	}elseif ($sideBar == 'profile'){
 		$profile = true;
+	}elseif ($sideBar == 'verifyExams'){
+		$verifyExams = true;
 	}
 	
 ?>
@@ -58,10 +59,10 @@
 				</a>
 			</li>
 			
-			<li class="<?php echo $createExam ? "active":"" ?>">
-				<a href="">
+			<li class="<?php echo $verifyExams ? "active":"" ?>">
+				<a href="<?= base_url('Admin/verify-exams') ?>">
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Create Exam</span>
+					<span class="text">Verify Exams</span>
 				</a>
 			</li>
 
