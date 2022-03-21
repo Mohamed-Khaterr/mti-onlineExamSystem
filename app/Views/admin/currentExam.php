@@ -88,16 +88,20 @@
 									<p></p>
 									
 									<p style="text-align: center;">
-										<?= $exam['dateTime'] ?> 
+										<?= $exam['dateTime'] ?> - <?= $exam['endTime'] ?>
 									</p>
 									
 									<p>
 										<?= $exam['status'] ?>
 									</p>
+									<?php if($exam['status'] == "In Process"): ?>
+										<a href="<?= base_url('Admin/live-exam/'.$exam['id'].'/'.$exam['title'].'/'.$exam['examTitle'])?>" title="Exam Status">
+											<button style="border: none;">Show</button> 
+										</a>
+									<?php else: ?>
+										<p></p>
+									<?php endif; ?>
 									
-									<a href="<?= base_url('Admin/live-exam/'.$exam['id'].'/'.$exam['title'].'/'.$exam['examTitle'])?>" title="Exam Status">
-										<button style="border: none;">Show</button> 
-									</a>
 								</li>
 							<?php endforeach; ?>
 							

@@ -54,7 +54,7 @@
 				<li>
 					<i class='bx bx-layer'></i>
 					<span class="text">
-						<!--<p>Courses</p>-->
+						<p>Courses</p>
 						<h3><?= $courseTitle ?></h3>
 					</span>
 				</li>
@@ -63,7 +63,7 @@
 					<i class='bx bxs-calendar-check' ></i>
 
 					<span class="text">
-						<!--<p>Exam Title</p>-->
+						<p>Exam Title</p>
 						<h3><?= $examTitle ?></h3>
 					</span>
 				</li>

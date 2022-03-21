@@ -146,6 +146,7 @@ class AdminModel extends Model{
 			$duration = date("g:i a", strtotime($row->exam_duration));
 			$examEndTime = new Time(addTimeToDatetime($examDateTime, $duration));
 			
+			$allRows['endTime'] = date("g:i a", strtotime($examEndTime));
 			
 			if($current->isAfter($examEndTime)){
 				$allRows['isPast'] = true;
