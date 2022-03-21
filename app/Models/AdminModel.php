@@ -59,42 +59,42 @@ class AdminModel extends Model{
 	public function getUpcomingExams(){
 		$this->builder = $this->db->table("exam");
 		
-		$this->builder->select('course_title, exam_type, exam_date_time, exam_id')
+		$this->builder->select('course_title, exam_type, exam_date_time, exam_id, admin_verified')
 					->join('course', 'course.course_id = exam.course_id')
 					->where('exam_date_time >= DATE(NOW())')
 					->orderBy('exam_date_time','ASC');
 		
 		$result = $this->builder->get()->getResult();
 		
-		$data = array(
-			'examID' => array(), 
-			'title' => array(), 
-			'type' => array(), 
-			'datetime' => array(),
-			'isPast' => array()
-		);
+		$data = array();
 		
-		
+		// current Time
 		$current = new Time('now');
-		foreach($result as $row){	
-			array_push($data['examID'], $row->exam_id);
-			array_push($data['title'], $row->course_title);
-			array_push($data['type'], $row->exam_type);
+		
+		foreach($result as $row){
 			
-			$newDate = date("F j, Y, g:i a", strtotime($row->exam_date_time));
+			$allRows = [
+				'examID' => $row->exam_id, 
+				'title' => $row->course_title, 
+				'type' => $row->exam_type, 
+				'isVerified' => $row->admin_verified,
+			];
 			
-			array_push($data['datetime'], $newDate);
+			$examDateTime = date("F j, Y, g:i a", strtotime($row->exam_date_time));
 			
-			$date = new Time($newDate);
-			$diff = $current->difference($date);
+			$allRows['datetime'] = $examDateTime;
 			
-			if($diff->hours <= 0 && $diff->day == null){
-				array_push($data['isPast'], true);
+			$timeObj = new Time($examDateTime);
+			
+			if($current->isAfter($timeObj)){
+				$allRows['isPast'] = true;
 				
 			}else{
 				
-				array_push($data['isPast'], false);
+				$allRows['isPast'] = false;
 			}
+			
+			array_push($data, $allRows);
 		}
 		
 		return $data;
@@ -110,49 +110,58 @@ class AdminModel extends Model{
 					->delete();
 	}
 	
-	
-	
 	public function getProcessExams(){
+		helper('addTimeToDatetime');
+		
 		$this->builder = $this->db->table("exam");
 		
-		$this->builder->select('course_title, exam_type, exam_id, exam_date_time')
+		$this->builder->select('course_title, exam_type, exam_id, exam_date_time, exam_duration, exam_title')
 					->join('course', 'course.course_id = exam.course_id')
 					->where('DATE(exam_date_time) = DATE(NOW())')
+					->where('admin_verified', "true")
 					->orderBy('exam_date_time','DESC');
 		
 		$result = $this->builder->get()->getResult();
 		
-		$data = array(
-			'id' => array(),
-			'title' => array(),
-			'type' => array(),
-			'dateTime'=> array(),
-			'isPast' => array()
-		);
+		$data = array();
 		
 		$current = new Time('now');
 		
-		foreach($result as $row){	
-			array_push($data['id'], $row->exam_id);
-			array_push($data['title'], $row->course_title);
-			array_push($data['type'], $row->exam_type);
+		foreach($result as $row){
 			
-			$newDate = date("g:i a", strtotime($row->exam_date_time));
-			array_push($data['dateTime'], $newDate);
+			$allRows = [
+				'id' => $row->exam_id,
+				'title' => $row->course_title,
+				'examTitle' => $row->exam_title,
+				'type' => $row->exam_type,
+			];
+			
+			$examDateTime = date("g:i a", strtotime($row->exam_date_time));
+			
+			$allRows['dateTime'] = $examDateTime;
+			
+			$examStartTime = new Time($examDateTime);
 			
 			
-			$date = new Time($newDate);
-			$diff = $current->difference($date);
+			$duration = date("g:i a", strtotime($row->exam_duration));
+			$examEndTime = new Time(addTimeToDatetime($examDateTime, $duration));
 			
-			if($diff->hours < 0){
-				array_push($data['isPast'], true);
+			
+			if($current->isAfter($examEndTime)){
+				$allRows['isPast'] = true;
+				$allRows['status'] = "End";
+				
+			}elseif($current->isBefore($examStartTime)){
+				$allRows['isPast'] = false;
+				$allRows['status'] = "Wait";
 				
 			}else{
-				
-				array_push($data['isPast'], false);
+				$allRows['isPast'] = false;
+				$allRows['status'] = "In Process";
 			}
+			
+			array_push($data, $allRows);
 		}
-		
 		
 		return $data;
 	}

@@ -54,9 +54,11 @@ class Admin extends BaseController{
 		echo view(ADMIN_FOOTER_VIEW);
 	}
 	
-	public function liveExam($examID){
+	public function liveExam($examID, $courseTitle, $examTitle){
 		$data = [
-			'sideBar' => 'currentExam'
+			'sideBar' => 'currentExam',
+			'courseTitle' => $courseTitle,
+			'examTitle' => $examTitle
 		];
 		
 		echo view(ADMIN_HEADER_VIEW, $data);

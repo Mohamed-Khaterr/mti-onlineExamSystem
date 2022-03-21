@@ -20,7 +20,7 @@
 						<li><i class='bx bx-chevron-right' ></i></li>
 						
 						<li>
-							<a class="active" href="<?= base_url('Admin') ?>">Current Exams</a>
+							<a class="active" href="<?= base_url('Admin/current-exam') ?>">Current Exams</a>
 						</li>
 						
 						<li><i class='bx bx-chevron-right' ></i></li>
@@ -54,8 +54,8 @@
 				<li>
 					<i class='bx bx-layer'></i>
 					<span class="text">
-						<p>Courses</p>
-						<h3>Computer Graphics</h3>
+						<!--<p>Courses</p>-->
+						<h3><?= $courseTitle ?></h3>
 					</span>
 				</li>
 
@@ -63,8 +63,8 @@
 					<i class='bx bxs-calendar-check' ></i>
 
 					<span class="text">
-						<p>Exam Title</p>
-						<h3>Exam Test 1</h3>
+						<!--<p>Exam Title</p>-->
+						<h3><?= $examTitle ?></h3>
 					</span>
 				</li>
 			</ul>

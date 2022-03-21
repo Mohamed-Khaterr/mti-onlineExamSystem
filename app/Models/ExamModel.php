@@ -65,6 +65,7 @@ class ExamModel extends Model{
 	public function getExam($doctor_id, $course_id = null){
 		$this->builder = $this->db->table("exam");
 		$this->builder->where('doctor_id', $doctor_id);
+					
 		if(!empty($course_id)){
 			$this->builder->where('course_id', $course_id);
 		}

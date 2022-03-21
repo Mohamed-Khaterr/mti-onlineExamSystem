@@ -51,7 +51,7 @@
 					<i class='bx bxs-calendar-check' ></i>
 
 					<span class="text mt-3">
-						<h3><?= count($processExams['id'])?></h3>
+						<h3><?= count($processExams)?></h3>
 						<p> Total Exams today</p>
 					</span>
 				</li>
@@ -78,20 +78,28 @@
                             
                         </div>
                         <ul class="todo-list p-0 m-0">
-							<?php for($i = 0; $i < count($processExams['id']); $i++): ?>
-								<li class="<?= $processExams['isPast'][$i] ? "completed" : "not-completed"?>">
+							<?php foreach($processExams as $exam): ?>
+								<li class="<?= $exam['isPast'] ? "completed" : "not-completed"?>">
+								
 									<p>
-										<?= $processExams['title'][$i] ?> (<?= $processExams['type'][$i] ?>)
-									</p>
-									<p>
-										<?= $processExams['dateTime'][$i] ?>
+										<?= $exam['title'] ?> (<?= $exam['type'] ?>)
 									</p>
 									
-									<a href="<?= base_url('Admin/live-exam/'.$processExams['id'][$i])?>" title="Exam Status">
+									<p></p>
+									
+									<p style="text-align: center;">
+										<?= $exam['dateTime'] ?> 
+									</p>
+									
+									<p>
+										<?= $exam['status'] ?>
+									</p>
+									
+									<a href="<?= base_url('Admin/live-exam/'.$exam['id'].'/'.$exam['title'].'/'.$exam['examTitle'])?>" title="Exam Status">
 										<button style="border: none;">Show</button> 
 									</a>
 								</li>
-							<?php endfor; ?>
+							<?php endforeach; ?>
 							
 							<!--
                             <li class="not-completed">

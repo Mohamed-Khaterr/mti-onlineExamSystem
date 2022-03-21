@@ -35,7 +35,7 @@ class Login extends BaseController{
 			$email = $_POST['email'];
 			$password = $_POST['password'];
 			
-			if(strpos($email, '.dr@')){
+			if(strpos($email, '@dr')){
 				//Doctor Email
 				
 				if($this->doctorUser($email, $password)){

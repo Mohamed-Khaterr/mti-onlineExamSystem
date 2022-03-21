@@ -47,7 +47,7 @@ $routes->add('Login/index', 'Login::index', ['filter' => 'noauth']);
 $routes->add('/Logout', 'Login::logout');
 
 //Doctor Routes
-$routes->add('Doctor', 'Doctor::courses', ['filter' => 'auth']);
+$routes->add('Doctor', 'Doctor::dashboard', ['filter' => 'auth']);
 $routes->add('Doctor/courses', 'Doctor::courses', ['filter' => 'auth']);
 $routes->add('Doctor/edit', 'Doctor::editProfile', ['filter' => 'auth']);
 $routes->add('Doctor/profile', 'Doctor::profile', ['filter' => 'auth']);
@@ -61,7 +61,7 @@ $routes->add('Doctor/question-edit', 'Doctor::editQuestion', ['filter' => 'auth'
 $routes->add('Admin', 'Admin', ['filter' => 'auth']);
 $routes->add('Admin/create-exam', 'Admin::createExam', ['filter' => 'auth']);
 $routes->add('Admin/current-exam', 'Admin::currentExam', ['filter' => 'auth']);
-$routes->add('Admin/live-exam/(:any)', 'Admin::liveExam/$1', ['filter' => 'auth']);
+$routes->add('Admin/live-exam/(:any)/(:any)/(:any)', 'Admin::liveExam/$1/$2/$3', ['filter' => 'auth']);
 $routes->add('Admin/verify-exams', 'Admin::verifyExams',['filter' => 'auth']);
 $routes->add('Admin/profile', 'Admin::profile',['filter' => 'auth']);
 

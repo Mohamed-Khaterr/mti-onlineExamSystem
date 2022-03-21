@@ -41,8 +41,8 @@
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="" class="brand">
-			<i class='bx bxs-smile'></i>
-			<span class="text">Welcome</span>
+			<i class='bx '></i>
+			<span class="text">MTI UNVERSITY</span>
 		</a>
 		<ul class="side-menu top p-0">
 			<li>
@@ -110,7 +110,7 @@
 				<span class="num">8</span>
 			</a>
 			<a href="<?= base_url('Admin/profile') ?>" class="profile">
-				<img src="<?= base_url() ?>/module/admin/img/people.png">
+				<img src="<?= base_url() ?>/module/admin/assets/img/profile-img.jpg">
 			</a>
 		</nav>
 		<!-- NAVBAR -->

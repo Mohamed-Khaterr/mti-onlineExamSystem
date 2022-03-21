@@ -1,5 +1,6 @@
 
 
+
 		<!-- MAIN -->
 		<main>
 			<div class="head-title">
@@ -114,22 +115,24 @@
 						<a href="<?= base_url('Admin/verify-exams') ?>" title="Verify Exam"><i class='bx bx-filter' ></i></a> 
 					</div>
 					<ul class="todo-list">
-						<?php if(count($upcomingExams['title']) == 0): ?>
+						<?php if(count($upcomingExams) == 0): ?>
 							<br />
 							<h4 style="text-align: center;"> No Exams </h4>
 						<?php else: ?>
-							<?php for($i = 0; $i < count($upcomingExams['title']); $i++): ?>
+							<?php foreach($upcomingExams as $exam): ?>
 								<br />
 								<form method="post" action="<?= base_url('Admin') ?>">
 								<?= csrf_field(); ?>
-									<li class="<?php echo $upcomingExams['isPast'][$i] ? "completed" : "not-completed" ?>">
+									<li class="<?php echo $exam['isPast'] ? "completed" : "not-completed" ?>">
 										
 										<p>
-											<?= $upcomingExams['title'][$i] ?> 
+											<?= $exam['title'] ?> 
 											
-											(<?= $upcomingExams['type'][$i] ?>) 
+											<?= $exam['type'] ?>
+
+											(<?= $exam['isVerified'] ? "verified" : "not verified" ?>)
 											<br /> <br /> 
-											<?= $upcomingExams['datetime'][$i] ?>
+											<?= $exam['datetime'] ?>
 										<p>
 										
 										<p></p>
@@ -137,11 +140,11 @@
 										<!--<a href="" title="edit">  <i  class='bx bx-edit p'></i>  </a>-->
 										
 										<a href="" title="delete permanently" >
-											<button name="deleteExam" value="<?= $upcomingExams['examID'][$i] ?>" style="border: none;"><i class='bx bx-x p'></i></button>
+											<button name="deleteExam" value="<?= $exam['examID'] ?>" style="border: none;"><i class='bx bx-x p'></i></button>
 										</a>
 									</li>
 								</form>
-							<?php endfor; ?>
+							<?php endforeach; ?>
 						<?php endif; ?>
 						
 					</ul>
@@ -151,3 +154,6 @@
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
+	
+	
+	
