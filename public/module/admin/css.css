@@ -1,0 +1,74 @@
+.p{
+	padding: 5px;
+}
+
+
+
+
+
+#fixedBox{
+    background-color: rgba(0, 0, 0,0.2);
+    position: fixed;
+    top: 0%;
+	left: 0%;
+    
+}
+
+#smallBox{
+    /* background-color: #003771; */
+	/* background-image: url(img/R.jfif); */
+	background-size: 100%;
+    border-radius:3px ;	
+    overflow: auto;
+	position: relative;
+	top: 7%;
+	left: 10%;
+    
+
+}
+
+#closeBtn{
+    position: relative;
+    left: 98%;
+}
+
+
+
+
+#fixedB{
+    background-color: rgba(0, 0, 0,0.2);
+    position: fixed;
+    top: 0%;
+	left: 0%;
+    
+}
+
+#smallB{
+    /* background-color: #003771; */
+	/* background-image: url(img/R.jfif); */
+	background-size: 100%;
+    border-radius:3px ;	
+    overflow: auto;
+	position: relative;
+	top: 7%;
+	left: 10%;
+    
+
+}
+
+#closeB{
+    position: relative;
+    left: 98%;
+}
+
+i{cursor: pointer;}
+
+.bg-none{
+	background: transparent;
+}
+
+.brdr-rad{
+	border-radius: 50%;
+}
+
+

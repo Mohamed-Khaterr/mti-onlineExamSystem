@@ -86,7 +86,6 @@ defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest auto
  |--------------------------------------------------------------------------
  */
  //SESSION CONSTANTS
-defined('ADMIN_ID') || define('ADMIN_ID', 'admin_id');
 
  //TEMPLATES VIEWS CONSTANTS
 defined('HEADER_VIEW') || define('HEADER_VIEW', 'doctor/templates/header');
@@ -108,7 +107,15 @@ defined('SHOW_QUESTION') || define('SHOW_QUESTION', 'doctor/exam/question/questi
 defined('EDIT_QUESTION') || define('EDIT_QUESTION', 'doctor/exam/question/questionEditView');
 
  //ADMIN VIEWS CONSTANTS
-defined('ADMIN_VIEW') || define('ADMIN_VIEW', 'admin/adminView');
+ defined('ADMIN_ID') || define('ADMIN_ID', 'admin_id');
+defined('ADMIN_HEADER_VIEW') || define('ADMIN_HEADER_VIEW', 'admin/templates/header');
+defined('ADMIN_FOOTER_VIEW') || define('ADMIN_FOOTER_VIEW', 'admin/templates/footer');
+defined('ADMIN_DASHBOARD') || define('ADMIN_DASHBOARD', 'admin/dashboardView');
+defined('ADMIN_CURRENT_EXAM') || define('ADMIN_CURRENT_EXAM', 'admin/currentExam');
+defined('ADMIN_CREATE_EXAM') || define('ADMIN_CREATE_EXAM', 'admin/createExamView');
+
+
+
 //$GLOBALS['footer'] = 'templates/footer';
 
 

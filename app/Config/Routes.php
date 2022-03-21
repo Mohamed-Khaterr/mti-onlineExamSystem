@@ -59,6 +59,11 @@ $routes->add('Doctor/question-edit', 'Doctor::editQuestion', ['filter' => 'auth'
 
 //Admin Routes
 $routes->add('Admin', 'Admin', ['filter' => 'auth']);
+$routes->add('Admin/create-exam', 'Admin::createExam', ['filter' => 'auth']);
+$routes->add('Admin/current-exam', 'Admin::currentExam', ['filter' => 'auth']);
+$routes->add('Admin/live-exam/(:any)', 'Admin::liveExam/$1', ['filter' => 'auth']);
+$routes->add('Admin/profile', 'Admin::profile',['filter' => 'auth']);
+
 
 
 //Weal Routes
