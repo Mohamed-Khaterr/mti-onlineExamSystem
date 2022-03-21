@@ -47,7 +47,7 @@ $routes->add('Login/index', 'Login::index', ['filter' => 'noauth']);
 $routes->add('/Logout', 'Login::logout');
 
 //Doctor Routes
-$routes->add('Doctor', 'Doctor::dashboard', ['filter' => 'auth']);
+$routes->add('Doctor', 'Doctor::courses', ['filter' => 'auth']);
 $routes->add('Doctor/courses', 'Doctor::courses', ['filter' => 'auth']);
 $routes->add('Doctor/edit', 'Doctor::editProfile', ['filter' => 'auth']);
 $routes->add('Doctor/profile', 'Doctor::profile', ['filter' => 'auth']);

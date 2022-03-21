@@ -119,7 +119,7 @@ class AdminModel extends Model{
 					->join('course', 'course.course_id = exam.course_id')
 					->where('DATE(exam_date_time) = DATE(NOW())')
 					->where('admin_verified', "true")
-					->orderBy('exam_date_time','DESC');
+					->orderBy('exam_date_time','ASC');
 		
 		$result = $this->builder->get()->getResult();
 		

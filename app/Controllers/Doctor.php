@@ -11,6 +11,11 @@ class Doctor extends BaseController{
 	public function __construct(){
         $this->doctor = model(DoctorModel::class);
 		$this->exam = model(ExamModel::class);
+		
+		if(!isset($_SESSION['isDoctor']) && session()->get('isDoctor')){
+			return redirect()->to('Login');
+          
+        }
     }
 	
 	//-------------------------------------------------------------------------------------------------------

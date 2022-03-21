@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use CodeIgniter\Model;
+use CodeIgniter\I18n\Time;
 
 class Admin extends BaseController{
 	
