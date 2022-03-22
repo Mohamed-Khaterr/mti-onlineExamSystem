@@ -41,11 +41,20 @@ function MCQ(){
 
 }
 
+function True(){
+  BoxFalse.classList.replace('d-none','d-flex');
+  BoxTrue.classList.replace('d-flex','d-none');
+}
+
+function False(){
+  BoxTrue.classList.replace('d-none','d-flex');
+  BoxFalse.classList.replace('d-flex','d-none');
+}
 
 
 
 function MCQ_edit(){
-  fixedBox.classList.replace('d-none','d-flex');
+  fixedB.classList.replace('d-none','d-flex');
 
 
 }
@@ -68,3 +77,10 @@ closeB.addEventListener('click' ,function(){
   fixedB.classList.replace('d-flex','d-none');
 
 })
+
+function True_edit(){
+  fixedBox.classList.replace('d-none','d-flex');
+}
+function False_edit(){
+  fixedB.classList.replace('d-none','d-flex');
+}

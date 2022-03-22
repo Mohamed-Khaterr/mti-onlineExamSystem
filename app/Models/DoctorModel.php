@@ -22,8 +22,25 @@ class DoctorModel extends Model{
                           ->where('course_doctor.doctor_id',$doctor_id);
 		$query = $this->builder->get();
 		
-		if($result = $query->getResult()){
-			return $result;
+		$result = $query->getResult();
+		
+		$data = array(
+			'totalCourses' => count($result),
+			'courses' => array(),
+		);
+		foreach($result as $row){
+			$dataRow =[
+				'id' => $row->course_id,
+				'title' => $row->course_title,
+				'code' => $row->course_code,
+				'level' => $row->course_level,
+			];
+			
+			array_push($data['courses'], $dataRow);
+		}
+		
+		if($result){
+			return $data;
 		}
 	}
 	
