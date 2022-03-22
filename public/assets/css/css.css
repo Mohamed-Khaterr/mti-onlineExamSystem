@@ -215,6 +215,10 @@ background-color: #003771;
     background-color: #003771;
     color: white;
 }
+.bg-blue:hover{
+    color: white;
+    background-color: #003795;
+}
 
 
 
@@ -230,4 +234,40 @@ background-color: #003771;
     overflow-x: hidden;
     overflow-y: auto;
     outline: 0;
+}
+
+
+.pagi .finiture-wrapper {
+    cursor: pointer;   
+    font-weight:bold;   
+    font-size:18px;   
+    color: black;    
+    padding: 3px 8px;   
+    text-decoration: none;   
+    border:2px solid #003771;   
+    margin: 5px;
+}   
+.pagi .finiture-wrapper.active {   
+        background-color: rgb(174, 235, 255);   
+}   
+.pagi .finiture-wrapper:hover:not(.active) {   
+    background-color: rgb(174, 235, 255);   
+}  
+
+.ans-pointer{
+    cursor: pointer;
+}
+.modal{
+    background:rgba(0,0,0,.7);
+    cursor:pointer;
+    /* display:none; */
+    height:100%;
+    position:fixed;
+    /* text-align:center; */
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.modal-content{
+   margin-top: 200px;
 }

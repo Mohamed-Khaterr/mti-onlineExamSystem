@@ -1,6 +1,19 @@
 <?php include "templates/header.php";
 ?>
 
+<div class="container ">
+  <div class="w-50 mx-auto mt-3 ">
+  <?php
+if(session()->get('failed')):?>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<?= session()->get('failed'); ?>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<?php endif?>
+
+  </div>
+</div>
+
     <div class="mt-4">
 
 <!-- image part -->

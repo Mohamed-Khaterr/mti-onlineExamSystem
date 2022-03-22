@@ -30,25 +30,9 @@ class Student extends BaseController
 
 
 
-    public function exams(){
-        $model = new \App\Models\ExamModel();
-        $data=[
-            'title'=>"Exams",
-            'exams'=>$model->GetStuExams(session()->get('student_id'))
-        ];
+  
 
-          return view(stu_exams,$data);
-    }
-
-    public function report(){
-        $model = new \App\Models\ExamModel();
-        $data=[
-            'title'=>"Report",
-            'exams'=>$model->GetStuExams(session()->get('student_id'))
-
-        ];
-        return view(stu_report,$data);
-    }
+   
 
     public function profile(){
         $model = new \App\Models\StudentModel();

@@ -6,7 +6,16 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title><?= $title ?> </title>
-  
+  <style>
+    #webCam{
+    
+   /* position: absolute; */
+   /* text-align: center; */
+   top: 20%;
+   /* transform:translateY(-50%) ; */
+   
+}
+  </style>
 
   <!-- Favicons -->
   <link href="/assets/img/MTI.png" rel="icon">
@@ -26,14 +35,16 @@
   <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   
+  <link href="/assets/css/TimeCircles.css" rel="stylesheet">
   <link href="/assets/css/style.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/css/css.css">
 </head>
+<?php if( isset($exam)): ?>
+<body style="background-color:#ecedef;">
 
-<body>
   <?php
-
+endif;
       $uri = service('uri');
   ?>
 
@@ -57,7 +68,7 @@
         <li><a class="   <?= ($uri->getsegment(2)=='home' ? 'active' :null);?>" href="/student/home">Home</a></li>
           <li><a class="<?= ($uri->getsegment(2)=='courses' ? 'active' :null)?>" href="/student/courses">Courses</a></li>
           <li><a class="<?= ($uri->getsegment(2)=='exams' ? 'active' :null)?>" href="/student/exams">Exams</a></li>
-          <li><a class="<?= ($uri->getsegment(2)=='report' ? 'active' :null)?>" href="/student/report">Report</a></li>
+     
 
 
 
@@ -100,6 +111,8 @@
   </header>
   <!-- End Header -->
   <?php if(session()->get('isLoggedIn')):?>
+
+    <?php if(! isset($exam)): ?>
        
   <!-- ======= Breadcrumbs ======= -->
   <div class="breadcrumbs">
@@ -107,7 +120,8 @@
         <h2><?= $title ?></h2>
      </div>
     </div><!-- End Breadcrumbs -->
-    <?php endif?>
+    <?php endif;?>
+    <?php endif;?>
   
 
     

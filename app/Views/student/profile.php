@@ -6,8 +6,9 @@
   <div class="w-50 mx-auto mt-3 ">
   <?php
 if(session()->get('success')):?>
-<div class="alert alert-success " role="alert">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 <?= session()->get('success'); ?>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 <?php endif?>
 
