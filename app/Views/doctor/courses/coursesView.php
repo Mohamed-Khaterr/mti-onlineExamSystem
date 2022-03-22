@@ -25,12 +25,12 @@
 					
 					<tbody>
 						<?php $counter = 1; ?>
-						<?php foreach($result as $row): ?>
+						<?php foreach($courses['courses'] as $course): ?>
 							<tr>
 								<td scope="row"><?php echo $counter; $counter+= 1; ?></td>
-								<td><?= esc($row->course_title) ?></td>
-								<td><?= $row->course_code ?></td>
-								<td><?= $row->course_level ?></td>
+								<td><?= $course['title'] ?></td>
+								<td><?= $course['code'] ?></td>
+								<td><?= $course['level'] ?></td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>

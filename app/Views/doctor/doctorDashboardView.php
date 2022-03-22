@@ -52,8 +52,11 @@
 					<div class="head">
 						<h3>Courses</h3>
 						<!--<i class='bx bx-search' ></i>-->
+						<div class="dr_search">
+						<input type="search" placeholder=" Search for Course...." onkeyup="searchBar()" id="userInput" name="search">
+				</div>
 					</div>
-					<table>
+					<table id="tableID">
 						<thead>
 							<tr>
 								<th>#</th>

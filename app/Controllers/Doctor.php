@@ -22,15 +22,11 @@ class Doctor extends BaseController{
 	public function courses(){
 		$data['title'] = 'Courses';
 		
-		$data['result']= $this->doctor->getCourses($_SESSION['dr_id']);
-		//$data['result'] = $this->doctor->test($_SESSION['dr_id']);
+		$data['courses']= $this->doctor->getCourses($_SESSION['dr_id']);
 		
 		echo view(HEADER_VIEW, $data);
 		echo view(DR_COURSES, $data);
 		echo view(FOOTER_VIEW);
-		
-		//$this->doctor->test($_SESSION['dr_id']);
-		
 	}
 	
 	public function dashboard(){
