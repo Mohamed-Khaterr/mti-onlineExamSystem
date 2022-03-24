@@ -35,7 +35,7 @@ class Login extends BaseController{
 			$email = $_POST['email'];
 			$password = $_POST['password'];
 			
-			if(strpos($email, '.dr@')){
+			if(strpos($email, '@dr')){
 				//Doctor Email
 				
 				if($this->doctorUser($email, $password)){
@@ -43,7 +43,7 @@ class Login extends BaseController{
 					$_SESSION['isDoctor'] = true;
 					
 					//go to Doctor Controller
-					return redirect()->to('Doctor/courses');
+					return redirect()->to('Doctor/dashboard');
 				}
 				
 			}elseif(strpos($email, '@admin')){

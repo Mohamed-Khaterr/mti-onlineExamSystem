@@ -24,6 +24,7 @@
 	<?php if(isset($result)): ?>
 		<table style="width:100%">
 			<tr>
+				<th>Verified </th>
 				<th>Exam for Course</th>
 				<th>Title</th>
 				<th>Type</th>
@@ -36,18 +37,35 @@
 			<?php foreach($result as $row): ?>
 				<form method="POST">
 				<?php echo csrf_field(); ?>
-					<tr>
-						<td><?= $course_title ?></td>
-						<td><?= $row->exam_title ?></td>
-						<td><?= $row->exam_type ?></td>
-						<td><?= $row->no_of_questions ?></td>
-						<td><?= $row->total_grade?></td>
-						<td><?= $row->exam_duration ?></td>
-						<td><?= $row->exam_date_time ?></td>
-						<td><?= $row->exam_date_of_creation ?></td>
-						<td><button name="showExam" value="<?php echo $row->exam_id ?>" class="btn btn-light"> Show </button></td>
-						<td><button name="editExam" value="<?php echo $row->exam_id ?>" class="btn btn-secondary"> Edit </button></td>
-					</tr>
+					<?php if($row->admin_verified == 'true'): ?>
+						<tr> 
+							<td> YES </td>
+							<td><?= $course_title ?></td>
+							<td><?= $row->exam_title ?></td>
+							<td><?= $row->exam_type ?></td>
+							<td><?= $row->no_of_questions ?></td>
+							<td><?= $row->total_grade?></td>
+							<td><?= $row->exam_duration ?></td>
+							<td><?= $row->exam_date_time ?></td>
+							<td><?= $row->exam_date_of_creation ?></td>
+							<td><button name="showExam" value="<?php echo $row->exam_id ?>" class="btn btn-light"> Show </button></td>
+							<td><button name="editExam" value="<?php echo $row->exam_id ?>" class="btn btn-secondary"> Edit </button></td>
+						</tr>
+					<?php else: ?>
+						<tr> 
+							<td> NO </td>
+							<td><?= $course_title ?></td>
+							<td><?= $row->exam_title ?></td>
+							<td><?= $row->exam_type ?></td>
+							<td><?= $row->no_of_questions ?></td>
+							<td><?= $row->total_grade?></td>
+							<td><?= $row->exam_duration ?></td>
+							<td><?= $row->exam_date_time ?></td>
+							<td><?= $row->exam_date_of_creation ?></td>
+							<td><button name="showExam" value="<?php echo $row->exam_id ?>" class="btn btn-light"> Show </button></td>
+							<td><button name="editExam" value="<?php echo $row->exam_id ?>" class="btn btn-secondary"> Edit </button></td>
+						</tr>
+					<?php endif; ?>
 				</form>
 			<?php endforeach; ?>
 		</table>

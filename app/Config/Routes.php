@@ -40,10 +40,18 @@ $routes->setAutoRoute(false);
 
 //Login Routes
 
+/* Route to WebSocket When try to start the server */
+$routes->add('server/index', 'Server::index');// to Run server
+
+$routes->add('test', 'Test::index');
+
+
+
 
 $routes->add('/', 'Login', ['filter' => 'noauth']);
 $routes->add('Login', 'Login', ['filter' => 'noauth']);
 $routes->add('Login/index', 'Login::index', ['filter' => 'noauth']);
+$routes->add('login', 'Login::index', ['filter' => 'noauth']);
 $routes->add('/Logout', 'Login::logout');
 
 //Doctor Routes
@@ -51,14 +59,26 @@ $routes->add('Doctor', 'Doctor::courses', ['filter' => 'auth']);
 $routes->add('Doctor/courses', 'Doctor::courses', ['filter' => 'auth']);
 $routes->add('Doctor/edit', 'Doctor::editProfile', ['filter' => 'auth']);
 $routes->add('Doctor/profile', 'Doctor::profile', ['filter' => 'auth']);
-$routes->add('Doctor/createexam', 'Doctor::createExam', ['filter' => 'auth']);
+$routes->add('Doctor/create-exam', 'Doctor::createExam', ['filter' => 'auth']);
 $routes->add('Doctor/exam', 'Doctor::exam', ['filter' => 'auth']);
 $routes->add('Doctor/exam/(:any)', 'Doctor::question/$1', ['filter' => 'auth']);
 $routes->add('Doctor/exam-edit', 'Doctor::examEdit', ['filter' => 'auth']);
 $routes->add('Doctor/question-edit', 'Doctor::editQuestion', ['filter' => 'auth']);
 
+
+//new
+$routes->add('Doctor/dashboard', 'Doctor::dashboard', ['filter' => 'auth']);
+$routes->add('Doctor/create-question', 'Doctor::createQuestions', ['filter' => 'auth']);
+$routes->add('Doctor/exams', 'Doctor::exams', ['filter' => 'auth']);
+
 //Admin Routes
 $routes->add('Admin', 'Admin', ['filter' => 'auth']);
+$routes->add('Admin/create-exam', 'Admin::createExam', ['filter' => 'auth']);
+$routes->add('Admin/current-exam', 'Admin::currentExam', ['filter' => 'auth']);
+$routes->add('Admin/live-exam/(:any)/(:any)/(:any)', 'Admin::liveExam/$1/$2/$3', ['filter' => 'auth']);
+$routes->add('Admin/verify-exams', 'Admin::verifyExams',['filter' => 'auth']);
+$routes->add('Admin/profile', 'Admin::profile',['filter' => 'auth']);
+
 
 
 //Weal Routes

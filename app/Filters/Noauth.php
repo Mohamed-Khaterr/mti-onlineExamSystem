@@ -18,10 +18,8 @@ class Noauth implements FilterInterface
 				
 			}elseif(session()->get('isStudent')){
 				return redirect()->to('student');
-				
 			}
-          
-        }
+		}
 
     }
 
