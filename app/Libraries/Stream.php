@@ -84,7 +84,16 @@ class Stream implements MessageComponentInterface {
     public function onClose(ConnectionInterface $conn) {
         // The connection is closed, remove it, as we can no longer send it messages
         $this->clients->detach($conn);
-
+		
+		// Delete All connection form connections Table
+		$connModel = new ConnectionsModel();
+        $connModel->where('connection_resource_id', $conn->resourceId)->delete();
+        $student = $connModel->findAll();
+        $student = ['student' => $student];
+        foreach ($this->clients as $client) {
+            $client->send(json_encode($student));
+        }
+		
         echo "Connection {$conn->resourceId} has disconnected\n";
     }
 

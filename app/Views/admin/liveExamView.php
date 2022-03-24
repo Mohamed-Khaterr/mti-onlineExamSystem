@@ -92,27 +92,26 @@
 								<th>Status</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="test">
+								
+								<!--
 								<tr>
 									<td>
-										<img src="<?=base_url() ?>/module/admin/img/people.png">
 										<p>Mohamed Khater</p>
 									</td>
-									<!--<td> <button> See </button></td>-->
+									<!--<td> <button> See </button></td>
 									<td><span class="status completed">Not Cheating</span></td>
 								</tr>
 
 							
 							<tr>
 								<td>
-									<img src="<?=base_url() ?>/module/admin/img/people.png">
 									<p>Fady victor</p>
 								</td>
 								
 								<td><span class="status pending">Cheating</span></td>
 							</tr>
-							
-							
+							-->
 						</tbody>
 					</table>
 				</div>
@@ -163,6 +162,28 @@
 		// Start Connection
 		conn.onopen = function(e) {
 			console.log("Admin is in Connection :)");
+		};
+		
+		// receive  Data
+		conn.onmessage = function(e) {
+			
+			/* NEW */
+			var data = JSON.parse(e.data);
+			if('student' in data){
+				console.log(data['student']);
+				const students = data['student'];
+				students.forEach(myFunction);
+				 
+				function myFunction(item, index) {
+					console.log(item['connection_name']);
+					//document.getElementById("studentName").innerHTML = item['connection_name'];
+					
+					var html = "<tr><td><p> " + item['connection_name'] + "</p></td><td><span class='status pending'>Cheating</span></td></tr>";
+					
+					document.getElementById("test").innerHTML += html;
+					
+				}
+			}
 		};
 		
 	</script>

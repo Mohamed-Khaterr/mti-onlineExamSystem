@@ -42,7 +42,7 @@ echo '<pre style="text-align: center;">';
 	
 	// Start Connection
 	conn.onopen = function(e) {
-		console.log("Connection established! Now We are live :) ;) ");
+		console.log("(Studnet) Connection established! Now We are live :) ;) ");
 	};
 	
 		
@@ -55,7 +55,7 @@ echo '<pre style="text-align: center;">';
 		/* NEW */
 		var data = JSON.parse(e.data);
 		if('student' in data){
-			console.log(data);
+			console.log(data['student']['connection_name']);
 		}
 	};
 	
