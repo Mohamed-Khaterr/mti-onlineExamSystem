@@ -23,10 +23,14 @@ class Doctor extends BaseController{
 		$data['title'] = 'Courses';
 		
 		$data['courses']= $this->doctor->getCourses($_SESSION['dr_id']);
-		
+			
 		echo view(HEADER_VIEW, $data);
 		echo view(DR_COURSES, $data);
 		echo view(FOOTER_VIEW);
+		echo '<pre style="text-align: center;">';
+		echo 'isDoctor <br>';
+		print_r('isDoctor: - '. session()->get('isDoctor'));
+		echo '</pre>';
 	}
 	
 	public function dashboard(){

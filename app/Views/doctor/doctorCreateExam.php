@@ -20,7 +20,7 @@
 						<li><i class='bx bx-chevron-right' ></i></li>
 						
 						<li>
-							<a class="active" href="<?= base_url('Doctor/dashboard') ?>">Exams</a>
+							<a class="active" href="<?= base_url('Doctor/exams') ?>">Exams</a>
 						</li>
 						
 						<li><i class='bx bx-chevron-right' ></i>

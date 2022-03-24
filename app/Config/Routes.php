@@ -40,10 +40,18 @@ $routes->setAutoRoute(false);
 
 //Login Routes
 
+/* Route to WebSocket When try to start the server */
+$routes->add('server/index', 'Server::index');// to Run server
+
+$routes->add('test', 'Test::index');
+
+
+
 
 $routes->add('/', 'Login', ['filter' => 'noauth']);
 $routes->add('Login', 'Login', ['filter' => 'noauth']);
 $routes->add('Login/index', 'Login::index', ['filter' => 'noauth']);
+$routes->add('login', 'Login::index', ['filter' => 'noauth']);
 $routes->add('/Logout', 'Login::logout');
 
 //Doctor Routes
@@ -56,6 +64,8 @@ $routes->add('Doctor/exam', 'Doctor::exam', ['filter' => 'auth']);
 $routes->add('Doctor/exam/(:any)', 'Doctor::question/$1', ['filter' => 'auth']);
 $routes->add('Doctor/exam-edit', 'Doctor::examEdit', ['filter' => 'auth']);
 $routes->add('Doctor/question-edit', 'Doctor::editQuestion', ['filter' => 'auth']);
+
+
 //new
 $routes->add('Doctor/dashboard', 'Doctor::dashboard', ['filter' => 'auth']);
 $routes->add('Doctor/create-question', 'Doctor::createQuestions', ['filter' => 'auth']);

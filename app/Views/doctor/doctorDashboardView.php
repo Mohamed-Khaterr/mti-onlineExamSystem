@@ -52,9 +52,9 @@
 					<div class="head">
 						<h3>Courses</h3>
 						<!--<i class='bx bx-search' ></i>-->
-						<div class="dr_search">
-						<input type="search" placeholder=" Search for Course...." onkeyup="searchBar()" id="userInput" name="search">
-				</div>
+						
+							<input type="search" placeholder=" Search for Course...." class="dr_search form-control h-50 w-25  m-3 " onkeyup="searchBar()" id="userInput" name="search">
+						
 					</div>
 					<table id="tableID">
 						<thead>

@@ -167,6 +167,25 @@ class AdminModel extends Model{
 		return $data;
 	}
 	
+	public function getEndTime($id){
+		helper('addTimeToDatetime');
+		
+		$this->builder = $this->db->table("exam");
+		$this->builder->select('exam_date_time, exam_duration')
+					->where('exam_id', $id);
+					
+		$result = $this->builder->get()->getResult();
+		
+		$data;
+		
+		foreach($result as $row){
+			$examEndTime = addTimeToDatetime($row->exam_date_time, $row->exam_duration);
+			$data = date("Y-m-d H:i:s", strtotime($examEndTime));
+		}
+		
+		return $data;
+	}
+	
 	
 	public function verifiedExams(){
 		$this->builder = $this->db->table("exam");

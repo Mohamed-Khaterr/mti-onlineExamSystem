@@ -116,8 +116,53 @@
 						</tbody>
 					</table>
 				</div>
+				
+				<div class="todo">
+					<div class="head">
+						<h3>Time Remaning</h3>
+					</div>
+					<br />
+					<h2 id="time" style="text-align: center;"></h2>
+					<h1 id="endTime"></h1>
+				</div>
 			</div>
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
+	
+	
+	<script>
+		const endTime = new Date("<?= $endTime ?>").getTime();
+		
+		setInterval(function () {
+			
+			
+			var now = new Date().getTime();
+			var timeleft = endTime - now;
+			
+			var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+			
+			if (seconds >= 0){
+				document.getElementById('time').innerHTML = hours + ":" + minutes + ":" + seconds;
+			}else{
+				document.getElementById('time').innerHTML = "Exam End";
+				clearInterval();
+				
+			}	
+		}, 
+		1000);
+		
+		
+		/* Web Socket */
+		
+		var conn = new WebSocket("ws://192.168.1.4:8080?access_token=" );
+	
+		// Start Connection
+		conn.onopen = function(e) {
+			console.log("Admin is in Connection :)");
+		};
+		
+	</script>

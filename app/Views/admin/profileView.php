@@ -53,13 +53,13 @@
 			</li>
 			<li class="">
 				<a href="<?= base_url('Admin/current-exam') ?>">
-					<i class='bx bxs-group' ></i>
+					<i class='bx bxs-news' ></i>
 					<span class="text">Current Exams</span>
 				</a>
 			</li>
 			<li>
 				<a href="<?= base_url('Admin/verify-exams') ?>">
-					<i class='bx bxs-doughnut-chart' ></i>
+					<i class='bx bx-task' ></i>
 					<span class="text">Verify Exams</span>
 				</a>
 			</li>
@@ -67,7 +67,7 @@
 
 			<li class="active">
 				<a href="<?= base_url('Admin/profile') ?>">
-					<i class='bx bxs-cog' ></i>
+					<i class='bx bxs-group' ></i>
 					<span class="text">Profile</span>
 				</a>
 			</li>
@@ -81,7 +81,7 @@
 		<ul class="side-menu p-0">
 			<li>
 				<a href="<?= base_url('Logout') ?>" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
+					<i class='bx bx-log-out' ></i>
 					<span class="text">Logout</span>
 				</a>
 			</li>
@@ -96,7 +96,7 @@
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<a href="" class="nav-link">Categories</a>
+			<a href="" class="nav-link"><h3>Admin</h3></a>
 			<form action="">
 				<div class="form-input">
 					

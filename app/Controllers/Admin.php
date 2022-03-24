@@ -59,15 +59,17 @@ class Admin extends BaseController{
 		$data = [
 			'sideBar' => 'currentExam',
 			'courseTitle' => $courseTitle,
-			'examTitle' => $examTitle
+			'examTitle' => $examTitle,
+			'endTime' => $this->admin->getEndTime($examID),
 		];
+		
+		
+		//$
 		
 		echo view(ADMIN_HEADER_VIEW, $data);
 		echo view('admin/liveExamView');
 		echo view(ADMIN_FOOTER_VIEW);
 	}
-	
-	
 	
 	
 	public function verifyExams(){

@@ -70,18 +70,21 @@
 					
 					
 					<!-- -->
-					<div class="head">
-						<h3>Exams</h3>
-						<!--<i class='bx bx-search' ></i>-->
-						<form method="POST"><?= csrf_field() ?>	
-							<select name="selectedCourse">
-								<?php foreach($courses['courses'] as $course): ?>
-									<option value="<?= $course['id'] ?>"><?= $course['title'] ?></option>
-								<?php endforeach; ?>
-							</select>
-							<button name="showExams">Show<button>
-						</form>
-					</div>
+					<form method="POST"><?= csrf_field() ?>	
+						<div class="head">
+							<h3>Exams</h3>
+							<!--<i class='bx bx-search' ></i>-->
+							<div>
+								<select name="selectedCourse" class="form-select">
+									<?php foreach($courses['courses'] as $course): ?>
+										<option value="<?= $course['id'] ?>"><?= $course['title'] ?></option>
+									<?php endforeach; ?>
+								</select>
+							</div>
+							<button name="showExams" class="head btn btn-primary">Show</button>
+						</div>
+						
+					</form>
 					
 					
 					<table>

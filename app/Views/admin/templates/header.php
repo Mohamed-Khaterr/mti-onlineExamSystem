@@ -15,26 +15,12 @@
 	
 
 	<title>Online Exam System</title>
-	
 </head>
 <body>
 
 <?php
-	$dashboard = false;
-	$currentExam = false;
-	$createExam = false;
-	$profile = false;
-	$verifyExams = false;
-	
-	if($sideBar == 'dashboard'){
-		$dashboard = true;
-	}elseif ($sideBar == 'currentExam'){
-		$currentExam = true;
-	}elseif ($sideBar == 'profile'){
-		$profile = true;
-	}elseif ($sideBar == 'verifyExams'){
-		$verifyExams = true;
-	}
+	// get uri to get second Segment
+	$uri = service('uri');
 	
 ?>
 
@@ -45,31 +31,31 @@
 			<span class="text">MTI UNVERSITY</span>
 		</a>
 		<ul class="side-menu top">
-			<li class="<?php echo $dashboard ? "active": ""?>">
+			<li class="<?= $uri->getSegment(2) == ''? "active": null  ?>">
 				<a href="<?= base_url('Admin') ?>">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			
-			<li class="<?php echo $currentExam ? "active":"" ?>">
+			<li class="<?= $uri->getSegment(2) == 'current-exam' ? "active" : null  ?>">
 				<a href="<?= base_url("Admin/current-exam") ?>">
-					<i class='bx bxs-group' ></i>
+					<i class='bx bxs-news' ></i>
 					<span class="text">Current Exams</span>
 				</a>
 			</li>
 			
-			<li class="<?php echo $verifyExams ? "active":"" ?>">
+			<li class="<?= $uri->getSegment(2) == 'verify-exams' ? "active" : null  ?>">
 				<a href="<?= base_url('Admin/verify-exams') ?>">
-					<i class='bx bxs-doughnut-chart' ></i>
+					<i class='bx bx-task' ></i>
 					<span class="text">Verify Exams</span>
 				</a>
 			</li>
 
 
-			<li class="<?php echo $profile ? "active":"" ?>">
+			<li class="<?= $uri->getSegment(2) == 'profile' ? "active" : null  ?>">
 				<a href="<?= base_url("Admin/profile") ?>">
-					<i class='bx bxs-cog' ></i>
+					<i class='bx bxs-group' ></i>
 					<span class="text">Profile</span>
 				</a>
 			</li>
@@ -83,7 +69,7 @@
 			
 			<li>
 				<a href="<?= base_url("Logout") ?>" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
+					<i class='bx bx-log-out' ></i>
 					<span class="text">Logout</span>
 				</a>
 			</li>
@@ -98,7 +84,7 @@
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<a href="" class="nav-link">Categories</a>
+			<a href="" class="nav-link"><h3>Admin</h3></a>
 			<form action="">
 				<div class="form-input">
 					
@@ -111,8 +97,12 @@
 				<i class='bx bxs-bell' ></i>
 				<span class="num">8</span>
 			</a>
+			<div>
+			</div>
+			<!--
 			<a href="<?= base_url() ?>/Admin/profile" class="profile">
 				<img src="<?= base_url() ?>/module/admin/assets/img/profile-img.jpg">
 			</a>
+			-->
 		</nav>
 		<!-- NAVBAR -->

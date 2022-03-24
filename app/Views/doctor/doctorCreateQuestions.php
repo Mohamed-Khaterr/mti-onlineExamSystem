@@ -50,6 +50,11 @@
 				<div class="head">
 					<h3>  Question Type </h3>
 				</div>
+				
+					<div style="text-align: center;">
+						<?= isset($error) ? 'Error!' : "" ?>
+					</div>
+				
 
 				<div class="col-md-3">
 					<label for="inputState" class="form-label">Exams </label>
