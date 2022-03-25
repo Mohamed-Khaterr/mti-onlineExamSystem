@@ -76,12 +76,13 @@
 							<!--<i class='bx bx-search' ></i>-->
 							<div>
 								<select name="selectedCourse" class="form-select">
+									<option selected disabled> Choose Course...</option>
 									<?php foreach($courses['courses'] as $course): ?>
 										<option value="<?= $course['id'] ?>"><?= $course['title'] ?></option>
 									<?php endforeach; ?>
 								</select>
 							</div>
-							<button name="showExams" class="head btn btn-primary">Show</button>
+							<button name="showExams" class="btn btn-primary">Show</button>
 						</div>
 						
 					</form>
@@ -103,38 +104,39 @@
 						<tbody>
 							<?php if(isset($exams)): ?>
 								<?php foreach($exams as $exam): ?>
-									<tr>
-										<td style="text-align: center;"><?= $exam['course_title'] ?></td>
-										
-										<td><?= $exam['title'] ?></td>
-										
-										<td><?= $exam['type'] ?></td>
-										
-										<td><?= $exam['dateTime'] ?></td>
-										
-										<td><?= $exam['duration'] ?></td>
-										
-										<td><?= $exam['total_grade'] ?></td>
-										
-										<td><?= $exam['admin_verified'] ? "YES" : "NO" ?></td>
-										
-										<td>
-										
-										
-											<a href="<?= base_url('Doctor/show-exam/'. $exam['id'])?>" title="Show Exam">
-												<button class="btn btn-primary btn-sm" style="border: none;">Show</button> 
-											</a>
+									<form method="POST">
+										<?= csrf_field() ?>
+										<tr>
+											<td style="text-align: center;"><?= $exam['course_title'] ?></td>
+											
+											<td><?= $exam['title'] ?></td>
+											
+											<td><?= $exam['type'] ?></td>
+											
+											<td><?= $exam['dateTime'] ?></td>
+											
+											<td><?= $exam['duration'] ?></td>
+											
+											<td><?= $exam['total_grade'] ?></td>
+											
+											<td><?= $exam['admin_verified'] ? "YES" : "NO" ?></td>
+											
+											<td>
 											
 											
-											<a href="<?= base_url('Doctor/update-exam/'. $exam['id'])?>" title="Edit Exam">
-												<button class="btn btn-primary btn-sm" style="border: none;"> Edit </button> 
-											</a>
-											
-											<button type="button" class="btn btn-danger btn-sm" onclick="display()">Delete</button>
-										</td>
-										
-										
-									</tr>
+												<a href="<?= base_url('Doctor/show-exam/'. $exam['id'])?>" title="Show Exam">
+													<button type="button" class="btn btn-primary btn-sm" style="border: none;">Show</button> 
+												</a>
+												<a href="<?= base_url('Doctor/edit-exam/'. $exam['id'])?>" title="Edit Exam">
+													<button type="button" class="btn btn-primary btn-sm" style="border: none;" value="<?= $exam['id'] ?>"> Edit </button> 
+												</a>
+												
+												<a href="" title="Delete Perminatly">
+													<button name="deleteExam" type="submit" class="btn btn-danger btn-sm" value="<?= $exam['id'] ?>">Delete</button>
+												</a>
+											</td>
+										</tr>
+									</form>
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</tbody>
@@ -143,46 +145,7 @@
 			</div>
 			
 			
-			<!-- Section -->
-			
-			<section id="fixedBox" class=" w-100 vh-100 d-flex align-items-center justify-content-center d-none">
-
-				<div id="smallBox" class=" bg-body  w-75 h-75">
-				
-					<i id="closeBtn" class=" bx bxs-x-circle mt-2" ></i>
-					
-					<div class="d-flex w-100  flex-wrap" id="">
-
-
-						<div class=" w-100  d-flex justify-content-between m-1   ">  
-							<h2 class="m-3 ">Deleting Exam</h2>
-						</div>
-
-
-
-						<div class="  w-100 h-auto  m-2" style="text-align: center;">
-
-							<h1> Are you sure that you want to DELETE exam Permanently! </h1>
-									
-							<br /><br />
-							<form method="POST">
-								<?= csrf_field() ?>
-								<button name="deleteExam" type="submit" class="btn btn-danger"> YES </button> 
-								<button type="submit" class="btn btn-primary "> NO </button>
-							</form>
-						</div>
-
-					</div>
-				</div>
-
-			</section>
-			
-			<!-- End Section -->
-			
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
-	
-	
-	

@@ -52,7 +52,8 @@
 				</div>
 				
 					<div style="text-align: center;">
-						<?= isset($error) ? 'Error!' : "" ?>
+						<?= isset($error) ? 'Error!' : null ?>
+						<?= isset($noErrors) ? $noErrors : null ?>
 					</div>
 				
 
@@ -62,7 +63,7 @@
 						<option disabled selected>Choise...</option>
 						
 						<?php foreach($exams as $exam): ?>
-							<option value="<?= $exam['id'] ?>"><?= $exam['title'] ?></option>
+							<option value="<?= $exam['id'] ?>"><?= $exam['course_title'] ?> - <?= $exam['title'] ?> </option>
 						<?php endforeach; ?>
 
 					</select>

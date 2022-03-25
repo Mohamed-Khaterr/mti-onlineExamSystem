@@ -78,8 +78,6 @@ class Login extends BaseController{
 		}
 		
 		echo view(LOGIN_VIEW, $this->data);
-		echo view(FOOTER_VIEW);
-		
     }
 	
 	//-------------------------------------------------------------------------------------------------------

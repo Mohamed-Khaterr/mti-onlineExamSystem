@@ -86,7 +86,7 @@
 										<p><?= $student ?></p>
 									</td>
 									<!--<td> <button> See </button></td>-->
-									<td><span class="status completed">Not Cheating</span></td>
+									<td><span class="status completed">Online</span></td>
 								</tr>
 							<?php endforeach; ?>
 

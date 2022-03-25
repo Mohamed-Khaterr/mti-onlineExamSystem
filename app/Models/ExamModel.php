@@ -18,7 +18,18 @@ class ExamModel extends Model{
 	public function getExams($doctor_id){
 		$this->builder = $this->db->table("exam");
 		
-		$this->builder->where('doctor_id',$doctor_id);
+		$this->builder->select('exam_id, 
+								exam_title, 
+								exam_type, 
+								exam_duration,
+								exam_date_time,
+								total_grade,
+								admin_verified,
+								course_title,
+								')
+					->where('doctor_id',$doctor_id)
+					->join('course', 'course.course_id = exam.course_id');
+					
 		$result = $this->builder->get()->getResult();
 		
 		$data = array();
@@ -28,7 +39,7 @@ class ExamModel extends Model{
 				'id' => $row->exam_id ,
 				'title' => $row->exam_title,
 				'type' => $row->exam_type,
-				'course_id' => $row->course_id ,
+				'course_title' => $row->course_title ,
 				'duration' => $row->exam_duration,
 				'total_grade' => $row->total_grade,
 				'dateTime' => $row->exam_date_time,
@@ -150,6 +161,13 @@ class ExamModel extends Model{
 		$this->builder = $this->db->table("question");
 		
 		$this->builder->where('question_id', $question_id)->delete();
+	}
+	
+	public function deleteExam($exam_id){
+		$this->builder = $this->db->table("exam");
+		$this->builder->join('question', 'question.exam_id = exam.exam_id')
+					->where('exam.exam_id', $exam_id)
+					->delete();
 	}
 	
 	

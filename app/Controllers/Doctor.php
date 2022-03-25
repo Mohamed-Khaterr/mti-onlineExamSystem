@@ -15,6 +15,7 @@ class Doctor extends BaseController{
     }
 	
 	//-------------------------------------------------------------------------------------------------------
+	// Dashboar ---------------------------------------------------------------------------------------------
 	
 	public function dashboard(){
 		$data = [
@@ -29,6 +30,7 @@ class Doctor extends BaseController{
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
+	// DR Profile -------------------------------------------------------------------------------------------
 	
 	public function profile(){
 		$data = [
@@ -87,6 +89,7 @@ class Doctor extends BaseController{
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
+	// Create Exam Details ----------------------------------------------------------------------------------
 	
 	public function createExam(){
 		$data =[
@@ -115,6 +118,8 @@ class Doctor extends BaseController{
 				$this->request->getPost('dateTime'), 
 				$this->request->getPost('total_grade')
 			);
+			
+			$data['noErrors'] = "Exam Saved Successfuly :)";
 		}else{
 			$data['error'] = $this->validation->getErrors();
 		}
@@ -126,11 +131,11 @@ class Doctor extends BaseController{
 		echo view(DR_FOOTER_VIEW);
 	}
 	
+	//-------------------------------------------------------------------------------------------------------
+	// Create Questions for Exam ----------------------------------------------------------------------------
 	
 	public function createQuestions(){
 		$data =[
-			'sideBar' => 'createQuestion',
-			'courseTitle' => $this->doctor->getCourses($_SESSION['dr_id']),
 			'exams' => $this->exam->getExams($_SESSION['dr_id']),
 		];
 		
@@ -152,7 +157,7 @@ class Doctor extends BaseController{
 					$this->request->getPost('tfGrade'), 
 					$question_choices = null
 				);
-				
+				$data['noErrors'] = "Question Saved Successfuly :)";
 			}else{
 				$data['error'] = $this->validation->getErrors();
 			}
@@ -188,9 +193,11 @@ class Doctor extends BaseController{
 		echo view(DR_FOOTER_VIEW);
 	}
 	
+	//-------------------------------------------------------------------------------------------------------
+	// Show Exams in Exams Page -----------------------------------------------------------------------------
+	
 	public function exams(){
 		$data =[
-			'sideBar' => 'exams',
 			'courses' => $this->doctor->getCourses($_SESSION['dr_id']),
 			'examsCount' => count($this->exam->getExams($_SESSION['dr_id'])),
 		];
@@ -200,12 +207,17 @@ class Doctor extends BaseController{
 			$data['exams'] = $this->doctor->getExamsOfDoctor($course_id, $_SESSION['dr_id']);
 		}
 		
+		if(isset($_POST['deleteExam'])){
+			$this->exam->deleteExam($_POST['deleteExam']);
+		}
+		
 		echo view(DR_HEADER_VIEW, $data);
 		echo view(SHOW_EXAM);
 		echo view(DR_FOOTER_VIEW);
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
+	// Show Questions of Exams ------------------------------------------------------------------------------
 	
 	public function showExamQuestions($exam_id){
 		$data = [
@@ -225,6 +237,17 @@ class Doctor extends BaseController{
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
+	// Edit Exam Details ----------------------------------------------------------------------------------
 	
+	public function editExam($exam_id){
+		$data = [
+			'exam' => $this->exam->getExam($exam_id),
+			'courseTitle' => $this->doctor->getCourses($_SESSION['dr_id']),
+		];
+		
+		echo view(DR_HEADER_VIEW, $data);
+		echo view('doctor/exam/editExam');
+		echo view(DR_FOOTER_VIEW);
+	}
 	
 }

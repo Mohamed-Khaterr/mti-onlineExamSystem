@@ -63,7 +63,7 @@
                             
                         </div>
                         
-                        
+                        <h3 style="text-align: center;"><?= isset($noErrors) ? $noErrors : null ?></h3>
 
 
                             <form method="POST" class="row g-3">
@@ -136,7 +136,7 @@
                                   <button name="save" type="submit" class="btn btn-primary">Save</button>
                                 </div>
                               </form>
-							</div>
+					</div>
 
 
 				</div>

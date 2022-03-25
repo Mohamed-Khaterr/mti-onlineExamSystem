@@ -21,8 +21,9 @@ class DoctorModel extends Model{
 	public function getCourses($doctor_id){
 		$this->builder = $this->db->table("course");
 		
-		$this->builder->join('course_doctor','course.course_id = course_doctor.course_id')
-                          ->where('course_doctor.doctor_id',$doctor_id);
+		$this->builder
+					->join('course_doctor','course.course_id = course_doctor.course_id')
+					->where('course_doctor.doctor_id',$doctor_id);
 		$query = $this->builder->get();
 		
 		$result = $query->getResult();

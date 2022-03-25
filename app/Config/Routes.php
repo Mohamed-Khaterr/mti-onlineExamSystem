@@ -42,7 +42,6 @@ $routes->setAutoRoute(false);
 
 /* Route to WebSocket When try to start the server */
 $routes->add('server/index', 'Server::index');// to Run server
-
 $routes->add('test', 'Test::index');
 
 
@@ -62,19 +61,14 @@ $routes->add('Doctor/create-exam', 'Doctor::createExam', ['filter' => 'auth']);
 $routes->add('Doctor/create-question', 'Doctor::createQuestions', ['filter' => 'auth']);
 $routes->add('Doctor/exams', 'Doctor::exams', ['filter' => 'auth']);
 $routes->add('Doctor/profile', 'Doctor::profile', ['filter' => 'auth']);
-
 $routes->add('Doctor/show-exam/(:any)', 'Doctor::showExamQuestions/$1', ['filter' => 'auth']);
-
-
-$routes->add('Doctor/exam/(:any)', 'Doctor::question/$1', ['filter' => 'auth']);
-$routes->add('Doctor/exam-edit', 'Doctor::examEdit', ['filter' => 'auth']);
-$routes->add('Doctor/question-edit', 'Doctor::editQuestion', ['filter' => 'auth']);
-
+$routes->add('Doctor/edit-exam/(:any)', 'Doctor::editExam/$1', ['filter' => 'auth']);
 
 
 
 //Admin Routes
-$routes->add('Admin', 'Admin', ['filter' => 'auth']);
+$routes->add('Admin', 'Admin::index', ['filter' => 'auth']);
+$routes->add('Admin/dashboard', 'Admin::index', ['filter' => 'auth']);
 $routes->add('Admin/create-exam', 'Admin::createExam', ['filter' => 'auth']);
 $routes->add('Admin/current-exam', 'Admin::currentExam', ['filter' => 'auth']);
 $routes->add('Admin/live-exam/(:any)/(:any)/(:any)', 'Admin::liveExam/$1/$2/$3', ['filter' => 'auth']);
