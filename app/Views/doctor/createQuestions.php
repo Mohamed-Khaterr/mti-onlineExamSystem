@@ -165,12 +165,12 @@
 				</div>
 
 
-				<div class="d-flex justify-content-between mt-3">
+				<div class="d-flex justify-content-between mt-3" id="addChoice">
 					<div class="col-md-3">
 						<label for="inputCity" class="form-label">Option : 1 </label>
 						<input name="options[]" type="text" class="form-control" id="inputCity">
 					</div>
-
+					
 					<div class="col-md-3">
 						<label for="inputCity" class="form-label">Option : 2</label>
 						<input name="options[]" type="text" class="form-control" id="inputCity">
@@ -180,8 +180,6 @@
 						<label for="inputCity" class="form-label">Option : 3</label>
 						<input name="options[]" type="text" class="form-control" id="inputCity">
 					</div>
-
-					<div id="addChoice"></div>
 					
 					<?= isset($error['options']) ? "There is empty Option":"" ?>
 				</div>
@@ -206,7 +204,7 @@
 
 				<div class="d-flex justify-content-between mt-4">
 					<div class=" ">
-						<button type="submit" class="btn btn-primary" onclick="addChoice()">Add Choise </button>
+						<button type="button" class="btn btn-primary" onclick="addChoice()">Add Choise </button>
 						<button name="saveChoose" type="submit" class="btn btn-primary">Save</button>
 					</div>
 				</div>

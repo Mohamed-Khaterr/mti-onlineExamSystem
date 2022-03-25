@@ -15,6 +15,89 @@ class ExamModel extends Model{
 	
 	//-------------------------------------------------------------------------------------------------------
 	
+	public function getExams($doctor_id){
+		$this->builder = $this->db->table("exam");
+		
+		$this->builder->where('doctor_id',$doctor_id);
+		$result = $this->builder->get()->getResult();
+		
+		$data = array();
+		
+		foreach($result as $row){
+			$dataRow = [
+				'id' => $row->exam_id ,
+				'title' => $row->exam_title,
+				'type' => $row->exam_type,
+				'course_id' => $row->course_id ,
+				'duration' => $row->exam_duration,
+				'total_grade' => $row->total_grade,
+				'dateTime' => $row->exam_date_time,
+				'admin_verified' => $row->admin_verified,
+			];
+			
+			array_push($data, $dataRow);
+		}
+		
+		return $data;
+	}
+	
+	//-------------------------------------------------------------------------------------------------------
+	
+	public function getExam($exam_id){
+		$this->builder = $this->db->table("exam");
+		
+		$this->builder->join('course', 'course.course_id = exam.course_id')
+					->where('exam.exam_id',$exam_id);
+		$result = $this->builder->get()->getResult();
+		
+		$data;
+		
+		foreach($result as $row){
+			$dataRow = [
+				'id' => $row->exam_id ,
+				'title' => $row->exam_title,
+				'type' => $row->exam_type,
+				'course_name' => $row->course_title ,
+				'duration' => $row->exam_duration,
+				'total_grade' => $row->total_grade,
+				'dateTime' => date("F j, Y - g:i a", strtotime($row->exam_date_time)),
+				'admin_verified' => $row->admin_verified,
+			];
+			
+			//array_push($data, $dataRow);
+			$data = $dataRow;
+		}
+		
+		return $data;
+	}
+	
+	public function getExamQuestions($exam_id){
+		$this->builder = $this->db->table("question");
+		
+		$this->builder->where('exam_id',$exam_id);
+		
+		$result = $this->builder->get()->getResult();
+		
+		$data = array();
+		
+		foreach($result as $row){
+			$dataRow = [
+				'id' => $row->question_id,
+				'question' => $row->question_description,
+				'answer' => $row->question_answer,
+				'type' => $row->question_type,
+				'options' => explode('#@', $row->question_choices),
+				'mark' => $row->question_grade,
+			];
+			
+			array_push($data, $dataRow);
+		}
+		
+		return $data;
+	}
+	
+	//-------------------------------------------------------------------------------------------------------
+	
 	public function createExam($doctor_id,$course_id, $examTitle, $examType, $examDuration, $examDateTime, $totalGrade){
 		$this->builder = $this->db->table("exam");
 		$data = [
@@ -62,7 +145,7 @@ class ExamModel extends Model{
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
-	
+	/*
 	public function getExam($doctor_id, $course_id = null){
 		$this->builder = $this->db->table("exam");
 		$this->builder->where('doctor_id', $doctor_id);
@@ -80,65 +163,13 @@ class ExamModel extends Model{
 			return null;
 		}
 	}
+	*/
 	
-	public function getExams($id){
-		$this->builder = $this->db->table("exam");
-		
-		$this->builder->where('doctor_id',$id);
-		$result = $this->builder->get()->getResult();
-		
-		$data = array();
-		
-		foreach($result as $row){
-			$dataRow = [
-				'id' => $row->exam_id ,
-				'title' => $row->exam_title,
-				'type' => $row->exam_type,
-				'course_id' => $row->course_id ,
-				'duration' => $row->exam_duration,
-				'total_grade' => $row->total_grade,
-				'dateTime' => $row->exam_date_time,
-				'admin_verified' => $row->admin_verified,
-			];
-			
-			array_push($data, $dataRow);
-		}
-		
-		return $data;
-	}
 	
-	public function getExamsOfDoctor($course_id, $doctor_id){
-		$this->builder = $this->db->table("exam");
-		
-		$this->builder->join('course', 'course.course_id = exam.course_id')
-					->where('exam.course_id', $course_id)
-					->where('doctor_id', $doctor_id);
-		
-		$result = $this->builder->get()->getResult();
-		
-		
-		$data = array();
-		
-		foreach($result as $row){
-			$dataRow = [
-				'id' => $row->exam_id ,
-				'title' => $row->exam_title,
-				'type' => $row->exam_type,
-				'course_title' => $row->course_title ,
-				'duration' => date("g:i", strtotime($row->exam_duration)),
-				'total_grade' => $row->total_grade,
-				'dateTime' => date("F j, Y - g:i a", strtotime($row->exam_date_time)),
-				'admin_verified' => $row->admin_verified,
-			];
-			
-			array_push($data, $dataRow);
-		}
-		
-		return $data;
-	}
+	
 	
 	//-------------------------------------------------------------------------------------------------------
-	
+	/*
 	public function getExamWithId($exam_id){
 		$this->builder = $this->db->table("exam");
 		$this->builder->where('exam_id', $exam_id);
@@ -168,22 +199,12 @@ class ExamModel extends Model{
 		
 		$this->builder->update($data);
 	}
-	
+	*/
 	//-------------------------------------------------------------------------------------------------------
 	
-	public function deleteExam($exam_id){
-		$this->builder = $this->db->table("question");
-		$this->builder->where('exam_id', $exam_id);
-		$this->builder->delete();
-		
-		
-		$this->builder = $this->db->table("exam");
-		$this->builder->where('exam_id', $exam_id);
-		$this->builder->delete();
-	}
 	
 	//-------------------------------------------------------------------------------------------------------
-	
+	/*
 	public function getQuestion($examID){
 		$this->builder = $this->db->table("question");
 		$this->builder->where('exam_id', $examID);
@@ -243,6 +264,8 @@ class ExamModel extends Model{
 		$this->builder->delete();
 		
 	}
+	*/
+	
 	
 	//-------------------------------------------------------------------------------------------------------
 	//Wael Function --------------------------

@@ -56,7 +56,7 @@ class Stream implements MessageComponentInterface {
 			$liveStudent = ['student' => $live];
 			// send new user connection as json 
 			foreach($this->clients as $client){
-				$client->send(json_encode($liveStudent));
+				//$client->send(json_encode($liveStudent));
 			}
 		}
 		

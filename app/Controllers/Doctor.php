@@ -12,105 +12,81 @@ class Doctor extends BaseController{
         $this->doctor = model(DoctorModel::class);
 		$this->exam = model(ExamModel::class);
 		
-		if(session()->get('isDoctor') === null){
-			return redirect()->to(base_url());
-		}
     }
 	
 	//-------------------------------------------------------------------------------------------------------
 	
-	public function courses(){
-		$data['title'] = 'Courses';
-		
-		$data['courses']= $this->doctor->getCourses($_SESSION['dr_id']);
-			
-		echo view(HEADER_VIEW, $data);
-		echo view(DR_COURSES, $data);
-		echo view(FOOTER_VIEW);
-		echo '<pre style="text-align: center;">';
-		echo 'isDoctor <br>';
-		print_r('isDoctor: - '. session()->get('isDoctor'));
-		echo '</pre>';
-	}
-	
 	public function dashboard(){
 		$data = [
 			'doctorCourses' =>  $this->doctor->getCourses($_SESSION['dr_id']),
-			'sideBar' => 'dashboard',
 		];
 		
 		
 		//doctorDashboardView
 		echo view('doctor/t2/header', $data);
-		echo view('doctor/doctorDashboardView');
+		echo view('doctor/dashboard/dashboardView');
 		echo view('doctor/t2/footer');
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
 	
 	public function profile(){
-		$data['title'] = 'Profile';
-		
-		$data['result']= $this->doctor->getProfile($_SESSION['dr_id']);
-		
-		echo view(HEADER_VIEW, $data);
-		echo view(DR_PROFILE);
-		echo view(FOOTER_VIEW);
-	}
-	
-	//-------------------------------------------------------------------------------------------------------
-	
-	public function editProfile(){
-		$data['result']= $this->doctor->getProfile($_SESSION['dr_id']);
-		$data['title'] = 'Edit Profile';
-		$data['fullNameError'] = '';
-		$data['usernameError'] = '';
-		$data['passwordError'] = '';
-		$data['confirmPasswordError'] = '';
-		$data['emailError'] = '';
-		
-		
-		$validationRules = [
-			//name of filed => The rule
-			'email' => 'required|valid_email',
-			'confirmPassword' => 'matches[password]',
-			'fullName' => 'required',
-			'username' => 'required',
-			'gender' => 'required',
-			'birthday' => 'required'
+		$data = [
+			'profile' => $this->doctor->getProfile($_SESSION['dr_id']),
 		];
 		
-		
-		if($this->request->getMethod(true) == 'POST' && $this->validate($validationRules)){
+		if(isset($_POST['saveProfile'])){
+			$validationRules = [
+				'email' => 'required|valid_email',
+				'fullName' => 'required',
+				'BD' => 'required',
+			];
 			
-			$fullName = $this->request->getPost('fullName');
-			$username = $this->request->getPost('username');
-			$password = $this->request->getPost('password');
-			$email = $this->request->getPost('email');
-			$gender = $this->request->getPost('gender');
-			$birthday = $this->request->getPost('birthday');
-		
-			$this->doctor->updateInfo($_SESSION['dr_id'], $fullName, $username, $password, $email, $gender, $birthday);
+			if($this->validate($validationRules)){
+				
+				$this->doctor->updateProfile(
+					$_SESSION['dr_id'], 
+					$_POST['fullName'], 
+					$_POST['email'], 
+					$_POST['BD']
+				);
+				
+				return redirect()->to('Doctor/profile');
+				
+			}else{
+				$data['error'] = $this->validation->getErrors();
+				$data['isErrorInEditProfile'] = 'Error';
+			}
 			
-			return redirect()->to('Doctor/profile');
+		}elseif(isset($_POST['savePasswordChange'])){
+			$validationRules = [
+				'password' => 'required',
+				'newpassword' => 'required',
+				'renewpassword' => 'required|matches[newpassword]',
+			];
 			
-			
-		}else{
-			$data['emailError'] = $this->validation->getError('email');
-			$data['passwordError'] = $this->validation->getError('password');
-			$data['confirmPasswordError'] = $this->validation->getError('confirmPassword');
-			$data['fullNameError'] = $this->validation->getError('fullName');
-			$data['usernameError'] = $this->validation->getError('username');
+			if($this->validate($validationRules)){
+				if($this->doctor->updateProfilePassword($_SESSION['dr_id'], $_POST['password'], $_POST['renewpassword'])){
+					
+					return redirect()->to('Doctor/profile');
+					
+				}else{
+					$data['error']['password'] = "error";
+					$data['isErrorChangePassword'] = 'Error';
+				}
+				
+				
+			}else{
+				$data['error'] = $this->validation->getErrors();
+				$data['isErrorChangePassword'] = 'Error';
+			}
 		}
 		
-		echo view(HEADER_VIEW, $data);
-		echo view(DR_PROFILE_EDIT);
-		echo view(FOOTER_VIEW);
+		echo view('doctor/dr_profile/profileView', $data);
+		echo view('doctor/t2/footer');
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
-	
-	
 	
 	public function createExam(){
 		$data =[
@@ -129,23 +105,16 @@ class Doctor extends BaseController{
 		];
 		
 		if($this->request->getMethod(true) == 'POST' && $this->validate($validationRules)){
-			$course_id = $this->request->getPost('course_id');
-			$exam_type = $this->request->getPost('exam_type');
-			$total_grade = $this->request->getPost('total_grade');
-			$dateTime = $this->request->getPost('dateTime');
-			$duration = $this->request->getPost('duration');
-			$exam_title = $this->request->getPost('exam_title');
 			
 			$this->exam->createExam(
 				$_SESSION['dr_id'],	
-				$course_id, 
-				$exam_title, 
-				$exam_type, 
-				$duration, 
-				$dateTime, 
-				$total_grade
+				$this->request->getPost('course_id'), 
+				$this->request->getPost('exam_title'), 
+				$this->request->getPost('exam_type'), 
+				$this->request->getPost('duration'), 
+				$this->request->getPost('dateTime'), 
+				$this->request->getPost('total_grade')
 			);
-			
 		}else{
 			$data['error'] = $this->validation->getErrors();
 		}
@@ -153,7 +122,7 @@ class Doctor extends BaseController{
 	
 		
 		echo view('doctor/t2/header', $data);
-		echo view('doctor/doctorCreateExam');
+		echo view('doctor/createExam');
 		echo view('doctor/t2/footer');
 	}
 	
@@ -174,19 +143,13 @@ class Doctor extends BaseController{
 				'tfGrade' => 'required',
 			];
 			if($this->validate($validationRules)){
-				$exam_id = $this->request->getPost('exam_id');
-				$question_type = $this->request->getPost('question_type');
-				$tfAnswer = $this->request->getPost('tfAnswer');
-				$tfQuestion = $this->request->getPost('tfQuestion');
-				$tfGrade = $this->request->getPost('tfGrade');
-				
 				
 				$this->exam->createQuestion(
-					$exam_id, 
-					$question_type, 
-					$tfQuestion, 
-					$tfAnswer, 
-					$tfGrade, 
+					$this->request->getPost('exam_id'), 
+					$this->request->getPost('question_type'), 
+					$this->request->getPost('tfQuestion'), 
+					$this->request->getPost('tfAnswer'), 
+					$this->request->getPost('tfGrade'), 
 					$question_choices = null
 				);
 				
@@ -206,21 +169,14 @@ class Doctor extends BaseController{
 				'chooseGrade' => 'required',
 			];
 			if($this->validate($validationRules)){
-				$exam_id = $this->request->getPost('exam_id');
-				$question_type = $this->request->getPost('question_type');
-				$chooseQuestion = $this->request->getPost('chooseQuestion');
-				$options = $this->request->getPost('options');
-				$chooseAnswer = $this->request->getPost('chooseAnswer');
-				$chooseGrade = $this->request->getPost('chooseGrade');
-				
 				
 				$this->exam->createQuestion(
-					$exam_id, 
-					$question_type, 
-					$chooseQuestion, 
-					$chooseAnswer, 
-					$chooseGrade, 
-					$options
+					$this->request->getPost('exam_id'), 
+					$this->request->getPost('question_type'), 
+					$this->request->getPost('chooseQuestion'), 
+					$this->request->getPost('chooseAnswer'), 
+					$this->request->getPost('chooseGrade'), 
+					$this->request->getPost('options')
 				);
 			}else{
 				$data['error'] = $this->validation->getErrors();
@@ -228,14 +184,9 @@ class Doctor extends BaseController{
 		}
 		
 		echo view('doctor/t2/header', $data);
-		echo view('doctor/doctorCreateQuestions');
+		echo view('doctor/createQuestions');
 		echo view('doctor/t2/footer');
 	}
-	/*
-	echo '<pre style="text-align: center;">';
-	print_r();
-	echo '</pre>';
-	*/
 	
 	public function exams(){
 		$data =[
@@ -246,146 +197,30 @@ class Doctor extends BaseController{
 		
 		if(isset($_POST['showExams'])){
 			$course_id = $this->request->getPost('selectedCourse');
-			$data['exams'] = $this->exam->getExamsOfDoctor($course_id, $_SESSION['dr_id']);
+			$data['exams'] = $this->doctor->getExamsOfDoctor($course_id, $_SESSION['dr_id']);
 		}
 		
 		echo view('doctor/t2/header', $data);
-		echo view('doctor/doctorShowExams');
+		echo view('doctor/showExams');
 		echo view('doctor/t2/footer');
 	}
 	
+	//-------------------------------------------------------------------------------------------------------
+	
+	public function showExamQuestions($exam_id){
+		$data = [
+			'exam' => $this->exam->getExam($exam_id),
+			'questions' => $this->exam->getExamQuestions($exam_id),
+		];
+		
+		
+		echo view('doctor/t2/header', $data);
+		echo view('doctor/showExamQuestions2');
+		echo view('doctor/t2/footer');
+	}
+	
+	
 	/*
-	public function createExam(){
-		$data['courses']= $this->doctor->getCourses($_SESSION['dr_id']);
-		$data['exams'] = $this->exam->getExam($_SESSION['dr_id']);
-		$data['title'] = "Create Exam";
-		$data['error'] = '';
-			
-			
-		//Exam Detail
-		if(isset($_POST['examDetailSave'])){
-			$validationRules = [
-				'courseID' => 'required',
-				'examTitle' => 'required',
-				'examType' => 'required',
-				'examDate' => 'required',
-				'examDuration' => 'required',
-				'noOfQuestions' => 'required',
-				'examGrade' => 'required'
-			];
-			if($this->validate($validationRules)){
-				$doctor_id = $_SESSION['dr_id'];
-				$course_id = $this->request->getPost('courseID');
-				$examTitle = $this->request->getPost('examTitle');
-				$examType = $this->request->getPost('examType');
-				$examDuration = $this->request->getPost('examDuration');
-				$examDateTime = $this->request->getPost('examDate');
-				$noOfQuestions = $this->request->getPost('noOfQuestions');
-				$totalGrade = $this->request->getPost('examGrade');
-				
-				
-				
-				$this->exam->createExam($doctor_id,$course_id, $examTitle, $examType, $examDuration, $examDateTime, $noOfQuestions, $totalGrade);
-				$data['exams'] = $this->exam->getExam($_SESSION['dr_id']);
-				
-				$data['error'] = 'Exam Detail Saved Succesfully';
-				
-				
-			}else{
-				$data['error'] = "Error may be There is Empty filed in Exam Detail";
-			}
-		//Question Choose
-		}elseif(isset($_POST['saveChoose'])){
-			$validationRules = [
-				'examID' => 'required',
-				'question' => 'required',
-				'answer' => 'required',
-				'grade' => 'required',
-				'options' => 'required'
-			];
-			
-			if($this->validate($validationRules)){
-				$examID = $this->request->getPost('examID');
-				$question = $this->request->getPost('question');
-				$answer = $this->request->getPost('answer');
-				$grade = $this->request->getPost('grade');
-				$question_choices = implode('#@ ', $this->request->getPost('options'));
-				
-				$this->exam->createQuestion(
-					$examID, 
-					"Multiple Choices", 
-					$question, 
-					$answer, 
-					$grade, 
-					$question_choices
-				);
-				
-				$data['error'] = 'Choose Question Saved Succesfully';
-				
-			}else{
-				$data['error'] = "Error may be There is Empty filed in Choose Question";
-				
-			}
-			
-		//Question True or False
-		}elseif(isset($_POST['saveTF'])){
-			$validationRules = [
-				'examID' => 'required',
-				'question' => 'required',
-				'answer' => 'required',
-				'grade' => 'required'
-			];
-			if($this->validate($validationRules)){
-				$examID = $this->request->getPost('examID');
-				$question = $this->request->getPost('question');
-				$answer = $this->request->getPost('answer');
-				$grade = $this->request->getPost('grade');
-				
-				$this->exam->createQuestion($examID, "True or False", $question, $answer, $grade);
-				
-				$data['error'] = 'True/False Question Saved Succesfully';
-				
-			}else{
-				$data['error'] = "Error may be There is Empty filed in True or False Question";
-			}
-		}
-		
-		echo view(HEADER_VIEW, $data);
-		echo view(CREATE_EXAM);
-		echo view(FOOTER_VIEW);
-	}
-	
-	//-------------------------------------------------------------------------------------------------------
-	
-	public function exam(){
-		$data['title'] = 'Exam';
-		$data['courses']= $this->doctor->getCourses($_SESSION['dr_id']);
-		
-		if($this->request->getMethod(true) == 'POST' && $this->validate(['courseChoosen' => 'required'])){
-			$courseId = $this->request->getPost('courseChoosen');
-			$data['result']= $this->exam->getExam($_SESSION['dr_id'], $courseId);
-			$data['course_title'] = $this->doctor->getCourseTitleWithId($courseId);
-		}
-		
-		if(isset($_POST['showExam'])){
-			if($this->exam->getQuestion($this->request->getPost('showExam')) !== null){
-				return redirect()->to('Doctor/exam/'.$this->request->getPost('showExam'));
-			}
-			
-		}
-		if(isset($_POST['editExam'])){
-			$_SESSION['exam_id'] = $_POST['editExam'];
-			return redirect()->to('Doctor/exam-edit');
-		}
-		
-		
-		echo view(HEADER_VIEW, $data);
-		echo view(SHOW_EXAM);
-		echo view(FOOTER_VIEW);
-	}
-	*/
-	//-------------------------------------------------------------------------------------------------------
-	
 	public function examEdit(){
 		$data['title'] = 'Edit Exam';
 		$data['exam'] = $this->exam->getExamWithId($_SESSION['exam_id']);
@@ -508,7 +343,7 @@ class Doctor extends BaseController{
 		echo view(EDIT_QUESTION);
 		echo view(FOOTER_VIEW);
 	}
-	
+	*/
 	//-------------------------------------------------------------------------------------------------------
 	
 	

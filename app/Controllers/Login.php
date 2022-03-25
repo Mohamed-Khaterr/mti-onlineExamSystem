@@ -43,7 +43,7 @@ class Login extends BaseController{
 					$_SESSION['isDoctor'] = true;
 					
 					//go to Doctor Controller
-					return redirect()->to('Doctor/dashboard');
+					return redirect()->to('Doctor');
 				}
 				
 			}elseif(strpos($email, '@admin')){

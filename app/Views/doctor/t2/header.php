@@ -56,24 +56,9 @@
 <body>
 
 <?php
-	$dashboard = false;
-	$createExam = false;
-	$exams = false;
-	$profile = false;
-	$createQuestion = false;
 	
-	
-	if($sideBar == 'dashboard'){
-		$dashboard = true;
-	}elseif ($sideBar == 'createExam'){
-		$createExam = true;
-	}elseif ($sideBar == 'profile'){
-		$profile = true;
-	}elseif ($sideBar == 'exams'){
-		$exams = true;
-	}elseif ($sideBar == 'createQuestion'){
-		$createQuestion = true;
-	}
+	// get uri to get second Segment
+	$uri = service('uri');
 	
 ?>
 
@@ -84,37 +69,37 @@
 			<span class="text">MTI UNVERSITY</span>
 		</a>
 		<ul class="side-menu top">
-			<li class="<?php echo $dashboard ? "active": ""?>">
+			<li class="<?= $uri->getSegment(2) == 'dashboard'? "active": null ?>">
 				<a href="<?= base_url('Doctor/dashboard') ?>">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			
-			<li class="<?php echo $createExam ? "active":"" ?>">
+			<li class="<?= $uri->getSegment(2) == 'create-exam'? "active": null ?>">
 				<a href="<?= base_url("Doctor/create-exam") ?>">
-					<i class='bx bxs-group' ></i>
+					<i class='bx bxs-news' ></i>
 					<span class="text">Create Exams</span>
 				</a>
 			</li>
 			
-			<li class="<?php echo $createQuestion ? "active":"" ?>">
+			<li class="<?= $uri->getSegment(2) == 'create-question'? "active": null ?>">
 				<a href="<?= base_url('Doctor/create-question') ?>">
-					<i class='bx bxs-doughnut-chart' ></i>
+					<i class='bx bxs-news' ></i>
 					<span class="text">Create Question</span>
 				</a>
 			</li>
 			
-			<li class="<?php echo $exams ? "active":"" ?>">
+			<li class="<?= $uri->getSegment(2) == 'exams'? "active": null ?>">
 				<a href="<?= base_url('Doctor/exams') ?>">
-					<i class='bx bxs-doughnut-chart' ></i>
+					<i class='bx bx-task' ></i>
 					<span class="text">Exams</span>
 				</a>
 			</li>
 
 
-			<li class="<?php echo $profile ? "active":"" ?>">
-				<a href="<?= base_url("Doctor/dashboard") ?>">
+			<li class="<?= $uri->getSegment(2) == 'profile'? "active": null ?>">
+				<a href="<?= base_url("Doctor/profile") ?>">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Profile</span>
 				</a>

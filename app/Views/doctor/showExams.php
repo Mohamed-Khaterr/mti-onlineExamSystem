@@ -104,7 +104,7 @@
 							<?php if(isset($exams)): ?>
 								<?php foreach($exams as $exam): ?>
 									<tr>
-										<td><?= $exam['course_title'] ?></td>
+										<td style="text-align: center;"><?= $exam['course_title'] ?></td>
 										
 										<td><?= $exam['title'] ?></td>
 										
@@ -119,15 +119,19 @@
 										<td><?= $exam['admin_verified'] ? "YES" : "NO" ?></td>
 										
 										<td>
-											<a href="<?= base_url('Doctor/show-exam/'. $exam['id'])?>" title="Show">
-												<button style="border: none;">Show</button> 
+											<a href="<?= base_url('Doctor/show-exam/'. $exam['id'])?>" title="Show Exam">
+												<button class="btn btn-primary btn-sm" style="border: none;">Show</button> 
 											</a>
 											
 											<br /> <br />
 											
-											<a href="<?= base_url('Doctor/edit-exam/'. $exam['id'])?>" title="Edit">
-												<button style="border: none;">Edit</button> 
+											<a href="<?= base_url('Doctor/update-exam/'. $exam['id'])?>" title="Edit Exam">
+												<button class="btn btn-primary btn-sm" style="border: none;"> Edit </button> 
 											</a>
+											
+											<br /> <br />
+											
+											<button type="button" class="btn btn-danger btn-sm" onclick="display()">Delete</button>
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -136,6 +140,44 @@
 					</table>
 				</div>
 			</div>
+			
+			
+			<!-- Section -->
+			
+			<section id="fixedBox" class=" w-100 vh-100 d-flex align-items-center justify-content-center d-none">
+
+				<div id="smallBox" class=" bg-body  w-75 h-75">
+				
+					<i id="closeBtn" class=" bx bxs-x-circle mt-2" ></i>
+					
+					<div class="d-flex w-100  flex-wrap" id="">
+
+
+						<div class=" w-100  d-flex justify-content-between m-1   ">  
+							<h2 class="m-3 ">Deleting Exam</h2>
+						</div>
+
+
+
+						<div class="  w-100 h-auto  m-2" style="text-align: center;">
+
+							<h1> Are you sure that you want to DELETE exam Permanently! </h1>
+									
+							<br /><br />
+							<form method="POST">
+								<?= csrf_field() ?>
+								<button name="deleteExam" type="submit" class="btn btn-danger"> YES </button> 
+								<button type="submit" class="btn btn-primary "> NO </button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+			</section>
+			
+			<!-- End Section -->
+			
 		</main>
 		<!-- MAIN -->
 	</section>
