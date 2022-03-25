@@ -119,20 +119,21 @@
 										<td><?= $exam['admin_verified'] ? "YES" : "NO" ?></td>
 										
 										<td>
+										
+										
 											<a href="<?= base_url('Doctor/show-exam/'. $exam['id'])?>" title="Show Exam">
 												<button class="btn btn-primary btn-sm" style="border: none;">Show</button> 
 											</a>
 											
-											<br /> <br />
 											
 											<a href="<?= base_url('Doctor/update-exam/'. $exam['id'])?>" title="Edit Exam">
 												<button class="btn btn-primary btn-sm" style="border: none;"> Edit </button> 
 											</a>
 											
-											<br /> <br />
-											
 											<button type="button" class="btn btn-danger btn-sm" onclick="display()">Delete</button>
 										</td>
+										
+										
 									</tr>
 								<?php endforeach; ?>
 							<?php endif; ?>

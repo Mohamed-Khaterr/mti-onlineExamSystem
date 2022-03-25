@@ -87,24 +87,18 @@ defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest auto
  */
  //SESSION CONSTANTS
 
- //TEMPLATES VIEWS CONSTANTS
-defined('HEADER_VIEW') || define('HEADER_VIEW', 'doctor/templates/header');
-defined('FOOTER_VIEW') || define('FOOTER_VIEW', 'doctor/templates/footer');
-
  //LOGIN VIEWS CONSTANTS
 defined('LOGIN_VIEW') || define('LOGIN_VIEW', 'login/loginView');
 
  //DOCTOR VIEWS CONSTANTS
-defined('DR_COURSES') || define('DR_COURSES', 'doctor/courses/coursesView');
+ defined('DR_HEADER_VIEW') || define('DR_HEADER_VIEW', 'doctor/templates/header');
+defined('DR_FOOTER_VIEW') || define('DR_FOOTER_VIEW', 'doctor/templates/footer');
+defined('DR_DASHBOARD') || define('DR_DASHBOARD', 'doctor/dashboard/dashboardView');
 defined('DR_PROFILE') || define('DR_PROFILE', 'doctor/dr_profile/profileView');
-defined('DR_PROFILE_EDIT') || define('DR_PROFILE_EDIT', 'doctor/dr_profile/profileEditView');
-
- //EXAM & QUESTIONS VIEWS CONSTANTS
-defined('CREATE_EXAM') || define('CREATE_EXAM', 'doctor/exam/createExamView');
-defined('SHOW_EXAM') || define('SHOW_EXAM', 'doctor/exam/showExamView');
-defined('EDIT_EXAM') || define('EDIT_EXAM', 'doctor/exam/examEdit');
-defined('SHOW_QUESTION') || define('SHOW_QUESTION', 'doctor/exam/question/questionView');
-defined('EDIT_QUESTION') || define('EDIT_QUESTION', 'doctor/exam/question/questionEditView');
+defined('CREATE_EXAM') || define('CREATE_EXAM', 'doctor/exam/createExam');
+defined('CREATE_QUESTION') || define('CREATE_QUESTION', 'doctor/exam/question/createQuestions');
+defined('SHOW_EXAM') || define('SHOW_EXAM', 'doctor/exam/showExams');
+defined('SHOW_Questions') || define('SHOW_Questions', 'doctor/exam/question/showExamQuestions');
 
  //ADMIN VIEWS CONSTANTS
  defined('ADMIN_ID') || define('ADMIN_ID', 'admin_id');

@@ -8,23 +8,20 @@
 					<h1>Create Exam</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Dashboard</a>
+							<a href="<?= base_url('Doctor') ?>">Dashboard</a>
 						</li>
             
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="" href="index.html">Home</a>
+							<a class="active" href="<?= base_url('Doctor') ?>">Home</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="" href="#">Exams</a>
-						</li>
-            <li><i class='bx bx-chevron-right' ></i>
-							<a class="" href="#">Create Exam</a>
+							<a class="active" href="<?= base_url('Doctor/exams') ?>">Exams</a>
 						</li>
 
                         <li><i class='bx bx-chevron-right' ></i>
-							<a class="active" href="#">Edit Exam</a>
+							<a class="active" href="">Show Questions</a>
 						</li>
 						
 					</ul>
@@ -84,17 +81,19 @@
 							<div class="d-flex justify-content-around">
 								<?php foreach($question['options'] as $option): ?>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" disabled  <?= $question['answer'] == $option ? 'checked' : null ?> >
+										<input class="form-check-input" type="radio" disabled  <?= $question['answer'] == $option ? "checked" : "" ?> >
 										<label class="form-check-label">  <?= $option ?> </label>
+										
 									</div>
 								<?php endforeach; ?>
 							</div>
-
-							<div class="d-flex justify-content-end mt-3">
-								<button type="submit" class="btn btn-primary " onclick=" MCQ_edit()">Edit </button>
-								<button type="submit" class="btn btn-danger ms-1">Delete</button>
-							</div>                
-								
+							<form method="POST">
+								<?= csrf_field() ?>	
+								<div class="d-flex justify-content-end mt-3">
+									<button type="submit" class="btn btn-primary " onclick=" MCQ_edit()">Edit </button>
+									<button name="deleteQuestion" value="<?= $question['id'] ?>" type="submit" class="btn btn-danger ms-1">Delete</button>
+								</div>                
+							</form>
 						</div>
 					</div>
 				<?php else: ?>
@@ -114,11 +113,13 @@
 								<input class="form-check-input" type="radio" disabled <?= $question['answer'] == 'False' ? 'checked' : null ?>>
 								<label class="form-check-label" > False</label>
 							</div>
-							
-							<div class="d-flex justify-content-end">
-								<button type="submit" class="btn btn-primary " onclick="true_false_edit()">Edit </button>
-								<button type="submit" class="btn btn-danger ms-1">Delete</button>
-							</div>
+							<form method="POST">
+								<?= csrf_field() ?>	
+								<div class="d-flex justify-content-end">
+									<button type="submit" class="btn btn-primary " onclick="true_false_edit()">Edit </button>
+									<button name="deleteQuestion" value="<?= $question['id'] ?>" type="submit" class="btn btn-danger ms-1">Delete</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				<?php endif; ?>
@@ -138,8 +139,6 @@
 
                 <div id="smallBox" class=" bg-body  w-75 h-75">
                     <i id="closeBtn" class=" bx bxs-x-circle mt-2" ></i>
-
-              
 
                     <div id="editbox"  class = " p-3"  >
 

@@ -23,9 +23,9 @@ class Doctor extends BaseController{
 		
 		
 		//doctorDashboardView
-		echo view('doctor/t2/header', $data);
-		echo view('doctor/dashboard/dashboardView');
-		echo view('doctor/t2/footer');
+		echo view(DR_HEADER_VIEW, $data);
+		echo view(DR_DASHBOARD);
+		echo view(DR_FOOTER_VIEW);
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
@@ -82,8 +82,8 @@ class Doctor extends BaseController{
 			}
 		}
 		
-		echo view('doctor/dr_profile/profileView', $data);
-		echo view('doctor/t2/footer');
+		echo view(DR_PROFILE, $data);
+		echo view(DR_FOOTER_VIEW);
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
@@ -121,9 +121,9 @@ class Doctor extends BaseController{
 		
 	
 		
-		echo view('doctor/t2/header', $data);
-		echo view('doctor/createExam');
-		echo view('doctor/t2/footer');
+		echo view(DR_HEADER_VIEW, $data);
+		echo view(CREATE_EXAM);
+		echo view(DR_FOOTER_VIEW);
 	}
 	
 	
@@ -183,9 +183,9 @@ class Doctor extends BaseController{
 			}
 		}
 		
-		echo view('doctor/t2/header', $data);
-		echo view('doctor/createQuestions');
-		echo view('doctor/t2/footer');
+		echo view(DR_HEADER_VIEW, $data);
+		echo view(CREATE_QUESTION);
+		echo view(DR_FOOTER_VIEW);
 	}
 	
 	public function exams(){
@@ -200,9 +200,9 @@ class Doctor extends BaseController{
 			$data['exams'] = $this->doctor->getExamsOfDoctor($course_id, $_SESSION['dr_id']);
 		}
 		
-		echo view('doctor/t2/header', $data);
-		echo view('doctor/showExams');
-		echo view('doctor/t2/footer');
+		echo view(DR_HEADER_VIEW, $data);
+		echo view(SHOW_EXAM);
+		echo view(DR_FOOTER_VIEW);
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
@@ -213,137 +213,17 @@ class Doctor extends BaseController{
 			'questions' => $this->exam->getExamQuestions($exam_id),
 		];
 		
-		
-		echo view('doctor/t2/header', $data);
-		echo view('doctor/showExamQuestions2');
-		echo view('doctor/t2/footer');
-	}
-	
-	
-	/*
-	public function examEdit(){
-		$data['title'] = 'Edit Exam';
-		$data['exam'] = $this->exam->getExamWithId($_SESSION['exam_id']);
-		
-		$validationRules = [
-			'title' => 'required',
-			'type' => 'required',
-			'noOfQuestions' => 'required',
-			'grade' => 'required',
-			'duration' => 'required',
-			'dateTime' => 'required'
-		];
-		
-		if($this->request->getMethod(true) == 'POST'){
-			if($this->validate($validationRules) && isset($_POST['save'])){
-				$this->exam->updateExam($_SESSION['exam_id'], 
-					$_POST['title'], 
-					$_POST['type'], 
-					$_POST['duration'], 
-					$_POST['dateTime'], 
-					$_POST['noOfQuestions'], 
-					$_POST['grade']
-				);
-				return redirect()->to('Doctor/exam');
-			}elseif(!empty($this->validation->getErrors())){
-				$data['error'] = "Please fill all fields";
-			}
-			
-			if(isset($_POST['yesDelete'])){
-				$this->exam->deleteExam($_SESSION['exam_id']);
-				return redirect()->to('Doctor/exam');
-			}
-			
+		if(isset($_POST['deleteQuestion'])){
+			$this->exam->deleteQuestion($_POST['deleteQuestion']);
+			return redirect()->to('Doctor/show-exam/'. $exam_id);
 		}
 		
-		echo view(HEADER_VIEW, $data);
-		echo view(EDIT_EXAM);
-		echo view(FOOTER_VIEW);
+		
+		echo view(DR_HEADER_VIEW, $data);
+		echo view(SHOW_Questions);
+		echo view(DR_FOOTER_VIEW);
 	}
 	
-	//-------------------------------------------------------------------------------------------------------
-	
-	public function question($id){
-		$data['title'] = 'Question';
-		$data['result'] = $this->exam->getQuestion($id);
-		
-		if(isset($_POST['editQuestion'])){
-			$_SESSION['question_id'] = $_POST['editQuestion'];
-			return redirect()->to('Doctor/question-edit');
-		}else{
-			
-		}
-		echo view(HEADER_VIEW, $data);
-		echo view(SHOW_QUESTION);
-		echo view(FOOTER_VIEW);
-	}
-	
-	//-------------------------------------------------------------------------------------------------------
-	
-	public function editQuestion(){
-		$data['title'] = 'Edit Question';
-		$data['question'] = $this->exam->getQuestionWithId($_SESSION['question_id']);
-		$data['choices'] = [];
-		
-		foreach($data['question'] as $row){
-			if($row->question_type == 'Multiple Choices'){
-				$data['choices'] = explode('#@', $row->question_choices);
-				$validationRules = [
-					'question' => 'required',
-					'grade' => 'required',
-					'answer' => 'required',
-					'options' => 'required'
-				];
-			}else{
-				$validationRules = [
-					'question' => 'required',
-					'grade' => 'required',
-					'answer' => 'required'
-				];
-			}
-		}
-		
-		if($this->request->getMethod(true) == 'POST'){
-			
-			if($this->validate($validationRules) && isset($_POST['save'])){
-				if(!empty($_POST['options'])){
-					$options = implode('#@ ', $_POST['options']);
-					$this->exam->updateQuestion(
-						$_SESSION['question_id'],
-						$_POST['question'],
-						$_POST['answer'],
-						$_POST['grade'],
-						$options
-					);
-					
-				}else{
-					
-					$this->exam->updateQuestion(
-						$_SESSION['question_id'],
-						$_POST['question'],
-						$_POST['answer'],
-						$_POST['grade']
-					);
-					
-				}
-				return redirect()->to('Doctor/exam');
-				
-			}elseif(!empty($this->validation->getErrors())){
-				$data['error'] = "Please fill all fields";
-			}
-			
-			if(isset($_POST['yesDelete'])){
-				$this->exam->deleteQuestion($_POST['yesDelete']);
-				return redirect()->to('Doctor/exam');
-			}
-			
-		}
-		
-		echo view(HEADER_VIEW, $data);
-		echo view(EDIT_QUESTION);
-		echo view(FOOTER_VIEW);
-	}
-	*/
 	//-------------------------------------------------------------------------------------------------------
 	
 	

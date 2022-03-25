@@ -86,7 +86,7 @@ class ExamModel extends Model{
 				'question' => $row->question_description,
 				'answer' => $row->question_answer,
 				'type' => $row->question_type,
-				'options' => explode('#@', $row->question_choices),
+				'options' => explode('#@ ', $row->question_choices),
 				'mark' => $row->question_grade,
 			];
 			
@@ -145,126 +145,12 @@ class ExamModel extends Model{
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
-	/*
-	public function getExam($doctor_id, $course_id = null){
-		$this->builder = $this->db->table("exam");
-		$this->builder->where('doctor_id', $doctor_id);
-					
-		if(!empty($course_id)){
-			$this->builder->where('course_id', $course_id);
-		}
-		
-		
-		$query = $this->builder->get();
-		
-		if($result = $query->getResult()){
-			return $result;
-		}else{
-			return null;
-		}
-	}
-	*/
-	
-	
-	
-	
-	//-------------------------------------------------------------------------------------------------------
-	/*
-	public function getExamWithId($exam_id){
-		$this->builder = $this->db->table("exam");
-		$this->builder->where('exam_id', $exam_id);
-		
-		$query = $this->builder->get();
-		
-		if($result = $query->getResult()){
-			return $result;
-		}else{
-			return null;
-		}
-	}
-	
-	//-------------------------------------------------------------------------------------------------------
-	
-	public function updateExam($exam_id, $exam_title, $exam_type, $exam_duration, $exam_date_time, $noOfQuestions, $totalGrade){
-		$this->builder = $this->db->table("exam");
-		$this->builder->where('exam_id', $exam_id);
-		$data = [
-			'exam_title' => $exam_title,
-			'exam_type' => $exam_type,
-			'exam_duration' => $exam_duration,
-			'exam_date_time' => $exam_date_time,
-			'no_of_questions' => $noOfQuestions,
-			'total_grade' => $totalGrade
-		];
-		
-		$this->builder->update($data);
-	}
-	*/
-	//-------------------------------------------------------------------------------------------------------
-	
-	
-	//-------------------------------------------------------------------------------------------------------
-	/*
-	public function getQuestion($examID){
-		$this->builder = $this->db->table("question");
-		$this->builder->where('exam_id', $examID);
-		
-		$query = $this->builder->get();
-		
-		if($result = $query->getResult()){
-			return $result;
-		}else{
-			return null;
-		}
-	}
-	
-	//-------------------------------------------------------------------------------------------------------
-	
-	public function getQuestionWithId($question_id){
-		$this->builder = $this->db->table("question");
-		$this->builder->where('question_id', $question_id);
-		
-		$query = $this->builder->get();
-		
-		if($result = $query->getResult()){
-			return $result;
-		}else{
-			return null;
-		}
-	}
-	
-	//-------------------------------------------------------------------------------------------------------
-	
-	public function updateQuestion($question_id, $question_description, $question_answer, $question_grade, $quetion_choices = null){
-		$this->builder = $this->db->table("question");
-		$this->builder->where('question_id', $question_id);
-		if(!empty($quetion_choices)){
-			$data = [
-				'question_description' => $question_description,
-				'question_answer' => $question_answer,
-				'question_grade' => $question_grade,
-				'quetion_choices' => $quetion_choices
-			];
-		}else{
-			$data = [
-				'question_description' => $question_description,
-				'question_answer' => $question_answer,
-				'question_grade' => $question_grade
-			];
-		}
-		
-		$this->builder->update($data);
-	}
-	
-	//-------------------------------------------------------------------------------------------------------
 	
 	public function deleteQuestion($question_id){
 		$this->builder = $this->db->table("question");
-		$this->builder->where('question_id', $question_id);
-		$this->builder->delete();
 		
+		$this->builder->where('question_id', $question_id)->delete();
 	}
-	*/
 	
 	
 	//-------------------------------------------------------------------------------------------------------
