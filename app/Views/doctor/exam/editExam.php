@@ -28,7 +28,7 @@
 						<li><i class='bx bx-chevron-right' ></i>
 						
 						<li>
-							<a class="active" href="">Create Exam</a>
+							<a class="active" href="">Update Exam</a>
 						</li>
 						
 					</ul>
@@ -61,11 +61,9 @@
 
                     <div class="todo ">
                         <div class="head">
-                            <h3>  Exam Details </h3>
+                            <h3> Exam Details </h3>
                             
                         </div>
-                        
-                        <h3 style="text-align: center;"><?= isset($noErrors) ? $noErrors : null ?></h3>
 						
 								<form method="POST" class="row g-3">
 									<?= csrf_field() ?>
@@ -96,17 +94,17 @@
 										<label for="inputState" class="form-label">Type</label>
 										<select name="exam_type" id="inputState" class="form-select">
 											<?php if($exam['type'] == 'Final'): ?>
-												<option selected>Final < </option>
-												<option>Midterm</option>
-												<option>Quiz</option>
+												<option value="Final" selected>Final < </option>
+												<option value="Midterm">Midterm</option>
+												<option value="Quiz">Quiz</option>
 											<?php elseif($exam['type'] == 'Midterm'):?>
-												<option>Final</option>
-												<option selected>Midterm < </option>
-												<option>Quiz</option>
+												<option value="Final">Final</option>
+												<option value="Midterm" selected>Midterm < </option>
+												<option value="Quiz">Quiz</option>
 											<?php elseif($exam['type'] == 'Quiz') :?>
-												<option>Final</option>
-												<option>Midterm</option>
-												<option selected>Quiz <  </option>
+												<option value="Final">Final</option>
+												<option value="Midterm">Midterm</option>
+												<option value="Quiz" selected>Quiz <  </option>
 											<?php endif; ?>
 											
 										</select>
@@ -127,7 +125,7 @@
 
 									 <div class="col-4">
 										<label for="inputAddress" class="form-label">Date & Time</label>
-										<input name="dateTime" value="<?= $exam['dateTime'] ?>" type="datetime-local" class="form-control" id="inputAddress" >
+										<input name="dateTime" value="<?= date("Y-m-d\TH:i:s", strtotime($exam['noFormatDateTime'])) ?>" type="datetime-local" class="form-control" id="inputAddress" >
 									  
 										<?= isset($error['dateTime']) ? "Choose Date and Time for this exam please" : "" ?>
 									  </div>
@@ -144,7 +142,7 @@
 
 								   
 									<div class="col-md-4 mt-5">
-									  <button name="save" type="submit" class="btn btn-primary">Save</button>
+									  <button name="saveEdit" type="submit" class="btn btn-primary">Save</button>
 									</div>
 								  </form>
 					</div>

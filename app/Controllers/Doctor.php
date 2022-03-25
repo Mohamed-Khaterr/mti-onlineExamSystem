@@ -245,6 +245,36 @@ class Doctor extends BaseController{
 			'courseTitle' => $this->doctor->getCourses($_SESSION['dr_id']),
 		];
 		
+		
+		
+		if(isset($_POST['saveEdit'])){
+			$validationRules = [
+				'course_id' => 'required',
+				'exam_type' => 'required',
+				'total_grade' => 'required',
+				'dateTime' => 'required',
+				'duration' => 'required',
+				'exam_title' => 'required',
+			];
+			
+			if($this->validate($validationRules)){
+				
+				$this->exam->updateExamDetails(
+					$exam_id,
+					$_POST['exam_title'] ,
+					$_POST['exam_type'] ,
+					$_POST['course_id'] ,
+					$_POST['duration'] ,
+					$_POST['dateTime'] ,
+					$_POST['total_grade'] 
+				);
+				
+				return redirect()->to('Doctor/exams');
+			}else{
+				$data['error'] = $this->validation->getErrors();
+			}
+		}
+		
 		echo view(DR_HEADER_VIEW, $data);
 		echo view('doctor/exam/editExam');
 		echo view(DR_FOOTER_VIEW);

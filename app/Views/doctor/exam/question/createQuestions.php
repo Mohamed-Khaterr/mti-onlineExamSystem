@@ -55,7 +55,6 @@
 						<?= isset($error) ? 'Error!' : null ?>
 						<?= isset($noErrors) ? $noErrors : null ?>
 					</div>
-				
 
 				<div class="col-md-3">
 					<label for="inputState" class="form-label">Exams </label>

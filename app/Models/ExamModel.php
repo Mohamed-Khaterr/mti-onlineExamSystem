@@ -72,6 +72,7 @@ class ExamModel extends Model{
 				'duration' => $row->exam_duration,
 				'total_grade' => $row->total_grade,
 				'dateTime' => date("F j, Y - g:i a", strtotime($row->exam_date_time)),
+				'noFormatDateTime' => $row->exam_date_time,
 				'admin_verified' => $row->admin_verified,
 			];
 			
@@ -124,6 +125,24 @@ class ExamModel extends Model{
 		];
 		
 		$this->builder->insert($data);
+	}
+	
+	//-------------------------------------------------------------------------------------------------------
+	
+	public function updateExamDetails($exam_id, $title, $type, $course_id, $duration, $dateTime, $total_grade){
+		$this->builder = $this->db->table("exam");
+		
+		$data = [
+			'exam_title' => $title,
+			'exam_type' => $type,
+			'course_id ' => $course_id,
+			'exam_duration' => $duration,
+			'exam_date_time' => $dateTime,
+			'total_grade' => $total_grade,
+			'admin_verified' => null,
+		];
+		
+		$this->builder->update($data, ['exam_id' => $exam_id]);
 	}
 	
 	//-------------------------------------------------------------------------------------------------------

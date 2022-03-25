@@ -64,7 +64,7 @@
                         </div>
                         
                         <h3 style="text-align: center;"><?= isset($noErrors) ? $noErrors : null ?></h3>
-
+						<br />
 
                             <form method="POST" class="row g-3">
                                 <?= csrf_field() ?>
