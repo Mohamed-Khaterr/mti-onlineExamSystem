@@ -83,10 +83,10 @@ class ExamModel extends Model{
 		return $data;
 	}
 	
-	public function getExamQuestions($exam_id){
+	public function getTheExamQuestions($examID){
 		$this->builder = $this->db->table("question");
 		
-		$this->builder->where('exam_id',$exam_id);
+		$this->builder->where('exam_id',$examID);
 		
 		$result = $this->builder->get()->getResult();
 		

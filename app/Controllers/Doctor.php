@@ -244,7 +244,7 @@ class Doctor extends BaseController{
 		
 		$data = [
 			'exam' => $this->exam->getExam($exam_id),
-			'questions' => $this->exam->getExamQuestions($exam_id),
+			'questions' => $this->exam->getTheExamQuestions($exam_id),
 		];
 		
 		if(isset($_POST['editQuestion'])){
