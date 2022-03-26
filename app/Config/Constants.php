@@ -100,6 +100,7 @@ defined('CREATE_QUESTION') || define('CREATE_QUESTION', 'doctor/exam/question/cr
 defined('SHOW_EXAM') || define('SHOW_EXAM', 'doctor/exam/showExams');
 defined('SHOW_Questions') || define('SHOW_Questions', 'doctor/exam/question/showQuestions');
 defined('EDIT_EXAM') || define('EDIT_EXAM', 'doctor/exam/editExam');
+defined('EDIT_QUESTION') || define('EDIT_QUESTION', 'doctor/exam/question/editQuestion');
 
 
  //ADMIN VIEWS CONSTANTS
@@ -108,7 +109,7 @@ defined('ADMIN_HEADER_VIEW') || define('ADMIN_HEADER_VIEW', 'admin/templates/hea
 defined('ADMIN_FOOTER_VIEW') || define('ADMIN_FOOTER_VIEW', 'admin/templates/footer');
 defined('ADMIN_DASHBOARD') || define('ADMIN_DASHBOARD', 'admin/dashboardView');
 defined('ADMIN_CURRENT_EXAM') || define('ADMIN_CURRENT_EXAM', 'admin/currentExam');
-defined('ADMIN_VERIFY_EXAM') || define('ADMIN_VERIFY_EXAM', 'admin/verifyExams');
+defined('ADMIN_VERIFY_EXAM') || define('ADMIN_VERIFY_EXAM', 'admin/verifyExam/verifyExams');
 defined('ADMIN_PROFILE') || define('ADMIN_PROFILE', 'admin/profileView');
 
 

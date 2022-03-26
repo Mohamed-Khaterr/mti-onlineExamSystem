@@ -67,26 +67,29 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>All Sudents</h3>
+						<h3>All Courses</h3>
 						<!--<i class='bx bx-search' ></i>-->
 					</div>
 					<table>
 						<thead>
 							<tr>
 								<th>Name</th>
-								<!--<th> Details </th>-->
-								<th>Status</th>
+								<th>Level</th>
+								<th>Code</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach($allStudentsName as $student): ?>
+							<?php foreach($allCoursesNames as $course): ?>
 								<tr>
 									<td>
 										<!--<img src="img/people.png">-->
-										<p><?= $student ?></p>
+										<p><?= $course['title'] ?></p>
 									</td>
+									
+									<td><?= $course['level'] ?></td>
+									
 									<!--<td> <button> See </button></td>-->
-									<td><span class="status completed">Online</span></td>
+									<td><span class="status completed"><?= $course['code'] ?></span></td>
 								</tr>
 							<?php endforeach; ?>
 

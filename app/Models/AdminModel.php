@@ -42,15 +42,21 @@ class AdminModel extends Model{
 		}
 	}
 	
-	public function getStudentsName(){
-		$this->builder = $this->db->table("students");
-		$this->builder->select('student_fname, student_lname');
+	public function getCoursesNames(){
+		$this->builder = $this->db->table("course");
+		$this->builder->select('course_title, course_code, course_level')
+					->orderBy('course_level', 'ASC');
 		
 		$query = $this->builder->get()->getResult();
 		
 		$data = array();
 		foreach($query as $row){
-			array_push($data, $row->student_fname . " " . $row->student_lname);
+			$dataRow = [
+				'title' => $row->course_title,
+				'code' => $row->course_code,
+				'level' => $row->course_level,
+			];
+			array_push($data, $dataRow);
 		}
 		
 		return $data;
@@ -222,6 +228,40 @@ class AdminModel extends Model{
 		$this->builder = $this->db->table("exam");
 		
 		$this->builder->update(["admin_verified" => 'true'] ,'exam_id = ' . $id);
+	}
+	
+	
+	public function getExamAndQuestions($exam_id){
+		$this->builder = $this->db->table("exam");
+		
+		$this->builder->select('course_title, exam.exam_id, exam_title, exam_date_time, question_description, question_type, question_choices, question_answer, question_grade')
+					->join('course', 'course.course_id = exam.course_id')
+					->join('question', 'question.exam_id = exam.exam_id')
+					->where('exam.exam_id', $exam_id);
+		
+		$result = $this->builder->get()->getResult();
+		
+		$data = array(
+			'id' =>$result[0]->exam_id,
+			'course_title' => $result[0]->course_title,
+			'title' => $result[0]->exam_title,
+			'dateTime' => $result[0]->exam_date_time,
+			'questions'=>array(),
+		);
+		
+		foreach($result as $row){
+			$dataRow = [
+				'question' => $row->question_description,
+				'answer' =>$row->question_answer,
+				'type'=>$row->question_type,
+				'options'=>str_replace("#@", ",", $row->question_choices),
+				'mark' => $row->question_grade,
+			];
+			
+			array_push($data['questions'], $dataRow);
+		}
+		
+		return $data;
 	}
 	
 	

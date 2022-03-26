@@ -28,7 +28,6 @@
 
 
 			<ul class="box-info">
-				
 				<li>
 					<i class='bx bx-layer'></i>
 					<span class="text">

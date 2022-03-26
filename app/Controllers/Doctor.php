@@ -368,7 +368,7 @@ class Doctor extends BaseController{
 		}
 		
 		echo view(DR_HEADER_VIEW, $data);
-		echo view('doctor/exam/editQuestion');
+		echo view(EDIT_QUESTION);
 		echo view(DR_FOOTER_VIEW);
 	}
 	
