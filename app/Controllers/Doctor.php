@@ -202,12 +202,24 @@ class Doctor extends BaseController{
 			'examsCount' => count($this->exam->getExams($_SESSION['dr_id'])),
 		];
 		
-		if(isset($_POST['showExams'])){
+		if(isset($_POST['showExamsOfCourse'])){
 			$course_id = $this->request->getPost('selectedCourse');
 			$data['exams'] = $this->doctor->getExamsOfDoctor($course_id, $_SESSION['dr_id']);
-		}
-		
-		if(isset($_POST['deleteExam'])){
+			
+			
+		}elseif(isset($_POST['showExam'])){
+			$_SESSION['showExamWithID'] = $_POST['showExam'];
+			
+			return redirect()->to('Doctor/show-questions');
+			
+			
+		}elseif(isset($_POST['editExam'])){
+			$_SESSION['editExamWithID'] = $_POST['editExam'];
+			
+			return redirect()->to('Doctor/edit-exam');
+			
+			
+		}elseif(isset($_POST['deleteExam'])){
 			$this->exam->deleteExam($_POST['deleteExam']);
 		}
 		
@@ -217,17 +229,25 @@ class Doctor extends BaseController{
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
-	// Show Questions of Exams ------------------------------------------------------------------------------
+	// Show Exam and Questions ------------------------------------------------------------------------------
 	
-	public function showExamQuestions($exam_id){
+	public function showExamQuestions(){
+		$exam_id = $_SESSION['showExamWithID'];
+		
 		$data = [
 			'exam' => $this->exam->getExam($exam_id),
 			'questions' => $this->exam->getExamQuestions($exam_id),
 		];
 		
-		if(isset($_POST['deleteQuestion'])){
+		if(isset($_POST['editQuestion'])){
+			$_SESSION['editQuestionWithId'] = $_POST['editQuestion'];
+			
+			return redirect()->to('Doctor/edit-question');
+			
+		}elseif(isset($_POST['deleteQuestion'])){
 			$this->exam->deleteQuestion($_POST['deleteQuestion']);
-			return redirect()->to('Doctor/show-exam/'. $exam_id);
+			
+			return redirect()->to('Doctor/show-exam');
 		}
 		
 		
@@ -239,7 +259,9 @@ class Doctor extends BaseController{
 	//-------------------------------------------------------------------------------------------------------
 	// Edit Exam Details ----------------------------------------------------------------------------------
 	
-	public function editExam($exam_id){
+	public function editExam(){
+		$exam_id = $_SESSION['editExamWithID'];
+		
 		$data = [
 			'exam' => $this->exam->getExam($exam_id),
 			'courseTitle' => $this->doctor->getCourses($_SESSION['dr_id']),
@@ -269,6 +291,8 @@ class Doctor extends BaseController{
 					$_POST['total_grade'] 
 				);
 				
+				unset($_SESSION["editExamWithID"]);
+				
 				return redirect()->to('Doctor/exams');
 			}else{
 				$data['error'] = $this->validation->getErrors();
@@ -276,7 +300,67 @@ class Doctor extends BaseController{
 		}
 		
 		echo view(DR_HEADER_VIEW, $data);
-		echo view('doctor/exam/editExam');
+		echo view(EDIT_EXAM);
+		echo view(DR_FOOTER_VIEW);
+	}
+	
+	//-------------------------------------------------------------------------------------------------------
+	// Edit Question ----------------------------------------------------------------------------------------
+	
+	public function editQuestion(){
+		$question_id = $_SESSION['editQuestionWithId'];
+		
+		$data = [
+			'question' => $this->exam->getQuestion($question_id),
+		];
+		
+		if(isset($_POST['updatetfQuestion'])){
+			$validationRules = [
+				'tfAnswer' => 'required',
+				'tfQuestion' => 'required',
+				'tfGrade' => 'required',
+			];
+			
+			if($this->validate($validationRules)){
+				$this->exam->updateQuestion(
+					$question_id, 
+					$_POST['tfQuestion'], 
+					$_POST['tfAnswer'], 
+					$_POST['tfGrade']
+				);
+				
+				return redirect()->to('Doctor/show-questions');
+				
+			}else{
+				$data['error'] = $this->validation->getErrors();
+			}
+			
+		}elseif(isset($_POST['updateChooseQuestion'])){
+			$validationRules = [
+				'chooseQuestion' => 'required',
+				'options' => 'required',
+				'chooseAnswer' => 'required',
+				'chooseGrade' => 'required',
+			];
+			if($this->validate($validationRules)){
+				
+				$this->exam->updateQuestion(
+					$question_id, 
+					$_POST['chooseQuestion'], 
+					$_POST['chooseAnswer'], 
+					$_POST['chooseGrade'],
+					$_POST['options']
+				);
+				
+				return redirect()->to('Doctor/show-questions');
+				
+			}else{
+				$data['error'] = $this->validation->getErrors();
+			}
+		}
+		
+		echo view(DR_HEADER_VIEW, $data);
+		echo view('doctor/exam/editQuestion');
 		echo view(DR_FOOTER_VIEW);
 	}
 	

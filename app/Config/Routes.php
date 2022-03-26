@@ -61,8 +61,9 @@ $routes->add('Doctor/create-exam', 'Doctor::createExam', ['filter' => 'auth']);
 $routes->add('Doctor/create-question', 'Doctor::createQuestions', ['filter' => 'auth']);
 $routes->add('Doctor/exams', 'Doctor::exams', ['filter' => 'auth']);
 $routes->add('Doctor/profile', 'Doctor::profile', ['filter' => 'auth']);
-$routes->add('Doctor/show-exam/(:any)', 'Doctor::showExamQuestions/$1', ['filter' => 'auth']);
-$routes->add('Doctor/edit-exam/(:any)', 'Doctor::editExam/$1', ['filter' => 'auth']);
+$routes->add('Doctor/show-questions', 'Doctor::showExamQuestions', ['filter' => 'auth']);
+$routes->add('Doctor/edit-exam', 'Doctor::editExam', ['filter' => 'auth']);
+$routes->add('Doctor/edit-question', 'Doctor::editQuestion', ['filter' => 'auth']);
 
 
 

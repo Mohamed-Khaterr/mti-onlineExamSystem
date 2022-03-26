@@ -98,7 +98,9 @@ defined('DR_PROFILE') || define('DR_PROFILE', 'doctor/dr_profile/profileView');
 defined('CREATE_EXAM') || define('CREATE_EXAM', 'doctor/exam/createExam');
 defined('CREATE_QUESTION') || define('CREATE_QUESTION', 'doctor/exam/question/createQuestions');
 defined('SHOW_EXAM') || define('SHOW_EXAM', 'doctor/exam/showExams');
-defined('SHOW_Questions') || define('SHOW_Questions', 'doctor/exam/question/showExamQuestions');
+defined('SHOW_Questions') || define('SHOW_Questions', 'doctor/exam/question/showQuestions');
+defined('EDIT_EXAM') || define('EDIT_EXAM', 'doctor/exam/editExam');
+
 
  //ADMIN VIEWS CONSTANTS
  defined('ADMIN_ID') || define('ADMIN_ID', 'admin_id');

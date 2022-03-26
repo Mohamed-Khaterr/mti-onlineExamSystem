@@ -28,6 +28,28 @@
 			
 		}
 		
+		function addChoice(counter){
+			if(counter > countBox)
+				countBox = counter;
+			document.getElementById("addChoice").innerHTML += '<div class="col-md-3"><label for="inputCity" class="form-label" id="deleteInput">Option : '+countBox+' </label><input name="options[]" type="text" class="form-control" id="deleteInput"></div>';
+			countBox ++;
+		}
+		
+		function deleteChoice(counter){
+			
+			if(counter > countBox)
+				countBox = counter;
+			
+			//document.querySelectorAll('#deleteInput').forEach(el => el.remove());
+			for(i = 0 ; i <= 1; i++)
+				document.querySelector('#deleteInput').remove();
+			
+			countBox --;
+		}
+		
+		
+		
+		
 		function searchBar() {
 		  // Declare variables
 		  var input, filter, table, tr, td, i, txtValue;

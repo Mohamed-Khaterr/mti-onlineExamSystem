@@ -82,7 +82,7 @@
 									<?php endforeach; ?>
 								</select>
 							</div>
-							<button name="showExams" class="btn btn-primary">Show</button>
+							<button name="showExamsOfCourse" class="btn btn-primary">Show</button>
 						</div>
 						
 					</form>
@@ -122,13 +122,12 @@
 											<td><?= $exam['admin_verified'] ? "YES" : "NO" ?></td>
 											
 											<td>
-											
-											
-												<a href="<?= base_url('Doctor/show-exam/'. $exam['id'])?>" title="Show Exam">
-													<button type="button" class="btn btn-primary btn-sm" style="border: none;">Show</button> 
+												<a href="" title="Show Questions">
+													<button name="showExam" value="<?= $exam['id'] ?>" type="submit" class="btn btn-primary btn-sm">Show</button> 
 												</a>
-												<a href="<?= base_url('Doctor/edit-exam/'. $exam['id'])?>" title="Edit Exam">
-													<button type="button" class="btn btn-primary btn-sm" style="border: none;" value="<?= $exam['id'] ?>"> Edit </button> 
+												
+												<a href="" title="Edit Exam">
+													<button name="editExam" value="<?= $exam['id'] ?>" type="submit" class="btn btn-primary btn-sm"> Edit </button> 
 												</a>
 												
 												<a href="" title="Delete Perminatly">
@@ -149,3 +148,14 @@
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
+	
+	
+	<script type="text/javascript">
+		window.addEventListener('beforeunload', function(e){
+			<?php 
+				unset($_SESSION["showExamWithID"]) ;
+				unset($_SESSION["editExamWithID"]) ;
+				unset($_SESSION['editQuestionWithId']);
+			?>
+		})
+	</script>

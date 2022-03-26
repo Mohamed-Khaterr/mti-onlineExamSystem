@@ -98,7 +98,7 @@ class ExamModel extends Model{
 				'question' => $row->question_description,
 				'answer' => $row->question_answer,
 				'type' => $row->question_type,
-				'options' => explode('#@ ', $row->question_choices),
+				'options' => str_replace("#@", ",", $row->question_choices),
 				'mark' => $row->question_grade,
 			];
 			
@@ -172,6 +172,54 @@ class ExamModel extends Model{
 		
 		$this->builder->insert($questionData);
 		
+	}
+	
+	//-------------------------------------------------------------------------------------------------------
+	
+	public function getQuestion($question_id){
+		$this->builder = $this->db->table("question");
+		$this->builder->where('question_id', $question_id);
+		
+		$result = $this->builder->get()->getResult();
+		
+		$data = array();
+		
+		foreach($result as $row){
+			$data = [
+				'id' => $row->question_id,
+				'question' => $row->question_description,
+				'answer' => $row->question_answer,
+				'type' => $row->question_type,
+				'options' => explode("#@ ", $row->question_choices),
+				'mark' => $row->question_grade,
+			];
+		}
+		
+		return $data;
+	}
+	
+	//-------------------------------------------------------------------------------------------------------
+	
+	public function updateQuestion($question_id, $question, $answer, $mark, $options = null){
+		$this->builder = $this->db->table("question");
+		
+		if(!empty($options)){
+			$data = [
+				'question_description' => $question,
+				'question_choices' => implode("#@ ", $options),
+				'question_answer' => $answer,
+				'question_grade' => $mark,
+			];
+		}else{
+			$data = [
+				'question_description' => $question,
+				'question_answer' => $answer,
+				'question_grade' => $mark,
+			];
+		}
+		
+		
+		$this->builder->update($data, ['question_id' => $question_id]);
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
