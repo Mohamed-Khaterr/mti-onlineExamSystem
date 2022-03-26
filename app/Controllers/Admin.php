@@ -21,11 +21,10 @@ class Admin extends BaseController{
 	public function index(){
 		
 		$data = [
-			'sideBar' => 'dashboard',
 			'studentCountAll' => $this->admin->getStudentsCountAll(),
 			'coursesCountAll' => $this->admin->getCoursesCountAll(),
 			'examCountAll' => $this->admin->getExamsCountAll(),
-			'allStudentsName' => $this->admin->getStudentsName(),
+			'allCoursesNames' => $this->admin->getCoursesNames(),
 			'upcomingExams' => $this->admin->getUpcomingExams()
 		];
 		
@@ -41,9 +40,10 @@ class Admin extends BaseController{
 		echo view(ADMIN_FOOTER_VIEW);
 	}
 	
+	
+	
 	public function currentExam(){
 		$data = [
-			'sideBar' => 'currentExam',
 			'studentCountAll' => $this->admin->getStudentsCountAll(),
 			'examCountAll' => $this->admin->getExamsCountAll(),
 			'processExams' => $this->admin->getProcessExams()
@@ -55,16 +55,16 @@ class Admin extends BaseController{
 		echo view(ADMIN_FOOTER_VIEW);
 	}
 	
+	
+	
 	public function liveExam($examID, $courseTitle, $examTitle){
 		$data = [
-			'sideBar' => 'currentExam',
 			'courseTitle' => $courseTitle,
 			'examTitle' => $examTitle,
 			'endTime' => $this->admin->getEndTime($examID),
 		];
 		
 		
-		//$
 		
 		echo view(ADMIN_HEADER_VIEW, $data);
 		echo view('admin/liveExamView');
@@ -74,7 +74,6 @@ class Admin extends BaseController{
 	
 	public function verifyExams(){
 		$data = [
-			'sideBar' => 'verifyExams',
 			'examVerification' => $this->admin->verifiedExams()
 		];
 		
@@ -84,11 +83,33 @@ class Admin extends BaseController{
 			
 			// To refresh page
 			return redirect()->to('Admin/verify-exams');
+		}elseif(isset($_POST['show'])){
+			$_SESSION['showExamWithId'] = $_POST['show'];
+			
+			return redirect()->to('Admin/show-exam');
 		}
 		
 		
 		echo view(ADMIN_HEADER_VIEW, $data);
 		echo view(ADMIN_VERIFY_EXAM);
+		echo view(ADMIN_FOOTER_VIEW);
+	}
+	
+	public function showExam(){
+		$exam_id = $_SESSION['showExamWithId'];
+		
+		$data = [
+			'exam' => $this->admin->getExamAndQuestions($exam_id),
+		];
+		
+		if(isset($_POST['accept'])){
+			$this->admin->acceptExam($_POST['accept']);
+			
+			return redirect()->to('Admin/verify-exams');
+		}
+		
+		echo view(ADMIN_HEADER_VIEW, $data);
+		echo view('admin/verifyExam/showExam');
 		echo view(ADMIN_FOOTER_VIEW);
 	}
 	

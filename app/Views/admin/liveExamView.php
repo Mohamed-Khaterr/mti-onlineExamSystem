@@ -157,7 +157,7 @@
 		
 		/* Web Socket */
 		
-		var conn = new WebSocket("ws://192.168.1.4:8080?access_token=" );
+		var conn = new WebSocket("ws://192.168.1.2:8080?access_token=" );
 	
 		// Start Connection
 		conn.onopen = function(e) {
@@ -168,22 +168,43 @@
 		conn.onmessage = function(e) {
 			
 			/* NEW */
-			var data = JSON.parse(e.data);
-			if('student' in data){
-				console.log(data['student']);
-				const students = data['student'];
-				students.forEach(myFunction);
-				 
-				function myFunction(item, index) {
-					console.log(item['connection_name']);
-					//document.getElementById("studentName").innerHTML = item['connection_name'];
+			if(data = JSON.parse(e.data)){
+				if('student' in data){
+					//console.log(data);
+					//console.log(data['student']);
+					const students = data['student'];
 					
-					var html = "<tr><td><p> " + item['connection_name'] + "</p></td><td><span class='status pending'>Cheating</span></td></tr>";
+					console.log(students);
 					
-					document.getElementById("test").innerHTML += html;
+					students.forEach = (stu) => {
+						document.getElementById('studentName').innerHTML = stu['connection_name'];
+						console.log(stu);
+					}
 					
+					/*
+					students.forEach(myFunction);
+					 
+					function myFunction(item, index) {
+						console.log(item['connection_name']);
+						//document.getElementById("studentName").innerHTML = item['connection_name'];
+						
+						var html = "<tr><td><p> " + item['connection_name'] + "</p></td><td><span class='status pending'>Cheating</span></td></tr>";
+						
+						document.getElementById("test").innerHTML = html;
+						
+					}
+					*/
 				}
 			}
 		};
+		
+		
+		
+		
+		conn.close = function (e) {
+			alert("Connection is Closed!, reason:" + e.reason);
+		}
+		
+		
 		
 	</script>

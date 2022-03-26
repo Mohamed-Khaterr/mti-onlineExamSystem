@@ -63,8 +63,8 @@
                             
                         </div>
                         
-                        
-
+                        <h3 style="text-align: center;"><?= isset($noErrors) ? $noErrors : null ?></h3>
+						<br />
 
                             <form method="POST" class="row g-3">
                                 <?= csrf_field() ?>
@@ -72,7 +72,7 @@
                                     <label for="inputState" class="form-label">Course Title </label>
 									
                                     <select name="course_id" id="inputState" class="form-select">
-										<option disabled selected>Choise...</option>
+										<option disabled selected>Choise Course...</option>
 										
 										<?php foreach($courseTitle['courses'] as $course): ?>
 											<option value="<?= $course['id'] ?>"><?= $course['title'] ?></option>
@@ -84,7 +84,7 @@
 								 
 								<div class="col-md-4">
                                     <label for="inputCity" class="form-label">Exam Title</label>
-                                    <input name="exam_title" type="text" class="form-control" id="inputCity">
+                                    <input name="exam_title" type="text" class="form-control" id="inputCity" placeholder="Exam Title....">
 									
 									<?= isset($error['exam_title']) ? "Add a Title for this exam please" : "" ?>
                                 </div>
@@ -93,7 +93,7 @@
                                     <label for="inputState" class="form-label">Type</label>
                                     <select name="exam_type" id="inputState" class="form-select">
 									
-										<option disabled selected>Choise...</option>
+										<option disabled selected>Choise Type...</option>
 										<option>Final</option>
 										<option>Midterm</option>
 										<option>Quiz</option>
@@ -108,7 +108,7 @@
 
                                 <div class="col-md-4">
                                     <label for="inputCity" class="form-label">Total Grade</label>
-                                    <input name="total_grade" type="number" class="form-control" id="inputCity">
+                                    <input name="total_grade" type="number" class="form-control" id="inputCity" placeholder="Grade...">
 									
 									<?= isset($error['total_grade']) ? "Add Grade for this exam please" : "" ?>
                                  </div>
@@ -125,7 +125,7 @@
 
                                 <div class="col-4">
                                     <label for="inputAddress2" class="form-label">Duration</label>
-                                    <input name="duration" type="time" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                    <input name="duration" type="time" min="01:00:00" max="04:00:00" class="form-control" id="inputAddress2">
 									
 									<?= isset($error['duration']) ? "Set Duration for this exam please" : "" ?>
 								</div>
@@ -136,21 +136,11 @@
                                   <button name="save" type="submit" class="btn btn-primary">Save</button>
                                 </div>
                               </form>
-
-
-                        
-
-
-
-                    </div>
-
-
-                    
+					</div>
 
 
 				</div>
 			</div>
-            
 
 		</main>
 		<!-- MAIN -->

@@ -24,7 +24,9 @@ class AddConnection extends Migration
 							'type'           => 'VARCHAR',
 							'constraint'     => '50',
 					],
-					
+					'connection_user_status'	=>[
+						'type'			=>  'VARCHAR'
+					],
 					]);
 			$this->forge->addKey('connection_id', true);
 			$this->forge->createTable('connections');

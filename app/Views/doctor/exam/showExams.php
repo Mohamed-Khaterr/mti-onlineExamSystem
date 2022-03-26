@@ -76,12 +76,13 @@
 							<!--<i class='bx bx-search' ></i>-->
 							<div>
 								<select name="selectedCourse" class="form-select">
+									<option selected disabled> Choose Course...</option>
 									<?php foreach($courses['courses'] as $course): ?>
 										<option value="<?= $course['id'] ?>"><?= $course['title'] ?></option>
 									<?php endforeach; ?>
 								</select>
 							</div>
-							<button name="showExams" class="head btn btn-primary">Show</button>
+							<button name="showExamsOfCourse" class="btn btn-primary">Show</button>
 						</div>
 						
 					</form>
@@ -103,43 +104,58 @@
 						<tbody>
 							<?php if(isset($exams)): ?>
 								<?php foreach($exams as $exam): ?>
-									<tr>
-										<td><?= $exam['course_title'] ?></td>
-										
-										<td><?= $exam['title'] ?></td>
-										
-										<td><?= $exam['type'] ?></td>
-										
-										<td><?= $exam['dateTime'] ?></td>
-										
-										<td><?= $exam['duration'] ?></td>
-										
-										<td><?= $exam['total_grade'] ?></td>
-										
-										<td><?= $exam['admin_verified'] ? "YES" : "NO" ?></td>
-										
-										<td>
-											<a href="<?= base_url('Doctor/show-exam/'. $exam['id'])?>" title="Show">
-												<button style="border: none;">Show</button> 
-											</a>
+									<form method="POST">
+										<?= csrf_field() ?>
+										<tr>
+											<td style="text-align: center;"><?= $exam['course_title'] ?></td>
 											
-											<br /> <br />
+											<td><?= $exam['title'] ?></td>
 											
-											<a href="<?= base_url('Doctor/edit-exam/'. $exam['id'])?>" title="Edit">
-												<button style="border: none;">Edit</button> 
-											</a>
-										</td>
-									</tr>
+											<td><?= $exam['type'] ?></td>
+											
+											<td><?= $exam['dateTime'] ?></td>
+											
+											<td><?= $exam['duration'] ?></td>
+											
+											<td><?= $exam['total_grade'] ?></td>
+											
+											<td><?= $exam['admin_verified'] ? "YES" : "NO" ?></td>
+											
+											<td>
+												<a href="" title="Show Questions">
+													<button name="showExam" value="<?= $exam['id'] ?>" type="submit" class="btn btn-primary btn-sm">Show</button> 
+												</a>
+												
+												<a href="" title="Edit Exam">
+													<button name="editExam" value="<?= $exam['id'] ?>" type="submit" class="btn btn-primary btn-sm"> Edit </button> 
+												</a>
+												
+												<a href="" title="Delete Perminatly">
+													<button name="deleteExam" type="submit" class="btn btn-danger btn-sm" value="<?= $exam['id'] ?>">Delete</button>
+												</a>
+											</td>
+										</tr>
+									</form>
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</tbody>
 					</table>
 				</div>
 			</div>
+			
+			
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
 	
 	
-	
+	<script type="text/javascript">
+		window.addEventListener('beforeunload', function(e){
+			<?php 
+				unset($_SESSION["showExamWithID"]) ;
+				unset($_SESSION["editExamWithID"]) ;
+				unset($_SESSION['editQuestionWithId']);
+			?>
+		})
+	</script>

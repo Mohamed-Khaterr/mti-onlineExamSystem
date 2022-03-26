@@ -109,9 +109,6 @@
 				<i class='bx bxs-bell' ></i>
 				<span class="num">8</span>
 			</a>
-			<a href="<?= base_url('Admin/profile') ?>" class="profile">
-				<img src="<?= base_url() ?>/module/admin/assets/img/profile-img.jpg">
-			</a>
 		</nav>
 		<!-- NAVBAR -->
 
@@ -234,17 +231,6 @@
                                     <!-- Profile Edit Form -->
                                     <form method="POST">
 									<?= csrf_field(); ?>
-									
-                                      <div class="row mb-3">
-                                        <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                                        <div class="col-md-8 col-lg-9">
-                                          <img src="<?= base_url() ?>/module/admin/assets/img/profile-img.jpg" alt="Profile">
-                                          <div class="pt-2">
-                                            <a href="" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                            <a href="" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                                          </div>
-                                        </div>
-                                      </div>
                   
                                       <div class="row mb-3">
                                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">First Name</label>

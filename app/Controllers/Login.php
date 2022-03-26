@@ -43,7 +43,7 @@ class Login extends BaseController{
 					$_SESSION['isDoctor'] = true;
 					
 					//go to Doctor Controller
-					return redirect()->to('Doctor/dashboard');
+					return redirect()->to('Doctor');
 				}
 				
 			}elseif(strpos($email, '@admin')){
@@ -78,8 +78,6 @@ class Login extends BaseController{
 		}
 		
 		echo view(LOGIN_VIEW, $this->data);
-		echo view(FOOTER_VIEW);
-		
     }
 	
 	//-------------------------------------------------------------------------------------------------------

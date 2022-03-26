@@ -95,7 +95,16 @@
 										
 										<td>
 											<form method="POST"><?= csrf_field(); ?>
-												<button name="accept" value="<?= $examVerification['exams']['examID'][$i] ?>" style="border: none;"> Accept </button>
+												<a href="" title="Accept Exam">
+													<button name="accept" value="<?= $examVerification['exams']['examID'][$i] ?>" style="border: none;"> Accept </button>
+												</a>
+												
+												<br />
+												<br />
+												
+												<a href="" title="Show Exam">
+													<button name="show" value="<?= $examVerification['exams']['examID'][$i] ?>" style="border: none;"> Show </button>
+												</a>
 											</form>
 										</td>
 									<?php endif; ?>
@@ -106,3 +115,13 @@
 						</tbody>
 					</table>
 				</div>
+				
+				
+				
+	<script type="text/javascript">
+		window.addEventListener('beforeunload', function(e){
+			<?php  
+				unset($_SESSION['showExamWithId']);
+			?>
+		})
+	</script>

@@ -1,53 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title><?php echo 'MTI - ' . esc($title); ?></title>
-
-
-	<!-- Favicons -->
-	<link href="/assets/img/favicon.png" rel="icon">
-	<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-	<!-- Vendor CSS Files -->
-	<link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet"> 
-	<link href="/assets/vendor/aos/aos.css" rel="stylesheet">
-	<link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-	<link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-	<link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-	<link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+	
+	<!-- My CSS -->
+	<link rel="stylesheet" href="<?= base_url() ?>/module/admin/style.css">
+	<link rel="stylesheet" href="<?= base_url() ?>/module/admin/css.css">
+	
+	
 
-	<!-- Template Main CSS File -->
-	<link href="/assets/css/style.css" rel="stylesheet">
-
-	<link rel="stylesheet" href="/css.css">
+	<title>Online Exam System</title>
 	
 	
 	<script type="text/javascript">
-		var countBox =3;
+		var countBox = 4;
 		function addChoice(){
 			
-			document.getElementById("addChoice").innerHTML += "<label>choice : " +countBox+ "</label><br/><input type='text' name='options[]'/><br/>";
+			document.getElementById("addChoice").innerHTML += '<div class="col-md-3"><label for="inputCity" class="form-label">Option : '+countBox+' </label><input name="options[]" type="text" class="form-control" id="inputCity"></div>';
 			countBox += 1;
+			
+			
 		}
+		
+		function addChoice(counter){
+			if(counter > countBox)
+				countBox = counter;
+			document.getElementById("addChoice").innerHTML += '<div class="col-md-3"><label for="inputCity" class="form-label" id="deleteInput">Option : '+countBox+' </label><input name="options[]" type="text" class="form-control" id="deleteInput"></div>';
+			countBox ++;
+		}
+		
+		function deleteChoice(counter){
+			
+			if(counter > countBox)
+				countBox = counter;
+			
+			//document.querySelectorAll('#deleteInput').forEach(el => el.remove());
+			for(i = 0 ; i <= 1; i++)
+				document.querySelector('#deleteInput').remove();
+			
+			countBox --;
+		}
+		
+		
+		
 		
 		function searchBar() {
 		  // Declare variables
 		  var input, filter, table, tr, td, i, txtValue;
 		  input = document.getElementById("userInput");
+		  
 		  filter = input.value.toUpperCase();
 		  table = document.getElementById("tableID");
 		  tr = table.getElementsByTagName("tr");
@@ -66,26 +73,90 @@
 		  }
 		}
 	</script>
+	
 </head>
 <body>
 
-<!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
-	<div class="container d-flex align-items-center">
+<?php
+	
+	// get uri to get second Segment
+	$uri = service('uri');
+	
+?>
 
-		<h1 class="logo me-auto"><a href="">Mti Unversity</a></h1>
+<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="" class="brand">
+			<i class='bx '></i>
+			<span class="text">MTI UNVERSITY</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="<?= $uri->getSegment(2) == 'dashboard'? "active": null ?>">
+				<a href="<?= base_url('Doctor/dashboard') ?>">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			
+			<li class="<?= $uri->getSegment(2) == 'create-exam'? "active": null ?>">
+				<a href="<?= base_url("Doctor/create-exam") ?>">
+					<i class='bx bxs-news' ></i>
+					<span class="text">Create Exams</span>
+				</a>
+			</li>
+			
+			<li class="<?= $uri->getSegment(2) == 'create-question'? "active": null ?>">
+				<a href="<?= base_url('Doctor/create-question') ?>">
+					<i class='bx bxs-news' ></i>
+					<span class="text">Create Question</span>
+				</a>
+			</li>
+			
+			<li class="<?= $uri->getSegment(2) == 'exams'? "active": null ?>">
+				<a href="<?= base_url('Doctor/exams') ?>">
+					<i class='bx bx-task' ></i>
+					<span class="text">Exams</span>
+				</a>
+			</li>
+
+
+			<li class="<?= $uri->getSegment(2) == 'profile'? "active": null ?>">
+				<a href="<?= base_url("Doctor/profile") ?>">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Profile</span>
+				</a>
+			</li>
+			
+			
+			
+			
+		</ul>
+		<ul class="side-menu">
 		
-		<nav id="navbar" class="navbar order-last order-lg-0">
-			<ul>
-				<li><a class="" href="<?php echo base_url() ?>/Doctor/courses">Courses</a></li>
-				<li><a class="" href="<?php echo base_url() ?>/Doctor/createexam">Create Exam</a></li>
-				<li><a class="" href="<?php echo base_url() ?>/Doctor/exam">Exams</a></li>
-				<li><a class="" href="<?php echo base_url() ?>/Doctor/profile">Profile</a></li>
-				<li><a class="" href="<?php echo base_url() ?>/Logout">Logout</a></li>
-			</ul>
-			<i class="bi bi-list mobile-nav-toggle"></i>
-		</nav>
+			
+			<li>
+				<a href="<?= base_url("Logout") ?>" class="logout">
+					<i class='bx bx-log-out' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
 
-	</div>
-</header>
-<!-- End Header -->
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="" class="nav-link"><h3>Doctor</h3></a>
+			<form action="">
+				<div class="form-input">
+					
+				</div>
+			</form>
+			
+		</nav>
+		<!-- NAVBAR -->

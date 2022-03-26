@@ -51,10 +51,11 @@
 					<h3>  Question Type </h3>
 				</div>
 				
-					<div style="text-align: center;">
-						<?= isset($error) ? 'Error!' : "" ?>
-					</div>
-				
+					<h3 style="text-align: center;">
+						<?= isset($error) ? 'Error!' : null ?>
+						<?= isset($noErrors) ? $noErrors : null ?>
+						<?= isset($errorMatch) ? $errorMatch : null?>
+					</h3>
 
 				<div class="col-md-3">
 					<label for="inputState" class="form-label">Exams </label>
@@ -62,7 +63,7 @@
 						<option disabled selected>Choise...</option>
 						
 						<?php foreach($exams as $exam): ?>
-							<option value="<?= $exam['id'] ?>"><?= $exam['title'] ?></option>
+							<option value="<?= $exam['id'] ?>"><?= $exam['course_title'] ?> - <?= $exam['title'] ?> </option>
 						<?php endforeach; ?>
 
 					</select>
@@ -165,12 +166,12 @@
 				</div>
 
 
-				<div class="d-flex justify-content-between mt-3">
+				<div class="d-flex justify-content-between mt-3" id="addChoice">
 					<div class="col-md-3">
 						<label for="inputCity" class="form-label">Option : 1 </label>
 						<input name="options[]" type="text" class="form-control" id="inputCity">
 					</div>
-
+					
 					<div class="col-md-3">
 						<label for="inputCity" class="form-label">Option : 2</label>
 						<input name="options[]" type="text" class="form-control" id="inputCity">
@@ -180,8 +181,6 @@
 						<label for="inputCity" class="form-label">Option : 3</label>
 						<input name="options[]" type="text" class="form-control" id="inputCity">
 					</div>
-
-					<div id="addChoice"></div>
 					
 					<?= isset($error['options']) ? "There is empty Option":"" ?>
 				</div>
@@ -206,7 +205,7 @@
 
 				<div class="d-flex justify-content-between mt-4">
 					<div class=" ">
-						<button type="submit" class="btn btn-primary" onclick="addChoice()">Add Choise </button>
+						<button type="button" class="btn btn-primary" onclick="addChoice()">Add Choise </button>
 						<button name="saveChoose" type="submit" class="btn btn-primary">Save</button>
 					</div>
 				</div>
