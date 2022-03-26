@@ -51,10 +51,11 @@
 					<h3>  Question Type </h3>
 				</div>
 				
-					<div style="text-align: center;">
+					<h3 style="text-align: center;">
 						<?= isset($error) ? 'Error!' : null ?>
 						<?= isset($noErrors) ? $noErrors : null ?>
-					</div>
+						<?= isset($errorMatch) ? $errorMatch : null?>
+					</h3>
 
 				<div class="col-md-3">
 					<label for="inputState" class="form-label">Exams </label>

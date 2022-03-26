@@ -173,19 +173,27 @@ class Doctor extends BaseController{
 				'chooseAnswer' => 'required',
 				'chooseGrade' => 'required',
 			];
+			
 			if($this->validate($validationRules)){
+					if(in_array($_POST['chooseAnswer'], $_POST['options'])){
+					$this->exam->createQuestion(
+						$this->request->getPost('exam_id'), 
+						$this->request->getPost('question_type'), 
+						$this->request->getPost('chooseQuestion'), 
+						$this->request->getPost('chooseAnswer'), 
+						$this->request->getPost('chooseGrade'), 
+						$this->request->getPost('options')
+					);
+					
+					$data['noErrors'] = "Question Saved Successfuly :)";
+				}else{
+					$data['errorMatch'] = "Answer must be on of Options";
+				}
 				
-				$this->exam->createQuestion(
-					$this->request->getPost('exam_id'), 
-					$this->request->getPost('question_type'), 
-					$this->request->getPost('chooseQuestion'), 
-					$this->request->getPost('chooseAnswer'), 
-					$this->request->getPost('chooseGrade'), 
-					$this->request->getPost('options')
-				);
 			}else{
 				$data['error'] = $this->validation->getErrors();
 			}
+			
 		}
 		
 		echo view(DR_HEADER_VIEW, $data);

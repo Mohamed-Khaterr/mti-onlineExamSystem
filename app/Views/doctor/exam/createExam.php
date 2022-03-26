@@ -125,7 +125,7 @@
 
                                 <div class="col-4">
                                     <label for="inputAddress2" class="form-label">Duration</label>
-                                    <input name="duration" type="time" class="form-control" id="inputAddress2">
+                                    <input name="duration" type="time" min="01:00:00" max="04:00:00" class="form-control" id="inputAddress2">
 									
 									<?= isset($error['duration']) ? "Set Duration for this exam please" : "" ?>
 								</div>
