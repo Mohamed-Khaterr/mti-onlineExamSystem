@@ -24,7 +24,6 @@ class ExamModel extends Model{
 								exam_duration,
 								exam_date_time,
 								total_grade,
-								admin_verified,
 								course_title,
 								')
 					->where('doctor_id',$doctor_id)
@@ -43,7 +42,6 @@ class ExamModel extends Model{
 				'duration' => $row->exam_duration,
 				'total_grade' => $row->total_grade,
 				'dateTime' => $row->exam_date_time,
-				'admin_verified' => $row->admin_verified,
 			];
 			
 			array_push($data, $dataRow);
@@ -73,7 +71,6 @@ class ExamModel extends Model{
 				'total_grade' => $row->total_grade,
 				'dateTime' => date("F j, Y - g:i a", strtotime($row->exam_date_time)),
 				'noFormatDateTime' => $row->exam_date_time,
-				'admin_verified' => $row->admin_verified,
 			];
 			
 			//array_push($data, $dataRow);
@@ -121,10 +118,11 @@ class ExamModel extends Model{
 			'exam_date_time' => $examDateTime,
 			'total_grade' => $totalGrade,
 			'student_grade' => 0,
-			'admin_verified' => null,
 		];
 		
 		$this->builder->insert($data);
+		
+		return $this->db->insertID();
 	}
 	
 	//-------------------------------------------------------------------------------------------------------
@@ -139,7 +137,6 @@ class ExamModel extends Model{
 			'exam_duration' => $duration,
 			'exam_date_time' => $dateTime,
 			'total_grade' => $total_grade,
-			'admin_verified' => null,
 		];
 		
 		$this->builder->update($data, ['exam_id' => $exam_id]);
@@ -150,7 +147,11 @@ class ExamModel extends Model{
 	public function createQuestion($exam_id, $question_type, $question_description, $question_answer, $question_grade, $question_choices = null){
 		//insert to question TABLE
 		$this->builder = $this->db->table("question");
+				
+		$questionData = array();
+		
 		if(empty($question_choices)){
+			
 			$questionData = [
 				'exam_id' => $exam_id,
 				'question_type' => $question_type,
@@ -159,6 +160,7 @@ class ExamModel extends Model{
 				'question_grade' => $question_grade
 			];
 		}else{
+			
 			$questionData = [
 				'exam_id' => $exam_id,
 				'question_type' => $question_type,

@@ -7,6 +7,8 @@ class Exam extends BaseController{
 
 		helper(['form']);
         $model = new \App\Models\ExamModel();
+		$users = new \App\Models\UsersModel();
+
         
 		
 			$data=[
@@ -17,6 +19,9 @@ class Exam extends BaseController{
 			$data['exam'] = $model->GetExamInfo($exam_id);
 			$data['questions'] = $model->GetExamQuestions($exam_id);
 			$data['noq'] = $model->pagination($exam_id);
+			$session_id = $users->getSessionID();
+			$data['userObj'] = $users->getUserBySession($session_id);
+			
 			// $data['NandP'] = $model->next_N_prev($exam_id);
 			$data["ignm"]=1;
 			if($this->request->getMethod() == "post"){

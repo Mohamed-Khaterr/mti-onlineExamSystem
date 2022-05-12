@@ -135,7 +135,6 @@ class DoctorModel extends Model{
 				'duration' => date("g:i", strtotime($row->exam_duration)),
 				'total_grade' => $row->total_grade,
 				'dateTime' => date("F j, Y - g:i a", strtotime($row->exam_date_time)),
-				'admin_verified' => $row->admin_verified,
 			];
 			
 			array_push($data, $dataRow);

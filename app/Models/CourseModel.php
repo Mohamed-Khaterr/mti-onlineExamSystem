@@ -29,6 +29,38 @@ class CourseModel extends Model{
             }
     }
 	
+	
+	//----------------------------------------------------------------------------------------------------------------------------------
+	// Khater --------------------------------------------------------------------------------------------------------------------------
+	public function getCoursesCountAll(){
+		$this->builder = $this->db->table("course");
+		if($coursesCount = $this->builder()->countAllResults(false)){
+			return $coursesCount;
+		}else{
+			return 0;
+		}
+	}
+	
+	public function getCoursesNamesForAdmin(){
+		$this->builder = $this->db->table("course");
+		$this->builder->select('course_title, course_code, course_level')
+					->orderBy('course_level', 'ASC');
+		
+		$query = $this->builder->get()->getResult();
+		
+		$data = array();
+		foreach($query as $row){
+			$dataRow = [
+				'title' => $row->course_title,
+				'code' => $row->course_code,
+				'level' => $row->course_level,
+			];
+			array_push($data, $dataRow);
+		}
+		
+		return $data;
+	}
+	
 }
 
 ?>

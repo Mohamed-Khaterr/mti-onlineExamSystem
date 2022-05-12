@@ -12,6 +12,7 @@ class Admin extends BaseController{
 	
 	public function __construct(){
 		$this->admin = model(AdminModel::class);
+		$this->user = model(UsersModel::class);
     }
 	/*
 	echo '<pre style="text-align: center;">';
@@ -20,12 +21,14 @@ class Admin extends BaseController{
 	*/
 	public function index(){
 		
+		$session_id = $this->user->getSessionID();
 		$data = [
 			'studentCountAll' => $this->admin->getStudentsCountAll(),
 			'coursesCountAll' => $this->admin->getCoursesCountAll(),
 			'examCountAll' => $this->admin->getExamsCountAll(),
 			'allCoursesNames' => $this->admin->getCoursesNames(),
-			'upcomingExams' => $this->admin->getUpcomingExams()
+			'upcomingExams' => $this->admin->getUpcomingExams(),
+			'userObj' => $this->user->getUserBySession($session_id),
 		];
 		
 		// Delete exam and question
@@ -58,10 +61,15 @@ class Admin extends BaseController{
 	
 	
 	public function liveExam($examID, $courseTitle, $examTitle){
+		
+		$session_id = $this->user->getSessionID();
 		$data = [
 			'courseTitle' => $courseTitle,
 			'examTitle' => $examTitle,
+			'studentCountAll' => $this->admin->getStudentsCountAll(),
 			'endTime' => $this->admin->getEndTime($examID),
+			'userObj' => $this->user->getUserBySession($session_id),
+
 		];
 		
 		

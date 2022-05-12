@@ -20,7 +20,7 @@
 						<li><i class='bx bx-chevron-right' ></i></li>
 						
 						<li>
-							<a class="active" href="<?= base_url('Doctor/dashboard') ?>">Exams</a>
+							<a class="active" href="<?= base_url('Doctor/exams') ?>">Exams</a>
 						</li>
 						
 						<li><i class='bx bx-chevron-right' ></i>
@@ -106,20 +106,31 @@
 						
 						<?= isset($error['chooseQuestion']) ? "Add Question please":"" ?>
 					</div>
-
-
-					<div class="d-flex justify-content-between mt-3" id="addChoice">
-						<?php $counter = 1 ; ?>
-						<?php foreach($question['options'] as $option): ?>
-							<div class="col-md-3">
-								<label for="inputCity" class="form-label" id="deleteInput">Option : <?= $counter ?> </label>
-								<input name="options[]" value="<?= $option ?>" type="text" class="form-control  deleteInput" id="deleteInput">
-							</div>
-						<?php $counter++; ?>
-						<?php endforeach; ?>
-					</div>
+					
+					
+					<!-- Choices -->
+					<?php $counter = 1; ?>
+					
+					<?php for($i = 0; $i < count($question['options'])/3; $i++): ?>
+						<div class="d-flex justify-content-between mt-3" >
+							<?php for($j = 0; $j < 3; $j++): ?>
+								<?php if(isset($question['options'][$counter - 1])): ?>
+									<div class="col-md-3">
+										<label for="inputCity" class="form-label" id="deleteInput">Choose : <?= $counter ?> </label>
+										<input name="options[]" value="<?= $question['options'][$counter - 1] ?>" type="text" class="form-control" id="deleteInput">
+									</div>
+									<?php $counter++; ?>
+								<?php endif; ?>
+							<?php endfor; ?>
+						</div>
+					<?php endfor; ?>
 					<?= isset($error['options']) ? "There is empty Option":"" ?>
-
+					
+					<div id="addChoice2">
+					</div>
+					<!-- End Choices -->
+					
+					<hr />
 
 					<div class="d-flex justify-content-between mt-3">
 						<div class="col-md-3">
@@ -141,8 +152,8 @@
 					<div class="d-flex justify-content-between mt-4">
 						<div class=" ">
 							<button name="updateChooseQuestion" type="submit" class="btn btn-primary">Save</button>
-							<button type="button" class="btn btn-primary" onclick="addChoice(<?= $counter;  ?>)">Add Choise </button>
-							<button type="button" class="btn btn-danger" onclick="deleteChoice(<?= $counter ?>)">Delete last Choise </button>
+							<button type="button" class="btn btn-primary" onclick="addChoice2(<?= $counter ?>)">Add Choise </button>
+							<button type="button" class="btn btn-danger" onclick="deleteChoice()">Delete Last Choise </button>
 						</div>
 					</div>
 				<?php endif; ?>

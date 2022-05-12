@@ -109,7 +109,7 @@ defined('ADMIN_HEADER_VIEW') || define('ADMIN_HEADER_VIEW', 'admin/templates/hea
 defined('ADMIN_FOOTER_VIEW') || define('ADMIN_FOOTER_VIEW', 'admin/templates/footer');
 defined('ADMIN_DASHBOARD') || define('ADMIN_DASHBOARD', 'admin/dashboardView');
 defined('ADMIN_CURRENT_EXAM') || define('ADMIN_CURRENT_EXAM', 'admin/currentExam');
-defined('ADMIN_VERIFY_EXAM') || define('ADMIN_VERIFY_EXAM', 'admin/verifyExam/verifyExams');
+//defined('ADMIN_VERIFY_EXAM') || define('ADMIN_VERIFY_EXAM', 'admin/verifyExam/verifyExams');
 defined('ADMIN_PROFILE') || define('ADMIN_PROFILE', 'admin/profileView');
 
 
