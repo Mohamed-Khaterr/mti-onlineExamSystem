@@ -62,8 +62,7 @@
                             <h3>  Exam Details </h3>
                             
                         </div>
-                        
-                        <h3 style="text-align: center;"><?= isset($noErrors) ? $noErrors : null ?></h3>
+						
 						<br />
 
                             <form method="POST" class="row g-3">
@@ -125,7 +124,7 @@
 
                                 <div class="col-4">
                                     <label for="inputAddress2" class="form-label">Duration</label>
-                                    <input name="duration" type="time" min="01:00:00" max="04:00:00" class="form-control" id="inputAddress2">
+                                    <input name="duration" type="time" class="form-control" id="inputAddress2">
 									
 									<?= isset($error['duration']) ? "Set Duration for this exam please" : "" ?>
 								</div>
@@ -133,7 +132,7 @@
 
                                
                                 <div class="col-md-4 mt-5">
-                                  <button name="save" type="submit" class="btn btn-primary">Save</button>
+                                  <button name="createExam" type="submit" class="btn btn-primary">Create</button>
                                 </div>
                               </form>
 					</div>

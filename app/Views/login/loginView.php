@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,8 +51,8 @@
 					
 					<br><br>
 					
-					<div class="mt-3 ms-5 w-75  btn bg-blue text-light">
-						<input type="submit" name="login" value="Login" class="btn brand z-depth-0 text-light">   
+					<div class="mt-3 text-center  text-light">
+						<input type="submit" name="login" value="Login" class="btn  py-2 px-5 bg-blue brand z-depth-0 text-light">   
 					</div>
 					<div class="text-light"><?php echo $validationError; ?></div> 
 				</div>

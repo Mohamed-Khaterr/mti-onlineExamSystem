@@ -22,7 +22,7 @@
 		var countBox = 4;
 		function addChoice(){
 			
-			document.getElementById("addChoice").innerHTML += '<div class="col-md-3"><label for="inputCity" class="form-label">Option : '+countBox+' </label><input name="options[]" type="text" class="form-control" id="inputCity"></div>';
+			document.getElementById("addChoice").innerHTML += '<div class="col-md-3"><label for="inputCity" class="form-label">Choose : '+countBox+' </label><input name="options[]" type="text" class="form-control" id="inputCity"></div>';
 			countBox += 1;
 			
 			
@@ -31,20 +31,26 @@
 		function addChoice(counter){
 			if(counter > countBox)
 				countBox = counter;
-			document.getElementById("addChoice").innerHTML += '<div class="col-md-3"><label for="inputCity" class="form-label" id="deleteInput">Option : '+countBox+' </label><input name="options[]" type="text" class="form-control" id="deleteInput"></div>';
+			document.getElementById("addChoice").innerHTML += '<div class="d-flex justify-content-between mt-3"><div class="col-md-3"><label for="inputCity" class="form-label" id="deleteInput">Choose : '+countBox+' </label><input name="options[]" type="text" class="form-control" id="deleteInput"></div></div>';
 			countBox ++;
 		}
 		
-		function deleteChoice(counter){
-			
-			if(counter > countBox)
+		function addChoice2(counter){
+			if(counter > countBox){
 				countBox = counter;
+				document.getElementById("addChoice2").innerHTML += '<br />---- NEW ----';
+			}
 			
-			//document.querySelectorAll('#deleteInput').forEach(el => el.remove());
-			for(i = 0 ; i <= 1; i++)
-				document.querySelector('#deleteInput').remove();
+			document.getElementById("addChoice2").innerHTML += '<div class="d-flex justify-content-between mt-3"><div class="col-md-3"><label for="inputCity" class="form-label" id="deleteInput">Choose : '+countBox+' </label><input name="options[]" type="text" class="form-control" id="deleteInput"></div></div>';
 			
-			countBox --;
+			countBox ++;
+		}
+		
+		function deleteChoice(){
+			var arr = document.querySelectorAll("#deleteInput");
+			var len = document.querySelectorAll("#deleteInput").length;
+			arr[len - 2].remove();
+			arr[len - 1].remove();
 		}
 		
 		
@@ -91,7 +97,7 @@
 			<span class="text">MTI UNVERSITY</span>
 		</a>
 		<ul class="side-menu top">
-			<li class="<?= $uri->getSegment(2) == 'dashboard'? "active": null ?>">
+			<li class="<?= $uri->getSegment(2) == 'dashboard' || $uri->getSegment(2) == ''? "active": null ?>">
 				<a href="<?= base_url('Doctor/dashboard') ?>">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
@@ -101,14 +107,7 @@
 			<li class="<?= $uri->getSegment(2) == 'create-exam'? "active": null ?>">
 				<a href="<?= base_url("Doctor/create-exam") ?>">
 					<i class='bx bxs-news' ></i>
-					<span class="text">Create Exams</span>
-				</a>
-			</li>
-			
-			<li class="<?= $uri->getSegment(2) == 'create-question'? "active": null ?>">
-				<a href="<?= base_url('Doctor/create-question') ?>">
-					<i class='bx bxs-news' ></i>
-					<span class="text">Create Question</span>
+					<span class="text">Create Exam</span>
 				</a>
 			</li>
 			

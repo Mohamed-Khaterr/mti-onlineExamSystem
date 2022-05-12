@@ -115,7 +115,7 @@
 					<div class="head">
 						<h3>Upcaming Exams</h3>
 						<!--<a href="" title="Create Exam"><i class='bx bx-plus' ></i></a>-->
-						<a href="<?= base_url('Admin/verify-exams') ?>" title="Verify Exam"><i class='bx bx-filter' ></i></a> 
+						<a href="<?= base_url('Admin/current-exam') ?>" title="Current Exam"><i class='bx bx-filter' ></i></a> 
 					</div>
 					<ul class="todo-list">
 						<?php if(count($upcomingExams) == 0): ?>
@@ -132,19 +132,12 @@
 											<?= $exam['title'] ?> 
 											
 											<?= $exam['type'] ?>
-
-											(<?= $exam['isVerified'] ? "verified" : "not verified" ?>)
+											
 											<br /> <br /> 
 											<?= $exam['datetime'] ?>
 										<p>
 										
 										<p></p>
-										
-										<!--<a href="" title="edit">  <i  class='bx bx-edit p'></i>  </a>-->
-										
-										<a href="" title="delete permanently" >
-											<button name="deleteExam" value="<?= $exam['examID'] ?>" style="border: none;"><i class='bx bx-x p'></i></button>
-										</a>
 									</li>
 								</form>
 							<?php endforeach; ?>

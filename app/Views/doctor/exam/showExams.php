@@ -5,7 +5,7 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Dashboard</h1>
+					<h1>Exams</h1>
 					<ul class="breadcrumb">
 						<li>
 							<a href="<?= base_url('Doctor/dashboard') ?>">Dashboard</a>
@@ -97,7 +97,6 @@
 								<th> Date </th>
 								<th> Duration </th>
 								<th> Grade </th>
-								<th> Verified </th>
 								<th></th>
 							</tr>
 						</thead>
@@ -118,8 +117,6 @@
 											<td><?= $exam['duration'] ?></td>
 											
 											<td><?= $exam['total_grade'] ?></td>
-											
-											<td><?= $exam['admin_verified'] ? "YES" : "NO" ?></td>
 											
 											<td>
 												<a href="" title="Show Questions">

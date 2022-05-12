@@ -93,7 +93,6 @@ class Doctor extends BaseController{
 	
 	public function createExam(){
 		$data =[
-			'sideBar' => 'createExam',
 			'courseTitle' => $this->doctor->getCourses($_SESSION['dr_id']),
 		];
 		
@@ -109,7 +108,7 @@ class Doctor extends BaseController{
 		
 		if($this->request->getMethod(true) == 'POST' && $this->validate($validationRules)){
 			
-			$this->exam->createExam(
+			$_SESSION['exam_insert_id'] = $this->exam->createExam(
 				$_SESSION['dr_id'],	
 				$this->request->getPost('course_id'), 
 				$this->request->getPost('exam_title'), 
@@ -119,7 +118,7 @@ class Doctor extends BaseController{
 				$this->request->getPost('total_grade')
 			);
 			
-			$data['noErrors'] = "Exam Saved Successfuly :)";
+			return redirect()->to('Doctor/create-question');
 		}else{
 			$data['error'] = $this->validation->getErrors();
 		}
@@ -136,12 +135,11 @@ class Doctor extends BaseController{
 	
 	public function createQuestions(){
 		$data =[
-			'exams' => $this->exam->getExams($_SESSION['dr_id']),
+			
 		];
 		
 		if(isset($_POST['savetf'])){
 			$validationRules = [
-				'exam_id' => 'required',
 				'question_type' => 'required',
 				'tfAnswer' => 'required',
 				'tfQuestion' => 'required',
@@ -150,13 +148,14 @@ class Doctor extends BaseController{
 			if($this->validate($validationRules)){
 				
 				$this->exam->createQuestion(
-					$this->request->getPost('exam_id'), 
+					$_SESSION['exam_insert_id'], 
 					$this->request->getPost('question_type'), 
 					$this->request->getPost('tfQuestion'), 
 					$this->request->getPost('tfAnswer'), 
 					$this->request->getPost('tfGrade'), 
 					$question_choices = null
 				);
+				
 				$data['noErrors'] = "Question Saved Successfuly :)";
 			}else{
 				$data['error'] = $this->validation->getErrors();
@@ -166,7 +165,6 @@ class Doctor extends BaseController{
 		
 		if(isset($_POST['saveChoose'])){
 			$validationRules = [
-				'exam_id' => 'required',
 				'question_type' => 'required',
 				'chooseQuestion' => 'required',
 				'options' => 'required',
@@ -177,7 +175,7 @@ class Doctor extends BaseController{
 			if($this->validate($validationRules)){
 					if(in_array($_POST['chooseAnswer'], $_POST['options'])){
 					$this->exam->createQuestion(
-						$this->request->getPost('exam_id'), 
+						$_SESSION['exam_insert_id'], 
 						$this->request->getPost('question_type'), 
 						$this->request->getPost('chooseQuestion'), 
 						$this->request->getPost('chooseAnswer'), 

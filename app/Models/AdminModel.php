@@ -12,6 +12,12 @@ class AdminModel extends Model{
 	public function __construct() {
 		$this->db = \Config\Database::connect();
 		$this->builder = $this->db->table("admin");
+		$this->sessionID = $this->getSessionID();
+    }
+
+      public function getSessionID(){
+         return session_id();
+
 	}
 	
 	public function getStudentsCountAll(){
@@ -326,5 +332,21 @@ class AdminModel extends Model{
 			return false;
 		}
 	}
+
+
+	public function updateAsession($id){
+		$this->builder = $this->db->table('admin');
+		$table = $this->builder->join('users', "users.userID = admin.userID")
+		                       ->where('admin.userID',$id);
+	
+		$data = [
+			'session_id' => $this->sessionID 
+		];
+	
+		$table->update($data);
+	
+	}
 	
 }
+
+

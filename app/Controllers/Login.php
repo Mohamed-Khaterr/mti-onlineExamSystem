@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use CodeIgniter\classes\User;
+use CodeIgniter\init;
 
 class Login extends BaseController{
 	
@@ -18,6 +19,8 @@ class Login extends BaseController{
 	public function __construct(){
 		//call Model
         $this->user = model(UserModel::class);
+        $this->users = model(UsersModel::class);
+		$this->admin = model(AdminModel::class);
     }
 
     
@@ -52,6 +55,11 @@ class Login extends BaseController{
 				if($this->adminUser($email, $password)){
 					$_SESSION['isLoggedIn'] = true;
 					$_SESSION['isAdmin'] = true;
+					$id = session()->get('adminuserID');
+					$this->users->updateAsession($id);
+					$this->admin->updateAsession($id);
+					
+
 					
 					//go to Admin Controller
 					return redirect()->to('Admin');
@@ -62,6 +70,9 @@ class Login extends BaseController{
 				
 				if($this->studentUser($email, $password)){
 					$_SESSION['isStudent'] = true;
+					$id = session()->get('stuuserID');
+					$this->users->updateSsession($id);
+					
 					
 					//go to Student Controller
 					return redirect()->to('student');
@@ -116,6 +127,10 @@ class Login extends BaseController{
 		if($result['error'] === ''){
 			foreach($result['verify'] as $row){
 				$_SESSION[ADMIN_ID] = $row->admin_id;
+				$_SESSION['admin_fname'] = $row->admin_fname;
+				$_SESSION['admin_lname'] = $row->admin_lname;
+				$_SESSION['adminuserID'] = $row->userID;
+
 			}
 			
 			return true;
@@ -142,6 +157,7 @@ class Login extends BaseController{
 					'student_pic'=>$row->student_pic,
 					'GPA'=>$row->GPA,
 					'student_email'=>$row->student_email,
+					'stuuserID'=>$row->userID,
 					'isLoggedIn'=>true,
 				];
 			}

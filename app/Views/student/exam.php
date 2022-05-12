@@ -1,4 +1,5 @@
 <?php include "templates/header.php";
+// include "system/init.php";
 date_default_timezone_set("Africa/Cairo");
 // $i = 0 ; foreach($noq as $n){
 // $i++;
@@ -179,9 +180,63 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
     </form>
 
 
+
+
+    <div class="contentarea d-none">
+  <h1>
+    WebRTC: photo capture 
+  </h1>
   
+  <div class="camera">
+    <video id="video">Video stream not available.</video>
+    <button id="startbutton"></button> 
+  </div>
+  <canvas id="canvas">
+  </canvas>
+  <div class="output">
+    <img id="photo" alt="The screen capture will appear in this box."> 
+  </div>
 
 
+  <div
+    className='container'>
+    <?php
+    if($userObj->userID == 1){
+      echo 'Id  Name  Status  Face';
+    }
+    
+    ?>
+      <p className='element' id='n1'> </p>
+      <p className='element' id='n2'> </p>
+      <p className='element' id='n3'></p>
+
+      <button onclick="togell()" id='btn1'>Monitor</button>
+      <img id = 'img1' >
+
+      
+      <button onclick="togell2()" id='btn2'>Monitor</button> 
+      <img id = 'img2' >
+      
+      
+      
+      <button onclick="togell3()" id='btn3'>Monitor</button>
+      <img id = 'img3' >
+    
+</div>
+
+
+
+  <button onclick="sendImg()">
+  
+  <?php
+
+
+echo $userObj->userID;
+
+
+?>
+  </button>
+</div>
 
 
 <?php include 'templates/footer.php';?>
@@ -306,4 +361,13 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
 </script>
 
 
+
+
+<script>
+              const conn = new WebSocket('ws://localhost:8080/?token=<?php
+              echo $userObj->sessionID;
+              ?>');
+          </script>
+<script type="text/javascript" src="/assets/js/capture.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
   

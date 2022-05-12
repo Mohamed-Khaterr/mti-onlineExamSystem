@@ -36,23 +36,20 @@
 
 
 			<ul class="box-info ps-0">
-				
-				<li>
-					<i class='bx bxs-group ' ></i>
-					<span class="text mt-3">
-						<h3><?= $studentCountAll ?></h3>
-						<p> Total Students</p>
-					</span>
-				</li>
-
-				
-
 				<li>
 					<i class='bx bxs-calendar-check' ></i>
 
 					<span class="text mt-3">
 						<h3><?= count($processExams)?></h3>
 						<p> Total Exams today</p>
+					</span>
+				</li>
+				
+				<li>
+					<i class='bx bx-calendar' ></i>
+					<span class="text mt-3">
+						<h3><?= date('F j, Y') ?></h3>
+						<p> Date </p>
 					</span>
 				</li>
 			</ul>
@@ -74,7 +71,7 @@
 
                     <div class="todo ">
                         <div class="head">
-                            <h3> Inprocess Exams</h3>
+                            <h3> Today Exams</h3>
                             
                         </div>
                         <ul class="todo-list p-0 m-0">
@@ -95,8 +92,8 @@
 										<?= $exam['status'] ?>
 									</p>
 									<?php if($exam['status'] == "In Process"): ?>
-										<a href="<?= base_url('Admin/live-exam/'.$exam['id'].'/'.$exam['title'].'/'.$exam['examTitle'])?>" title="Exam Status">
-											<button style="border: none;">Show</button> 
+										<a class="btn btn-info" href="<?= base_url('Admin/live-exam/'.$exam['id'].'/'.$exam['title'].'/'.$exam['examTitle'])?>" title="Exam Status">
+											Show 
 										</a>
 									<?php else: ?>
 										<p></p>
@@ -104,35 +101,6 @@
 									
 								</li>
 							<?php endforeach; ?>
-							
-							<!--
-                            <li class="not-completed">
-                                <p>Final Exam In Comuter Graphics</p>
-                                
-                                <a href="" title="Exam Status">
-									<button style="border: none;">Show</button> 
-								</a>
-                            </li>
-
-
-                             <li class="completed">
-                                <p>Final Exam In Comuter Graphics </p>
-                                
-                                <a href="" title="Exam Status">
-									<button style="border: none;">Show</button> 
-								</a>
-                            </li>
-
-							<li class="not-completed">
-                                <p>... Exam In ... </p>
-                                
-                                <a href="" title="Exam Status">
-									<button style="border: none;">Show</button> 
-								</a>
-                            </li>
-							-->
-
-							
                         </ul>
                     </div>
 

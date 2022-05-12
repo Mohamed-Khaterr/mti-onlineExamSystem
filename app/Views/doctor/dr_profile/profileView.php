@@ -62,14 +62,7 @@
 			<li class="<?= $uri->getSegment(2) == 'create-exam'? "active": null ?>">
 				<a href="<?= base_url("Doctor/create-exam") ?>">
 					<i class='bx bxs-news' ></i>
-					<span class="text">Create Exams</span>
-				</a>
-			</li>
-			
-			<li class="<?= $uri->getSegment(2) == 'create-question'? "active": null ?>">
-				<a href="<?= base_url('Doctor/create-question') ?>">
-					<i class='bx bxs-news' ></i>
-					<span class="text">Create Question</span>
+					<span class="text">Create Exam</span>
 				</a>
 			</li>
 			

@@ -57,12 +57,7 @@
 					<span class="text">Current Exams</span>
 				</a>
 			</li>
-			<li>
-				<a href="<?= base_url('Admin/verify-exams') ?>">
-					<i class='bx bx-task' ></i>
-					<span class="text">Verify Exams</span>
-				</a>
-			</li>
+			
 
 
 			<li class="active">
@@ -102,13 +97,7 @@
 					
 				</div>
 			</form>
-
-
 			
-			<a href="" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
 		</nav>
 		<!-- NAVBAR -->
 
@@ -344,6 +333,7 @@
                                 </div><!-- End Bordered Tabs -->
                   
                               </div>
+							  
                             </div>
                   
                           </div>

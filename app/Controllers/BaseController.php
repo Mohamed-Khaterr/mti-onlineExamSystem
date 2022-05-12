@@ -53,5 +53,8 @@ class BaseController extends Controller
 		//for Validation
 		$this->validation =  \Config\Services::validation();
 		
+		//for database
+		$this->db =  \Config\Database::connect();
+		
     }
 }
