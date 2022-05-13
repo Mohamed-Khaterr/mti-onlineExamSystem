@@ -20,7 +20,6 @@ class Admin extends BaseController{
 	echo '</pre>';
 	*/
 	public function index(){
-		
 		$session_id = $this->user->getSessionID();
 		$data = [
 			'studentCountAll' => $this->admin->getStudentsCountAll(),
