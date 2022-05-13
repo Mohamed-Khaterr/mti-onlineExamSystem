@@ -45,6 +45,7 @@ class Login extends BaseController{
 					$_SESSION['isLoggedIn'] = true;
 					$_SESSION['isDoctor'] = true;
 					
+					
 					//go to Doctor Controller
 					return redirect()->to('Doctor');
 				}
@@ -67,7 +68,6 @@ class Login extends BaseController{
 				
 			}elseif(strpos($email, '@cs')){
 				//Student Email
-				
 				if($this->studentUser($email, $password)){
 					$_SESSION['isStudent'] = true;
 					$id = session()->get('stuuserID');

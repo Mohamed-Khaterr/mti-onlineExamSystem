@@ -23,6 +23,7 @@ class Filters extends BaseConfig
 		'auth' => \App\Filters\Auth::class,
 		'noauth' => \App\Filters\Noauth::class,
 		'examauth' => \App\Filters\Examauth::class,
+		'authPage' => \App\Filters\AuthPage::class,
     ];
 
     /**
@@ -33,8 +34,8 @@ class Filters extends BaseConfig
      */
     public $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
+             'honeypot',
+             'csrf',
         ],
         'after' => [
             'toolbar',

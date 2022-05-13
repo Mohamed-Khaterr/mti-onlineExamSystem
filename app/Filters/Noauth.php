@@ -11,7 +11,7 @@ class Noauth implements FilterInterface
         // Do something here
         if(session()->get('isLoggedIn')){
 			if(session()->get('isDoctor')){
-				return redirect()->to('Doctor/courses');
+				return redirect()->to('Doctor');
 				
 			}elseif(session()->get('isAdmin')){
 				return redirect()->to('Admin');

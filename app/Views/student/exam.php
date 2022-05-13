@@ -368,6 +368,10 @@ echo $userObj->userID;
               echo $userObj->sessionID;
               ?>');
           </script>
+		  
+<script>
+	
+</script>
 <script type="text/javascript" src="/assets/js/capture.js"></script>
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
   
