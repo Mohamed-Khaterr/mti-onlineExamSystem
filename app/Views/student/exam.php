@@ -33,14 +33,21 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
 
 <form action="" method="post" id="myForm">
    <?= csrf_field() ?>
-<div class="container  pt-5">
+<div class="container  pt-3">
  
+  <div id="cam-notify" class="w-100 m-auto  col-lg-12 bg-danger by-5 mb-4 text-center" style="border-radius:10px">
+    <h3 style="color:white; font-weight:bold;" class="p-3">If You Try to Turn off The Camera The Exam Will Close</h3>
+  
+  </div>
  
  
      <div class="row">
+       <div id="openCam" class="text-center col-lg-8 c" style="height:auto; border: 2px solid #003771; bcakground-color:white">
+        <h2 class=" mt-5" style="color:black">please open ur Camera and refresh page</h2>
+        <h5 class=" mt-3" style="color:black; font-weight:bold"> Allow Camera Access</h5>
+       </div>
     
-
-         <div    class="col-lg-8 c">
+         <div id='exam-q'   class="col-lg-8  c">
         <?php
          if($questions  !=  null){
          $i = 0; $ii=1; foreach($questions as $q):
@@ -370,12 +377,13 @@ echo $userObj->userID;
           </script>
 		  
 <script>
-	//if user leave Page or navigate to another tab
+	// if user leave Page or navigate to another tab
 	document.addEventListener("visibilitychange", (event) => {
 	  if (document.visibilityState == "visible") {
 		console.log("tab is active")
 	  } else {
 		console.log("tab is inactive")
+    // document.getElementById("SubAnswers").click();
 	  }
 	});
 	
@@ -383,9 +391,52 @@ echo $userObj->userID;
 		// focus
 	});
 
-	window.addEventListener('blur', (event) => {
-		// blur
-	});
+	// window.addEventListener('blur', (event) => {
+	// 	// blur
+  //   document.getElementById("SubAnswers").click();
+	// });
+</script>
+
+<script>
+  //Camera Permission 
+  
+    navigator.permissions.query({name:'camera'}).then(function(permissionStatus) {
+	  console.log('geolocation permission state is ', permissionStatus.state);
+    if(permissionStatus.state == "granted"){
+        console.log("open")
+        document.getElementById("exam-q").style.display = 'block';
+        document.getElementById("openCam").style.display = 'none';
+
+    }else{
+      console.log("close");
+      // document.getElementsByClassName("exam-q").classList.add('d-none');
+      document.getElementById("exam-q").style.display = 'none';
+      document.getElementById("openCam").style.display = 'block';
+      document.getElementById("cam-notify").style.display = 'none';
+      
+      // location.reload();
+
+    }
+    
+	  permissionStatus.onchange = function() {
+		console.log('geolocation permission state has changed to ', this.state);
+    if(this.state == "granted"){
+      console.log("open")
+      location.reload();
+      // document.getElementById("exam-q").style.display = 'block';
+      // document.getElementById("openCam").style.display = 'none';
+      
+    }else{
+      console.log("close");
+      // document.getElementsByClassName("exam-q").classList.add('d-none');
+      document.getElementById("exam-q").style.display = 'none';
+      document.getElementById("openCam").style.display = 'block';
+      document.getElementById("SubAnswers").click();
+    }
+
+	  }});
+  
+ 
 </script>
 <script type="text/javascript" src="/assets/js/capture.js"></script>
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>

@@ -56,10 +56,21 @@ $i = 0 ; foreach($noq as $n){
 </div>
 
 
+<div class="container mt-5">
+    <h2 style="color:red">Exam Rules:</h2> 
+<ul style="list-style-type:circle">
+  <li style="color:black; font-weight:bold">You Must Allow Camera Access.</li>
+  <li style="color:black; font-weight:Bold">If you Leave Exam or Open Another Tab The Exam Will Close.</li>
+  <li style="color:black; font-weight:Bold">Becareful Don't Press any Button Outside Exam Window.</li>
+</ul>
+</div>
 
 
 
 
+
+
+<center class="d-none"><video class="d-none" id="video" width="640" height="480" autoplay></video></center>
 
 
 
@@ -74,3 +85,12 @@ $i = 0 ; foreach($noq as $n){
 include 'templates/footer.php';
 
  ?>
+ <script>
+     var video = document.getElementById('video');
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+ navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+ video.src = window.URL.createObjectURL(stream);
+ video.play();
+ });
+}
+ </script>
