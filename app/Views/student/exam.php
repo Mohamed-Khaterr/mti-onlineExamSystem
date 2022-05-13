@@ -376,7 +376,6 @@ echo $userObj->userID;
 		console.log("tab is active")
 	  } else {
 		console.log("tab is inactive")
-		
 	  }
 	});
 	
