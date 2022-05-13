@@ -370,7 +370,23 @@ echo $userObj->userID;
           </script>
 		  
 <script>
+	//if user leave Page or navigate to another tab
+	document.addEventListener("visibilitychange", (event) => {
+	  if (document.visibilityState == "visible") {
+		console.log("tab is active")
+	  } else {
+		console.log("tab is inactive")
+		
+	  }
+	});
 	
+	window.addEventListener('focus', (event) => {
+		// focus
+	});
+
+	window.addEventListener('blur', (event) => {
+		// blur
+	});
 </script>
 <script type="text/javascript" src="/assets/js/capture.js"></script>
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
