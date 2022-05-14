@@ -2,6 +2,8 @@
 		<style>
 			#content main .table-data .todo {
 				flex-grow: 0;
+				margin-bottom: 30%;
+				flex-basis: 23%;
 			}
 		</style>
 
@@ -98,7 +100,7 @@
 							</tr>
 						</thead>
 						<tbody id="studentList">
-						<!--
+						
 						<tr>
 							<td>
 								Mohamed Khater
