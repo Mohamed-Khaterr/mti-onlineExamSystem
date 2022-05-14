@@ -20,6 +20,8 @@ class Exam extends BaseController{
 			$data['questions'] = $model->GetExamQuestions($exam_id);
 			$data['noq'] = $model->pagination($exam_id);
 			$session_id = $users->getSessionID();
+			$id = session()->get('stuuserID');
+			$users->updateSsession($id);
 			$data['userObj'] = $users->getUserBySession($session_id);
 			
 			// $data['NandP'] = $model->next_N_prev($exam_id);
