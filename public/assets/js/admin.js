@@ -11,10 +11,92 @@ conn.onopen = function(e) {
     //conn.send("{'type': 'newconnection', 'content': '1'}");
     console.log("Connection established!");
 };
-
-var count,count2,count3,count4=5;
+/*
+//var count,count2,count3,count4=5;
+var count = 5;
 conn.onmessage = function(e) {
-	
+	if(e.data ==="hi"){
+	}else{
+		
+		let student = JSON.parse(e.data);
+		console.log(student);
+		
+		student.forEach(function (student) {
+			let id = student.id;
+			let name = student.name;
+			var html = "";
+			
+			const img = document.getElementById('receivedImage');
+			img.src = "data:image/png;base64," + student.img;
+			
+			if(student.status === 'ok'){
+				count = 5;
+				//document.getElementById('s1').innerText ='not cheating';
+				
+				html = "
+					<tr>
+						<td>
+							"+name+"
+						</td>
+						
+						<td>
+							<span class='status completed' id='+student.id+'>Not Cheating</span>
+						</td>
+							
+						<td>
+							<button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button>
+						</td>
+					</tr>
+				";
+				
+			}else{
+				count --;
+				if(count <= 0 || isNaN(count)){
+					//document.getElementById('s1').innerText = 'Cheating';
+					
+					html = "
+						<tr>
+							<td>
+								"+name+"
+							</td>
+							
+							<td>
+								<span class='status pending'>Cheating</span>
+							</td>
+								
+							<td>
+								<button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button>
+							</td>
+						</tr>
+					";
+					
+				}else{
+					//document.getElementById('s1').innerText ='not cheating';
+					
+					html = "
+						<tr>
+							<td>
+								"+name+"
+							</td>
+							
+							<td>
+								<span class='status completed'>Not Cheating</span>
+							</td>
+								
+							<td>
+								<button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button>
+							</td>
+						</tr>
+					";
+				}
+				
+			}
+			
+			document.getElementById('studentList').innerHTML += html;
+		}
+	}
+	*/
+	/*
 	let btn1 =document.getElementById("btn1");
 	let btn2 =document.getElementById("btn2");
 	let btn3 =document.getElementById("btn3");
@@ -86,11 +168,24 @@ conn.onmessage = function(e) {
 	
 	}
   }
-	
+	*/
 	 
-  };
+};
 
 
+
+function showStudent(){
+	showPopupModel();
+}
+
+
+function showPopupModel(){
+	document.getElementById("popup-1").classList.toggle("active");
+}
+
+function stopPopupModel(){
+	document.getElementById("popup-1").classList.toggle("active");
+}
 
 
 /*
