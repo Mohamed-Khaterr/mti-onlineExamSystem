@@ -7,7 +7,8 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	
-	
+	<link href="/assets/img/MTI.png" rel="icon">
+  <link href="/assets/img/MTI.png" rel="apple-touch-icon">
 	<!-- My CSS -->
 	<link rel="stylesheet" href="<?= base_url() ?>/module/admin/style.css">
 	<link rel="stylesheet" href="<?= base_url() ?>/module/admin/css.css">
