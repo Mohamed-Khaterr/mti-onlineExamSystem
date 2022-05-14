@@ -14,8 +14,8 @@ $i = 0 ; foreach($noq as $n){
 
 <div class="container mt-5 pt-5">
     <div class="row">
-<div class="col-lg-8 text-center">
-<h1 class= 'mb-4' >Exam information </h1>
+<div class=" text-center">
+<h1 class= 'mb-4 text-left under-line' >Exam information: </h1>
 
 <table class="table table-secondary text-ceter">
 
@@ -41,31 +41,45 @@ $i = 0 ; foreach($noq as $n){
 </table>
 <h1 class="mb-5"></h1>
 
+
+</div>
+</div>
+</div>
+
+
+<div class="container bg-danger  py-4" style="border-radius:10px">
+    <h2 style="color:white">  Exam Rules:</h2>
+
+    <hr>
+    <div class="row">
+    <div class="col-lg-7 mt-4">
+    <ul style="list-style-type:circle col-lg-4">
+        <li style="color:white; font-weight:bold; font-size:25px; ">You Must Allow Camera Access.</li>
+        <li style="color:white; font-weight:Bold; font-size:25px; ">If you Open Another Tab The Exam Will Close.</li>
+        <!-- <li style="color:white; font-weight:Bold; font-size:25px; ">Becareful Don't Press any Button Outside Exam Window.</li> -->
+        <li style="color:white; font-weight:Bold; font-size:25px; ">If You Minize Browser window The Exam Will Close.</li>
+    </ul>
+    </div>
+    
+    <img src="/img/Allow.jpg" class="col-lg-4 rounded" style="width:500px; height:200px;" alt="">
+    
+</div>
+</div>
+
+<div class="container text-center pt-5">
+
 <form action="" method="POST">
 
 
 <?=  csrf_field(); ?>
 
 <input class="btn bg-blue" type="hidden" value="<?= $exam->exam_id ?>"  name="examid">
-<input class="btn bg-blue" type="submit" value="Submit"  name="subexam" >
+<input class="btn bg-blue" style="padding: 10px 50px; font-weight:bold; font-size:20px;" type="submit" value="Submit"  name="subexam" >
 
 
 </form>
-</div>
-</div>
-</div>
 
-
-<div class="container mt-5">
-    <h2 style="color:red">Exam Rules:</h2> 
-<ul style="list-style-type:circle">
-  <li style="color:black; font-weight:bold">You Must Allow Camera Access.</li>
-  <li style="color:black; font-weight:Bold">If you Leave Exam or Open Another Tab The Exam Will Close.</li>
-  <li style="color:black; font-weight:Bold">Becareful Don't Press any Button Outside Exam Window.</li>
-  <li style="color:black; font-weight:Bold">If You Minize Browser window The Exam Will Close.</li>
-</ul>
 </div>
-
 
 
 
