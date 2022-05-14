@@ -47,7 +47,7 @@
 					<i class='bx bxs-group' ></i>
 					<span class="text">
 						<p>Total Student</p>
-						<h3 id="studentCount">0</h3>
+						<h3 id="studentCount">2</h3>
 					</span>
 				</li>
 
@@ -94,20 +94,8 @@
 							</tr>
 						</thead>
 						<tbody id="studentList">
-						<!--
-						<tr>
-							<td>
-								Mohamed Khater
-							</td>
-							
-							<td>
-								<span class='status completed'>Not Cheating</span>
-							</td>
-								
-							<td id="view">
-								<button class="btn btn-info" style="background-color:#3C91E6;" onclick="showStudent()"> View </button>
-							</td>
-						</tr>
+						
+						
 								
 						<tr>
 								<td>
@@ -140,7 +128,7 @@
 								<td >
 									<p	id='s2'></p></td>
 							</tr>
-							-->
+						
 						</tbody>
 					</table>
 				</div>
