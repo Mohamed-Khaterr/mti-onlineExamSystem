@@ -157,7 +157,8 @@ class ExamModel extends Model{
 				'question_type' => $question_type,
 				'question_description' => $question_description,
 				'question_answer' => $question_answer,
-				'question_grade' => $question_grade
+				'question_grade' => $question_grade,
+				'question_choices' => implode("#@ ", ["True", "False"]),
 			];
 		}else{
 			
