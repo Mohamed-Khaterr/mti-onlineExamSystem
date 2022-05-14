@@ -67,7 +67,7 @@ class DoctorModel extends Model{
 				'BD' => $row->doctor_BD
 			];
 			
-			//array_push($data, $dataRow);
+			array_push($data, $dataRow);
 		}
 		
 		return $data;

@@ -71,7 +71,7 @@ class AdminModel extends Model{
 	public function getUpcomingExams(){
 		$this->builder = $this->db->table("exam");
 		
-		$this->builder->select('course_title, exam_type, exam_date_time, exam_id, admin_verified')
+		$this->builder->select('course_title, exam_type, exam_date_time, exam_id')
 					->join('course', 'course.course_id = exam.course_id')
 					->where('exam_date_time >= DATE(NOW())')
 					->orderBy('exam_date_time','ASC');
@@ -89,7 +89,6 @@ class AdminModel extends Model{
 				'examID' => $row->exam_id, 
 				'title' => $row->course_title, 
 				'type' => $row->exam_type, 
-				'isVerified' => $row->admin_verified,
 			];
 			
 			$examDateTime = date("F j, Y, g:i a", strtotime($row->exam_date_time));
@@ -112,16 +111,6 @@ class AdminModel extends Model{
 		return $data;
 	}
 	
-	
-	
-	public function deleteExam($exam_id){
-		$this->builder = $this->db->table("exam");
-		$this->builder->select('*')
-					->join('question', 'question.exam_id = exam.exam_id')
-					->where('exam.exam_id', $exam_id)
-					->delete();
-	}
-	
 	public function getProcessExams(){
 		helper('addTimeToDatetime');
 		
@@ -130,7 +119,6 @@ class AdminModel extends Model{
 		$this->builder->select('course_title, exam_type, exam_id, exam_date_time, exam_duration, exam_title')
 					->join('course', 'course.course_id = exam.course_id')
 					->where('DATE(exam_date_time) = DATE(NOW())')
-					->where('admin_verified', "true")
 					->orderBy('exam_date_time','ASC');
 		
 		$result = $this->builder->get()->getResult();
@@ -193,78 +181,6 @@ class AdminModel extends Model{
 		foreach($result as $row){
 			$examEndTime = addTimeToDatetime($row->exam_date_time, $row->exam_duration);
 			$data = date("Y-m-d H:i:s", strtotime($examEndTime));
-		}
-		
-		return $data;
-	}
-	
-	
-	public function verifiedExams(){
-		$this->builder = $this->db->table("exam");
-		
-		$data = [
-			'verified' => count($this->builder->where('admin_verified', 'true')->get()->getResult()),
-			'notVerified' => count($this->builder->where('admin_verified', null)->get()->getResult()),
-			'exams' => array(
-				'title' => array(),
-				'examTitle' => array(),
-				'type' => array(),
-				'admin_verified' => array(),
-				'examID' => array(),
-			),
-		];
-		
-		$result = $this->builder->select('course_title, admin_verified , exam_title, exam_type, exam_id')
-					->join('course', 'course.course_id = exam.course_id')
-					->orderBy('exam_date_time','DESC')
-					->get()->getResult();
-		
-		foreach($result as $row){
-			array_push($data['exams']['title'], $row->course_title);
-			array_push($data['exams']['examTitle'], $row->exam_title);
-			array_push($data['exams']['type'], $row->exam_type);
-			array_push($data['exams']['admin_verified'], $row->admin_verified);
-			array_push($data['exams']['examID'], $row->exam_id);
-		}
-		
-		return $data;
-	}
-	
-	public function acceptExam($id){
-		$this->builder = $this->db->table("exam");
-		
-		$this->builder->update(["admin_verified" => 'true'] ,'exam_id = ' . $id);
-	}
-	
-	
-	public function getExamAndQuestions($exam_id){
-		$this->builder = $this->db->table("exam");
-		
-		$this->builder->select('course_title, exam.exam_id, exam_title, exam_date_time, question_description, question_type, question_choices, question_answer, question_grade')
-					->join('course', 'course.course_id = exam.course_id')
-					->join('question', 'question.exam_id = exam.exam_id')
-					->where('exam.exam_id', $exam_id);
-		
-		$result = $this->builder->get()->getResult();
-		
-		$data = array(
-			'id' =>$result[0]->exam_id,
-			'course_title' => $result[0]->course_title,
-			'title' => $result[0]->exam_title,
-			'dateTime' => $result[0]->exam_date_time,
-			'questions'=>array(),
-		);
-		
-		foreach($result as $row){
-			$dataRow = [
-				'question' => $row->question_description,
-				'answer' =>$row->question_answer,
-				'type'=>$row->question_type,
-				'options'=>str_replace("#@", ",", $row->question_choices),
-				'mark' => $row->question_grade,
-			];
-			
-			array_push($data['questions'], $dataRow);
 		}
 		
 		return $data;
