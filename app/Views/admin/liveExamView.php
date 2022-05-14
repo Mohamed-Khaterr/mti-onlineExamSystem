@@ -1,5 +1,9 @@
 
-
+		<style>
+			#content main .table-data .todo {
+				flex-grow: 0;
+			}
+		</style>
 
 		<!-- MAIN -->
 		<main>
