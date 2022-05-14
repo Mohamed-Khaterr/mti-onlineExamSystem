@@ -1,5 +1,11 @@
 
-
+		<style>
+			#content main .table-data .todo {
+				flex-grow: 0;
+				margin-bottom: 30%;
+				flex-basis: 23%;
+			}
+		</style>
 
 		<!-- MAIN -->
 		<main>

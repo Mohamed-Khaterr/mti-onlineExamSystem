@@ -14,9 +14,6 @@ class Admin extends BaseController{
 		$this->admin = model(AdminModel::class);
 		$this->user = model(UsersModel::class);
 		
-		$id = session()->get('adminuserID');
-		$this->user->updateAsession($id);
-		$this->admin->updateAsession($id);
     }
 	/*
 	echo '<pre style="text-align: center;">';
