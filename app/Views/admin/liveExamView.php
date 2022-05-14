@@ -278,5 +278,7 @@
 	  ?>');
 </script>
 
-	<script src="/assets/js/admin.js"></script>
+	<!-- <script src="/assets/js/admin.js"></script> -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+	<script src="<?= base_url() ?>/module/admin/script.js"></script>
+    <script src="<?= base_url() ?>/module/admin/js.js"></script>
