@@ -36,7 +36,7 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
 <div class="container  pt-3">
  
   <div id="cam-notify" class="w-100 m-auto  col-lg-12 bg-danger by-5 mb-4 text-center" style="border-radius:10px">
-    <h3 style="color:white; font-weight:bold;" class="p-3">If You Try to Turn off The Camera The Exam Will Close</h3>
+    <h3 style="color:white; font-weight:bold;" class="p-3">If You Try to Turn Off Your Camera The Exam Will Close</h3>
   
   </div>
  
@@ -383,7 +383,7 @@ echo $userObj->userID;
 		console.log("tab is active")
 	  } else {
 		console.log("tab is inactive")
-    // document.getElementById("SubAnswers").click();
+    document.getElementById("SubAnswers").click();
 	  }
 	});
 	

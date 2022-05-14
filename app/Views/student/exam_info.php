@@ -62,6 +62,7 @@ $i = 0 ; foreach($noq as $n){
   <li style="color:black; font-weight:bold">You Must Allow Camera Access.</li>
   <li style="color:black; font-weight:Bold">If you Leave Exam or Open Another Tab The Exam Will Close.</li>
   <li style="color:black; font-weight:Bold">Becareful Don't Press any Button Outside Exam Window.</li>
+  <li style="color:black; font-weight:Bold">If You Minize Browser window The Exam Will Close.</li>
 </ul>
 </div>
 
