@@ -17,7 +17,7 @@ class Auth  implements FilterInterface
 		}
 		
 		if(session()->get('isLoggedIn')){
-			if(session()->get('isDoctor') && $uri->getSegmaent(1) != "Doctor"){
+			if(session()->get('isDoctor') && $uri->getSegment(1) != "Doctor"){
 				return redirect()->to('Doctor');
 				
 			}elseif(session()->get('isAdmin') && $uri->getSegment(1) != "Admin"){
