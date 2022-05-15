@@ -93,7 +93,8 @@
   <link rel="stylesheet" href="/assets/css/css.css">
 </head>
 <?php if( isset($exam)): ?>
-<body style="background-color:#ecedef;">
+<!-- Prevent Copy, Paste, Text Selection -->
+<body style="background-color:#ecedef;" oncopy="return false" oncut="return false" onpaste="return false" onmousedown="return false" onselectstart="return false">
 
   <?php
 endif;

@@ -13,7 +13,6 @@ class Admin extends BaseController{
 	public function __construct(){
 		$this->admin = model(AdminModel::class);
 		$this->user = model(UsersModel::class);
-		
     }
 	/*
 	echo '<pre style="text-align: center;">';
