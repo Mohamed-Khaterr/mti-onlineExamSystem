@@ -1,5 +1,11 @@
 
-
+		<style>
+			#content main .table-data .todo {
+				flex-grow: 0;
+				margin-bottom: 30%;
+				flex-basis: 23%;
+			}
+		</style>
 
 		<!-- MAIN -->
 		<main>
@@ -278,7 +284,12 @@
 	  ?>');
 </script>
 
+<<<<<<< HEAD
+	<script src="/assets/js/admin.js"></script>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+=======
 	<!-- <script src="/assets/js/admin.js"></script> -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 	<script src="<?= base_url() ?>/module/admin/script.js"></script>
     <script src="<?= base_url() ?>/module/admin/js.js"></script>
+>>>>>>> 46312db02881e460c9834d3c0379bfcf8f0553b3
