@@ -66,7 +66,7 @@ $i = 0 ; foreach($noq as $n){
 </div>
 </div>
 
-<div class="container text-center pt-5">
+<div class="container text-center py-5 mb-5">
 
 <form action="" method="POST">
 
