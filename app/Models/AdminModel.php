@@ -248,6 +248,43 @@ class AdminModel extends Model{
 			return false;
 		}
 	}
+	
+	
+	public function createDoctorUser($fullName, $email, $password, $birthday, $gender){
+		$this->builder = $this->db->table("doctor");
+		
+		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+		
+		$newData = [
+			'doctor_full_name' => $fullName,
+			'doctor_email' => $email,
+			'doctor_pass' => $hashedPassword,
+			'doctor_gender' => $gender,
+			'doctor_BD' => $birthday,
+		];
+		
+		$this->builder->insert($newData);
+	}
+	
+	public function createStudentUser($firstName, $lastName, $level, $gpa, $email, $password, $birthday, $gender){
+		$this->builder = $this->db->table("students");
+		
+		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+		
+		$newData = [
+			'student_fname' => $firstName,
+			'student_lname' => $lastName,
+			'student_lvl' => $level,
+			'GPA' => $gpa,
+			'student_gender' => $gender,
+			'student_email' => $email,
+			'student_password' => $hashedPassword,
+			'student_BD' => $birthday,
+			
+		];
+		
+		$this->builder->insert($newData);
+	}
 
 
 	public function updateAsession($id){

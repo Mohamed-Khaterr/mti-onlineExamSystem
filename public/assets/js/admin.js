@@ -114,21 +114,7 @@ var status=[0 ,0 ,0 ,0];
 	}else{
 		
 		let student = JSON.parse(e.data);
-		let post = JSON.stringify(student)
-//  var exam_id = 1;
-const url = "http://localhost:8081/Admin/live-exam/"
-let xhr = new XMLHttpRequest()
- 
-xhr.open('POST', url, true)
-xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-xhr.send(post);
- 
-xhr.onload = function () {
-	console.log('Hi');
-    if(xhr.status === 201) {
-        console.log("Post successfully created!");
-    }
-}
+		
 
 		
 		
