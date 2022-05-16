@@ -384,7 +384,7 @@ echo $userObj->userID;
 		console.log("tab is active")
 	  } else {
 		console.log("tab is inactive")
-    document.getElementById("SubAnswers").click();
+    // document.getElementById("SubAnswers").click();
 	  }
 	});
 	

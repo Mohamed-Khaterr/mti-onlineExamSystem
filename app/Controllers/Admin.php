@@ -79,6 +79,13 @@ class Admin extends BaseController{
 		echo view(ADMIN_FOOTER_VIEW);
 	}
 	
+	// public function updateLive(){
+	// 	$data = $_POST['post'];
+	// 	$data = jason_decode($data);
+	// 	$img = $data->img; $id= $data->id; $name=$data->User;
+	// 	$model = new \App\Models\ReportModel($id,$name,$img);
+
+	// } 
 	
 	public function verifyExams(){
 		$data = [
