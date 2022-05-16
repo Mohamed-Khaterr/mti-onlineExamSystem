@@ -72,6 +72,7 @@ $routes->add('Admin/dashboard', 'Admin::index', ['filter' => 'auth']);
 $routes->add('Admin/current-exam', 'Admin::currentExam', ['filter' => 'auth']);
 $routes->add('Admin/live-exam/(:any)/(:any)/(:any)', 'Admin::liveExam/$1/$2/$3', ['filter' => 'auth']);
 $routes->add('Admin/profile', 'Admin::profile',['filter' => 'auth']);
+$routes->add('Admin/create-user', 'Admin::createUser', ['filter' => 'auth']);
 
 
 
