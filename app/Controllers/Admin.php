@@ -198,4 +198,68 @@ class Admin extends BaseController{
 		echo view(ADMIN_PROFILE, $data);
 	}
 	
+	
+	public function createUser(){
+		$data = [
+			'error' => false,
+			'successMessage' => '',
+		];
+		if(isset($_POST['submitDoctor'])){
+			$rules = [
+				'fullName' => 'required',
+				'gender' => 'required',
+				'birthday' => 'required',
+				'email' => 'required|valid_email',
+				'password' => 'required',
+				'confirmPassword' => 'required|matches[password]',
+			];
+			if($this->validate($rules)){
+				$this->admin->createDoctorUser(
+					$_POST['fullName'], 
+					$_POST['email'], 
+					$_POST['confirmPassword'], 
+					$_POST['birthday'], 
+					$_POST['gender']
+				);
+				
+				$data['successMessage'] = 'doctor';
+			}else{
+				$data['error'] = true;
+			}
+		}
+		
+		
+		if(isset($_POST['submitStudent'])){
+			$rules = [
+				'firstName' => 'required',
+				'lastName' => 'required',
+				'level' => 'required',
+				'gpa' => 'required',
+				'gender' => 'required',
+				'birthday' => 'required',
+				'email' => 'required|valid_email',
+				'password' => 'required',
+				'confirmPassword' => 'required|matches[password]',
+			];
+			if($this->validate($rules)){
+				$this->admin->createStudentUser(
+					$_POST['firstName'], 
+					$_POST['lastName'], 
+					$_POST['level'], 
+					$_POST['gpa'], 
+					$_POST['email'], 
+					$_POST['confirmPassword'], 
+					$_POST['birthday'], 
+					$_POST['gender']
+				);
+				$data['successMessage'] = 'student';
+			}else{
+				$data['error'] = true;;
+			}
+		}
+		
+		
+		echo view('admin/createUser', $data);
+	}
+	
 }
