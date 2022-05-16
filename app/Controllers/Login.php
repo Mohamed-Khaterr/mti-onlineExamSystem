@@ -58,7 +58,7 @@ class Login extends BaseController{
 					$_SESSION['isAdmin'] = true;
 					$id = session()->get('adminuserID');
 					$this->users->updateAsession($id);
-					$this->admin->updateAsession($id);
+					// $this->admin->updateAsession($id);
 					
 
 					

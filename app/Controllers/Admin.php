@@ -60,7 +60,8 @@ class Admin extends BaseController{
 	
 	
 	public function liveExam($examID, $courseTitle, $examTitle){
-		
+		$id = session()->get('adminuserID');
+		$this->user->updateAsession($id);
 		$session_id = $this->user->getSessionID();
 		$data = [
 			'courseTitle' => $courseTitle,

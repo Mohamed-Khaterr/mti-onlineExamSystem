@@ -22,7 +22,7 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
 
 ?>
 
-
+					
 
      <div class="breadcrumbs">
       <div class="container">
@@ -37,15 +37,16 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
  
   <div id="cam-notify" class="w-100 m-auto  col-lg-12 bg-danger by-5 mb-4 text-center" style="border-radius:10px">
     <h3 style="color:white; font-weight:bold;" class="p-3">If You Try to Turn Off Your Camera The Exam Will Close</h3>
-  
+    
   </div>
  
  
      <div class="row">
-       <div id="openCam" class="text-center col-lg-8 c" style="height:auto; border: 2px solid #003771; bcakground-color:white">
-        <h2 class=" mt-5" style="color:black">please open ur Camera and refresh page</h2>
-        <h5 class=" mt-3" style="color:black; font-weight:bold"> Allow Camera Access</h5>
-       </div>
+       <div id="openCam" class="text-center col-lg-8 rounded c" style="height:auto; border: 2px solid #003771; background-color:white; ">
+        <h1 class=" mt-5 mb-4" style="color:#003771; font-weight:bold">please open Your Camera</h1>
+        <h5 class=" mt-3" style="color:#003771; font-weight:bold"> The Questions wont appear Until You <span style="text-decoration: underline;">Allow Camera Access</span> </h5>
+        <img src="/img/remove_block.png" alt="" class="mt-3">
+      </div>
     
          <div id='exam-q'   class="col-lg-8  c">
         <?php
@@ -55,7 +56,7 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
         <input type="hidden" id="Fid" name="" value="<?= $q->question_id; ?>">
 
              <!-- Questions Section  -->
-            <div data-id="<?= $q->question_id; ?>" id="allestimento-img-wrapper<?=$ii++;?>" style="height:auto; border: 2px solid #003771;" class="allestimento-img-wrapper   d-none rounded mb-5  bg-light text-dark">
+            <div data-id="<?= $q->question_id; ?>" id="allestimento-img-wrapper<?=$ii++;?>" style="height: 290px;; border: 2px solid #003771;" class="allestimento-img-wrapper   d-none rounded mb-5  bg-light text-dark">
             <div class="container    my-4 ml-3 " id="q-area">
             <h3> Q<?= ++$i . " : " . $q->question_description; ?>  </h3>
             </div>
@@ -70,7 +71,7 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
                     
                 ?>
                 
-                <div class='col-lg-6'>
+                <div class='col-xl-6 col-lg-6  col-sm-6'>
                     <div class="">
                         <input type="radio" name="answer[<?= $q->question_id; ?>][<?= $i; ?>]"  class='my-3 ans-pointer' value="<?= $si; ?>"  id="<?= $q->question_id.$ai?>" >
                         <label class="ans-pointer" for="<?= $q->question_id.$ai?>"><?= $si ?></label>
@@ -106,12 +107,12 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
             <div style="height:auto; border: 2px solid #003771;" class="  rounded    mb-5  bg-light text-dark">
          <div class=" ml-1 mt-3  ">
          
-             <span class=" h4 ml-2 font-weight-bold" >Remaining Time: </span>
+             <span class=" h4 ml-2 font-weight-bold" style="color:#003771;" >Remaining Time: </span>
 
             
-                <span style="background-color: lightgray;" class="hours h3 font-weight-bold "></span><span  class="h3">:</span>
-                <span style="background-color: lightgray;" class="minutes h3 font-weight-bold "></span><span  class="h3">:</span>
-                <span style="background-color: lightgray;" class="seconds h3 font-weight-bold "></span>
+                <span style="background-color: lightgray; color:#003771;" class="hours h3 font-weight-bold "></span><span  class="h3">:</span>
+                <span style="background-color: lightgray; color:#003771;" class="minutes h3 font-weight-bold "></span><span  class="h3">:</span>
+                <span style="background-color: lightgray; color:#003771;" class="seconds h3 font-weight-bold "></span>
             
             </div>
         <hr>
@@ -127,8 +128,8 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
        
 
 
-        <span id="finiture-wrapper<?= $pn?>" style="<?=($pn >= 10 ? "padding: 1px 3px;" :null )?>  "  class="finiture-wrapper <?=($pn==1 ? "act" :null )?>" data-id="<?= $n->question_id; ?>"><?= $pn ?></span>
-
+        <span id="finiture-wrapper<?= $pn?>" style="<?=($pn >= 10 ? "padding: 1px 3px;" :null )?> color:#003771; "  class="finiture-wrapper <?=($pn==1 ? "act" :null )?>" data-id="<?= $n->question_id; ?>"><?= $pn ?></span>
+        <input type="hidden" id="CnO<?= $pn?>" class="CnO" data-id="<?= $n->question_id; ?>" name="" value="<?= $pn ?>">
         
                 <?php
              $pn++;
@@ -174,7 +175,7 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
        <!-- Submit the form -->
     <div class="container row justify-content-center mt-5 py-5">
 
-    <span class="col-2 btn bg-blue py-3 px-2 mt-5" id="SUBMI"> Submit All Answers </span>
+    <span class="col-2 btn bg-blue py-3 px-2" id="SUBMI"> Submit All Answers </span>
     
     </div>
 
@@ -320,6 +321,7 @@ echo $userObj->userID;
     
     $('.finiture-wrapper').on('click', function() {
         var idBtn = $(this).data('id');
+        tracker = $('.CnO[data-id*=' +  idBtn + ']').val()       
         $('.allestimento-img-wrapper').addClass('d-none')
         $('.allestimento-img-wrapper[data-id*=' +  idBtn + ']').removeClass('d-none')
         $('.finiture-wrapper').removeClass('active')
@@ -329,35 +331,33 @@ echo $userObj->userID;
         if(idBtn == $("#Fid").val()){
             $("#prev").addClass("disabled")
             $("#next").removeClass("disabled")
-            trcker=1
+            tracker=1
         }
         if(idBtn == $("#Lid").val()){
             $("#prev").removeClass("disabled")
             $("#next").addClass("disabled")
-            trcker=maxdivs
+            tracker=maxdivs
         }
        
     });
 
     $("#next").click(function(){
-    $("#prev").removeClass("disabled")
-    $("#allestimento-img-wrapper" + tracker).addClass('d-none');
-    $("#finiture-wrapper" + tracker).removeClass('active');
-    tracker = tracker + 1;
-    if(tracker >= maxdivs){
+      $("#prev").removeClass("disabled")
+      $("#allestimento-img-wrapper" + tracker).addClass('d-none');
+      $("#finiture-wrapper" + tracker).removeClass('active');
+      tracker ++;
+      if(tracker >= maxdivs){
         $("#next").addClass("disabled")
-    
-    }
-    $("#allestimento-img-wrapper" + tracker).removeClass("d-none");
-    $("#finiture-wrapper" + tracker).click();
+      }
+      $("#allestimento-img-wrapper" + tracker).removeClass("d-none");
+      $("#finiture-wrapper" + tracker).click();
     });
-    console.log(tracker)
     
     $("#prev").click(function(){
+      tracker = tracker - 1;
         $("#next").removeClass("disabled")
         $("#allestimento-img-wrapper" + tracker).addClass('d-none');
         $("#finiture-wrapper" + tracker).removeClass('active');
-        tracker = tracker - 1;
 
         if(tracker <= 1){
         $("#prev").addClass("disabled")
@@ -365,6 +365,7 @@ echo $userObj->userID;
         $("#allestimento-img-wrapper" + tracker).removeClass("d-none");
         $("#finiture-wrapper" + tracker).click();
     });
+
 </script>
 
 
@@ -401,9 +402,9 @@ echo $userObj->userID;
   //Camera Permission 
   
     navigator.permissions.query({name:'camera'}).then(function(permissionStatus) {
-	  console.log('geolocation permission state is ', permissionStatus.state);
+	  // console.log('geolocation permission state is ', permissionStatus.state);
     if(permissionStatus.state == "granted"){
-        console.log("open")
+        // console.log("open")
         document.getElementById("exam-q").style.display = 'block';
         document.getElementById("openCam").style.display = 'none';
 
@@ -421,7 +422,7 @@ echo $userObj->userID;
 	  permissionStatus.onchange = function() {
 		console.log('geolocation permission state has changed to ', this.state);
     if(this.state == "granted"){
-      console.log("open")
+      // console.log("open")
       location.reload();
       // document.getElementById("exam-q").style.display = 'block';
       // document.getElementById("openCam").style.display = 'none';
