@@ -13,7 +13,8 @@
 	<link rel="stylesheet" href="<?= base_url() ?>/module/admin/style.css">
 	<link rel="stylesheet" href="<?= base_url() ?>/module/admin/css.css">
 	
-	
+	<!-- POPUP Model CSS -->
+	<link rel="stylesheet" href="<?= base_url() ?>/assets/css/popupModel.css">
 
 	<title>Online Exam System</title>
 	
