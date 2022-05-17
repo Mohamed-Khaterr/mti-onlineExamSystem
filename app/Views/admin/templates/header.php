@@ -53,6 +53,13 @@
 				</a>
 			</li>
 			-->
+			
+			<li class="<?= $uri->getSegment(2) == 'create-user' ? "active" : null  ?>">
+				<a href="<?= base_url('Admin/create-user') ?>">
+					<i class='bx bxs-user-plus' ></i>
+					<span class="text">Users</span>
+				</a>
+			</li>
 
 			<li class="<?= $uri->getSegment(2) == 'profile' ? "active" : null  ?>">
 				<a href="<?= base_url("Admin/profile") ?>">
@@ -60,9 +67,6 @@
 					<span class="text">Profile</span>
 				</a>
 			</li>
-			
-			
-			
 			
 		</ul>
 		<ul class="side-menu">

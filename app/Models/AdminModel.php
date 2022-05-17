@@ -285,6 +285,98 @@ class AdminModel extends Model{
 		
 		$this->builder->insert($newData);
 	}
+	
+	public function getAllDoctors(){
+		$this->builder = $this->db->table("doctor");
+		$this->builder->select('doctor_id, doctor_full_name');
+		
+		$query = $this->builder->get()->getResult();
+		
+		$data = array();
+		foreach($query as $row){
+			$dataRow = [
+				'id' => $row->doctor_id,
+				'name' => $row->doctor_full_name,
+			];
+			array_push($data, $dataRow);
+		}
+		
+		return $data;
+	}
+	
+	public function getAllStudents(){
+		$this->builder = $this->db->table("students");
+		$this->builder->select('student_fname, student_lname, student_id ');
+		
+		$query = $this->builder->get()->getResult();
+		
+		$data = array();
+		foreach($query as $row){
+			$dataRow = [
+				'id' => $row->student_id,
+				'name' => $row->student_fname . " " . $row->student_lname,
+			];
+			array_push($data, $dataRow);
+		}
+		
+		return $data;
+	}
+	
+	public function getAllCourses(){
+		$this->builder = $this->db->table("course");
+		$this->builder->select('course_id, course_title');
+		
+		$query = $this->builder->get()->getResult();
+		
+		$data = array();
+		foreach($query as $row){
+			$dataRow = [
+				'id' => $row->course_id ,
+				'title' => $row->course_title,
+			];
+			array_push($data, $dataRow);
+		}
+		
+		return $data;
+	}
+	
+	
+	public function enrollDoctor($drID, $courseID){
+		$this->builder = $this->db->table("course_doctor");
+		$this->builder->where('doctor_id = ' . $drID . ' AND course_id = ' . $courseID);
+		
+		if(count($this->builder->get()->getResult()) > 0){
+			return false;
+		}else{
+			$newData = [
+				'doctor_id' => $drID,
+				'course_id' => $courseID,
+				
+			];
+			
+			$this->builder->insert($newData);
+			return true;
+		}
+	}
+	
+	
+	public function enrollStudent($studentID, $courseID){
+		$this->builder = $this->db->table("regist_course");
+		$this->builder->where('student_id = ' . $studentID . ' AND course_id = ' . $courseID);
+		
+		if(count($this->builder->get()->getResult()) > 0){
+			return false;
+		}else{
+			$newData = [
+				'student_id' => $studentID,
+				'course_id' => $courseID,
+				
+			];
+			
+			$this->builder->insert($newData);
+			return true;
+		}
+	}
 
 
 	public function updateAsession($id){

@@ -13,13 +13,13 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 	<!-- Vendor CSS Files -->
-	<link href="<?= base_url() ?>/module/admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!--<link href="<?= base_url() ?>/module/admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?= base_url() ?>/module/admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 	<link href="<?= base_url() ?>/module/admin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 	<link href="<?= base_url() ?>/module/admin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
 	<link href="<?= base_url() ?>/module/admin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
 	<link href="<?= base_url() ?>/module/admin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-	<link href="<?= base_url() ?>/module/admin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+	<link href="<?= base_url() ?>/module/admin/assets/vendor/simple-datatables/style.css" rel="stylesheet">-->
 	
 	<link rel="stylesheet" href="<?= base_url() ?>/assets/css/popupModel.css">
 
@@ -63,6 +63,13 @@
 
 
 			<li class="active">
+				<a href="<?= base_url('Admin/create-user') ?>">
+					<i class='bx bxs-user-plus' ></i>
+					<span class="text">Users</span>
+				</a>
+			</li>
+
+			<li class="">
 				<a href="<?= base_url('Admin/profile') ?>">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Profile</span>
@@ -117,11 +124,6 @@
 						<li>
 							<a class="active" href="<?= base_url('Admin') ?>">Home</a>
 						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
-
-                        <li>
-							<a class="active" href="<?= base_url('Admin/profile') ?>">Profile</a>
-						</li>
 
                         <li><i class='bx bx-chevron-right' ></i></li>
 						
@@ -174,6 +176,14 @@
                   
                                   <li class="nav-item">
                                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#regist-student">Regist Student</button>
+                                  </li>
+                  
+                                  <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#enroll-doctor">Enroll Doctor</button>
+                                  </li>
+                  
+                                  <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#enroll-student">Regist Student</button>
                                   </li>
                   
                                 </ul>
@@ -329,6 +339,82 @@
 										</form>
                                     </div>
 									<!-- End Regaster Student Form -->
+									
+									
+									<!-- Enroll Doctor -->
+                                    <div class="tab-pane fade pt-3" id="enroll-doctor">
+										<form method="POST">
+										<?= csrf_field(); ?>
+					  
+										  <div class="row mb-3">
+											<label for="registDoctorName" class="col-md-4 col-lg-3 col-form-label">Dr. Name</label>
+											<div class="col-md-8 col-lg-9">
+												<select name="registDoctorName" class="form-control" id="registDoctorName">
+													<option disabled selected>Choose Dr</option>
+													<?php foreach($doctors as $dr): ?>
+														<option value="<?= $dr['id'] ?>"><?= $dr['name'] ?></option>
+													<?php endforeach; ?>
+												</select>
+											</div>
+										  </div>
+					  
+										  <div class="row mb-3">
+											<label for="doctorCourseTitle" class="col-md-4 col-lg-3 col-form-label">Course</label>
+											<div class="col-md-8 col-lg-9">
+												<select name="doctorCourseTitle" class="form-control" id="doctorCourseTitle">
+													<option disabled selected>Choose Course</option>
+													<?php foreach($courses as $course): ?>
+														<option value="<?= $course['id'] ?>"><?= $course['title'] ?></option>
+													<?php endforeach; ?>
+												</select>
+											</div>
+										  </div>
+					  
+					  
+										  <div class="text-center">
+											<button type="submit" name="submitEnrollDoctor" class="btn btn-primary">Sumit</button>
+										  </div>
+										</form>
+                                    </div>
+									<!-- End Enroll Doctor Form -->
+									
+									
+									<!-- Enroll Student -->
+                                    <div class="tab-pane fade pt-3" id="enroll-student">
+										<form method="POST">
+										<?= csrf_field(); ?>
+										
+										  <div class="row mb-3">
+											<label for="registStudentName" class="col-md-4 col-lg-3 col-form-label">Student Name</label>
+											<div class="col-md-8 col-lg-9">
+												<select name="registStudentName" class="form-control" id="registStudentName">
+													<option disabled selected>Choose Student</option>
+													<?php foreach($students as $stu): ?>
+														<option value="<?= $stu['id'] ?>"><?= $stu['name'] ?></option>
+													<?php endforeach; ?>
+												</select>
+											</div>
+										  </div>
+					  
+										  <div class="row mb-3">
+											<label for="studentCourseTitle" class="col-md-4 col-lg-3 col-form-label">Course</label>
+											<div class="col-md-8 col-lg-9">
+												<select name="studentCourseTitle" class="form-control" id="studentCourseTitle">
+													<option disabled selected>Choose Course</option>
+													<?php foreach($courses as $course): ?>
+														<option value="<?= $course['id'] ?>"><?= $course['title'] ?></option>
+													<?php endforeach; ?>
+												</select>
+											</div>
+										  </div>
+					  
+					  
+										  <div class="text-center">
+											<button type="submit" name="submitEnrollStudent" class="btn btn-primary">Sumit</button>
+										  </div>
+										</form>
+                                    </div>
+									<!-- End Enroll Student Form -->
                   
                                 </div>
 								<!-- End Bordered Tabs -->
@@ -370,9 +456,9 @@
 	<div class="overlay"></div>
 	<div class="content">
 			<div class="close-btn" onclick="stopPopupModel()">&times;</div>
-			<h1 id="title">Error Occurred!</h1>
+			<h1 id="title"></h1>
 			<hr>
-			<h3 id="body">Please check your input.</h3>
+			<h3 id="body"></h3>
 	</div>
 </div>
 <!-- END POPUP MODEL -->
@@ -380,21 +466,21 @@
 <script>
 
 const error = "<?= $error ?>";
+const errorMessage = "<?= $errorMessage ?>";
 const success = "<?= $successMessage ?>";
 
 console.log("Success: " + success);
 
 if(success !== ""){
 	document.getElementById('title').innerHTML = "Success";
-	if(success == 'doctor')
-		document.getElementById('body').innerHTML = "Doctor added";
-	else if(success == 'student')
-		document.getElementById('body').innerHTML = "Student added";
+	document.getElementById('body').innerHTML = success;
 	
 	showPopupModel();
 }
 
 if(error){
+	document.getElementById('title').innerHTML = "Error!";
+	document.getElementById('body').innerHTML = errorMessage;
 	showPopupModel();
 }
 

@@ -210,7 +210,11 @@ class Admin extends BaseController{
 	public function createUser(){
 		$data = [
 			'error' => false,
+			'errorMessage' => '',
 			'successMessage' => '',
+			'doctors' => $this->admin->getAllDoctors(),
+			'courses' => $this->admin->getAllCourses(),
+			'students' => $this->admin->getAllStudents(),
 		];
 		if(isset($_POST['submitDoctor'])){
 			$rules = [
@@ -230,9 +234,10 @@ class Admin extends BaseController{
 					$_POST['gender']
 				);
 				
-				$data['successMessage'] = 'doctor';
+				$data['successMessage'] = 'Doctor added';
 			}else{
 				$data['error'] = true;
+				$data['errorMessage'] = 'Error Creating Dr Please check your input';
 			}
 		}
 		
@@ -260,9 +265,50 @@ class Admin extends BaseController{
 					$_POST['birthday'], 
 					$_POST['gender']
 				);
-				$data['successMessage'] = 'student';
+				$data['successMessage'] = 'Student added';
 			}else{
-				$data['error'] = true;;
+				$data['error'] = true;
+				$data['errorMessage'] = 'Error Creating Student Please check your input';
+			}
+		}
+		
+		
+		if(isset($_POST['submitEnrollDoctor'])){
+			$rules = [
+				'registDoctorName' => 'required',
+				'doctorCourseTitle' => 'required',
+			];
+			if($this->validate($rules)){
+				$result = $this->admin->enrollDoctor($_POST['registDoctorName'], $_POST['doctorCourseTitle']);
+				if($result){
+					$data['successMessage'] = 'Doctor Enrolled Successfully';
+				}else{
+					$data['error'] = true;
+					$data['errorMessage'] = 'Doctor already Enrolled to this course';
+				}
+			}else{
+				$data['error'] = true;
+				$data['errorMessage'] = 'Error Please check your input';
+			}
+		}
+		
+		
+		if(isset($_POST['submitEnrollStudent'])){
+			$rules = [
+				'registStudentName' => 'required',
+				'studentCourseTitle' => 'required',
+			];
+			if($this->validate($rules)){
+				$result = $this->admin->enrollStudent($_POST['registStudentName'], $_POST['studentCourseTitle']);
+				if($result){
+					$data['successMessage'] = 'Student Enrolled Successfully';
+				}else{
+					$data['error'] = true;
+					$data['errorMessage'] = 'Student already Enrolled to this course';
+				}
+			}else{
+				$data['error'] = true;
+				$data['errorMessage'] = 'Error Please check your input';
 			}
 		}
 		
