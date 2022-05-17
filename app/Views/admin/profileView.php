@@ -58,6 +58,13 @@
 				</a>
 			</li>
 			
+			
+			<li class="">
+				<a href="<?= base_url('Admin/create-user') ?>">
+					<i class='bx bxs-user-plus' ></i>
+					<span class="text">Users</span>
+				</a>
+			</li>
 
 
 			<li class="active">
