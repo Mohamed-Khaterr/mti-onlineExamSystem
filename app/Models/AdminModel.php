@@ -328,7 +328,7 @@ class AdminModel extends Model{
 	
 	public function getAllCourses(){
 		$this->builder = $this->db->table("course");
-		$this->builder->select('course_id, course_title');
+		$this->builder->select('course_id, course_title, faculty_id');
 		
 		$query = $this->builder->get()->getResult();
 		
@@ -337,6 +337,7 @@ class AdminModel extends Model{
 			$dataRow = [
 				'id' => $row->course_id ,
 				'title' => $row->course_title,
+				'faculty' => $row->faculty_id,
 			];
 			array_push($data, $dataRow);
 		}
