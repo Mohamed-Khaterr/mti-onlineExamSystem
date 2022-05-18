@@ -23,7 +23,7 @@ class Exam extends BaseController{
 			$id = session()->get('stuuserID');
 			$users->updateSsession($id);
 			$data['userObj'] = $users->getUserBySession($session_id);
-			
+			$users->updateExamid($id, $exam_id);
 			// $data['NandP'] = $model->next_N_prev($exam_id);
 			$data["ignm"]=1;
 			if($this->request->getMethod() == "post"){
