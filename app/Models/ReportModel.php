@@ -13,20 +13,7 @@ class ReportModel extends Model{
 
 
 
-    function updaterec($id,$userName,$img){
-        $this->builder = $this->db->table('report');
-        
-
-        $data = [
-            'userID' => $id
-            ,'userName' => $userName,
-            'image'=> $image
-        ];
-
-        $this->builder->save($data);
-
-    }
-	
+    
 	
 	
 	
