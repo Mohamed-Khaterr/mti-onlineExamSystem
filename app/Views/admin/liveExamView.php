@@ -101,41 +101,6 @@
 						</thead>
 						<tbody id="studentList">
 						
-						
-								
-						<tr>
-								<td>
-									<img 	style="width: 150px;  	height: 150px;" id = 'img1' >
-									<p id='n1'></p>
-								</td>
-
-								<td> <button class="btn btn-info" style="background-color:#3C91E6;" onclick="togell()" id='btn1'> Monitor </button>
-								
-									
-								</td>
-								
-							
-								<td >
-									<p	id='s1'></p> </td>
-							
-							</tr>
-							<tr>
-								<td>
-									<img  style="width: 150px;  	height: 150px;" id = 'img2' >
-									<p id='n2'></p>
-								</td>
-
-								<td>  <button class="btn btn-info" style="background-color:#3C91E6;" onclick="togell2()" id='btn2'> Monitor </button>
-								 <button class="btn btn-info" style="background-color:#3C91E6;" id='conf'> Add </button>
-								
-									
-								</td>
-								
-							
-								<td >
-									<p	id='s2'></p></td>
-							</tr>
-						
 						</tbody>
 					</table>
 				</div>
@@ -196,45 +161,22 @@
 	}, 
 	1000);
 	
-	
-	/* Web Socket */
-
-	let conf = document.getElementById('conf');
-		
-		function add(student){
-        // console.log(csrf_token);
-        $.ajax({
-            url: "/Admin/updateLive",
-            type: "POST",
-            data: student,
-            headers: {'X-Requested-With': 'XMLHttpRequest'},
-
-            //dataType:'JSON',
-
-            success: function (response){
-                // if(response.csrf_token)
-                    // csrf_token = "<?= csrf_hash() ?>";
-
-                //console.log(response);
-                console.log("success");
-            },
-            error: function(xhr, status, error) {
-              console.log("Error: " + error);
-              //console.log(xhr.responseText);
-            },
-		 
-		})}
-		
-
-	
 </script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
 	  const conn = new WebSocket('ws://localhost:8080/?token=<?php
 	  echo $userObj->sessionID;
 	  ?>');
 </script>
+
+<script src="/assets/js/admin.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+
+<script src="<?= base_url() ?>/module/admin/script.js"></script>
+<script src="<?= base_url() ?>/module/admin/js.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 <script>
 
 
@@ -245,16 +187,34 @@
 */
 
 
+function add(data){
+	$.ajax({
+		url: "<?= base_url('send') ?>",
+		type: "POST",
+		data: data,
+		
+		headers: {'X-Requested-With': 'XMLHttpRequest'},
+		
+		success: function (response){
+			console.log("success");
+			
+		},
+		error: function(xhr, status, error) {
+		  console.log("Error: " + error);
+		  //console.log(xhr.responseText);
+		  
+		},
+		complete: function(data) {
+			console.log(data.statusText);
+		}
+	});
+}
+
+
 conn.onopen = function(e) {
     //conn.send("{'type': 'newconnection', 'content': '1'}");
     console.log("Connection established!");
 };
-
-
-
-
-
-
 
 
 var c=5;
@@ -268,7 +228,7 @@ var arr={
 	
 	
 };
-var array = []
+var array = [];
 var status=[0 ,0 ,0 ,0];
   conn.onmessage = function(e) {
 	if(e.data ==="hi"){
@@ -276,14 +236,10 @@ var status=[0 ,0 ,0 ,0];
 		
 		let student = JSON.parse(e.data);
 		
-      let data = {
-		  "<?= csrf_token() ?>" :  "<?= csrf_hash() ?>",
-		  userId : student.userID,
-		  userName : stuedent.User
-	  }; 
-	  conf.addEventListener('click', add(data))
+		let data = {
+			"<?= csrf_token() ?>": "<?= csrf_hash() ?>",
+		}
 		
-	  
 		
 			let name = student.User;
 			
@@ -302,7 +258,7 @@ var status=[0 ,0 ,0 ,0];
 				 c=5
 				//document.getElementById('s1').innerText ='not cheating';
 				
-				html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td></tr>";
+				html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
 				
 			}else{
 				
@@ -314,18 +270,18 @@ var status=[0 ,0 ,0 ,0];
 					//document.getElementById('s1').innerText = 'Cheating';
 
 
-					html = "<tr><td>"+name+"</td><td><span class='status pending' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td></tr>";
+					html = "<tr><td>"+name+"</td><td><span class='status pending' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
 			
 					
 				}else{
 					//document.getElementById('s1').innerText ='not cheating';
 					
-					html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td></tr>";
+					html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
 				}
 				
 			}
 		}else{
-			html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td></tr>";
+			html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
 		}
 			
 			document.getElementById('studentList').innerHTML += html;
@@ -386,18 +342,6 @@ function showPopupModel(){
 function stopPopupModel(){
 	document.getElementById("popup-1").classList.toggle("active");
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -531,14 +475,3 @@ function togell(){
     }
   }
 </script>
-
-
-
-	<!-- <script src="/assets/js/admin.js"></script> -->
-    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-
-	<!-- <script src="/assets/js/admin.js"></script> -->
-    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-	<script src="<?= base_url() ?>/module/admin/script.js"></script>
-    <script src="<?= base_url() ?>/module/admin/js.js"></script>
-
