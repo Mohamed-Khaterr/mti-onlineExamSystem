@@ -93,6 +93,8 @@ class Doctor extends BaseController{
 	public function createExam(){
 		$data =[
 			'courseTitle' => $this->doctor->getCourses($_SESSION['dr_id']),
+			//'error' => [],
+			'errorMessage' => '',
 		];
 		
 		
@@ -105,21 +107,23 @@ class Doctor extends BaseController{
 			'exam_title' => 'required',
 		];
 		
-		if($this->request->getMethod(true) == 'POST' && $this->validate($validationRules)){
-			
-			$_SESSION['exam_insert_id'] = $this->exam->createExam(
-				$_SESSION['dr_id'],	
-				$this->request->getPost('course_id'), 
-				$this->request->getPost('exam_title'), 
-				$this->request->getPost('exam_type'), 
-				$this->request->getPost('duration'), 
-				$this->request->getPost('dateTime'), 
-				$this->request->getPost('total_grade')
-			);
-			
-			return redirect()->to('Doctor/create-question');
-		}else{
-			$data['error'] = $this->validation->getErrors();
+		if(isset($_POST['createExam'])){
+			if($this->validate($validationRules)){
+					$_SESSION['exam_insert_id'] = $this->exam->createExam(
+					$_SESSION['dr_id'],	
+					$this->request->getPost('course_id'), 
+					$this->request->getPost('exam_title'), 
+					$this->request->getPost('exam_type'), 
+					$this->request->getPost('duration'), 
+					$this->request->getPost('dateTime'), 
+					$this->request->getPost('total_grade')
+				);
+				
+				return redirect()->to('Doctor/create-question');
+			}else{
+				$data['error'] = $this->validation->getErrors();
+				$data['errorMessage'] = "Please Check your inputs";
+			}
 		}
 		
 	
@@ -134,7 +138,8 @@ class Doctor extends BaseController{
 	
 	public function createQuestions(){
 		$data =[
-			
+			'success' => '',
+			'errorMessage' => '',
 		];
 		
 		if(isset($_POST['savetf'])){
@@ -145,7 +150,6 @@ class Doctor extends BaseController{
 				'tfGrade' => 'required',
 			];
 			if($this->validate($validationRules)){
-				
 				$this->exam->createQuestion(
 					$_SESSION['exam_insert_id'], 
 					$this->request->getPost('question_type'), 
@@ -154,10 +158,10 @@ class Doctor extends BaseController{
 					$this->request->getPost('tfGrade'), 
 					$question_choices = null
 				);
-				
-				$data['noErrors'] = "Question Saved Successfuly :)";
+				$data['success'] = "Question Saved Successfuly :)";
 			}else{
 				$data['error'] = $this->validation->getErrors();
+				$data['errorMessage'] = "Error in True or False Question, Please Check your inputs";
 			}
 		}
 		
@@ -181,14 +185,14 @@ class Doctor extends BaseController{
 						$this->request->getPost('chooseGrade'), 
 						$this->request->getPost('options')
 					);
-					
-					$data['noErrors'] = "Question Saved Successfuly :)";
+					$data['success'] = "Question Saved Successfuly :)";
 				}else{
-					$data['errorMatch'] = "Answer must be on of Options";
+					$data['errorMessage'] = "Answer must be one of the Choose answer";
 				}
 				
 			}else{
 				$data['error'] = $this->validation->getErrors();
+				$data['errorMessage'] = "Error in MCQ Question, Please Check your inputs";
 			}
 			
 		}

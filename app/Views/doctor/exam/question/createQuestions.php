@@ -50,17 +50,11 @@
 				<div class="head">
 					<h3>  Question Type </h3>
 				</div>
-				
-					<h3 style="text-align: center;">
-						<?= isset($error) ? 'Error!' : null ?>
-						<?= isset($noErrors) ? $noErrors : null ?>
-						<?= isset($errorMatch) ? $errorMatch : null?>
-					</h3>
 					
 				<div class="d-flex justify-content-center">
 					<div class="form-check me-5">
 						<input name="question_type" value="True or False" class="form-check-input" type="radio" onclick="TrueFalse()" >
-						<label class="form-check-label">True/False Question</label>
+						<label class="form-check-label">True or False Question</label>
 					</div>
 
 					<div class="form-check">
@@ -87,7 +81,7 @@
 
 			<div class="todo ">
 				<div class="head">
-					<h3> True/False Question</h3>
+					<h3> True or False Question</h3>
 				</div>
 				
 				<div class="col-md-12">
@@ -210,4 +204,60 @@
 
 </main>
 <!-- MAIN -->
+
+
+
+<!-- POPUP MODEL -->
+<div class="popup" id="popup-1">
+	<div class="overlay"></div>
+	<div class="content">
+			<div class="close-btn" onclick="stopPopupModel()">&times;</div>
+			<h1 id="title"</h1>
+			<hr>
+			<h3 id="body"></h3>
+			
+			<br>
+			<button id="add" type="button" style="margin-right: 25px;" class="btn btn-primary">Add Question</button>
+			<button id="back" type="button" class="btn btn-danger">Back</button>
+	</div>
+</div>
+<!-- END POPUP MODEL -->
 		
+<script>
+	const errorMessage = "<?= $errorMessage ?>";
+	const success = "<?= $success ?>";
+	
+	document.getElementById("back").onclick = function () {
+        location.href = "<?= base_url('Doctor') ?>";
+    };
+	
+	document.getElementById("add").onclick = function () {
+        location.reload();
+    };
+	
+	if(success != ""){
+		document.getElementById('title').innerHTML = "Success";
+		document.getElementById('body').innerHTML = success;
+		showPopupModel();
+	}
+	
+	if(errorMessage != ""){
+		document.getElementById('title').innerHTML = "Error!";
+		document.getElementById('body').innerHTML = errorMessage;
+		
+		document.getElementById('add').style.display = 'none';
+		document.getElementById('back').style.display = 'none';
+		
+		showPopupModel();
+	}
+
+
+
+	function showPopupModel(){
+		document.getElementById("popup-1").classList.toggle("active");
+	}
+
+	function stopPopupModel(){
+		document.getElementById("popup-1").classList.toggle("active");
+	}
+</script>

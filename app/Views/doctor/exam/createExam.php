@@ -143,3 +143,36 @@
 
 		</main>
 		<!-- MAIN -->
+		
+		
+<!-- POPUP MODEL -->
+<div class="popup" id="popup-1">
+	<div class="overlay"></div>
+	<div class="content">
+			<div class="close-btn" onclick="stopPopupModel()">&times;</div>
+			<h1 id="title"></h1>
+			<hr>
+			<h3 id="body"></h3>
+	</div>
+</div>
+<!-- END POPUP MODEL -->
+		
+<script>
+	const errorMessage = "<?= $errorMessage ?>";
+
+	if(errorMessage != ""){
+		document.getElementById('title').innerHTML = "Error!";
+		document.getElementById('body').innerHTML = errorMessage;
+		showPopupModel();
+	}
+
+
+
+	function showPopupModel(){
+		document.getElementById("popup-1").classList.toggle("active");
+	}
+
+	function stopPopupModel(){
+		document.getElementById("popup-1").classList.toggle("active");
+	}
+</script>
