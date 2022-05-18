@@ -215,9 +215,11 @@ class Admin extends BaseController{
 			'doctors' => $this->admin->getAllDoctors(),
 			'courses' => $this->admin->getAllCourses(),
 			'students' => $this->admin->getAllStudents(),
+			'faculties' => $this->admin->getAllFaculties(),
 		];
 		if(isset($_POST['submitDoctor'])){
 			$rules = [
+				'faculty' => 'required',
 				'fullName' => 'required',
 				'gender' => 'required',
 				'birthday' => 'required',
@@ -231,7 +233,8 @@ class Admin extends BaseController{
 					$_POST['email'], 
 					$_POST['confirmPassword'], 
 					$_POST['birthday'], 
-					$_POST['gender']
+					$_POST['gender'],
+					$_POST['faculty']
 				);
 				
 				$data['successMessage'] = 'Doctor added';
@@ -244,6 +247,7 @@ class Admin extends BaseController{
 		
 		if(isset($_POST['submitStudent'])){
 			$rules = [
+				'faculty' => 'required',
 				'firstName' => 'required',
 				'lastName' => 'required',
 				'level' => 'required',
@@ -263,7 +267,8 @@ class Admin extends BaseController{
 					$_POST['email'], 
 					$_POST['confirmPassword'], 
 					$_POST['birthday'], 
-					$_POST['gender']
+					$_POST['gender'],
+					$_POST['faculty']
 				);
 				$data['successMessage'] = 'Student added';
 			}else{

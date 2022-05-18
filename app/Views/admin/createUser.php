@@ -196,6 +196,18 @@
 										<!-- Regist Doctor -->
 										<form method="POST">
 										<?= csrf_field(); ?>
+										
+											<div class="row mb-3">
+												<label for="faculty" class="col-md-4 col-lg-3 col-form-label">Faculty</label>
+												<div class="col-md-8 col-lg-9">
+													<select name="faculty" class="form-control" id="faculty">
+														<option disabled selected>Choose Faculty</option>
+														<?php foreach($faculties as $faculty): ?>
+															<option value="<?= $faculty['id'] ?>"><?= $faculty['name'] ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+											</div>
 					  
 										  <div class="row mb-3">
 											<label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
@@ -260,6 +272,17 @@
                                     <div class="tab-pane fade pt-3" id="regist-student">
 										<form method="POST">
 										<?= csrf_field(); ?>
+											<div class="row mb-3">
+												<label for="faculty" class="col-md-4 col-lg-3 col-form-label">Faculty</label>
+												<div class="col-md-8 col-lg-9">
+													<select name="faculty" class="form-control" id="faculty">
+														<option disabled selected>Choose Faculty</option>
+														<?php foreach($faculties as $faculty): ?>
+															<option value="<?= $faculty['id'] ?>"><?= $faculty['name'] ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+											</div>
 					  
 										  <div class="row mb-3">
 											<label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
@@ -345,7 +368,18 @@
                                     <div class="tab-pane fade pt-3" id="enroll-doctor">
 										<form method="POST">
 										<?= csrf_field(); ?>
-					  
+											<div class="row mb-3">
+												<label for="faculty" class="col-md-4 col-lg-3 col-form-label">Faculty</label>
+												<div class="col-md-8 col-lg-9">
+													<select name="faculty" class="form-control" id="Drfaculty">
+														<option disabled selected>Choose Faculty</option>
+														<?php foreach($faculties as $faculty): ?>
+															<option value="<?= $faculty['id'] ?>"><?= $faculty['name'] ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+											</div>
+											<!--
 										  <div class="row mb-3">
 											<label for="registDoctorName" class="col-md-4 col-lg-3 col-form-label">Dr. Name</label>
 											<div class="col-md-8 col-lg-9">
@@ -357,7 +391,7 @@
 												</select>
 											</div>
 										  </div>
-					  
+											-->
 										  <div class="row mb-3">
 											<label for="doctorCourseTitle" class="col-md-4 col-lg-3 col-form-label">Course</label>
 											<div class="col-md-8 col-lg-9">
@@ -493,6 +527,19 @@ function showPopupModel(){
 function stopPopupModel(){
 	document.getElementById("popup-1").classList.toggle("active");
 }
+
+
+// Doctor Enroll
+const doctorFaculty = document.getElementById("Drfaculty");
+const doctors = <?= json_encode($doctors) ?>;
+const selectDr = 
+
+doctorFaculty.addEventListener('change', (event) => {
+	console.log(event.target.value);
+	doctors.foreach(function (dr){
+		
+	});
+});
 
 </script>
 

@@ -250,7 +250,7 @@ class AdminModel extends Model{
 	}
 	
 	
-	public function createDoctorUser($fullName, $email, $password, $birthday, $gender){
+	public function createDoctorUser($fullName, $email, $password, $birthday, $gender, $faculty){
 		$this->builder = $this->db->table("doctor");
 		
 		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -261,12 +261,13 @@ class AdminModel extends Model{
 			'doctor_pass' => $hashedPassword,
 			'doctor_gender' => $gender,
 			'doctor_BD' => $birthday,
+			'faculty_id' => $faculty,
 		];
 		
 		$this->builder->insert($newData);
 	}
 	
-	public function createStudentUser($firstName, $lastName, $level, $gpa, $email, $password, $birthday, $gender){
+	public function createStudentUser($firstName, $lastName, $level, $gpa, $email, $password, $birthday, $gender, $faculty){
 		$this->builder = $this->db->table("students");
 		
 		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -280,6 +281,7 @@ class AdminModel extends Model{
 			'student_email' => $email,
 			'student_password' => $hashedPassword,
 			'student_BD' => $birthday,
+			'faculty_id' => $faculty,
 			
 		];
 		
@@ -288,7 +290,7 @@ class AdminModel extends Model{
 	
 	public function getAllDoctors(){
 		$this->builder = $this->db->table("doctor");
-		$this->builder->select('doctor_id, doctor_full_name');
+		$this->builder->select('doctor_id, doctor_full_name, faculty_id');
 		
 		$query = $this->builder->get()->getResult();
 		
@@ -297,6 +299,7 @@ class AdminModel extends Model{
 			$dataRow = [
 				'id' => $row->doctor_id,
 				'name' => $row->doctor_full_name,
+				'faculty' => $row->faculty_id,
 			];
 			array_push($data, $dataRow);
 		}
@@ -306,7 +309,7 @@ class AdminModel extends Model{
 	
 	public function getAllStudents(){
 		$this->builder = $this->db->table("students");
-		$this->builder->select('student_fname, student_lname, student_id ');
+		$this->builder->select('student_fname, student_lname, student_id, faculty_id');
 		
 		$query = $this->builder->get()->getResult();
 		
@@ -315,6 +318,7 @@ class AdminModel extends Model{
 			$dataRow = [
 				'id' => $row->student_id,
 				'name' => $row->student_fname . " " . $row->student_lname,
+				'faculty' => $row->faculty_id,
 			];
 			array_push($data, $dataRow);
 		}
@@ -333,6 +337,24 @@ class AdminModel extends Model{
 			$dataRow = [
 				'id' => $row->course_id ,
 				'title' => $row->course_title,
+			];
+			array_push($data, $dataRow);
+		}
+		
+		return $data;
+	}
+	
+	public function getAllFaculties(){
+		$this->builder = $this->db->table("faculties");
+		$this->builder->select('faculty_id, faculty_name');
+		
+		$query = $this->builder->get()->getResult();
+		
+		$data = array();
+		foreach($query as $row){
+			$dataRow = [
+				'id' => $row->faculty_id ,
+				'name' => $row->faculty_name,
 			];
 			array_push($data, $dataRow);
 		}
