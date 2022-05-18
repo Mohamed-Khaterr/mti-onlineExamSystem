@@ -71,6 +71,18 @@ public function getUserBySession($sessionID){
 
 }
 
+public function updateExamid($userID, $examID){
+    $this->builder = $this->db->table('users');
+    $table = $this->builder->where('users.userID',$userID);
+    $data = [
+        'exam_id' => $examID
+    ];
+
+    $table->update($data);
+
+
+}
+
 
 
 }

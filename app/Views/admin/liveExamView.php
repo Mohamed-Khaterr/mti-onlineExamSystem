@@ -101,40 +101,6 @@
 						</thead>
 						<tbody id="studentList">
 						
-						
-								
-						<tr>
-								<td>
-									<img 	style="width: 150px;  	height: 150px;" id = 'img1' >
-									<p id='n1'></p>
-								</td>
-
-								<td> <button class="btn btn-info" style="background-color:#3C91E6;" onclick="togell()" id='btn1'> Monitor </button>
-								
-									
-								</td>
-								
-							
-								<td >
-									<p	id='s1'></p> </td>
-							
-							</tr>
-							<tr>
-								<td>
-									<img  style="width: 150px;  	height: 150px;" id = 'img2' >
-									<p id='n2'></p>
-								</td>
-
-								<td>  <button class="btn btn-info" style="background-color:#3C91E6;" onclick="togell2()" id='btn2'> Monitor </button>
-								
-									
-								</td>
-								
-							
-								<td >
-									<p	id='s2'></p></td>
-							</tr>
-						
 						</tbody>
 					</table>
 				</div>
@@ -195,87 +161,6 @@
 	}, 
 	1000);
 	
-	
-	/* Web Socket */
-	// var conn = new WebSocket("ws://192.168.1.6:8080?access_token=");
-	//var conn = new WebSocket("ws://172.20.10.4:8080?access_token=");
-
-	// Start Connection
-	// conn.onopen = function(e) {
-	// 	console.log("====> Admin is in Connection :) <====");
-	// };
-	
-	// //window.onload = function(){
-	// 	// receive  Data
-	// 	conn.onmessage = function(e) {
-	// 		console.log(e.data);
-	// 		/* NEW */
-	// 		if(data = JSON.parse(e.data)){
-	// 			//console.log(data);
-	// 			var html = '';
-
-	// 			if('student' in data){
-	// 				//console.log(data);
-	// 				const students = data.student;
-	// 				document.getElementById('studentList').innerHTML = '';
-					
-	// 				// Number of student in the Exam
-	// 				document.getElementById('studentCount').innerHTML = students.length;
-					
-					
-					
-	// 				students.forEach(function (e) {
-						
-	// 					if (e.student_isCheating == 'yes'){
-	// 						html = "<tr>  <td id='s"+ e.student_id +"'></td>  <td><p id='studentName'> " + e['student_name'] + "</p></td>      <td><span class='status pending'>Cheating</span></td> <td><a title='Student Video' > <button style='border: none;' onclick='showStudent("+e.student_id+")'>Show</button> </a> </td> </tr>";
-						
-	// 					}else{
-	// 						html = "<tr> <td id='s"+ e.student_id +"'></td>  <td><p id='studentName'> " + e['student_name'] + "</p></td><td><span class='status completed'>Not Cheating</span></td>  <td> <a title='Student Video' > <button style='border: none;' onclick='showStudent("+e.student_id+")'>Show</button> </a> </td>  </tr>";
-	// 					}
-						
-	// 					document.getElementById('studentList').innerHTML += html
-						
-	// 				});
-					
-					
-	// 			}else if ('image' in data && studentID == data.id){
-	// 				//receivedImage
-	// 				html = '<p>Student Name: '+data.name+' (ID: '+data.id+') <hr /></p><img height="200" width="200"   id="img" src="'+data.image+'">';
-	// 				document.getElementById('receivedImage').innerHTML = html;
-	// 				studentID = data.id;
-	// 				//console.log(data.image);
-				
-	// 			}
-	// 		}
-			
-	// 	};
-	// //}
-	
-	// var studentID = null;
-	/*
-	 function showStudent(){
-		showPopupModel();
-	 }
-	
-	
-	 function showPopupModel(){
-		document.getElementById("popup-1").classList.toggle("active");
-	 }
-	
-	 function stopPopupModel(){
-		document.getElementById("popup-1").classList.toggle("active");
-	 }
-	*/
-	// conn.addEventListener('close', function(e){
-	// 	console.log("Connection is Closed");
-	// });
-	
-	// conn.addEventListener('error', function(e){
-	// 	console.log("Error! Connection Faild: " + e);
-	// });
-	
-
-	
 </script>
 
 <script>
@@ -284,12 +169,309 @@
 	  ?>');
 </script>
 
+<script src="/assets/js/admin.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 
-	<script src="/assets/js/admin.js"></script>
-    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="<?= base_url() ?>/module/admin/script.js"></script>
+<script src="<?= base_url() ?>/module/admin/js.js"></script>
 
-	<!-- <script src="/assets/js/admin.js"></script> -->
-    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-	<script src="<?= base_url() ?>/module/admin/script.js"></script>
-    <script src="<?= base_url() ?>/module/admin/js.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+<script>
+
+
+
+/*
+ WEB RTC METHODS 
+ ---------------------------------------------------------------------------------------------------
+*/
+
+
+function add(data){
+	$.ajax({
+		url: "<?= base_url('send') ?>",
+		type: "POST",
+		data: data,
+		
+		headers: {'X-Requested-With': 'XMLHttpRequest'},
+		
+		success: function (response){
+			console.log("success");
+			
+		},
+		error: function(xhr, status, error) {
+		  console.log("Error: " + error);
+		  //console.log(xhr.responseText);
+		  
+		},
+		complete: function(data) {
+			console.log(data.statusText);
+		}
+	});
+}
+
+
+conn.onopen = function(e) {
+    //conn.send("{'type': 'newconnection', 'content': '1'}");
+    console.log("Connection established!");
+};
+
+
+var c=5;
+var arr={
+
+	1:{count:0},
+	2:{count:0},
+	3:{count:0},
+	4:{count:0},
+	5:{count:0},
+	
+	
+};
+var array = [];
+var status=[0 ,0 ,0 ,0];
+  conn.onmessage = function(e) {
+	if(e.data ==="hi"){
+	}else{
+		
+		let student = JSON.parse(e.data);
+		
+		let data = {
+			"<?= csrf_token() ?>": "<?= csrf_hash() ?>",
+		}
+		
+		
+			let name = student.User;
+			
+			
+			var html = "";
+			if(!array.includes(student.id)){
+				array.push(student.id);
+
+				const img = document.getElementById('receivedImage');
+			img.src = "data:image/png;base64," + student.img;
+
+			
+			if(arr[student.id].hasOwnProperty('count')){
+			if(student.status === 'ok'){
+				arr[student.id]={count:5};
+				 c=5
+				//document.getElementById('s1').innerText ='not cheating';
+				
+				html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
+				
+			}else{
+				
+				var counter = arr[student.id].count
+				counter--;
+				arr[student.id]={count:counter};
+				// count --;
+				if(arr[student.id].count <= 0 || isNaN(arr[student.id].count)){
+					//document.getElementById('s1').innerText = 'Cheating';
+
+
+					html = "<tr><td>"+name+"</td><td><span class='status pending' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
+			
+					
+				}else{
+					//document.getElementById('s1').innerText ='not cheating';
+					
+					html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
+				}
+				
+			}
+		}else{
+			html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
+		}
+			
+			document.getElementById('studentList').innerHTML += html;
+
+
+
+				
+			}else{
+
+				
+				console.log(arr[student.id]);
+				if(arr[student.id].hasOwnProperty('count')){
+				if(student.status === 'ok'){
+					arr[student.id]={count:5};
+				
+					c=5
+					document.getElementById(student.id).innerHTML="Not Cheating";
+				}
+
+				else{
+
+					var counter = arr[student.id].count
+					counter--;
+					arr[student.id]={count:counter};
+					if(arr[student.id].count <= 0 || isNaN(arr[student.id].count)){
+						
+						document.getElementById(student.id).innerHTML="Cheating";
+				
+						
+					}else{
+						document.getElementById(student.id).innerHTML="Not Cheating";
+					}
+					
+				}
+			
+			}else{
+				document.getElementById(student.id).innerHTML="Cheating";
+
+			}
+
+
+				
+			}
+			
+
+	}
+}
+
+function showStudent(){
+	showPopupModel();
+}
+
+
+function showPopupModel(){
+	document.getElementById("popup-1").classList.toggle("active");
+}
+
+function stopPopupModel(){
+	document.getElementById("popup-1").classList.toggle("active");
+}
+
+
+
+
+
+
+
+
+/*
+ Other JS Functionalities
+ ---------------------------------------------------------------------------------------------------
+*/
+
+
+
+
+
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+
+allSideMenu.forEach(item=> {
+	const li = item.parentElement;
+
+	item.addEventListener('click', function () {
+		allSideMenu.forEach(i=> {
+			i.parentElement.classList.remove('active');
+		})
+		li.classList.add('active');
+	})
+});
+
+
+
+
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+	sidebar.classList.toggle('hide');
+})
+
+
+
+
+
+
+
+const searchButton = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+const searchForm = document.querySelector('#content nav form');
+
+searchButton.addEventListener('click', function (e) {
+	if(window.innerWidth < 576) {
+		e.preventDefault();
+		searchForm.classList.toggle('show');
+		if(searchForm.classList.contains('show')) {
+			searchButtonIcon.classList.replace('bx-search', 'bx-x');
+		} else {
+			searchButtonIcon.classList.replace('bx-x', 'bx-search');
+		}
+	}
+})
+
+
+
+
+
+if(window.innerWidth < 768) {
+	sidebar.classList.add('hide');
+} else if(window.innerWidth > 576) {
+	searchButtonIcon.classList.replace('bx-x', 'bx-search');
+	searchForm.classList.remove('show');
+}
+
+
+window.addEventListener('resize', function () {
+	if(this.innerWidth > 576) {
+		searchButtonIcon.classList.replace('bx-x', 'bx-search');
+		searchForm.classList.remove('show');
+	}
+})
+
+
+
+const switchMode = document.getElementById('switch-mode');
+
+switchMode.addEventListener('change', function () {
+	if(this.checked) {
+		document.body.classList.add('dark');
+	} else {
+		document.body.classList.remove('dark');
+	}
+})
+
+
+
+
+
+// -----------------------------------------------------------------------------------------------------------
+
+
+
+function togell(){
+    
+    var x = document.getElementById("img1");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+    
+    
+  }
+
+  function togell2(){
+    var x = document.getElementById("img2");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  
+  function togell3(){
+    var x = document.getElementById("img3");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
