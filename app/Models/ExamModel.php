@@ -394,6 +394,39 @@ class ExamModel extends Model{
 
 
 	}
+
+
+	public function exam_date(){
+        helper('addTimeToDatetime');
+		
+		$current_time = date('M d Y H:i:s'); 
+		$this->builder = $this->db->table("exam");
+		$res = $this->builder->get()->getResult();
+		foreach($res as $row)
+		{
+			$examDateTime = $row->exam_date_time;
+			$duration = $row->exam_duration;
+			$hours = date('H', strtotime($duration));
+			$minutes = date('i', strtotime($duration));
+			$second = date('s', strtotime($duration));
+			
+			$newDate = date('M d Y H:i:s', strtotime($examDateTime . " +" . $hours . " hours". " + " . $minutes . " minutes" .  " + " . $second . " second"));
+			
+		
+		}
+		
+	
+		// $examEndTime = addTimeToDatetime($examDateTime, $duration);
+        if($current_time >= $newDate){
+            $result =$res;
+		}
+		// $this->builder->where('exam_date_time >', $examEndTime);
+		// $this->builder->select('exam_date_time, exam_duration');
+					
+		
+		
+		return $result;
+	}
 	
 
 
