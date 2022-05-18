@@ -60,6 +60,13 @@
 				</a>
 			</li>
 			
+			
+			<li class="">
+				<a href="<?= base_url("Admin/report") ?>">
+					<i class='bx bxs-news' ></i>
+					<span class="text">Report</span>
+				</a>
+			</li>
 
 
 			<li class="active">
@@ -196,6 +203,18 @@
 										<!-- Regist Doctor -->
 										<form method="POST">
 										<?= csrf_field(); ?>
+										
+											<div class="row mb-3">
+												<label for="faculty" class="col-md-4 col-lg-3 col-form-label">Faculty</label>
+												<div class="col-md-8 col-lg-9">
+													<select name="faculty" class="form-control" id="faculty">
+														<option disabled selected>Choose Faculty</option>
+														<?php foreach($faculties as $faculty): ?>
+															<option value="<?= $faculty['id'] ?>"><?= $faculty['name'] ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+											</div>
 					  
 										  <div class="row mb-3">
 											<label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
@@ -260,6 +279,17 @@
                                     <div class="tab-pane fade pt-3" id="regist-student">
 										<form method="POST">
 										<?= csrf_field(); ?>
+											<div class="row mb-3">
+												<label for="faculty" class="col-md-4 col-lg-3 col-form-label">Faculty</label>
+												<div class="col-md-8 col-lg-9">
+													<select name="faculty" class="form-control" id="faculty">
+														<option disabled selected>Choose Faculty</option>
+														<?php foreach($faculties as $faculty): ?>
+															<option value="<?= $faculty['id'] ?>"><?= $faculty['name'] ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+											</div>
 					  
 										  <div class="row mb-3">
 											<label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
@@ -345,27 +375,33 @@
                                     <div class="tab-pane fade pt-3" id="enroll-doctor">
 										<form method="POST">
 										<?= csrf_field(); ?>
-					  
-										  <div class="row mb-3">
+											<div class="row mb-3">
+												<label for="faculty" class="col-md-4 col-lg-3 col-form-label">Faculty</label>
+												<div class="col-md-8 col-lg-9">
+													<select name="faculty" class="form-control" id="Drfaculty">
+														<option disabled selected>Choose Faculty</option>
+														<?php foreach($faculties as $faculty): ?>
+															<option value="<?= $faculty['id'] ?>"><?= $faculty['name'] ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+											</div>
+											
+											<div class="row mb-3">
 											<label for="registDoctorName" class="col-md-4 col-lg-3 col-form-label">Dr. Name</label>
 											<div class="col-md-8 col-lg-9">
 												<select name="registDoctorName" class="form-control" id="registDoctorName">
 													<option disabled selected>Choose Dr</option>
-													<?php foreach($doctors as $dr): ?>
-														<option value="<?= $dr['id'] ?>"><?= $dr['name'] ?></option>
-													<?php endforeach; ?>
 												</select>
 											</div>
 										  </div>
-					  
+											
+											
 										  <div class="row mb-3">
 											<label for="doctorCourseTitle" class="col-md-4 col-lg-3 col-form-label">Course</label>
 											<div class="col-md-8 col-lg-9">
 												<select name="doctorCourseTitle" class="form-control" id="doctorCourseTitle">
 													<option disabled selected>Choose Course</option>
-													<?php foreach($courses as $course): ?>
-														<option value="<?= $course['id'] ?>"><?= $course['title'] ?></option>
-													<?php endforeach; ?>
 												</select>
 											</div>
 										  </div>
@@ -384,6 +420,19 @@
 										<form method="POST">
 										<?= csrf_field(); ?>
 										
+										
+											<div class="row mb-3">
+												<label for="faculty" class="col-md-4 col-lg-3 col-form-label">Faculty</label>
+												<div class="col-md-8 col-lg-9">
+													<select name="faculty" class="form-control" id="StudentFaculty">
+														<option disabled selected>Choose Faculty</option>
+														<?php foreach($faculties as $faculty): ?>
+															<option value="<?= $faculty['id'] ?>"><?= $faculty['name'] ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+											</div>
+										<!--
 										  <div class="row mb-3">
 											<label for="registStudentName" class="col-md-4 col-lg-3 col-form-label">Student Name</label>
 											<div class="col-md-8 col-lg-9">
@@ -395,7 +444,25 @@
 												</select>
 											</div>
 										  </div>
+										-->
+										  <div class="row mb-3">
+											<label for="registStudentName" class="col-md-4 col-lg-3 col-form-label">Student Name</label>
+											<div class="col-md-8 col-lg-9">
+												<select name="registStudentName" class="form-control" id="registStudentName">
+													<option disabled selected>Choose Student</option>
+												</select>
+											</div>
+										  </div>
 					  
+										  <div class="row mb-3">
+											<label for="studentCourseTitle" class="col-md-4 col-lg-3 col-form-label">Course</label>
+											<div class="col-md-8 col-lg-9">
+												<select name="studentCourseTitle" class="form-control" id="studentCourseTitle">
+													<option disabled selected>Choose Course</option>
+												</select>
+											</div>
+										  </div>
+											<!--
 										  <div class="row mb-3">
 											<label for="studentCourseTitle" class="col-md-4 col-lg-3 col-form-label">Course</label>
 											<div class="col-md-8 col-lg-9">
@@ -407,7 +474,7 @@
 												</select>
 											</div>
 										  </div>
-					  
+										-->
 					  
 										  <div class="text-center">
 											<button type="submit" name="submitEnrollStudent" class="btn btn-primary">Sumit</button>
@@ -469,7 +536,6 @@ const error = "<?= $error ?>";
 const errorMessage = "<?= $errorMessage ?>";
 const success = "<?= $successMessage ?>";
 
-console.log("Success: " + success);
 
 if(success !== ""){
 	document.getElementById('title').innerHTML = "Success";
@@ -493,6 +559,59 @@ function showPopupModel(){
 function stopPopupModel(){
 	document.getElementById("popup-1").classList.toggle("active");
 }
+
+
+// Enroll
+const courses = <?= json_encode($courses) ?>;
+
+
+// Doctor Enroll
+const doctorFaculty = document.getElementById("Drfaculty");
+const doctors = <?= json_encode($doctors) ?>;
+
+var registDoctorName = document.getElementById('registDoctorName');
+var doctorCourseTitle = document.getElementById('doctorCourseTitle');
+
+doctorFaculty.addEventListener('change', (event) => {
+	//console.log(event.target.value);
+	registDoctorName.innerHTML = "";
+	doctorCourseTitle.innerHTML = "";
+	for (const [key, value] of Object.entries(doctors)) {
+		if(doctors[key].faculty == doctorFaculty.value)
+			registDoctorName.innerHTML += "<option value="+doctors[key].id+">"+doctors[key].name+"</option>";
+	}
+	
+	
+	for (const [key, value] of Object.entries(courses)) {
+		if(courses[key].faculty == doctorFaculty.value)
+			doctorCourseTitle.innerHTML += "<option value="+courses[key].id+">"+courses[key].title+"</option>";
+	}
+});
+
+
+// Student Enroll
+const studentFaculty = document.getElementById("StudentFaculty");
+const students = <?= json_encode($students) ?>;
+
+var registStudentName = document.getElementById('registStudentName');
+var studentCourseTitle = document.getElementById('studentCourseTitle');
+
+studentFaculty.addEventListener('change', (event) => {
+	registStudentName.innerHTML = "";
+	studentCourseTitle.innerHTML = "";
+	for (const [key, value] of Object.entries(students)) {
+		if(students[key].faculty == studentFaculty.value)
+			registStudentName.innerHTML += "<option value="+students[key].id+">"+students[key].name+"</option>";
+	}
+	
+	
+	for (const [key, value] of Object.entries(courses)) {
+		if(courses[key].faculty == studentFaculty.value)
+			studentCourseTitle.innerHTML += "<option value="+courses[key].id+">"+courses[key].title+"</option>";
+	}
+});
+
+
 
 </script>
 
