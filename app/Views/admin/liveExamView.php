@@ -169,7 +169,7 @@
 	  ?>');
 </script>
 
-<script src="/assets/js/admin.js"></script>
+<!--<script src="/assets/js/admin.js"></script>-->
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 
 <script src="<?= base_url() ?>/module/admin/script.js"></script>
@@ -177,9 +177,9 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+
+
 <script>
-
-
 
 /*
  WEB RTC METHODS 
@@ -187,35 +187,13 @@
 */
 
 
-function add(data){
-	$.ajax({
-		url: "<?= base_url('send') ?>",
-		type: "POST",
-		data: data,
-		
-		headers: {'X-Requested-With': 'XMLHttpRequest'},
-		
-		success: function (response){
-			console.log("success");
-			
-		},
-		error: function(xhr, status, error) {
-		  console.log("Error: " + error);
-		  //console.log(xhr.responseText);
-		  
-		},
-		complete: function(data) {
-			console.log(data.statusText);
-		}
-	});
-}
-
-
 conn.onopen = function(e) {
     //conn.send("{'type': 'newconnection', 'content': '1'}");
     console.log("Connection established!");
 };
 
+
+var studentImgID = 0;
 
 var c=5;
 var arr={
@@ -230,75 +208,86 @@ var arr={
 };
 var array = [];
 var status=[0 ,0 ,0 ,0];
-  conn.onmessage = function(e) {
+conn.onmessage = function(e) {
 	if(e.data ==="hi"){
 	}else{
-		
+
 		let student = JSON.parse(e.data);
 		
+		let name = student.User;
+		
+		
+		// Show Image of specific student
+		if(studentImgID == student.id){
+			document.getElementById('receivedImage').src = "data:image/png;base64," + student.img;
+			console.log("this Image for: " + name);
+		}
+		
+		// AJAX Data
 		let data = {
-			"<?= csrf_token() ?>": "<?= csrf_hash() ?>",
-		}
-		
-		
-			let name = student.User;
-			
-			
-			var html = "";
-			if(!array.includes(student.id)){
-				array.push(student.id);
+			'<?= csrf_token() ?>':'<?= csrf_hash() ?>',
+			userId: student.id,
+			userName: name,
+			image: "data:image/png;base64," + student.img,
+			examID: "<?= $examID ?>",
+		};
 
-				const img = document.getElementById('receivedImage');
-			img.src = "data:image/png;base64," + student.img;
 
-			
+		var html = "";
+		if(!array.includes(student.id)){
+			array.push(student.id);
+
+
 			if(arr[student.id].hasOwnProperty('count')){
-			if(student.status === 'ok'){
-				arr[student.id]={count:5};
-				 c=5
-				//document.getElementById('s1').innerText ='not cheating';
-				
-				html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
-				
-			}else{
-				
-				var counter = arr[student.id].count
-				counter--;
-				arr[student.id]={count:counter};
-				// count --;
-				if(arr[student.id].count <= 0 || isNaN(arr[student.id].count)){
-					//document.getElementById('s1').innerText = 'Cheating';
-
-
-					html = "<tr><td>"+name+"</td><td><span class='status pending' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
-			
-					
-				}else{
+				if(student.status === 'ok'){
+					arr[student.id]={count:5};
+					c=5
 					//document.getElementById('s1').innerText ='not cheating';
-					
-					html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
+
+					html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></td></tr>";
+
+				}else{
+
+					var counter = arr[student.id].count
+					counter--;
+					arr[student.id]={count:counter};
+					// count --;
+					if(arr[student.id].count <= 0 || isNaN(arr[student.id].count)){
+						//document.getElementById('s1').innerText = 'Cheating';
+
+
+						html = "<tr><td>"+name+"</td><td><span class='status pending' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></td></tr>";
+
+
+					}else{
+						//document.getElementById('s1').innerText ='not cheating';
+
+						html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></td></tr>";
+					}
+
 				}
-				
+			}else{
+				html = "<tr><td>"+name+"</td><td><span class='status pending' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></td></tr>";
 			}
-		}else{
-			html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent()'> View </button></td><td><button name='add' type='button' onclick="+add(data)+"> Add </button></td></tr>";
-		}
-			
+
 			document.getElementById('studentList').innerHTML += html;
 
 
 
-				
-			}else{
 
-				
-				console.log(arr[student.id]);
-				if(arr[student.id].hasOwnProperty('count')){
+		}else{
+
+
+			console.log(arr[student.id]);
+			if(arr[student.id].hasOwnProperty('count')){
 				if(student.status === 'ok'){
 					arr[student.id]={count:5};
-				
+
 					c=5
 					document.getElementById(student.id).innerHTML="Not Cheating";
+					
+					document.getElementById(student.id).classList.remove("pending");
+					document.getElementById(student.id).classList.add("completed");
 				}
 
 				else{
@@ -307,30 +296,43 @@ var status=[0 ,0 ,0 ,0];
 					counter--;
 					arr[student.id]={count:counter};
 					if(arr[student.id].count <= 0 || isNaN(arr[student.id].count)){
-						
+
 						document.getElementById(student.id).innerHTML="Cheating";
-				
+						
+						document.getElementById(student.id).classList.remove("completed");
+						document.getElementById(student.id).classList.add("pending");
 						
 					}else{
 						document.getElementById(student.id).innerHTML="Not Cheating";
+						
+						document.getElementById(student.id).classList.remove("pending");
+						document.getElementById(student.id).classList.add("completed");
 					}
-					
+
 				}
-			
+
 			}else{
 				document.getElementById(student.id).innerHTML="Cheating";
-
-			}
-
-
 				
+				document.getElementById(student.id).classList.remove("completed");
+				document.getElementById(student.id).classList.add("pending");
 			}
-			
-
+		}
 	}
 }
 
-function showStudent(){
+
+</script>
+
+
+
+
+<script>
+
+// POPUP Model
+
+function showStudent(stuID){
+	studentImgID = stuID;
 	showPopupModel();
 }
 
@@ -341,137 +343,54 @@ function showPopupModel(){
 
 function stopPopupModel(){
 	document.getElementById("popup-1").classList.toggle("active");
+	studentImgID = 0;
 }
 
+</script>
 
 
 
 
 
+<script>
+// AJAX Request --------------------------------------------
 
 
-/*
- Other JS Functionalities
- ---------------------------------------------------------------------------------------------------
-*/
+// ******* NOTE ******* 
+
+// When AJAX Request the auth redirect the request to Admin Page which is the Dashboard
+// So we need to create new filter for function that handle AJAX request
+
+// When i add JSON.stringify(data) and contentType it sended
+// You are not sending JSON, but a key = value pair
+// You need to convert JS object to JSON
+// data : JSON.stringify({'<?= csrf_token() ?>':'<?= csrf_hash() ?>'}),
 
 
-
-
-
-const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
-
-allSideMenu.forEach(item=> {
-	const li = item.parentElement;
-
-	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
-			i.parentElement.classList.remove('active');
-		})
-		li.classList.add('active');
-	})
-});
-
-
-
-
-// TOGGLE SIDEBAR
-const menuBar = document.querySelector('#content nav .bx.bx-menu');
-const sidebar = document.getElementById('sidebar');
-
-menuBar.addEventListener('click', function () {
-	sidebar.classList.toggle('hide');
-})
-
-
-
-
-
-
-
-const searchButton = document.querySelector('#content nav form .form-input button');
-const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
-const searchForm = document.querySelector('#content nav form');
-
-searchButton.addEventListener('click', function (e) {
-	if(window.innerWidth < 576) {
-		e.preventDefault();
-		searchForm.classList.toggle('show');
-		if(searchForm.classList.contains('show')) {
-			searchButtonIcon.classList.replace('bx-search', 'bx-x');
-		} else {
-			searchButtonIcon.classList.replace('bx-x', 'bx-search');
+function ajaxRequest(data){
+	
+	let endPoint = "/handleAjax/";
+	
+	$.ajax({
+		url: endPoint,
+		type: "POST",
+		contentType: "application/json",
+		
+		// Data need to be sended in JSON format
+		data: JSON.stringify(data),
+		
+		success: function (suc){
+			console.log("Success!");
+			
+		},
+		error: function(xhr, status, error) {
+		  console.log("Error: " + error);
+		  
+		},
+		complete: function(response) {
+			console.log(response.responseText)
 		}
-	}
-})
-
-
-
-
-
-if(window.innerWidth < 768) {
-	sidebar.classList.add('hide');
-} else if(window.innerWidth > 576) {
-	searchButtonIcon.classList.replace('bx-x', 'bx-search');
-	searchForm.classList.remove('show');
+	});
+	
 }
-
-
-window.addEventListener('resize', function () {
-	if(this.innerWidth > 576) {
-		searchButtonIcon.classList.replace('bx-x', 'bx-search');
-		searchForm.classList.remove('show');
-	}
-})
-
-
-
-const switchMode = document.getElementById('switch-mode');
-
-switchMode.addEventListener('change', function () {
-	if(this.checked) {
-		document.body.classList.add('dark');
-	} else {
-		document.body.classList.remove('dark');
-	}
-})
-
-
-
-
-
-// -----------------------------------------------------------------------------------------------------------
-
-
-
-function togell(){
-    
-    var x = document.getElementById("img1");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-    
-    
-  }
-
-  function togell2(){
-    var x = document.getElementById("img2");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-
-  
-  function togell3(){
-    var x = document.getElementById("img3");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
 </script>

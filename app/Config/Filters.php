@@ -23,6 +23,7 @@ class Filters extends BaseConfig
 		'auth' => \App\Filters\Auth::class,
 		'noauth' => \App\Filters\Noauth::class,
 		'examauth' => \App\Filters\Examauth::class,
+		'ajaxAuth' => \App\Filters\AjaxAuth::class,
     ];
 
     /**
