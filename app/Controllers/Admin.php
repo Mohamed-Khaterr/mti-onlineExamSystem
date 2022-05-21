@@ -64,7 +64,7 @@ class Admin extends BaseController{
 		$this->user->updateAsession($id);
 		$session_id = $this->user->getSessionID();
 		$data = [
-			'examID' = $examID,
+			'examID' => $examID,
 			'courseTitle' => $courseTitle,
 			'examTitle' => $examTitle,
 			'studentCountAll' => $this->admin->getStudentsCountAll(),
