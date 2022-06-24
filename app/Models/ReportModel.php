@@ -7,14 +7,14 @@ use CodeIgniter\Model;
 class ReportModel extends Model{
     protected $table='report';
     protected $primaryKey='id';
-    protected $allowedFields=['id','userID','image','userName','exam_id'];
+    protected $allowedFields=['id','userID','examID','image','userName'];
     protected $beforeInsert = [];
     protected $beforeUpdate = [];
 
 
-    public function getrepo(){
+    public function getrepo($id){
         $this->builder = $this->db->table("report");
-		$res = $this->builder->get()->getResult();
+		$res = $this->builder->where('examID',$id)->get()->getResult();
 		return $res;
 
     }

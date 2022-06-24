@@ -102,7 +102,7 @@ class Admin extends BaseController{
 		$examModel = model(ExamModel::class);
 		$reportModel = model(ReportModel::class);
 		$exam = $examModel->getex($id);
-		$reports = $reportModel->getrepo();
+		$reports = $reportModel->getrepo($id);
 		
 
 $data=[

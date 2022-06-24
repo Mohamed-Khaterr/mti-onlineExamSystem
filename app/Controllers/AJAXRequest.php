@@ -27,7 +27,7 @@ class AJAXRequest extends BaseController{
 				'userID'=> $id,
 				'image' => $img,
 				'userName' => $name,
-				// 'examID'=> $examID,
+				'examID'=> $examID,
 
 			];
 			$model->insert($newdata);
