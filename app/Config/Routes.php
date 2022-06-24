@@ -42,7 +42,10 @@ $routes->setAutoRoute(false);
 
 /* Route to WebSocket When try to start the server */
 $routes->add('server/index', 'Server::index');// to Run server
-$routes->add('test', 'Test::index');
+
+
+// AJAX Route with Filter
+$routes->post('handleAjax', 'AJAXRequest::handleAjaxRequest', ['filter' => 'ajaxAuth']);
 
 
 

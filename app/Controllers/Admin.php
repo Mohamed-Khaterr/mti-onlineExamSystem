@@ -64,6 +64,7 @@ class Admin extends BaseController{
 		$this->user->updateAsession($id);
 		$session_id = $this->user->getSessionID();
 		$data = [
+			'examID' => $examID,
 			'courseTitle' => $courseTitle,
 			'examTitle' => $examTitle,
 			'studentCountAll' => $this->admin->getStudentsCountAll(),
@@ -78,22 +79,6 @@ class Admin extends BaseController{
 		echo view('admin/liveExamView');
 		echo view(ADMIN_FOOTER_VIEW);
 	}
-	
-	public function updateLive(){
-		// $data = $_POST['post'];
-		// $data = jason_decode($data);
-		// $img = $data->img; $id= $data->id; $name=$data->User;
-		$model = new \App\Models\ReportModel(); 
-		$newdata=[
-			'userID'=> $this->request->getPost('userId'),
-            'image' =>$this->request->getPost('image'),
-            'userName' => $this->request->getPost('userName'),
-			// 'examID'=> $this->request->getPost()
-
-		];
-		$model->save($newdata);
-
-	} 
 
 	public function reports(){
 		$data = [];
