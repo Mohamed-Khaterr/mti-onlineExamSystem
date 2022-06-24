@@ -12,6 +12,13 @@ class ReportModel extends Model{
     protected $beforeUpdate = [];
 
 
+    public function getrepo(){
+        $this->builder = $this->db->table("report");
+		$res = $this->builder->get()->getResult();
+		return $res;
+
+    }
+
 
     
 	

@@ -55,10 +55,10 @@
 			-->
 			
 
-			<li class="<?= $uri->getSegment(2) == 'report' ? "active" : null  ?>">
-				<a href="<?= base_url("Admin/report") ?>">
+			<li class="<?= $uri->getSegment(2) == 'reports'|| $uri->getSegment(2) == 'report' ? "active" : null  ?>">
+				<a href="<?= base_url("Admin/reports") ?>">
 					<i class='bx bxs-news' ></i>
-					<span class="text">Report</span>
+					<span class="text">Reports</span>
 				</a>
 			</li>
 

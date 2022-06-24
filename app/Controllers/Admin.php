@@ -95,14 +95,36 @@ class Admin extends BaseController{
 
 	} 
 
-	public function report(){
-        $model = new \App\Models\ExamModel();
-		// $admin = new \App\Models\AdminModel();
-		dd($model->exam_date());
-		$data = [
-			
-		];
-		// return view('admin/reportview');
+	public function reports(){
+		$data = [];
+		$model= model(ExamModel::class);
+		$current_time = date('m d Y H:i:s'); 
+		$report = $model->All();
+		foreach($report as $r){
+			if($model->end($r->exam_id) <= $current_time ){
+				$x[]= $r;	
+			}
+		}
+		$data['exams'] = $x;
+		$data['model'] = $model;
+		echo view(ADMIN_HEADER_VIEW, $data);
+		echo view('admin/reportsview');
+		echo view(ADMIN_FOOTER_VIEW);
+	}
+
+
+	public function report($id){
+		$examModel = model(ExamModel::class);
+		$reportModel = model(ReportModel::class);
+		$exam = $examModel->getex($id);
+		$reports = $reportModel->getrepo();
+		
+
+$data=[
+	'exam' => $exam,
+	'reports' => $reports,
+
+];
 		echo view(ADMIN_HEADER_VIEW, $data);
 		echo view('admin/reportview');
 		echo view(ADMIN_FOOTER_VIEW);
