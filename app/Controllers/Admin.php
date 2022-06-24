@@ -83,15 +83,18 @@ class Admin extends BaseController{
 	public function reports(){
 		$data = [];
 		$model= model(ExamModel::class);
+		$reportModel = model(ReportModel::class);
 		$current_time = date('m d Y H:i:s'); 
 		$report = $model->All();
+		$repocount = $reportModel->repocount(7);
 		foreach($report as $r){
 			if($model->end($r->exam_id) <= $current_time ){
 				$x[]= $r;	
 			}
 		}
+		// $data['repocount'] = $repocount;
 		$data['exams'] = $x;
-		$data['model'] = $model;
+		$data['model'] = $reportModel;
 		echo view(ADMIN_HEADER_VIEW, $data);
 		echo view('admin/reportsview');
 		echo view(ADMIN_FOOTER_VIEW);

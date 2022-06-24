@@ -69,7 +69,7 @@
 								    <td style= 'font-weight:bold; text-align:center;padding-top:185px'> <?=$r->userID?></td>
 									<td style= 'font-weight:bold; text-align:center; '><?= $r->userName?> </td>
 									<td style= 'font-weight:bold; text-align:center; '> <?= $exam->exam_title?></td>
-									<td style= 'text-align:center;'><img alt="No Photo Now" src="<?= ''.$r->image?>" class="" style="width: 460px; height: 300px; border-radius: 0%;"> </td>
+									<td style= 'text-align:center; '><img alt="No Photo Now" src="<?= ''.$r->image?>" class="" style="width: 460px; height: 300px; border-radius: 5px;"> </td>
 								
 
 									

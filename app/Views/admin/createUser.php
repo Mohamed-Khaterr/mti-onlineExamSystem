@@ -62,7 +62,7 @@
 			
 			
 			<li class="">
-				<a href="<?= base_url("Admin/report") ?>">
+				<a href="<?= base_url("Admin/reports") ?>">
 					<i class='bx bxs-news' ></i>
 					<span class="text">Report</span>
 				</a>

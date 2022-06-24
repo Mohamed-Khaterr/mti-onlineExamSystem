@@ -19,6 +19,12 @@ class ReportModel extends Model{
 
     }
 
+    public function repocount($id){
+        $this->builder = $this->db->table("report");
+		$res = $this->builder->where('examID',$id)->countAllResults();
+		return $res;
+    }
+
 
     
 	
