@@ -372,7 +372,7 @@ echo $userObj->userID;
 
 
 <script>
-              const conn = new WebSocket('ws://localhost:8080/?token=<?php
+              const conn = new WebSocket('ws://172.20.10.2:8080/?token=<?php
               echo $userObj->sessionID;
               ?>');
           </script>
