@@ -40,7 +40,7 @@
 				?>
 				<div class="about-login chide-login text-light">
 					<label for="formGroupExampleInput" class="form-label">Email :</label>
-					<input type="email" name="email" value = "" class="form-control" id="formGroupExampleInput" placeholder="john@mail.com">
+					<input type="email" name="email" value = "<?= (isset($_POST['email'])? $_POST['email']:'' ); ?>" class="form-control" id="formGroupExampleInput" placeholder="john@mail.com">
 					<div><?php echo $emailError; ?></div>
 					
 					<br>
