@@ -119,10 +119,20 @@
 			<!-- POPUP MODEL -->
 			<div class="popup" id="popup-1">
 				<div class="overlay"></div>
-				<div class="content">
+				<div class="content" style= " width:500px; height:auto">
 						<div class="close-btn" onclick="stopPopupModel()">&times;</div>
 						<!--<div id="receivedImage"></div>-->
-						<img id="receivedImage" width="100%" height="100%">
+
+						<div id="model-stuname-div">
+							<p style="margin:10px 0px;" id="model-stuname"></p>
+						</div>
+
+						<img id="receivedImage" src="/img/Loading_icon.gif" width="100%" height="100%">
+						<div id="capture-model" style="width: 100%;text-align:center;">
+						<!-- <button id="" class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button> -->
+
+						</div>
+
 				</div>
 			</div>
 			<!-- END POPUP MODEL -->
@@ -164,7 +174,7 @@
 </script>
 
 <script>
-	  const conn = new WebSocket('ws://localhost:8080/?token=<?php
+	  const conn = new WebSocket('ws://192.168.137.30:8080/?token=<?php
 	  echo $userObj->sessionID;
 	  ?>');
 </script>
@@ -213,6 +223,10 @@ var arr={
 var array = [];
 var status=[0 ,0 ,0 ,0,0,0,0,0,0,0];
 conn.onmessage = function(e) {
+
+	let result = JSON.parse(e.data);
+		
+
 	if(e.data ==="hi"){
 	}else{
 
@@ -223,6 +237,7 @@ conn.onmessage = function(e) {
 		
 		// Show Image of specific student
 		if(studentImgID == student.id){
+			document.getElementById('model-stuname').innerHTML = "Student Name: " + name;
 			document.getElementById('receivedImage').src = "data:image/png;base64," + student.img;
 			console.log("this Image for: " + name);
 		}
@@ -238,8 +253,10 @@ conn.onmessage = function(e) {
 		
     
 		// document.getElementById('capture'+student.id).innerHTML = "<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>";
-		var html2 = "<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>";
-		
+
+		// var html2 = "<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>";
+		var html3 = "<div id='c"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></div>"
+
 		var html = "";
 		if(!array.includes(student.id)){
 			array.push(student.id);
@@ -251,7 +268,7 @@ conn.onmessage = function(e) {
 					c=2
 					//document.getElementById('s1').innerText ='not cheating';
 
-					html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></td></tr>";
+					html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><!--<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>--></td></tr>";
 
 				}else{
 
@@ -263,18 +280,25 @@ conn.onmessage = function(e) {
 						//document.getElementById('s1').innerText = 'Cheating';
 
 
-						html = "<tr><td>"+name+"</td><td><span class='status pending' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td id='capture"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></td></tr>";
+
+						html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><!--<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>--></td></tr>";
+
 
 
 					}else{
 						//document.getElementById('s1').innerText ='not cheating';
 
-						html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+">Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td id='capture"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></td></tr>";
+
+						html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><!--<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>--></td></tr>";
+
+
 					}
 
 				}
 			}else{
-				html = "<tr><td>"+name+"</td><td><span class='status pending' id="+student.id+">Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td id='capture"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></td></tr>";
+
+				html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><!--<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>--></td></tr>";
+
 			}
 
 			document.getElementById('studentList').innerHTML += html;
@@ -296,7 +320,11 @@ conn.onmessage = function(e) {
 					document.getElementById(student.id).classList.remove("pending");
 					document.getElementById(student.id).classList.add("completed");
 
-					document.getElementById('capture'+student.id).innerHTML = html2;
+
+					// document.getElementById('capture'+student.id).innerHTML = html2;
+					document.getElementById('capture-model').innerHTML = html3;
+
+
 				}
 
 				else{
@@ -311,7 +339,10 @@ conn.onmessage = function(e) {
 						document.getElementById(student.id).classList.remove("completed");
 						document.getElementById(student.id).classList.add("pending");
 
-						document.getElementById('capture'+student.id).innerHTML = html2;
+						document.getElementById('capture-model').innerHTML = html3;
+
+						// document.getElementById('capture'+student.id).innerHTML = html2;
+
 						
 					}else{
 						document.getElementById(student.id).innerHTML="Not Cheating";
@@ -319,7 +350,10 @@ conn.onmessage = function(e) {
 						document.getElementById(student.id).classList.remove("pending");
 						document.getElementById(student.id).classList.add("completed");
 
-						document.getElementById('capture'+student.id).innerHTML = html2;
+						document.getElementById('capture-model').innerHTML = html3;
+
+						// document.getElementById('capture'+student.id).innerHTML = html2;
+
 					}
 
 				}
@@ -331,7 +365,10 @@ conn.onmessage = function(e) {
 				document.getElementById(student.id).classList.add("pending");
 
 
-				document.getElementById('capture'+student.id).innerHTML = html2;
+				document.getElementById('capture-model').innerHTML = html3;
+
+				// document.getElementById('capture'+student.id).innerHTML = html2;
+
 			}
 		}
 	}
@@ -360,7 +397,10 @@ function showPopupModel(){
 function stopPopupModel(){
 	document.getElementById("popup-1").classList.toggle("active");
 	studentImgID = 0;
-	document.getElementById('receivedImage').src ='';
+
+	document.getElementById('receivedImage').src ='/img/Loading_icon.gif';
+	document.getElementById('model-stuname').innerHTML = "Student Name: ";
+
 
 
 }

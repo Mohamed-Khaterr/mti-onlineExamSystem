@@ -132,6 +132,8 @@ class Chat implements MessageComponentInterface{
 
     public function onClose(ConnectionInterface $conn) {
 
+        
+
         // The connection is closed, remove it, as we can no longer send it messages
        // $this->clients->unset($conn);
 
