@@ -61,7 +61,7 @@
 								
 							    <tr class = 'completed' style=' background-color:#eee; border-bottom:3px solid #fff;'>
 
-								    <td style= 'font-weight:bold;  text-align:center; padding-left: 10px;'><?= $e->exam_title."   "  ?><span style="position:absolute; left:500px; padding-top:2px; border-radius:50%; width:30px;height:30px; background-color:#3C91E6; color:white;"><?= $model->repocount($e->exam_id)?></span></td>
+								    <td style= 'font-weight:bold;  text-align:center; padding-left: 10px;'><?= $e->exam_title."   "  ?><span style=" padding-top:2px; border-radius:50%; width:30px;height:30px; background-color:#3C91E6; color:white;"><?= $model->repocount($e->exam_id)?></span></td>
 									<td style= 'font-weight:bold; text-align:left '><?= date('d M - h:i A',strtotime($e->exam_date_time)) ?></td>
 									<td style= 'font-weight:bold; text-align:left '> <a class="btn btn-info" href="<?= base_url("Admin/report/$e->exam_id")?>">Show </a> </td>
 								

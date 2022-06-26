@@ -93,21 +93,21 @@ class Chat implements MessageComponentInterface{
             $var = $this->array[$from->resourceId];
 			// var_dump($var);
 		   
-			// if($var->userID != 1){
-				// $result= file_get_contents('http://127.0.0.1:7777/user/?url='.$msg.'&user='.$var->userID);
+			if($var->userID != 1){
+				$result= file_get_contents('http://127.0.0.1:7777/user/?url='.$msg.'&user='.$var->userID);
 
-				// $json = json_decode($result);
-				// print_r($json);
+				$json = json_decode($result);
+				print_r($json);
 
-				// $name = $json->User;
+				$name = $json->User;
 
 
-				// $admin = $this->getResourceId(1);
-				// if ($admin) {
-				// // sleep(1);
-					// $this->clients[$admin]->send($result);
-				// }
-			// }
+				$admin = $this->getResourceId(1);
+				if ($admin) {
+				// sleep(1);
+					$this->clients[$admin]->send($result);
+				}
+			}
 
             
             
@@ -131,6 +131,8 @@ class Chat implements MessageComponentInterface{
     }
 
     public function onClose(ConnectionInterface $conn) {
+
+        
 
         // The connection is closed, remove it, as we can no longer send it messages
        // $this->clients->unset($conn);
