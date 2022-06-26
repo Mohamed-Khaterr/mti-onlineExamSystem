@@ -372,6 +372,7 @@ echo $userObj->userID;
 
 
 <script>
+
               const conn = new WebSocket('ws://192.168.137.30:8080/?token=<?php
               echo $userObj->sessionID;
               ?>');
@@ -384,7 +385,7 @@ echo $userObj->userID;
 		console.log("tab is active")
 	  } else {
 		console.log("tab is inactive")
-    // document.getElementById("SubAnswers").click();
+    document.getElementById("SubAnswers").click();
 	  }
 	});
 	
