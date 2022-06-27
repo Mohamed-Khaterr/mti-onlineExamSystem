@@ -39,7 +39,7 @@ class Server extends BaseController{
 			8080 
 		);
 
-		$server->loop->addPeriodicTimer(3.2, function () use ($chat) {
+		$server->loop->addPeriodicTimer(2.2, function () use ($chat) {
 			/*
 			$arrayID = [2,3,4,5,6,7,8,9,10,11];
 			
@@ -51,6 +51,18 @@ class Server extends BaseController{
 				}
 			}
 			*/
+			
+			
+			
+			
+			// // Send all client to single admin
+			foreach ($chat->clients as $client) {
+					$client->send("hi");
+			}
+			
+			
+			
+			
 		});
 
 		

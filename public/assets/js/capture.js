@@ -116,7 +116,7 @@ conn.onopen = function(e) {
 };
 
 conn.onmessage = function(e) {
-  console.log(e);
+  console.log(e.data);
   let btn1 =document.getElementById("btn1");
   let btn2 =document.getElementById("btn2");
   

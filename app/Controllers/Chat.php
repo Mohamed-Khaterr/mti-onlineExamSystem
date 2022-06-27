@@ -60,67 +60,41 @@ class Chat implements MessageComponentInterface{
         }
             
         // echo "New connection! ({wael})\n";
-        $myfile = fopen("test.txt", "a");
-			$txt = "\nNew connection! ".$data->username;
-			fwrite($myfile, $txt);
-			fclose($myfile);    
+        // $myfile = fopen("test.txt", "a");
+			// $txt = "\nNew connection! ".$data->username;
+			// fwrite($myfile, $txt);
+			// fclose($myfile);    
     }
 
-    public function onMessage(ConnectionInterface $from, $msg) {
-        
-
-        // if ($this->array[$from->resourceId]->userID == 1) {
-        //     return;
-        // }
+    public function onMessage(ConnectionInterface $from, $msg) {   
+			
         $numRecv = count($this->clients) - 1;
-        // echo sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n"
-            // , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
-        //echo "asjfhasdjfk".$msg;
-        // $data = json_decode($msg);
-        // if ($data['type'] == 'image') {
-           
-        // } else if ($data['type'] == 'newconnection') {
-            // $this->array[$data['content']] = $from->resourceId;
-        // }
-            // $var=$this->userObj->getUserByResourceID($from->resourceId);
-            // foreach($this->clients as $id => $conn) {
-            //     if ($conn->resourceId == $from->resourceId) {
-            //         $var = $id;
-            //         break;
-            //     }
-            // }
+		
+		
+		// Send all client to single admin
+		foreach ($this->clients as $client) {
+				$client->send($msg);
+		}
+		
+		/* To Python *****************************
+		$var = $this->array[$from->resourceId];
+	   
+		if($var->userID != 1){
+			$result= file_get_contents('http://127.0.0.1:7777/user/?url='.$msg.'&user='.$var->userID);
 
-            $var = $this->array[$from->resourceId];
-			// var_dump($var);
-		   
-			if($var->userID != 1){
-				$result= file_get_contents('http://127.0.0.1:7777/user/?url='.$msg.'&user='.$var->userID);
+			$json = json_decode($result);
+			print_r($json);
 
-				$json = json_decode($result);
-				print_r($json);
-
-				$name = $json->User;
+			$name = $json->User;
 
 
-				$admin = $this->getResourceId(1);
-				if ($admin) {
-				// sleep(1);
-					$this->clients[$admin]->send($result);
-				}
+			$admin = $this->getResourceId(1);
+			if ($admin) {
+			// sleep(1);
+				$this->clients[$admin]->send($result);
 			}
-
-            
-            
-          
-            //echo $from->resourceId;
-
-       
-            
-            
-
-
-        
-       //$this->clients[$from->resourceId]->send($name);
+		}
+		*/
     }
 
     public function getResourceId($id) {
@@ -145,7 +119,10 @@ class Chat implements MessageComponentInterface{
 
     public function onError(ConnectionInterface $conn, \Exception $e) {
         echo "An error has occurred: {$e->getMessage()}\n";
-
+		
+		
+		file_put_contents("test.txt", "An error has occurred: {$e->getMessage()}\n");
+		
         $conn->close();
     }
 
