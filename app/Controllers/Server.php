@@ -40,58 +40,17 @@ class Server extends BaseController{
 		);
 
 		$server->loop->addPeriodicTimer(3.2, function () use ($chat) {
-
-			
-			// if (!$chat->loop) return;
+			/*
 			$arrayID = [2,3,4,5,6,7,8,9,10,11];
-	
-				// array of id users
 			
-			//print_r($chat->getClients()); 
-		   
-			//echo gettype($chat->getClientID());
-			//print_r($chat->clients );
+			
+			
 			foreach($chat->clients as $rid=>$client) {
-				
-			   // echo gettype($client);
-			   // print_r($client);
-			   //print_r( $client);
-				
-			   
-				// foreach($arrayID as $arrid){
-				//     if( $chat->array[$rid]===$arrid){
-					  
-				//         $client->send('hi');
-				//     }
-	
-				// }
-	
 				if (in_array($chat->array[$rid]->userID, $arrayID)) {
 					$client->send('hi');
 				}
-	
-			
-				
-	
-			 }
-				// gettype($chat->getClients());
-			// foreach($chat->getClients() as $client) {
-			//     //echo $client->resourceId;
-			//     // echo $chat->getClientID();
-				
-			//     // foreach($chat->array as $key=>$value) {
-			//     //     if ($key == 1 && $client->resourceId == $value) {
-						
-			//     //     }
-			//     // }
-			// //     foreach($arrayID as $id){
-			// //     if( $chat->getClientID()===$id){
-				   
-			// //     }
-			// // }
-				
-			// //$client->send('hi');
-			// }
+			}
+			*/
 		});
 
 		
