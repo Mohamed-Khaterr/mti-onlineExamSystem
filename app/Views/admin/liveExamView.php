@@ -127,8 +127,8 @@
 							<p style="margin:10px 0px;" id="model-stuname"></p>
 						</div>
 						
-						<video id="receivedVideo" width="100%" height="100%" autoplay></video>
-						<!--<img id="receivedImage" src="/img/Loading_icon.gif" width="100%" height="100%">-->
+						<video id="receivedVideo" width="100%" height="100%" autoplay poster="/img/Loading_icon.gif"></video>
+						<img id="receivedImage" src="/img/Loading_icon.gif" width="100%" height="100%">
 						<div id="capture-model" style="width: 100%;text-align:center;">
 
 						</div>
@@ -431,5 +431,13 @@ function createAndSendAnswer(studentID){
 }
 
 
+
+</script>
+
+
+<script>
+var receivedVideo = document.getElementById('receivedVideo');
+var receivedImage = document.getElementById('receivedImage');
+receivedImage.style.display = 'none'; 
 
 </script>
