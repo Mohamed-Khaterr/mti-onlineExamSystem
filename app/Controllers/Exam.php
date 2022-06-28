@@ -13,7 +13,7 @@ class Exam extends BaseController{
 		
 			$data=[
 				'title'=>"exam",
-				
+				'examID' => $exam_id,
 			];
 			
 			$data['exam'] = $model->GetExamInfo($exam_id);

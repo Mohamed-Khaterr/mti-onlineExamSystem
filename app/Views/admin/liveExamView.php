@@ -53,7 +53,7 @@
 					<i class='bx bxs-group' ></i>
 					<span class="text">
 						<p>Total Student</p>
-						<h3 id="studentCount">2</h3>
+						<h3 id="studentCount">0</h3>
 					</span>
 				</li>
 
@@ -126,10 +126,10 @@
 						<div id="model-stuname-div">
 							<p style="margin:10px 0px;" id="model-stuname"></p>
 						</div>
-
-						<img id="receivedImage" src="/img/Loading_icon.gif" width="100%" height="100%">
+						
+						<video id="receivedVideo" width="100%" height="100%" autoplay></video>
+						<!--<img id="receivedImage" src="/img/Loading_icon.gif" width="100%" height="100%">-->
 						<div id="capture-model" style="width: 100%;text-align:center;">
-						<!-- <button id="" class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button> -->
 
 						</div>
 
@@ -174,13 +174,12 @@
 </script>
 
 <script>
-	  const conn = new WebSocket('ws://192.168.137.30:8080/?token=<?php
-	  echo $userObj->sessionID;
-	  ?>');
+// Show number of student in Exam
+setInterval(function(){
+	document.getElementById("studentCount").innerHTML = document.getElementById("studentList").rows.length;
+}, 200);
 </script>
 
-<!--<script src="/assets/js/admin.js"></script>-->
-<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 
 <script src="<?= base_url() ?>/module/admin/script.js"></script>
 <script src="<?= base_url() ?>/module/admin/js.js"></script>
@@ -192,201 +191,112 @@
 <script>
 
 /*
- WEB RTC METHODS 
- ---------------------------------------------------------------------------------------------------
+	WebSocket ****************************************
+	---------------------------------------------------------------------------------------------------
 */
-
+const conn = new WebSocket('ws://localhost:8080/?user=admin&user_id=<?= session()->get("admin_id") ?>&examID=<?= $examID ?>');
 
 conn.onopen = function(e) {
-    //conn.send("{'type': 'newconnection', 'content': '1'}");
-    console.log("Connection established!");
+    console.log("Connection Established!");
 };
 
+conn.onclose = function(e){
+	console.log("Connection is Closed!");
+};
 
+conn.onerror = function(error) {
+  console.error('WebSocket Error: ' + error);
+};
+</script>
+
+<script>
 var studentImgID = 0;
 
-var c=2;
-var arr={
+var html = "";
 
-	1:{count:0},
-	2:{count:0},
-	3:{count:0},
-	4:{count:0},
-	5:{count:0},
-	6:{count:0},
-	7:{count:0},
-	8:{count:0},
-	9:{count:0},
-	
-	
-};
-var array = [];
-var status=[0 ,0 ,0 ,0,0,0,0,0,0,0];
+var captureButtonHtml = "";
+
+
 conn.onmessage = function(e) {
-
-	let result = JSON.parse(e.data);
-		
-
-	if(e.data ==="hi"){
-	}else{
-
+	
+	console.log(JSON.parse(e.data));
+	
+	if(JSON.parse(e.data).hasOwnProperty('user') && JSON.parse(e.data).hasOwnProperty('name')){
+		// Data from student
 		let student = JSON.parse(e.data);
 		
-		let name = student.User;
+		html = "";
+		captureButtonHtml = "";
 		
-		
-		// Show Image of specific student
-		if(studentImgID == student.id){
-			document.getElementById('model-stuname').innerHTML = "Student Name: " + name;
-			document.getElementById('receivedImage').src = "data:image/png;base64," + student.img;
-			console.log("this Image for: " + name);
-		}
-		
-		// AJAX Data
-		let data = {
+		var data = {
 			'<?= csrf_token() ?>':'<?= csrf_hash() ?>',
 			userId: student.id,
-			userName: name,
-			image: "data:image/png;base64," + student.img,
-			examID: "<?= $examID ?>",
+			userName: student.name,
+			// image: "data:image/png;base64," + student.img
 		};
 		
-    
-		// document.getElementById('capture'+student.id).innerHTML = "<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>";
-
-		// var html2 = "<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>";
-		var html3 = "<div id='c"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></div>"
-
-		var html = "";
-		if(!array.includes(student.id)){
-			array.push(student.id);
-
-
-			if(arr[student.id].hasOwnProperty('count')){
-				if(student.status === 'ok'){
-					arr[student.id]={count:2};
-					c=2
-					//document.getElementById('s1').innerText ='not cheating';
-
-					html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><!--<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>--></td></tr>";
-
-				}else{
-
-					var counter = arr[student.id].count
-					counter--;
-					arr[student.id]={count:counter};
-					// count --;
-					if(arr[student.id].count <= 0 || isNaN(arr[student.id].count)){
-						//document.getElementById('s1').innerText = 'Cheating';
-
-
-
-						html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><!--<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>--></td></tr>";
-
-
-
-					}else{
-						//document.getElementById('s1').innerText ='not cheating';
-
-
-						html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><!--<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>--></td></tr>";
-
-
-					}
-
-				}
-			}else{
-
-				html = "<tr><td>"+name+"</td><td><span class='status completed' id="+student.id+" >Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+ student.id +")'> View </button></td><td><!--<button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button>--></td></tr>";
-
-			}
-
+		html = "<tr id='stu-"+ student.id +"'><td>"+student.name+"</td><td><span class='status completed' id="+student.id+">Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+student.id+")'> View </button></td><td></td></tr>";
+		
+		// New ------------------------------------
+		
+		// Check if id exists if not create row for this student
+		var studentIdElement = document.getElementById('stu-' + student.id);
+		if(!studentIdElement){
 			document.getElementById('studentList').innerHTML += html;
-
-
-
-
-		}else{
-
-
-			console.log(arr[student.id]);
-			if(arr[student.id].hasOwnProperty('count')){
-				if(student.status === 'ok'){
-					arr[student.id]={count:2};
-
-					c=2
-					document.getElementById(student.id).innerHTML="Not Cheating";
+		}
+		
+		// Show Image and name of specific student
+		if(studentImgID == student.id){
+			// document.getElementById('receivedImage').src = "data:image/png;base64," + student.img;
+			document.getElementById('model-stuname').innerHTML = "Student Name: " + student.name;
+			
+			// update Capture Button with new data
+			captureButtonHtml = "<div id='c"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></div>";
+			document.getElementById('capture-model').innerHTML = captureButtonHtml;
+		}
+		
+	}else if(JSON.parse(e.data).hasOwnProperty('pythonResult')){
+		let result = JSON.parse(e.data).pythonResult;
+		if(result.id !== 0){
+			if(result.status == 'Not Cheating'){
+				document.getElementById('stu-' + result.id).innerHTML = "Not Cheating";
 					
-					document.getElementById(student.id).classList.remove("pending");
-					document.getElementById(student.id).classList.add("completed");
-
-
-					// document.getElementById('capture'+student.id).innerHTML = html2;
-					document.getElementById('capture-model').innerHTML = html3;
-
-
-				}
-
-				else{
-
-					var counter = arr[student.id].count
-					counter--;
-					arr[student.id]={count:counter};
-					if(arr[student.id].count <= 0 || isNaN(arr[student.id].count)){
-
-						document.getElementById(student.id).innerHTML="Cheating";
-						
-						document.getElementById(student.id).classList.remove("completed");
-						document.getElementById(student.id).classList.add("pending");
-
-						document.getElementById('capture-model').innerHTML = html3;
-
-						// document.getElementById('capture'+student.id).innerHTML = html2;
-
-						
-					}else{
-						document.getElementById(student.id).innerHTML="Not Cheating";
-						
-						document.getElementById(student.id).classList.remove("pending");
-						document.getElementById(student.id).classList.add("completed");
-
-						document.getElementById('capture-model').innerHTML = html3;
-
-						// document.getElementById('capture'+student.id).innerHTML = html2;
-
-					}
-
-				}
+				document.getElementById('stu-' + result.id).classList.remove("pending");
+				document.getElementById('stu-' + result.id).classList.add("completed");
 
 			}else{
-				document.getElementById(student.id).innerHTML="Cheating";
+				document.getElementById('stu-' + result.id).innerHTML = "Cheating";
 				
-				document.getElementById(student.id).classList.remove("completed");
-				document.getElementById(student.id).classList.add("pending");
-
-
-				document.getElementById('capture-model').innerHTML = html3;
-
-				// document.getElementById('capture'+student.id).innerHTML = html2;
-
+				document.getElementById('stu-' + result.id).classList.remove("completed");
+				document.getElementById('stu-' + result.id).classList.add("pending");
 			}
 		}
+		
+	}else if(JSON.parse(e.data).hasOwnProperty('isClosed')){
+		// Remove student from HTML table
+		let studentClose = JSON.parse(e.data).isClosed;
+		
+		document.getElementById('stu-' + studentClose.studentId).remove();
+		
+	}else if(JSON.parse(e.data).hasOwnProperty('offer')){
+		console.log('Offer is here!');
+		peer.setRemoteDescription(JSON.parse(e.data).offer);
+		createAndSendAnswer(JSON.parse(e.data).studentId);
+		
+	}else if(JSON.parse(e.data).hasOwnProperty('candidate')){
+		console.log('candidate is here!');
+		peer.addIceCandidate(JSON.parse(e.data).candidate);
 	}
+	
 }
 
 
-</script>
-
-
-
-
-<script>
-
-// POPUP Model
 
 function showStudent(stuID){
 	studentImgID = stuID;
 	showPopupModel();
+	
+	connectStream(stuID);
 }
 
 
@@ -398,16 +308,13 @@ function stopPopupModel(){
 	document.getElementById("popup-1").classList.toggle("active");
 	studentImgID = 0;
 
-	document.getElementById('receivedImage').src ='/img/Loading_icon.gif';
+	// document.getElementById('receivedImage').src ='/img/Loading_icon.gif';
 	document.getElementById('model-stuname').innerHTML = "Student Name: ";
-
-
-
+	
+	conn.send(JSON.stringify({user: 'admin', disconnectWebRTC: true, studentID: studentIDConnection, adminID: '<?= session()->get("admin_id") ?>'}));
+	// peer.close();
 }
-
 </script>
-
-
 
 
 
@@ -452,4 +359,77 @@ function ajaxRequest(data){
 	});
 	
 }
+</script>
+
+
+<script type="text/javascript" src="/assets/js/peerjs.js"></script>
+
+<script>
+/*
+	WebRTC ******************************************
+*/
+let configuration = {
+            iceServers: [
+                {
+                    "urls": ["stun:stun.l.google.com:19302", 
+                    "stun:stun1.l.google.com:19302", 
+                    "stun:stun2.l.google.com:19302"]
+                }
+            ]
+        }
+let pcConfig = {
+	'iceServers': [
+		{
+			'urls': 'stun:stun.l.google.com:19302'
+		},
+		{
+			'urls': 'turn:192.158.29.39:3478?transport=udp',
+			'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+			'username': '28224511:1379330808'
+		},
+		{
+			'urls': 'turn:192.158.29.39:3478?transport=tcp',
+			'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+			'username': '28224511:1379330808'
+		}
+	]
+};
+
+var studentIDConnection;
+
+var peer = new RTCPeerConnection(pcConfig);
+
+peer.ontrack = function(e){
+	console.log('On Tracker!');
+	console.log(e.streams[0]);
+	document.getElementById('receivedVideo').srcObject = e.streams[0];
+};
+
+peer.onicecandidate = function(e){
+	if (e.candidate == null)
+		return
+	
+	console.log('Sending Canidate!');
+	conn.send(JSON.stringify({user: 'admin', candidate: e.candidate, studentID: studentIDConnection, adminID: '<?= session()->get("admin_id") ?>'}));
+}
+
+
+function connectStream(studentId) {
+	studentIDConnection = studentId;
+	conn.send(JSON.stringify({user: "admin", studentID: studentId, adminID: '<?= session()->get("admin_id") ?>'}));
+}
+
+function createAndSendAnswer(studentID){
+	peer.createAnswer().then(function(answer) {
+		console.log('Sending Answer!');
+		conn.send(JSON.stringify({user: 'admin', answer: answer, studentID: studentID, adminID: '<?= session()->get("admin_id") ?>'}));
+		return peer.setLocalDescription(answer);
+	})
+	.catch(function(error){
+		console.log('Error Create Answer! + ' + error);
+	});
+}
+
+
+
 </script>

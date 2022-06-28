@@ -35,4 +35,17 @@ class AJAXRequest extends BaseController{
 			echo "\nInsert Successfully";
 		}
 	}
+	
+	
+	public function insertCheating($userID, $img, $userName, $examID){
+		$model = new \App\Models\ReportModel(); 
+		$newdata=[
+			'userID'=> $userID,
+			'image' => $img,
+			'userName' => $userName,
+			'examID'=> $examID,
+
+		];
+		$model->insert($newdata);
+	}
 }
