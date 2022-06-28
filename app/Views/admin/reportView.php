@@ -3,73 +3,51 @@
 
 
 <!-- MAIN -->
-<main>
-			<div class="head-title">
-				<div class="left">
-					<h1> <?= $exam->exam_title?> Report</h1>
-					<ul class="breadcrumb">
-						<li>
-							<a href="<?= base_url('Admin') ?>">Dashboard</a>
-						</li>
-						
-						<li><i class='bx bx-chevron-right' ></i></li>
-						
-						<li>
-							<a class="active" href="<?= base_url('Admin') ?>">Home</a>
-						</li>
-						
-						<li><i class='bx bx-chevron-right' ></i></li>
-						
-						
-						<!-- <li><i class='bx bx-chevron-right' ></i></li> -->
-						
-						<li>
-							<a class="active" href="/Admin/reports">Report</a>
-						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
+<main style="padding-top:10px;">
 
-						<li>
-							<a class="active" href="/Admin/report/<?=$exam->exam_id?>"> <?= $exam->exam_title?></a>
-						</li>
-					</ul>
-				</div>
-				
-			</div>
+<div class="header" style="display:flex; flex-wrap:wrap; justify-content:space-between">
+<div class="l" style="padding-left:10px; margin:10px 0px;">
+	<h3 style="font-weight:bold;">Mti University for Technology and Information</h3>
+	<h4>Course Title: <?= $exam->exam_title?></h4>
+	<h4>Course Code: cs61516</h4>
+</div>
+<div class="r" style="margin-right:50px;">
+<img src="/img/MTI-Logo.png" style="width:80%" alt="">
+</div>
 
-			<div class="table-data ">
-				<div class="order">
-					
-					
+</div>
+<div class="" style="text-align:center; margin-bottom:20px; text-decoration:underline;">
+<h2><?= $exam->exam_title?> Report</h2>
+</div>
 
-
-                    <div class="todo ">
-                        <div class="head">
-                            <!-- <h3> Reports Exams</h3> -->
-                            
-                        </div>
-                        <table style = " border-collapse: collapse; border-radius: 10px; overflow: hidden;" >
+                    <div class="" style="width:100%;">
+                      
+                        <table style = "background-color:#F9F9F9;;border-radius: 10px;  width:100%; padding-bottom:25px;" >
 						<thead>
-						<tr  style=' border-bottom:3px solid transparent;'>
+						<tr  style='height:80px'>
 
-<td style= 'font-weight:bold; text-align:center;' >Student Id</td>
-<td style= 'font-weight:bold;text-align:center;'>Student Name</td>
-<td style= 'font-weight:bold;text-align:center;' >Exam title</td>
-<td style= 'font-weight:bold;text-align:center;'>Image</td>
+                            <td style= 'font-weight:bold; font-size:20px;text-align:left; padding-left:20px;' >Student Id</td>
+                            <td style= 'font-weight:bold;text-align:center;font-size:20px;'>Student Name</td>
+                            <td style= 'font-weight:bold;text-align:center;font-size:20px;' >Exam title</td>
+                            <td style= 'font-weight:bold;text-align:center;font-size:20px;' >Status</td>
+                            <td style= 'font-weight:bold;text-align:center;font-size:20px;'>Image</td>
 
-</tr>
+                        </tr>
 						</thead>
 
 						
-<tbody>
+                        <tbody>
 						<?php foreach($reports as $r): ?>
 
 								
-							    <tr class = 'completed' style=' background-color:#eee; border-bottom:6px solid #f9f9f9; height:400px '>
+							    <tr  style='background-color:#eee;'>
 
-								    <td style= 'font-weight:bold; text-align:center;padding-top:185px'> <?=$r->userID?></td>
-									<td style= 'font-weight:bold; text-align:center; '><?= $r->userName?> </td>
-									<td style= 'font-weight:bold; text-align:center; '> <?= $exam->exam_title?></td>
-									<td style= 'text-align:center; '><img alt="No Photo Now" src="<?= ''.$r->image?>" class="" style="width: 460px; height: 300px; border-radius: 5px;"> </td>
+								    <td style= 'font-weight:bold; text-align:left; padding-left:30px'> <?=$r->userID?></td>
+									<td style= 'font-weight:bold;text-align:center;'><?= $r->userName?> </td>
+									<td style= 'font-weight:bold;text-align:center;'> <?= $exam->exam_title?></td>
+									<td style= 'font-weight:bold;text-align:center;' > <span style="
+									background-color:#FD7238; padding:5px; border-radius:20px; color:white;">Not Cheating</span> </td>
+									<td style= 'text-align:center; padding-top:8px '><img alt="No Photo Now" src="<?= ''.$r->image?>" class="" style="width: 300px; height: 150px; border-radius: 5px;"> </td>
 								
 
 									
@@ -82,8 +60,7 @@
 						</table>
                     </div>
 
-				</div>
-			</div>
+			
 
 
 
