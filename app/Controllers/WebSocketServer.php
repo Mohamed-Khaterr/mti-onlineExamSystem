@@ -107,8 +107,6 @@ class WebSocketServer implements MessageComponentInterface {
 				// // Send image and user id to python and get result (cheating, not cheating) with user id
 				// $pythonResult = json_decode(file_get_contents('http://127.0.0.1:7777/user/?url='.$studentData->img.'&user='.$studentData->id));
 				
-				// data_set = {'id':user_id+1,'img':user_img,'User':search,'status':'null'(ok or false) ,"faces":"Empty"}=
-				
 				// store the result of python
 				$result = [ 'pythonResult' => ['id'=>0, 'status'=>""] ]; 
 				/**** End Python ****/
@@ -117,7 +115,7 @@ class WebSocketServer implements MessageComponentInterface {
 				
 				/**** Capture Student when he/she Cheating ****/
 				// get the student that have same id of pythonResult->id
-				// $student = $this->connModel->where('user_type', 'admin')->where('user_id', $pythonResult->id)->findAll();
+				// $student = $this->connModel->where('user_type', 'student')->where('user_id', $pythonResult->id)->findAll();
 				// if($student[0]['user_id'] == $pythonResult->id){
 					// if($pythonResult->status == "ok"){
 						// // Not Cheating make counter = 2
@@ -131,7 +129,7 @@ class WebSocketServer implements MessageComponentInterface {
 					// }else{
 						// // Cheating make counter counter -= 1; if is not smaller than 0
 						// if($student[0]['counter'] > 0){
-							// $counter = $student->counter - 1;
+							// $counter = $student[0]['counter'] - 1;
 							// $this->connModel->update($student[0]['connection_id'], ['counter' => $counter]);
 						// }
 						
@@ -202,7 +200,6 @@ class WebSocketServer implements MessageComponentInterface {
 	
 	// onClose *****************************************
     public function onClose(ConnectionInterface $conn) {
-		$connModel = new \App\Models\ConnectionsModel();
 		
 		$user = $this->connModel->where('connection_resource_id', $conn->resourceId)->first();
 		
@@ -229,7 +226,7 @@ class WebSocketServer implements MessageComponentInterface {
 		}
 		
 		// delete user from connections table after he/she disconnect
-		$connModel->where('connection_resource_id', $conn->resourceId)->delete();
+		$this->connModel->where('connection_resource_id', $conn->resourceId)->delete();
 		
         // The connection is closed, remove it, as we can no longer send it messages
         $this->clients->detach($conn);
@@ -242,7 +239,10 @@ class WebSocketServer implements MessageComponentInterface {
 		
 		
 		// delete user from connections table after he/she disconnect
-		$this->connModel->where('connection_resource_id', $conn->resourceId)->delete();
+		// $this->connModel->where('connection_resource_id', $conn->resourceId)->delete();
+		
+		// delete all rows
+		$this->connModel->purgeDeleted();
 		
         $conn->close();
     }

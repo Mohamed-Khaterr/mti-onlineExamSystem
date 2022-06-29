@@ -334,7 +334,16 @@ function stopPopupModel(){
 
 
 function ajaxRequest(data){
-	
+	receivedVideo.then(function(stream){
+		const mediaRecorder = new MediaRecorder(stream);
+		
+		setTimeout(function() {
+		  //your code to be executed after 1 second
+		  
+		  
+		}, 5000);
+	});
+	/*
 	let endPoint = "/handleAjax/";
 	
 	$.ajax({
@@ -357,7 +366,7 @@ function ajaxRequest(data){
 			console.log(response.responseText)
 		}
 	});
-	
+	*/
 }
 </script>
 
