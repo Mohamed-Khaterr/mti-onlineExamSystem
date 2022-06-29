@@ -251,7 +251,7 @@ conn.onmessage = function(e) {
 			document.getElementById('model-stuname').innerHTML = "Student Name: " + student.name;
 			
 			// update Capture Button with new data
-			captureButtonHtml = "<div id='c"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' name='add' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></div>";
+			captureButtonHtml = "<div id='c"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' id='captureRecorde' name='capture' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></div>";
 			document.getElementById('capture-model').innerHTML = captureButtonHtml;
 		}
 		
@@ -334,15 +334,8 @@ function stopPopupModel(){
 
 
 function ajaxRequest(data){
-	receivedVideo.then(function(stream){
-		const mediaRecorder = new MediaRecorder(stream);
-		
-		setTimeout(function() {
-		  //your code to be executed after 1 second
-		  
-		  
-		}, 5000);
-	});
+	
+	recordeVideo(stream);
 	/*
 	let endPoint = "/handleAjax/";
 	
@@ -370,8 +363,6 @@ function ajaxRequest(data){
 }
 </script>
 
-
-<script type="text/javascript" src="/assets/js/peerjs.js"></script>
 
 <script>
 /*
@@ -412,6 +403,8 @@ peer.ontrack = function(e){
 	console.log('On Tracker!');
 	console.log(e.streams[0]);
 	document.getElementById('receivedVideo').srcObject = e.streams[0];
+	
+	stream = e.streams[0];
 };
 
 peer.onicecandidate = function(e){
@@ -448,5 +441,50 @@ function createAndSendAnswer(studentID){
 var receivedVideo = document.getElementById('receivedVideo');
 var receivedImage = document.getElementById('receivedImage');
 receivedImage.style.display = 'none'; 
+
+</script>
+
+
+
+<script>
+// Recorde Video of student
+
+let chunks = [];
+
+let stream;
+
+function recordeVideo(stream){
+	console.log('Start Recording!');
+	var mediaRecord = new MediaRecorder(stream);
+	mediaRecord.start(10);
+	
+	mediaRecord.addEventListener("dataavailable", function(e){
+		chunks.push(e.data);
+	});
+	
+	// 10 sec
+	setTimeout(function() {
+		console.log('Stop Recording!');;
+		mediaRecord.stop();
+		
+		let blob = new Blob(chunks, {type : 'video/mp4'});
+		
+		chunks = [];
+		
+		// console.log(blob);
+		const video = document.createElement('video');
+		video.autoplay = false;
+		video.controls = true;
+		console.log(window.URL.createObjectURL(blob));
+		video.src = window.URL.createObjectURL(blob);
+		document.getElementById('model-stuname-div').appendChild(video);
+	}, 10000);
+	
+	
+	
+	mediaRecord.onerror = function(e){
+		console.log('Recording Error! - ' + (e.error || new Error(e.name)));
+	};
+}
 
 </script>

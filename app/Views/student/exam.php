@@ -340,29 +340,29 @@ echo $userObj->userID;
 
 		  
 <script>
-	// if user leave Page or navigate to another tab
+	// if user leave Page or navigate to another tab *******************************************
 	document.addEventListener("visibilitychange", (event) => {
-	  if (document.visibilityState == "visible") {
-		console.log("tab is active")
-	  } else {
-		console.log("tab is inactive")
-		// document.getElementById("SubAnswers").click();
-	  }
+		if (document.visibilityState == "visible") {
+			console.log("tab is active")
+		} else {
+			console.log("tab is inactive")
+			// document.getElementById("SubAnswers").click();
+		}
 	});
-	
+	/*
 	window.addEventListener('focus', (event) => {
 		// focus
 	});
 
-	// window.addEventListener('blur', (event) => {
-	// 	// blur
-  //   document.getElementById("SubAnswers").click();
-	// });
+	window.addEventListener('blur', (event) => {
+		// blur
+		document.getElementById("SubAnswers").click();
+	});
+	*/
 </script>
 
 <script>
-  //Camera Permission 
-  
+	// Camera Permission *******************************************
     navigator.permissions.query({name:'camera'}).then(function(permissionStatus) {
 	  // console.log('geolocation permission state is ', permissionStatus.state);
 		if(permissionStatus.state == "granted"){
@@ -405,14 +405,6 @@ echo $userObj->userID;
 	document.oncontextmenu = new Function("return false");
 	
 </script>
-<!--
-<script type="text/javascript" src="/assets/js/capture.js"></script>
-<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
--->
-
-
-
-
 
 <script>
 /*
@@ -460,7 +452,9 @@ conn.onerror = function(error) {
   console.error('WebSocket Error: ' + error);
 };
 
-
+/*
+	END WebSocket ******************************************
+*/
 </script>
   
   
@@ -533,8 +527,6 @@ function sendData(){
 			examID: '<?= $examID ?>',
 			img: base64result,
 		}
-		
-		
 		conn.send(JSON.stringify(studentData));
 
 
@@ -555,13 +547,15 @@ function clearphoto() {
 	var data = canvas.toDataURL('image/png');
 	photo.setAttribute('src', data);
 }
+
+/*
+	END Capture Student and Sending Data ******************************************
+*/
 </script>
 
 
-<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
-
-
 <script>
+// To check if data is in JSON or not
 function isJSON(data){
 	try {
 		var testIfJson = JSON.parse(data);
