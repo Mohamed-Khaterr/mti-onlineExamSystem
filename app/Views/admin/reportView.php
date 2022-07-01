@@ -24,12 +24,12 @@
                       
                         <table style = "background-color:#F9F9F9;;border-radius: 10px;  width:100%; padding-bottom:25px;" >
 						<thead>
-						<tr  style='height:80px'>
+						<tr  style='height:80px;background-color:black; color:white; '>
 
                             <td style= 'font-weight:bold; font-size:20px;text-align:left; padding-left:20px;' >Student Id</td>
                             <td style= 'font-weight:bold;text-align:center;font-size:20px;'>Student Name</td>
                             <td style= 'font-weight:bold;text-align:center;font-size:20px;' >Exam title</td>
-                            <td style= 'font-weight:bold;text-align:center;font-size:20px;' >Status</td>
+                            <!-- <td style= 'font-weight:bold;text-align:center;font-size:20px;' >Status</td> -->
                             <td style= 'font-weight:bold;text-align:center;font-size:20px;'>Image</td>
 
                         </tr>
@@ -45,8 +45,7 @@
 								    <td style= 'font-weight:bold; text-align:left; padding-left:30px'> <?=$r->userID?></td>
 									<td style= 'font-weight:bold;text-align:center;'><?= $r->userName?> </td>
 									<td style= 'font-weight:bold;text-align:center;'> <?= $exam->exam_title?></td>
-									<td style= 'font-weight:bold;text-align:center;' > <span style="
-									background-color:#FD7238; padding:5px; border-radius:20px; color:white;">Not Cheating</span> </td>
+									<!-- <td style= 'font-weight:bold;text-align:center;' > </td> -->
 									<td style= 'text-align:center; padding-top:8px '><img alt="No Photo Now" src="<?= ''.$r->image?>" class="" style="width: 300px; height: 150px; border-radius: 5px;"> </td>
 								
 
