@@ -26,11 +26,11 @@
 						<thead>
 						<tr  style='height:80px;background-color:black; color:white; '>
 
-                            <td style= 'font-weight:bold; font-size:20px;text-align:left; padding-left:20px;' >Student Id</td>
-                            <td style= 'font-weight:bold;text-align:center;font-size:20px;'>Student Name</td>
-                            <td style= 'font-weight:bold;text-align:center;font-size:20px;' >Exam title</td>
-                            <!-- <td style= 'font-weight:bold;text-align:center;font-size:20px;' >Status</td> -->
-                            <td style= 'font-weight:bold;text-align:center;font-size:20px;'>Image</td>
+                            <td style= 'font-weight:bold; font-size:24px;text-align:left; padding-left:20px;' >Student Id</td>
+                            <td style= 'font-weight:bold;text-align:center;font-size:24px;'>Student Name</td>
+                            <td style= 'font-weight:bold;text-align:center;font-size:24px;' >Exam title</td>
+                            <!-- <td style= 'font-weight:bold;text-align:center;font-size:24px;' >Status</td> -->
+                            <td style= 'font-weight:bold;text-align:center;font-size:24px;'>Image</td>
 
                         </tr>
 						</thead>
