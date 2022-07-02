@@ -219,7 +219,7 @@ var captureButtonHtml = "";
 
 conn.onmessage = function(e) {
 	
-	console.log(JSON.parse(e.data));
+	// console.log(JSON.parse(e.data));
 	
 	if(JSON.parse(e.data).hasOwnProperty('user') && JSON.parse(e.data).hasOwnProperty('name')){
 		// Data from student
@@ -237,7 +237,6 @@ conn.onmessage = function(e) {
 		
 		html = "<tr id='stu-"+ student.id +"'><td>"+student.name+"</td><td><span class='status completed' id="+student.id+">Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+student.id+")'> View </button></td><td></td></tr>";
 		
-		// New ------------------------------------
 		
 		// Check if id exists if not create row for this student
 		var studentIdElement = document.getElementById('stu-' + student.id);
@@ -256,7 +255,9 @@ conn.onmessage = function(e) {
 		}
 		
 	}else if(JSON.parse(e.data).hasOwnProperty('pythonResult')){
+		// Showe result from our Model of each student
 		let result = JSON.parse(e.data).pythonResult;
+		console.log(result);
 		if(result.id !== 0){
 			if(result.status == 'Not Cheating'){
 				document.getElementById('stu-' + result.id).innerHTML = "Not Cheating";
@@ -273,19 +274,25 @@ conn.onmessage = function(e) {
 		}
 		
 	}else if(JSON.parse(e.data).hasOwnProperty('isClosed')){
-		// Remove student from HTML table
+		// Student is leave the exam: Remove student from HTML table
 		let studentClose = JSON.parse(e.data).isClosed;
-		
 		document.getElementById('stu-' + studentClose.studentId).remove();
 		
 	}else if(JSON.parse(e.data).hasOwnProperty('offer')){
-		console.log('Offer is here!');
-		peer.setRemoteDescription(JSON.parse(e.data).offer);
-		createAndSendAnswer(JSON.parse(e.data).studentId);
+		// Set Offer As Remote Description
+		// then Create Answer and send it to Student
+		if(peer.signalingState != 'closed'){
+			peer.setRemoteDescription(JSON.parse(e.data).offer);
+			createAndSendAnswer(JSON.parse(e.data).studentId);
+		}
+			
+			
+		
 		
 	}else if(JSON.parse(e.data).hasOwnProperty('candidate')){
-		console.log('candidate is here!');
-		peer.addIceCandidate(JSON.parse(e.data).candidate);
+		// Add Student ICE Candidate
+		if(peer.iceConnectionState == 'connected')
+			peer.addIceCandidate(JSON.parse(e.data).candidate);
 	}
 	
 }
@@ -312,7 +319,9 @@ function stopPopupModel(){
 	document.getElementById('model-stuname').innerHTML = "Student Name: ";
 	
 	conn.send(JSON.stringify({user: 'admin', disconnectWebRTC: true, studentID: studentIDConnection, adminID: '<?= session()->get("admin_id") ?>'}));
-	// peer.close();
+	
+	
+	console.log('Close WebRTC!');
 }
 </script>
 
@@ -368,15 +377,6 @@ function ajaxRequest(data){
 /*
 	WebRTC ******************************************
 */
-let configuration = {
-            iceServers: [
-                {
-                    "urls": ["stun:stun.l.google.com:19302", 
-                    "stun:stun1.l.google.com:19302", 
-                    "stun:stun2.l.google.com:19302"]
-                }
-            ]
-        }
 let pcConfig = {
 	'iceServers': [
 		{
@@ -401,9 +401,7 @@ var peer = new RTCPeerConnection(pcConfig);
 
 peer.ontrack = function(e){
 	console.log('On Tracker!');
-	console.log(e.streams[0]);
 	document.getElementById('receivedVideo').srcObject = e.streams[0];
-	
 	stream = e.streams[0];
 };
 
@@ -411,20 +409,21 @@ peer.onicecandidate = function(e){
 	if (e.candidate == null)
 		return
 	
-	console.log('Sending Canidate!');
 	conn.send(JSON.stringify({user: 'admin', candidate: e.candidate, studentID: studentIDConnection, adminID: '<?= session()->get("admin_id") ?>'}));
 }
 
 
 function connectStream(studentId) {
+	console.log('Connecting WebRTC');
 	studentIDConnection = studentId;
 	conn.send(JSON.stringify({user: "admin", studentID: studentId, adminID: '<?= session()->get("admin_id") ?>'}));
 }
 
 function createAndSendAnswer(studentID){
 	peer.createAnswer().then(function(answer) {
-		console.log('Sending Answer!');
+		
 		conn.send(JSON.stringify({user: 'admin', answer: answer, studentID: studentID, adminID: '<?= session()->get("admin_id") ?>'}));
+		
 		return peer.setLocalDescription(answer);
 	})
 	.catch(function(error){
@@ -433,21 +432,19 @@ function createAndSendAnswer(studentID){
 }
 
 
-
-</script>
-
-
-<script>
-var receivedVideo = document.getElementById('receivedVideo');
-var receivedImage = document.getElementById('receivedImage');
-receivedImage.style.display = 'none'; 
-
+peer.oniceconnectionstatechange = function(){
+  console.log('ICE Connection: ' + peer.iceConnectionState)
+};
 </script>
 
 
 
 <script>
 // Recorde Video of student
+
+var receivedVideo = document.getElementById('receivedVideo');
+var receivedImage = document.getElementById('receivedImage');
+receivedImage.style.display = 'none'; 
 
 let chunks = [];
 

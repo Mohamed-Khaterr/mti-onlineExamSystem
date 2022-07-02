@@ -419,25 +419,28 @@ conn.onopen = function(e) {
 conn.onmessage = function(e) {
 	if(isJSON(e.data)){
 		if(JSON.parse(e.data).hasOwnProperty('answer')){
-			console.log('Answer is here!');
+			// Set Answer As Remote Description
 			peer.setRemoteDescription(JSON.parse(e.data).answer);
 			
 		}else if(JSON.parse(e.data).hasOwnProperty('candidate')){
-			console.log('Candidate is here!');
+			// Add Admin ICE Candidate
 			peer.addIceCandidate(JSON.parse(e.data).candidate);
 			
 		}else if(JSON.parse(e.data).hasOwnProperty('disconnectWebRTC')){
-			console.log('Close WebRTC!');
+			// Close the Connection between Admin and student
+			console.log('Closeing WebRTC!');
 			peer.close();
+			peer = null;
 			
 		}else{
+			// Start Connection With Admin
 			let fromAdmin = JSON.parse(e.data);
-		
 			connectStream(fromAdmin.adminID);
 		}
 		
 	}else{
 		if(e.data == "giveMeData"){
+			// Sending Student Data to webSocket (user='student', id, name, examID, img)
 			console.log("Student is Sending!");
 			sendData();
 		}
@@ -577,15 +580,6 @@ function isJSON(data){
 /*
 	WebRTC ******************************************
 */
-let configuration = {
-            iceServers: [
-                {
-                    "urls": ["stun:stun.l.google.com:19302", 
-                    "stun:stun1.l.google.com:19302", 
-                    "stun:stun2.l.google.com:19302"]
-                }
-            ]
-        }
 let pcConfig = {
 	iceServers: [
 		{
@@ -607,23 +601,21 @@ let pcConfig = {
 var peer = new RTCPeerConnection(pcConfig);
 
 function connectStream(adminID){
+	console.log('Starting WebRTC!');
 	peer = new RTCPeerConnection(pcConfig);
 	navigator.mediaDevices.getUserMedia({ video: true, audio: false })
 	.then(function(stream){
 		
 		
+		// addTracker to WebRTC
 		for (const track of stream.getTracks()) {
 			peer.addTrack(track, stream);
 		}
-		
-		// stream.getTracks().forEach((track) => peer.addTrack(track, stream));
-		// console.log(stream);
 		
 		peer.onicecandidate = function(e){
 			if (e.candidate == null)
 				return
 			
-			console.log('Sending Canidate!');
 			conn.send(JSON.stringify({user: 'student', candidate: e.candidate, adminID: adminID}));
 		}
 		
@@ -637,7 +629,6 @@ function connectStream(adminID){
 
 function createAndSendOffer(adminID){
 	peer.createOffer().then(function(offer) {
-		console.log('Sending Offer!');
 		conn.send(JSON.stringify({user: 'student', offer: offer, studentId: '<?= session()->get("student_id")?>', adminID: adminID}));
 		
 		return peer.setLocalDescription(offer);
@@ -647,5 +638,4 @@ function createAndSendOffer(adminID){
 		console.log('Create Offer Error!: ' + reason);
 	});
 }
-
 </script>
