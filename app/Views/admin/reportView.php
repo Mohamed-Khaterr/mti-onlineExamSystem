@@ -3,7 +3,7 @@
 
 
 <!-- MAIN -->
-<main style="padding-top:10px;">
+<main style="padding-top:10px; ">
 
 <div class="header" style="display:flex; flex-wrap:wrap; justify-content:space-between">
 <div class="l" style="padding-left:10px; margin:10px 0px;">
@@ -22,13 +22,14 @@
 
                     <div class="" style="width:100%;">
                       
-                        <table style = "background-color:#F9F9F9;;border-radius: 10px;  width:100%; padding-bottom:25px;" >
+                        <table style = "background-color:#F9F9F9;border-radius: 10px; width:100%; padding-bottom:25px;
+						border-collapse:collapse;" >
 						<thead>
-						<tr  style='height:80px;background-color:black; color:white; '>
+						<tr  style='height:80px;background-color:#2856a7; color:white;'>
 
-                            <td style= 'font-weight:bold; font-size:24px;text-align:left; padding-left:20px;' >Student Id</td>
+                            <td style= 'font-weight:bold; font-size:24px;text-align:left; padding-left:20px;' >Student ID</td>
                             <td style= 'font-weight:bold;text-align:center;font-size:24px;'>Student Name</td>
-                            <td style= 'font-weight:bold;text-align:center;font-size:24px;' >Exam title</td>
+                            <!-- <td style= 'font-weight:bold;text-align:center;font-size:24px;' >Exam Title</td> -->
                             <!-- <td style= 'font-weight:bold;text-align:center;font-size:24px;' >Status</td> -->
                             <td style= 'font-weight:bold;text-align:center;font-size:24px;'>Image</td>
 
@@ -40,13 +41,13 @@
 						<?php foreach($reports as $r): ?>
 
 								
-							    <tr  style='background-color:#eee;'>
+							    <tr  style='background-color:#; color:'>
 
-								    <td style= 'font-weight:bold; text-align:left; padding-left:30px'> <?=$r->userID?></td>
-									<td style= 'font-weight:bold;text-align:center;'><?= $r->userName?> </td>
-									<td style= 'font-weight:bold;text-align:center;'> <?= $exam->exam_title?></td>
+								    <td style= 'border-bottom:1px solid #2856a7; font-weight:bold; text-align:left; padding-left:30px'> <?=$r->userID?></td>
+									<td style= 'border-bottom:1px solid #2856a7; font-weight:bold;text-align:center;'><?= $r->userName?> </td>
+									<!-- <td style= 'border-bottom:1px solid #2856a7; font-weight:bold;text-align:center;'> <?= $exam->exam_title?></td> -->
 									<!-- <td style= 'font-weight:bold;text-align:center;' > </td> -->
-									<td style= 'text-align:center; padding-top:8px '><img alt="No Photo Now" src="<?= ''.$r->image?>" class="" style="width: 300px; height: 150px; border-radius: 5px;"> </td>
+									<td style= 'border-bottom:1px solid #2856a7; text-align:center; padding-top:8px '><img alt="No Photo Now" src="<?= ''.$r->image?>" class="" style="width: 300px; height: 150px; border-radius: 5px;"> </td>
 								
 
 									
