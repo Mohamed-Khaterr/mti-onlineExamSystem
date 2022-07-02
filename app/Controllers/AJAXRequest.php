@@ -46,19 +46,19 @@ class AJAXRequest extends BaseController{
 			
 			$id = $this->request->getJsonVar('userId');
 			$name = $this->request->getJsonVar('userName');
-			$img = $this->request->getJsonVar('image');
+			$video = $this->request->getJsonVar('video');
 			$examID = $this->request->getJsonVar('examID');
 			
 			
 			$model = new \App\Models\ReportModel(); 
 			$newdata=[
 				'userID'=> $id,
-				'image' => $img,
+				'image' => $video,
 				'userName' => $name,
 				'examID'=> $examID,
 
 			];
-			$model->insert($newdata);
+			// $model->insert($newdata);
 			
 			echo "\nInsert Successfully";
 		}

@@ -228,12 +228,7 @@ conn.onmessage = function(e) {
 		html = "";
 		captureButtonHtml = "";
 		
-		var data = {
-			'<?= csrf_token() ?>':'<?= csrf_hash() ?>',
-			userId: student.id,
-			userName: student.name,
-			// image: "data:image/png;base64," + student.img
-		};
+		
 		
 		html = "<tr id='stu-"+ student.id +"'><td>"+student.name+"</td><td><span class='status completed' id="+student.id+">Not Cheating</span></td><td><button class='btn btn-info' style='background-color:#3C91E6;' onclick='showStudent("+student.id+")'> View </button></td><td></td></tr>";
 		
@@ -249,8 +244,16 @@ conn.onmessage = function(e) {
 			// document.getElementById('receivedImage').src = "data:image/png;base64," + student.img;
 			document.getElementById('model-stuname').innerHTML = "Student Name: " + student.name;
 			
+			
+			var data = {
+				'<?= csrf_token() ?>':'<?= csrf_hash() ?>',
+				userId: student.id,
+				userName: student.name,
+				examID: '<?= $examID ?>',
+			};
+			
 			// update Capture Button with new data
-			captureButtonHtml = "<div id='c"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' id='captureRecorde' name='capture' type='button' onclick='ajaxRequest("+ JSON.stringify(data) +")'> Capture </button></div>";
+			captureButtonHtml = "<div id='c"+student.id+"'><button class='btn btn-info' style='background-color:#3C91E6;' id='captureRecorde' name='captureBtn' type='button' onclick='capture("+ JSON.stringify(data) +")'> Capture </button></div>";
 			document.getElementById('capture-model').innerHTML = captureButtonHtml;
 		}
 		
@@ -323,6 +326,12 @@ function stopPopupModel(){
 	
 	console.log('Close WebRTC!');
 }
+
+
+
+function capture(data){
+	recordeVideo(stream, data);
+}
 </script>
 
 
@@ -343,9 +352,9 @@ function stopPopupModel(){
 
 
 function ajaxRequest(data){
-	
-	recordeVideo(stream);
+	console.log(data)
 	/*
+	// Image Transfare
 	let endPoint = "/handleAjax/";
 	
 	$.ajax({
@@ -369,6 +378,30 @@ function ajaxRequest(data){
 		}
 	});
 	*/
+	
+	// Video Transfare
+	let endPoint = "/handleAjaxVideo/";
+	
+	$.ajax({
+		url: endPoint,
+		type: "POST",
+		contentType: "application/json",
+		
+		// Data need to be sended in JSON format
+		data: JSON.stringify(data),
+		
+		success: function (suc){
+			console.log("Success!");
+			
+		},
+		error: function(xhr, status, error) {
+		  console.log("Error: " + error);
+		  
+		},
+		complete: function(response) {
+			console.log(response.responseText)
+		}
+	});
 }
 </script>
 
@@ -450,7 +483,7 @@ let chunks = [];
 
 let stream;
 
-function recordeVideo(stream){
+function recordeVideo(stream, data){
 	console.log('Start Recording!');
 	var mediaRecord = new MediaRecorder(stream);
 	mediaRecord.start(10);
@@ -467,14 +500,17 @@ function recordeVideo(stream){
 		let blob = new Blob(chunks, {type : 'video/mp4'});
 		
 		chunks = [];
-		
-		// console.log(blob);
-		const video = document.createElement('video');
-		video.autoplay = false;
-		video.controls = true;
-		console.log(window.URL.createObjectURL(blob));
-		video.src = window.URL.createObjectURL(blob);
-		document.getElementById('model-stuname-div').appendChild(video);
+			
+			// Convert Video to base64 then send it to Ajax
+			reader = new FileReader();
+			reader.readAsDataURL(blob);
+			reader.onload = function (event) {
+				var arrayBuffer = event.target.result;// base64 video
+				
+				data.video = arrayBuffer;
+				ajaxRequest(data)
+			}
+			
 	}, 10000);
 	
 	
