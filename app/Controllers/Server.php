@@ -30,8 +30,6 @@ class Server extends BaseController{
 		);
 
 		$server->loop->addPeriodicTimer(2.2, function () use ($webSocket) {
-			
-			
 			// get all students from connection table
 			$students = $webSocket->connModel->where('user_type', 'student')->findAll();
 			
