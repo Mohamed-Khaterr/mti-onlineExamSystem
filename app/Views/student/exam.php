@@ -197,44 +197,11 @@ $exam_end_time = addTimeToDatetime($exam_star_time,$duration);
   
   <div class="camera">
     <video id="video">Video stream not available.</video>
-    <button id="startbutton"></button> 
   </div>
   <canvas id="canvas">
   </canvas>
-  <div class="output">
-    <img id="photo" alt="The screen capture will appear in this box."> 
-  </div>
+<img id="photo" alt="The screen capture will appear in this box."> 
 
-
-  <div
-    className='container'>
-    <?php
-    if($userObj->userID == 1){
-      echo 'Id  Name  Status  Face';
-    }
-    
-    ?>
-      <p className='element' id='n1'> </p>
-      <p className='element' id='n2'> </p>
-      <p className='element' id='n3'></p>
-
-      <button onclick="togell()" id='btn1'>Monitor</button>
-      <img id = 'img1' >
-
-      
-      <button onclick="togell2()" id='btn2'>Monitor</button> 
-      <img id = 'img2' >
-      
-      
-      
-      <button onclick="togell3()" id='btn3'>Monitor</button>
-      <img id = 'img3' >
-    
-</div>
-
-
-
-  <button onclick="sendImg()">
   
   <?php
 
@@ -248,6 +215,9 @@ echo $userObj->userID;
 
 
 <?php include 'templates/footer.php';?>
+
+
+
 
 <script>
  // The End Of The Year Date To Countdown To
@@ -368,81 +338,304 @@ echo $userObj->userID;
 
 </script>
 
-
-
-
-<script>
-
-              const conn = new WebSocket('ws://192.168.137.30:8080/?token=<?php
-              echo $userObj->sessionID;
-              ?>');
-          </script>
 		  
 <script>
-	// if user leave Page or navigate to another tab
+	// if user leave Page or navigate to another tab *******************************************
 	document.addEventListener("visibilitychange", (event) => {
-	  if (document.visibilityState == "visible") {
-		console.log("tab is active")
-	  } else {
-		console.log("tab is inactive")
-    document.getElementById("SubAnswers").click();
-	  }
+		if (document.visibilityState == "visible") {
+			console.log("tab is active")
+		} else {
+			console.log("tab is inactive")
+			// document.getElementById("SubAnswers").click();
+		}
 	});
-	
+	/*
 	window.addEventListener('focus', (event) => {
 		// focus
 	});
 
-	// window.addEventListener('blur', (event) => {
-	// 	// blur
-  //   document.getElementById("SubAnswers").click();
-	// });
+	window.addEventListener('blur', (event) => {
+		// blur
+		document.getElementById("SubAnswers").click();
+	});
+	*/
 </script>
 
 <script>
-  //Camera Permission 
-  
+	// Camera Permission *******************************************
     navigator.permissions.query({name:'camera'}).then(function(permissionStatus) {
 	  // console.log('geolocation permission state is ', permissionStatus.state);
-    if(permissionStatus.state == "granted"){
-        // console.log("open")
-        document.getElementById("exam-q").style.display = 'block';
-        document.getElementById("openCam").style.display = 'none';
+		if(permissionStatus.state == "granted"){
+			// console.log("open")
+			document.getElementById("exam-q").style.display = 'block';
+			document.getElementById("openCam").style.display = 'none';
 
-    }else{
-      console.log("close");
-      // document.getElementsByClassName("exam-q").classList.add('d-none');
-      document.getElementById("exam-q").style.display = 'none';
-      document.getElementById("openCam").style.display = 'block';
-      document.getElementById("cam-notify").style.display = 'none';
-      
-      // location.reload();
+		}else{
+		  console.log("close");
+		  // document.getElementsByClassName("exam-q").classList.add('d-none');
+		  document.getElementById("exam-q").style.display = 'none';
+		  document.getElementById("openCam").style.display = 'block';
+		  document.getElementById("cam-notify").style.display = 'none';
+		  
+		  // location.reload();
 
-    }
-    
-	  permissionStatus.onchange = function() {
-		console.log('geolocation permission state has changed to ', this.state);
-    if(this.state == "granted"){
-      // console.log("open")
-      location.reload();
-      // document.getElementById("exam-q").style.display = 'block';
-      // document.getElementById("openCam").style.display = 'none';
-      
-    }else{
-      console.log("close");
-      // document.getElementsByClassName("exam-q").classList.add('d-none');
-      document.getElementById("exam-q").style.display = 'none';
-      document.getElementById("openCam").style.display = 'block';
-      document.getElementById("SubAnswers").click();
-    }
+		}
+		
+		permissionStatus.onchange = function() {
+			console.log('geolocation permission state has changed to ', this.state);
+			if(this.state == "granted"){
+			  // console.log("open")
+			  location.reload();
+			  // document.getElementById("exam-q").style.display = 'block';
+			  // document.getElementById("openCam").style.display = 'none';
+			  
+			}else{
+			  console.log("close");
+			  // document.getElementsByClassName("exam-q").classList.add('d-none');
+			  document.getElementById("exam-q").style.display = 'none';
+			  document.getElementById("openCam").style.display = 'block';
+			  document.getElementById("SubAnswers").click();
+			}
 
-	  }});
+		}
+	});
 	  
 	
 	//Prevent Right Click
 	document.oncontextmenu = new Function("return false");
 	
 </script>
-<script type="text/javascript" src="/assets/js/capture.js"></script>
-<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+
+<script>
+/*
+	WebSocket ******************************************
+*/
+const conn = new WebSocket('ws://localhost:8080/?user_id=<?= session()->get("student_id")?>&user=student&examID=<?= $examID ?>');
+
+conn.onopen = function(e) {
+    console.log("Connection Established!");
+};
+
+conn.onmessage = function(e) {
+	if(isJSON(e.data)){
+		if(JSON.parse(e.data).hasOwnProperty('answer')){
+			// Set Answer As Remote Description
+			peer.setRemoteDescription(JSON.parse(e.data).answer);
+			
+		}else if(JSON.parse(e.data).hasOwnProperty('candidate')){
+			// Add Admin ICE Candidate
+			peer.addIceCandidate(JSON.parse(e.data).candidate);
+			
+		}else if(JSON.parse(e.data).hasOwnProperty('disconnectWebRTC')){
+			// Close the Connection between Admin and student
+			console.log('Closeing WebRTC!');
+			peer.close();
+			peer = null;
+			
+		}else{
+			// Start Connection With Admin
+			let fromAdmin = JSON.parse(e.data);
+			connectStream(fromAdmin.adminID);
+		}
+		
+	}else{
+		if(e.data == "giveMeData"){
+			// Sending Student Data to webSocket (user='student', id, name, examID, img)
+			console.log("Student is Sending!");
+			sendData();
+		}
+	}
+};
+
+conn.onclose = function(e){
+	console.log("Connection is Closed!");
+};
+
+conn.onerror = function(error) {
+  console.error('WebSocket Error: ' + error);
+};
+
+/*
+	END WebSocket ******************************************
+*/
+</script>
   
+  
+<script>
+/*
+	Capture Student and Sending Data ******************************************
+*/
+var photo = document.getElementById('photo');
+var canvas = document.getElementById('canvas');     
+var video = document.getElementById('video');
+
+var width = 320;
+var height = 0;
+var streaming = false;
+
+
+navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+.then(function (stream) {
+	video.srcObject = stream;
+	video.play();
+})
+.catch(function (error) {
+	console.log("Camera Error!: " + error);
+	document.getElementById("exam-q").style.display = 'none';
+	document.getElementById("openCam").style.display = 'block';
+});
+
+video.addEventListener('canplay', function(ev){
+	if (!streaming) {
+	  height = video.videoHeight / (video.videoWidth/width);
+	
+	  // Firefox currently has a bug where the height can't be read from
+	  // the video, so we will make assumptions if this happens.
+	
+	  if (isNaN(height)) {
+		height = width / (4/3);
+	  }
+	
+	  video.setAttribute('width', width);
+	  video.setAttribute('height', height);
+	  canvas.setAttribute('width', width);
+	  canvas.setAttribute('height', height);
+	  streaming = true;
+	}
+}, false);
+
+
+function sendData(){
+	var context = canvas.getContext('2d');
+	if (width && height) {
+		canvas.width = width;
+		canvas.height = height;
+		context.drawImage(video, 0, 0, width, height);
+
+		var data = canvas.toDataURL('image/png');
+
+		var image = new Image();
+		image.src = data;
+		document.body.appendChild(image);
+		image.className = 'd-none';
+		var base64result = image.src.split(',')[1];
+		
+		
+		
+		// Sending data to admin and python
+		var studentData = {
+			user: 'student',
+			id: '<?= session()->get("student_id")?>',
+			name: '<?= session()->get("student_fname")?>'+' '+'<?= session()->get("student_lname")?>',
+			examID: '<?= $examID ?>',
+			img: base64result,
+		}
+		conn.send(JSON.stringify(studentData));
+
+
+
+
+		photo.setAttribute('src', data);
+		
+	} else {
+		clearphoto();
+	}
+}
+
+function clearphoto() {
+	var context = canvas.getContext('2d');
+	context.fillStyle = "#AAA";
+	context.fillRect(0, 0, canvas.width, canvas.height);
+
+	var data = canvas.toDataURL('image/png');
+	photo.setAttribute('src', data);
+}
+
+/*
+	END Capture Student and Sending Data ******************************************
+*/
+</script>
+
+
+<script>
+// To check if data is in JSON or not
+function isJSON(data){
+	try {
+		var testIfJson = JSON.parse(data);
+		if (typeof testIfJson == "object"){
+			//Json
+			return true
+		} else {
+			//Not Json
+			return false
+		}
+	}
+	catch {
+		return false;
+	}
+}
+</script>
+
+<script>
+/*
+	WebRTC ******************************************
+*/
+let pcConfig = {
+	iceServers: [
+		{
+			'urls': 'stun:stun.l.google.com:19302'
+		},
+		{
+			'urls': 'turn:192.158.29.39:3478?transport=udp',
+			'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+			'username': '28224511:1379330808'
+		},
+		{
+			'urls': 'turn:192.158.29.39:3478?transport=tcp',
+			'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+			'username': '28224511:1379330808'
+		}
+	]
+};
+
+var peer = new RTCPeerConnection(pcConfig);
+
+function connectStream(adminID){
+	console.log('Starting WebRTC!');
+	peer = new RTCPeerConnection(pcConfig);
+	navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+	.then(function(stream){
+		
+		
+		// addTracker to WebRTC
+		for (const track of stream.getTracks()) {
+			peer.addTrack(track, stream);
+		}
+		
+		peer.onicecandidate = function(e){
+			if (e.candidate == null)
+				return
+			
+			conn.send(JSON.stringify({user: 'student', candidate: e.candidate, adminID: adminID}));
+		}
+		
+		
+		createAndSendOffer(adminID);
+		
+	}).catch(function (e){
+		console.log('Camera Erro2: ' + e);
+	})
+}
+
+function createAndSendOffer(adminID){
+	peer.createOffer().then(function(offer) {
+		conn.send(JSON.stringify({user: 'student', offer: offer, studentId: '<?= session()->get("student_id")?>', adminID: adminID}));
+		
+		return peer.setLocalDescription(offer);
+	})
+	.catch(function(reason) {
+		// An error occurred, so handle the failure to connect
+		console.log('Create Offer Error!: ' + reason);
+	});
+}
+</script>

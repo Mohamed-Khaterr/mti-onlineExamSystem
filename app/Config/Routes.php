@@ -46,6 +46,7 @@ $routes->add('server/index', 'Server::index');// to Run server
 
 // AJAX Route with Filter
 $routes->post('handleAjax', 'AJAXRequest::handleAjaxRequest', ['filter' => 'ajaxAuth']);
+$routes->post('handleAjaxVideo', 'AJAXRequest::handleAjaxVideoRequest', ['filter' => 'ajaxAuth']);
 
 
 

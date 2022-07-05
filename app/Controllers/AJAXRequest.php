@@ -35,4 +35,47 @@ class AJAXRequest extends BaseController{
 			echo "\nInsert Successfully";
 		}
 	}
+	
+	public function handleAjaxVideoRequest(){
+		echo "Handle Ajax Request";
+			
+		// Check for AJAX request.
+		if ($this->request->isAJAX()) {
+			// ...
+			echo "\nAJAX Request";
+			
+			$id = $this->request->getJsonVar('userId');
+			$name = $this->request->getJsonVar('userName');
+			$video = $this->request->getJsonVar('video');
+			$examID = $this->request->getJsonVar('examID');
+			
+			
+			$model = new \App\Models\ReportModel(); 
+			$newdata=[
+				'userID'=> $id,
+				'image' => $video,
+				'userName' => $name,
+				'examID'=> $examID,
+
+			];
+			// $model->insert($newdata);
+			
+			echo "\nInsert Successfully";
+		}
+	}
+	
+	
+	
+	
+	public function insertCheating($userID, $img, $userName, $examID){
+		$model = new \App\Models\ReportModel(); 
+		$newdata=[
+			'userID'=> $userID,
+			'image' => $img,
+			'userName' => $userName,
+			'examID'=> $examID,
+
+		];
+		$model->insert($newdata);
+	}
 }
